@@ -1,0 +1,225 @@
+﻿<dx:ThemedWindow
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+    xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
+    xmlns:local="clr-namespace:coolBlue"
+    x:Class="coolBlue.editVendor"
+    Title="Vendor"
+    Loaded="ThemedWindow_Loaded" Width="1000" Height="800" WindowStartupLocation="CenterScreen"
+    >
+    <dx:ThemedWindow.Resources>
+        <local:vendorDataSet x:Key="vendorDataSet"/>
+        <CollectionViewSource x:Key="uSP_getOneVendorViewSource" Source="{Binding USP_getOneVendor, Source={StaticResource vendorDataSet}}"/>
+    </dx:ThemedWindow.Resources>
+    <DockPanel LastChildFill="True" DataContext="{StaticResource uSP_getOneVendorViewSource}">
+        <dxr:RibbonControl DockPanel.Dock="Top" RibbonStyle="Office2010">
+            <dxr:RibbonDefaultPageCategory>
+                <dxr:RibbonPage Caption="ribbonPage1">
+                    <dxr:RibbonPageGroup Caption="">
+                        <dxb:BarButtonItem Content="Save Changes" ItemClick="BarButtonItem_ItemClick" Glyph="{dx:DXImage Image=Save_32x32.png}" LargeGlyph="{dx:DXImage Image=Save_32x32.png}"/>
+                    </dxr:RibbonPageGroup>
+                </dxr:RibbonPage>
+            </dxr:RibbonDefaultPageCategory>
+        </dxr:RibbonControl>
+        <dxr:RibbonStatusBarControl DockPanel.Dock="Bottom"/>
+        <dx:DXTabControl>
+            <dx:DXTabItem Header="Tab">
+                <Grid Background="Transparent">
+                    <Grid x:Name="grid1" HorizontalAlignment="Left" Margin="41,17,0,0" VerticalAlignment="Top">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                       <Label Content="Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
+                        <TextBox x:Name="nameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Text="{Binding name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="300"/>
+                        <Label Content="Description:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
+                        <TextBox x:Name="cDescriptionTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" Text="{Binding cDescription, Mode=TwoWay, NotifyOnValidationError=true, UpdateSourceTrigger=PropertyChanged,ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="300"/>
+                        <Label Content="account no:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
+                        <TextBox x:Name="account_noTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" Text="{Binding account_no, Mode=TwoWay, NotifyOnValidationError=true, UpdateSourceTrigger=PropertyChanged,ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                        <Label Content="address 1:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center"/>
+                        <TextBox x:Name="address1TextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" Text="{Binding address1, Mode=TwoWay, NotifyOnValidationError=true, UpdateSourceTrigger=PropertyChanged,ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="300"/>
+                        <Label Content="address 2:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="6" VerticalAlignment="Center"/>
+                        <TextBox x:Name="address2TextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="6" Text="{Binding address2, Mode=TwoWay, NotifyOnValidationError=true, UpdateSourceTrigger=PropertyChanged,ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="300"/>
+                        <Label Content="city:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="7" VerticalAlignment="Center"/>
+                        <TextBox x:Name="cityTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="7" Text="{Binding city, Mode=TwoWay, NotifyOnValidationError=true, UpdateSourceTrigger=PropertyChanged,ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="200"/>
+                        <Label Content="state:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="8" VerticalAlignment="Center"/>
+                        <TextBox x:Name="stateTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="8" Text="{Binding state, Mode=TwoWay, NotifyOnValidationError=true, UpdateSourceTrigger=PropertyChanged,ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="40"/>
+                        <Label Content="zip:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="9" VerticalAlignment="Center"/>
+                        <TextBox x:Name="zipTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="9" Text="{Binding zip, Mode=TwoWay, NotifyOnValidationError=true, UpdateSourceTrigger=PropertyChanged,ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                        <Label Content="cmp Display:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="11" VerticalAlignment="Center"/>
+                        <TextBox x:Name="cmpDisplayTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="11" Text="{Binding cmpDisplay, Mode=OneWay}" VerticalAlignment="Center" Width="120"/>
+                        <Label Content="country:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="12" VerticalAlignment="Center"/>
+                        <TextBox x:Name="countryTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="12" Text="{Binding country, Mode=TwoWay, NotifyOnValidationError=true,UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                        <Label Content="email:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="13" VerticalAlignment="Center"/>
+                        <TextBox x:Name="emailTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="13" Text="{Binding email, Mode=TwoWay, NotifyOnValidationError=true, UpdateSourceTrigger=PropertyChanged,ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                        <Label Content="areacode:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="14" VerticalAlignment="Center"/>
+                        <TextBox x:Name="areacodeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="14" Text="{Binding areacode, Mode=TwoWay, NotifyOnValidationError=true, UpdateSourceTrigger=PropertyChanged,ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                        <Label Content="phone:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="15" VerticalAlignment="Center"/>
+                        <TextBox x:Name="phoneTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="15" Text="{Binding phone, Mode=TwoWay, NotifyOnValidationError=true, UpdateSourceTrigger=PropertyChanged,ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                        <Label Content="c Name First:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="16" VerticalAlignment="Center"/>
+                        <TextBox x:Name="cNameFirstTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="16" Text="{Binding cNameFirst, Mode=TwoWay, NotifyOnValidationError=true, UpdateSourceTrigger=PropertyChanged,ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                        <Label Content="c Name Last:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="17" VerticalAlignment="Center"/>
+                        <TextBox x:Name="cNameLastTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="17" Text="{Binding cNameLast, Mode=TwoWay, NotifyOnValidationError=true, UpdateSourceTrigger=PropertyChanged,ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                        <Label Content="cell areacode:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="18" VerticalAlignment="Center"/>
+                        <TextBox x:Name="cell_areacodeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="18" Text="{Binding cell_areacode, Mode=TwoWay, NotifyOnValidationError=true, UpdateSourceTrigger=PropertyChanged,ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                        <Label Content="cell phone:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="19" VerticalAlignment="Center"/>
+                        <TextBox x:Name="cell_phoneTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="19" Text="{Binding cell_phone, Mode=TwoWay, NotifyOnValidationError=true, UpdateSourceTrigger=PropertyChanged,ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                        </Grid>
+                </Grid>
+            </dx:DXTabItem>
+            <dx:DXTabItem Header="Tab" Height="22" VerticalAlignment="Top">
+                <Grid Background="Transparent">
+                    <Grid x:Name="grid2" HorizontalAlignment="Left" Margin="41,17,0,0" VerticalAlignment="Top">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                       <Label Content="c Assistant:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="20" VerticalAlignment="Center"/>
+                        <TextBox x:Name="cAssistantTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="20" Text="{Binding cAssistant, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                        <Label Content="c Assistant Phone:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="21" VerticalAlignment="Center"/>
+                        <TextBox x:Name="cAssistantPhoneTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="21" Text="{Binding cAssistantPhone, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                        <Label Content="c Phone Other:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="22" VerticalAlignment="Center"/>
+                        <TextBox x:Name="cPhoneOtherTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="22" Text="{Binding cPhoneOther, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                        <Label Content="c Phone Other 1:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="23" VerticalAlignment="Center"/>
+                        <TextBox x:Name="cPhoneOther1TextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="23" Text="{Binding cPhoneOther1, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                        <Label Content="c Phone Res:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="24" VerticalAlignment="Center"/>
+                        <TextBox x:Name="cPhoneResTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="24" Text="{Binding cPhoneRes, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                        <Label Content="postal code:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="25" VerticalAlignment="Center"/>
+                        <TextBox x:Name="postal_codeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="25" Text="{Binding postal_code, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                        <Label Content="fax areacode:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="26" VerticalAlignment="Center"/>
+                        <TextBox x:Name="fax_areacodeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="26" Text="{Binding fax_areacode, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                        <Label Content="fax phone:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="27" VerticalAlignment="Center"/>
+                        <TextBox x:Name="fax_phoneTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="27" Text="{Binding fax_phone, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                        <Label Content="state other:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="28" VerticalAlignment="Center"/>
+                        <TextBox x:Name="state_otherTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="28" Text="{Binding state_other, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                        <Label Content="website:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="29" VerticalAlignment="Center"/>
+                        <TextBox x:Name="websiteTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="29" Text="{Binding website, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                        <Label Content="notes:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="30" VerticalAlignment="Center"/>
+                        <TextBox x:Name="notesTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="30" Text="{Binding notes, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                        <Label Content="rep:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="31" VerticalAlignment="Center"/>
+                        <TextBox x:Name="repTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="31" Text="{Binding rep, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                    </Grid>
+                </Grid>
+            </dx:DXTabItem>
+            <dx:DXTabItem Header="Database">
+                <Grid Background="Transparent">
+                    <Grid x:Name="grid3" HorizontalAlignment="Left" Margin="41,17,0,0" VerticalAlignment="Top">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Label Content="vendors id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+                        <TextBox x:Name="vendors_idTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding vendors_id, Mode=OneWay}" VerticalAlignment="Center" Width="120"/>
+                        <Label Content="create date:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
+                        <DatePicker x:Name="create_dateDatePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="1" SelectedDate="{Binding create_date, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center"/>
+
+                    </Grid>
+                </Grid>
+            </dx:DXTabItem>
+        </dx:DXTabControl>
+    </DockPanel>
+</dx:ThemedWindow>

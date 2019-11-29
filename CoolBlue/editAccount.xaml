@@ -1,0 +1,199 @@
+﻿<dx:ThemedWindow
+    
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+    xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
+    xmlns:local="clr-namespace:coolBlue"
+    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+    x:Class="coolBlue.editAccount"
+    Title="Account" Height="700" Width="800"
+    Loaded="ThemedWindow_Loaded"
+    >
+    <dx:ThemedWindow.Resources>
+        <local:AccountsDataSet x:Key="accountsDataSet"/>
+        <local:CategoriesDataSet x:Key="categoriesDataSet"/>
+        <local:RegisterDataSet x:Key="registerDataSet"/>
+        <CollectionViewSource x:Key="uSP_getOneAccountViewSource" Source="{Binding USP_getOneAccount, Source={StaticResource accountsDataSet}}"/>
+        <CollectionViewSource x:Key="uSP_getAllAccountTypesViewSource" Source="{Binding USP_getAllAccountTypes, Source={StaticResource accountsDataSet}}"/>
+        <CollectionViewSource x:Key="uSP_getAllCatsViewSource" Source="{Binding USP_getAllCats, Source={StaticResource categoriesDataSet}}"/>
+        <CollectionViewSource x:Key="uSP_getAllCurrencyViewSource" Source="{Binding USP_getAllCurrency, Source={StaticResource registerDataSet}}"/>
+    </dx:ThemedWindow.Resources>
+    <DockPanel LastChildFill="True">
+        <dxr:RibbonControl DockPanel.Dock="Top" RibbonStyle="Office2010">
+            <dxr:RibbonDefaultPageCategory>
+                <dxr:RibbonPage Caption="Home">
+                    <dxr:RibbonPageGroup Caption="">
+                        <dxb:BarButtonItem Content="Save" Glyph="{dx:DXImage Image=Save_32x32.png}" LargeGlyph="{dx:DXImage Image=Save_32x32.png}"  ItemClick="BarButtonItem_ItemClick" GlyphSize="Large"/>
+                    </dxr:RibbonPageGroup>
+                </dxr:RibbonPage>
+            </dxr:RibbonDefaultPageCategory>
+        </dxr:RibbonControl>
+        <dxr:RibbonStatusBarControl DockPanel.Dock="Bottom"/>
+        <dx:DXTabControl>
+            <dx:DXTabItem Header="Basic" Height="22" VerticalAlignment="Top">
+                <Grid Background="Transparent" DataContext="{StaticResource uSP_getOneAccountViewSource}">
+                    <Grid x:Name="grid1" Margin="3"  Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="140"/>
+                            <ColumnDefinition Width="260"/>
+                            <ColumnDefinition Width="260"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label VerticalAlignment="Center" Grid.Row="2" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Name:"/>
+                        <TextBox x:Name="cNameTextBox" Width="120" VerticalAlignment="Center" Text="{Binding cName, Mode=TwoWay, NotifyOnValidationError=true, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=true}" Grid.Row="2" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
+                        <Label VerticalAlignment="Center" Grid.Row="1" Margin="22,0,0,8" HorizontalAlignment="Left" Grid.Column="2" Content="Note:"/>
+                        <Label VerticalAlignment="Center" Grid.Row="4" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Description:"/>
+                        <TextBox x:Name="cDescTextBox" Width="120" VerticalAlignment="Center" Text="{Binding cDesc, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="4" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
+                        <Label VerticalAlignment="Center" Grid.Row="5" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Comment:"/>
+                        <TextBox x:Name="cCommentTextBox" Width="220" VerticalAlignment="Center" Text="{Binding cComment, Mode=TwoWay, NotifyOnValidationError=true, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=true}" Grid.Row="5" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
+
+                        <Label VerticalAlignment="Center" Grid.Row="6" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="PIN:"/>
+                        <TextBox x:Name="cDecryptedPIN" Width="120" VerticalAlignment="Center" Text="{Binding cDecryptedPIN, Mode=TwoWay, NotifyOnValidationError=true, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=true}" Grid.Row="6" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
+                        <Label VerticalAlignment="Center" Grid.Row="7" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="CV:"/>
+                        <TextBox x:Name="cDecryptedCV" Width="120" VerticalAlignment="Center" Text="{Binding cDecryptedCV, Mode=TwoWay, NotifyOnValidationError=true, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=true}" Grid.Row="7" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
+                        
+                        <Label VerticalAlignment="Center" Grid.Row="10" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Category:"/>
+                        <dxg:LookUpEdit x:Name="LookupEditCat" PopupHeight="600" PopupWidth="500" PopupMinHeight="100" PopupMinWidth="100" DisplayMember="cName" 
+                ValueMember="ID" AutoPopulateColumns="false" AutoComplete="True" IncrementalFiltering="True" ImmediatePopup="True" 
+                IsPopupAutoWidth="False" Height="24" Width="200" Grid.Column="1" TabIndex="0" FontSize="11"
+                FontFamily="/LDAddonModules;component/Fonts/Merriweather-Regular.ttf#Merriweather" Margin="0" ItemsSource="{Binding Source={StaticResource uSP_getAllCatsViewSource}}" IsSynchronizedWithCurrentItem="True" Grid.Row="10" HorizontalAlignment="Left">
+                            <dxg:LookUpEdit.StyleSettings>
+                                <dxg:SearchLookUpEditStyleSettings />
+                            </dxg:LookUpEdit.StyleSettings>
+                            <dxg:LookUpEdit.PopupContentTemplate>
+                                <ControlTemplate>
+                                    <dxg:GridControl x:Name="PART_GridControl" AutoExpandAllGroups="True">
+                                        <dxg:GridControl.View>
+                                            <dxg:TableView AutoWidth="True" ShowGroupPanel="False" ShowTotalSummary="False" AllowEditing="False" NavigationStyle="Row" 
+                                                    AllowFixedColumnMenu="True" AllowBestFit="True" ShowAutoFilterRow="True" ShowGroupedColumns="True" RowMinHeight="26" />
+                                        </dxg:GridControl.View>
+                                        <dxg:GridColumn FieldName="cName" AllowMoving="False"/>
+                                        <dxg:GridColumn FieldName="cNotes" AllowMoving="False"/>
+                                    </dxg:GridControl>
+                                </ControlTemplate>
+                            </dxg:LookUpEdit.PopupContentTemplate>
+                        </dxg:LookUpEdit>
+                        <Label VerticalAlignment="Center" Grid.Row="11" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Account Type:"/>
+
+                        <dxg:LookUpEdit x:Name="LookupEditAccountType" PopupHeight="600" PopupWidth="500" PopupMinHeight="100" PopupMinWidth="100" DisplayMember="cName" 
+                ValueMember="ID" AutoPopulateColumns="false" AutoComplete="True" IncrementalFiltering="True" ImmediatePopup="True" 
+                IsPopupAutoWidth="False" Height="24" Width="200" Grid.Column="1" TabIndex="0" FontSize="11"
+                FontFamily="/LDAddonModules;component/Fonts/Merriweather-Regular.ttf#Merriweather" Margin="0" ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesViewSource}}" IsSynchronizedWithCurrentItem="True" Grid.Row="11" HorizontalAlignment="Left">
+                            <dxg:LookUpEdit.StyleSettings>
+                                <dxg:SearchLookUpEditStyleSettings />
+                            </dxg:LookUpEdit.StyleSettings>
+                            <dxg:LookUpEdit.PopupContentTemplate>
+                                <ControlTemplate>
+                                    <dxg:GridControl x:Name="PART_GridControl" AutoExpandAllGroups="True">
+                                        <dxg:GridControl.View>
+                                            <dxg:TableView AutoWidth="True" ShowGroupPanel="False" ShowTotalSummary="False" AllowEditing="False" NavigationStyle="Row" 
+                                                    AllowFixedColumnMenu="True" AllowBestFit="True" ShowAutoFilterRow="True" ShowGroupedColumns="True" RowMinHeight="26" />
+                                        </dxg:GridControl.View>
+                                        <dxg:GridColumn FieldName="cName" AllowMoving="False"/>
+                                        <dxg:GridColumn FieldName="cNotes" AllowMoving="False"/>
+                                    </dxg:GridControl>
+                                </ControlTemplate>
+                            </dxg:LookUpEdit.PopupContentTemplate>
+                        </dxg:LookUpEdit>
+
+                        <Label VerticalAlignment="Center" Grid.Row="12" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Currency:"/>
+
+                        <dxg:LookUpEdit x:Name="LookupEditCurrency"  PopupHeight="600" PopupWidth="500" PopupMinHeight="100" PopupMinWidth="100" DisplayMember="cName" 
+                ValueMember="ID" AutoPopulateColumns="false" AutoComplete="True" IncrementalFiltering="True" ImmediatePopup="True" 
+                IsPopupAutoWidth="False" Height="24" Width="200" Grid.Column="1" TabIndex="0" FontSize="11"
+                FontFamily="/LDAddonModules;component/Fonts/Merriweather-Regular.ttf#Merriweather" Margin="0" ItemsSource="{Binding Source={StaticResource uSP_getAllCurrencyViewSource}}" IsSynchronizedWithCurrentItem="True" Grid.Row="12" HorizontalAlignment="Left">
+                            <dxg:LookUpEdit.StyleSettings>
+                                <dxg:SearchLookUpEditStyleSettings />
+                            </dxg:LookUpEdit.StyleSettings>
+                            <dxg:LookUpEdit.PopupContentTemplate>
+                                <ControlTemplate>
+                                    <dxg:GridControl x:Name="PART_GridControl" AutoExpandAllGroups="True">
+                                        <dxg:GridControl.View>
+                                            <dxg:TableView AutoWidth="True" ShowGroupPanel="False" ShowTotalSummary="False" AllowEditing="False" NavigationStyle="Row" 
+                                                    AllowFixedColumnMenu="True" AllowBestFit="True" ShowAutoFilterRow="True" ShowGroupedColumns="True" RowMinHeight="26" />
+                                        </dxg:GridControl.View>
+                                        <dxg:GridColumn FieldName="cName" AllowMoving="False"/>
+                                        <dxg:GridColumn FieldName="cNotes" AllowMoving="False"/>
+                                    </dxg:GridControl>
+                                </ControlTemplate>
+                            </dxg:LookUpEdit.PopupContentTemplate>
+                        </dxg:LookUpEdit>
+                        
+                        
+                        <dxe:MemoEdit EditValue="{Binding cNote, Mode=TwoWay, NotifyOnValidationError=true, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=true}" ShowIcon="False" Width="150" MemoTextWrapping="Wrap" Height="60" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="2" Margin="0" Grid.Row="2" Grid.RowSpan="3"/>
+
+                        <Label VerticalAlignment="Center" Grid.Row="13" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Expiry:"/>
+                        <TextBox x:Name="cDecryptedExpiry" Width="120" VerticalAlignment="Center" Text="{Binding cDecryptedExpiry, Mode=TwoWay, NotifyOnValidationError=true, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=true}" Grid.Row="13" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
+                        <Label VerticalAlignment="Center" Grid.Row="14" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Account #:"/>
+                        <TextBox x:Name="cDecryptedAcctNum" Width="120" VerticalAlignment="Center" Text="{Binding cDecryptedAcctNum, Mode=TwoWay, NotifyOnValidationError=true, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=true}" Grid.Row="14" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
+
+
+
+                    </Grid>
+                </Grid>
+            </dx:DXTabItem>
+            <dx:DXTabItem Header="Advanced">
+                <Grid Background="Transparent" DataContext="{StaticResource uSP_getOneAccountViewSource}">
+                    <Grid x:Name="grid2" Margin="3"  Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="140"/>
+                            <ColumnDefinition Width="260"/>
+                            <ColumnDefinition Width="260"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label VerticalAlignment="Center" Grid.Row="0" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="ID:"/>
+                        <TextBox x:Name="iDTextBox1" Width="120" VerticalAlignment="Center" Text="{Binding ID, Mode=OneWay}" Grid.Row="0" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1" IsEnabled="False"/>
+                        <Label VerticalAlignment="Center" Grid.Row="1" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Create Date:"/>
+                        <DatePicker x:Name="dtCreateDateDatePicker1" VerticalAlignment="Center" SelectedDate="{Binding dtCreateDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="1" Margin="3" HorizontalAlignment="Left" Grid.Column="1" IsEnabled="False"/>
+                        <Label VerticalAlignment="Center" Grid.Row="4" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Account Type ID:"/>
+                        <TextBox x:Name="nAccountTypeIDTextBox1" Width="120" VerticalAlignment="Center" Text="{Binding nAccountTypeID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="4" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1" IsEnabled="False"/>
+
+
+                        <Label VerticalAlignment="Center" Grid.Row="8" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Currency ID:"/>
+                        <TextBox x:Name="nCurrencyIDTextBox1" Width="120" VerticalAlignment="Center" Text="{Binding nCurrencyID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="8" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1" IsEnabled="False"/>
+                        <Label VerticalAlignment="Center" Grid.Row="9" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Cat ID:"/>
+                        <TextBox x:Name="nCatIDTextBox1" Width="120" VerticalAlignment="Center" Text="{Binding nCatID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="9" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1" IsEnabled="False"/>
+
+
+
+                    </Grid>
+                </Grid>
+            </dx:DXTabItem>
+        </dx:DXTabControl>
+    </DockPanel>
+</dx:ThemedWindow>

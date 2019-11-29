@@ -1,0 +1,45 @@
+﻿<dx:ThemedWindow
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+    xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
+    xmlns:local="clr-namespace:coolBlue"
+    x:Class="coolBlue.TESTDXRibbonWindow1"
+    Title="TESTDXRibbonWindow1" Height="600" Width="800"
+    Loaded="ThemedWindow_Loaded"
+    >
+    <dx:ThemedWindow.Resources>
+        <local:AccountsDataSet x:Key="accountsDataSet"/>
+        <CollectionViewSource x:Key="uSP_getAllAccountTypesViewSource" Source="{Binding USP_getAllAccountTypes, Source={StaticResource accountsDataSet}}"/>
+        <CollectionViewSource x:Key="uSP_getAllAccountTypesUSP_getAllAccountsViewSource" Source="{Binding FK_USP_getAllAccountTypes_USP_getAllAccounts, Source={StaticResource uSP_getAllAccountTypesViewSource}}"/>
+    </dx:ThemedWindow.Resources>
+    <DockPanel LastChildFill="True" DataContext="{StaticResource uSP_getAllAccountTypesUSP_getAllAccountsViewSource}">
+        <dxr:RibbonControl DockPanel.Dock="Top" RibbonStyle="Office2010">
+            <dxr:RibbonDefaultPageCategory>
+                <dxr:RibbonPage Caption="ribbonPage1">
+                    <dxr:RibbonPageGroup Caption="ribbonPageGroup1"/>
+                </dxr:RibbonPage>
+            </dxr:RibbonDefaultPageCategory>
+        </dxr:RibbonControl>
+        <dxr:RibbonStatusBarControl DockPanel.Dock="Bottom"/>
+        <DataGrid x:Name="uSP_getAllAccountsDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="0,106,0,96" RowDetailsVisibilityMode="VisibleWhenSelected" Width="400">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="iDColumn" Binding="{Binding ID}" Header="ID" IsReadOnly="True" Width="SizeToHeader"/>
+                <DataGridTemplateColumn x:Name="dtCreateDateColumn" Header="dt Create Date" Width="SizeToHeader">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <DatePicker SelectedDate="{Binding dtCreateDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn x:Name="nAccountTypeIDColumn" Binding="{Binding nAccountTypeID}" Header="n Account Type ID" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="cNameColumn" Binding="{Binding cName}" Header="c Name" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="cNoteColumn" Binding="{Binding cNote}" Header="c Note" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="cDescColumn" Binding="{Binding cDesc}" Header="c Desc" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="nCurrencyIDColumn" Binding="{Binding nCurrencyID}" Header="n Currency ID" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="currencyNameColumn" Binding="{Binding currencyName}" Header="currency Name" Width="SizeToHeader"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
+</dx:ThemedWindow>
