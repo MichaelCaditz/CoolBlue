@@ -62,9 +62,10 @@ namespace coolBlue
             coolBlue.AccountsDataSetTableAdapters.USP_getAllAccountsTableAdapter accountsDataSetUSP_getAllAccountsTableAdapter = new coolBlue.AccountsDataSetTableAdapters.USP_getAllAccountsTableAdapter();
             System.Windows.Data.CollectionViewSource uSP_getAllAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountsViewSource")));
 
-            
 
+            accountsDataSetUSP_getAllAccountTypesTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
             accountsDataSetUSP_getAllAccountTypesTableAdapter.Fill(accountsDataSet.USP_getAllAccountTypes);
+            accountsDataSetUSP_getAllAccountsTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
             accountsDataSetUSP_getAllAccountsTableAdapter.Fill(accountsDataSet.USP_getAllAccounts);
 
             
@@ -104,12 +105,17 @@ namespace coolBlue
             //I cannot make this work yet
             //System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesUSP_getAllAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesUSP_getAllAccountsViewSource")));
 
-
+            registerDataSetUSP_getSubCatsTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
             registerDataSetUSP_getSubCatsTableAdapter.Fill(registerDataSet.USP_getSubCats);
+            registerDataSetUSP_getAllAccountsForSplitTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
             registerDataSetUSP_getAllAccountsForSplitTableAdapter.Fill(registerDataSet.USP_getAllAccountsForSplit);
+            registerDataSetUSP_getAllVendorsTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
             registerDataSetUSP_getAllVendorsTableAdapter.Fill(registerDataSet.USP_getAllVendors);
+            registerDataSetUSP_getAllTagsTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
             registerDataSetUSP_getAllTagsTableAdapter.Fill(registerDataSet.USP_getAllTags);
+            registerDataSetUSP_getAllClassTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
             registerDataSetUSP_getAllClassTableAdapter.Fill(registerDataSet.USP_getAllClass);
+            registerDataSetUSP_getAllCurrencyTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
             registerDataSetUSP_getAllCurrencyTableAdapter.Fill(registerDataSet.USP_getAllCurrency);
 
 
@@ -154,8 +160,9 @@ namespace coolBlue
             int accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
 
             registerDataSet.EnforceConstraints = false;
-
+            registerDataSetUSP_getSplitTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
             registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent);
+            registerDataSetUSP_getLineTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
             registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent);
             //registerDataSet.EnforceConstraints = true;
 
@@ -193,8 +200,9 @@ namespace coolBlue
             int accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
 
             registerDataSet.EnforceConstraints = false;
-
+            registerDataSetUSP_getSplitTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
             registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent);
+            registerDataSetUSP_getLineTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
             registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent);
            // registerDataSet.EnforceConstraints = true;
 
@@ -231,8 +239,9 @@ namespace coolBlue
             int accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
 
             registerDataSet.EnforceConstraints = false;
-
+            registerDataSetUSP_getSplitTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
             registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent);
+            registerDataSetUSP_getLineTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
             registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent);
             //registerDataSet.EnforceConstraints = true;
 
@@ -343,8 +352,9 @@ namespace coolBlue
                 if (conn.State == ConnectionState.Open) conn.Close();
 
                 registerDataSet.EnforceConstraints = false;
-
+                registerDataSetUSP_getSplitTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
                 registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent);
+                registerDataSetUSP_getLineTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
                 registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent);
                // registerDataSet.EnforceConstraints = true;
 
@@ -637,8 +647,9 @@ namespace coolBlue
 
 
             registerDataSet.EnforceConstraints = false;
-
+            registerDataSetUSP_getSplitTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
             registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent);
+            registerDataSetUSP_getLineTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
             registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent);
             //registerDataSet.EnforceConstraints = true;
 
@@ -757,6 +768,7 @@ namespace coolBlue
 
             coolBlue.RegisterDataSetTableAdapters.USP_getAllVendorsTableAdapter registerDataSetUSP_getAllVendorsTableAdapter = new coolBlue.RegisterDataSetTableAdapters.USP_getAllVendorsTableAdapter();
             System.Windows.Data.CollectionViewSource uSP_getAllVendorsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllVendorsViewSource")));
+            registerDataSetUSP_getAllVendorsTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
             registerDataSetUSP_getAllVendorsTableAdapter.Fill(registerDataSet.USP_getAllVendors);
 
         }
@@ -807,13 +819,15 @@ namespace coolBlue
             int uSP_getLineViewSource1CurPos = uSP_getLineViewSource1.View.CurrentPosition;
 
             accountsDataSet.EnforceConstraints = false;
-           // accountsDataSetUSP_getAllAccountTypesTableAdapter.Fill(accountsDataSet.USP_getAllAccountTypes);
+            // accountsDataSetUSP_getAllAccountTypesTableAdapter.Fill(accountsDataSet.USP_getAllAccountTypes);
+            accountsDataSetUSP_getAllAccountsTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
             accountsDataSetUSP_getAllAccountsTableAdapter.Fill(accountsDataSet.USP_getAllAccounts);
             accountsDataSet.EnforceConstraints = true;
 
-           registerDataSet.EnforceConstraints = false;
-           registerDataSetUSP_getAllAccountsForSplitTableAdapter.Fill(registerDataSet.USP_getAllAccountsForSplit);
-           registerDataSet.EnforceConstraints = true;
+            registerDataSet.EnforceConstraints = false;
+            registerDataSetUSP_getAllAccountsForSplitTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
+            registerDataSetUSP_getAllAccountsForSplitTableAdapter.Fill(registerDataSet.USP_getAllAccountsForSplit);
+            registerDataSet.EnforceConstraints = true;
 
 
             //uSP_getAllAccountTypesViewSource.View.MoveCurrentToFirst();
@@ -838,6 +852,7 @@ namespace coolBlue
 
             coolBlue.RegisterDataSetTableAdapters.USP_getSubCatsTableAdapter registerDataSetUSP_getSubCatsTableAdapter = new coolBlue.RegisterDataSetTableAdapters.USP_getSubCatsTableAdapter();
             System.Windows.Data.CollectionViewSource uSP_getSubCatsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getSubCatsViewSource")));
+            registerDataSetUSP_getSubCatsTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
             registerDataSetUSP_getSubCatsTableAdapter.Fill(registerDataSet.USP_getSubCats);
         }
 
@@ -1012,8 +1027,9 @@ namespace coolBlue
             int accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
 
             registerDataSet.EnforceConstraints = false;
-
+            registerDataSetUSP_getSplitTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
             registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent);
+            registerDataSetUSP_getLineTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
             registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent);
             //registerDataSet.EnforceConstraints = true;
 

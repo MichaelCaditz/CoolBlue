@@ -11,7 +11,7 @@ namespace coolBlue.classes
 
 
         static string database = "coolblue";
-        static string server = "Sager10";
+        static string server = "SAGER10\\SAGER2017";
         // string server2 = Settings.Default.server2;
         static string username = "sa";
         static string password = "Sq!lsp!a123";
