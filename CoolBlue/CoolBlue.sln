@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29519.87
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "coolBlue", "coolBlue.csproj", "{34A19F5B-E155-46F3-A49E-21E024023798}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "coolblueDatabase", "..\coolblueDatabase\coolblueDatabase.sqlproj", "{B15BF792-FA5D-43FF-B859-57AC24D202AE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,12 @@ Global
 		{34A19F5B-E155-46F3-A49E-21E024023798}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{34A19F5B-E155-46F3-A49E-21E024023798}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{34A19F5B-E155-46F3-A49E-21E024023798}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B15BF792-FA5D-43FF-B859-57AC24D202AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B15BF792-FA5D-43FF-B859-57AC24D202AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B15BF792-FA5D-43FF-B859-57AC24D202AE}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{B15BF792-FA5D-43FF-B859-57AC24D202AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B15BF792-FA5D-43FF-B859-57AC24D202AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B15BF792-FA5D-43FF-B859-57AC24D202AE}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
