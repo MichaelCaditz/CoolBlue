@@ -122,6 +122,7 @@
     <Folder Include="dbo\Views\" />
     <Folder Include="dbo\Stored Procedures\" />
     <Folder Include="Security\" />
+    <Folder Include="dbo\Synonyms\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\tag.sql">
@@ -294,5 +295,12 @@
     </Build>
     <Build Include="Security\CCPINS.sql" />
     <Build Include="Security\PIN_Key11.sql" />
+    <Build Include="dbo\Synonyms\vendors.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <SqlCmdVariable Include="worksDatabase">
+      <DefaultValue>worksDatabase</DefaultValue>
+      <Value>$(SqlCmdVar__1)</Value>
+    </SqlCmdVariable>
   </ItemGroup>
 </Project>

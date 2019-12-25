@@ -29,7 +29,7 @@ BEGIN
 	 FROM split a  WITH (NOLOCK)
 	 
 	 left join dbo.line b on a.nLineID = b.ID
-	 left join Works.dbo.vendors c on a.nVendorsID = c.vendors_id
+	 left join dbo.vendors c on a.nVendorsID = c.vendors_id
 	 left join dbo.tag d on a.nTagID = d.ID
 	 left join dbo.class e on a.nClassID = e.ID
 	 left join dbo.subCat f on a.nSubCatID = f.ID
