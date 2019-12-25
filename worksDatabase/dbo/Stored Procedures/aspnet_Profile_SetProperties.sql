@@ -97,3 +97,8 @@ Cleanup:
     RETURN @ErrorCode
 
 END
+GO
+GRANT EXECUTE
+    ON OBJECT::[dbo].[aspnet_Profile_SetProperties] TO [aspnet_Profile_BasicAccess]
+    AS [dbo];
+

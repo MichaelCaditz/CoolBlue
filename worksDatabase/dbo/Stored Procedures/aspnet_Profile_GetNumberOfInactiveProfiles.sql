@@ -25,3 +25,8 @@ BEGIN
                 OR (@ProfileAuthOptions = 1 AND IsAnonymous = 0)
             )
 END
+GO
+GRANT EXECUTE
+    ON OBJECT::[dbo].[aspnet_Profile_GetNumberOfInactiveProfiles] TO [aspnet_Profile_ReportingAccess]
+    AS [dbo];
+

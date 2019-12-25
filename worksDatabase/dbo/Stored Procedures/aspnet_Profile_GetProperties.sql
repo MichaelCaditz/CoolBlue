@@ -31,3 +31,8 @@ BEGIN
         WHERE  UserId = @UserId
     END
 END
+GO
+GRANT EXECUTE
+    ON OBJECT::[dbo].[aspnet_Profile_GetProperties] TO [aspnet_Profile_BasicAccess]
+    AS [dbo];
+

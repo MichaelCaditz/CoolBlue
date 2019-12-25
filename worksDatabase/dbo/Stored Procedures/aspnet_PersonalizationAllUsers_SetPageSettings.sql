@@ -25,3 +25,8 @@ BEGIN
         INSERT INTO dbo.aspnet_PersonalizationAllUsers(PathId, PageSettings, LastUpdatedDate) VALUES (@PathId, @PageSettings, @CurrentTimeUtc)
     RETURN 0
 END
+GO
+GRANT EXECUTE
+    ON OBJECT::[dbo].[aspnet_PersonalizationAllUsers_SetPageSettings] TO [aspnet_Personalization_BasicAccess]
+    AS [dbo];
+

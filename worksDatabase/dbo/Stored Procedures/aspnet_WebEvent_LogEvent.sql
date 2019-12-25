@@ -54,3 +54,8 @@ BEGIN
         @Details
     )
 END
+GO
+GRANT EXECUTE
+    ON OBJECT::[dbo].[aspnet_WebEvent_LogEvent] TO [aspnet_WebEvent_FullAccess]
+    AS [dbo];
+

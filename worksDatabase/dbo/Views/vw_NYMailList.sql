@@ -1,59 +1,19 @@
-﻿
+﻿CREATE view vw_NYMailList
+
+as
 
 
-
-
-
-
-
-
-
-CREATE VIEW [dbo].[vw_NYMailList]
-AS
---SELECT        a.clients_id
---from Works.dbo.clients a
-
---where a.clients_id  in
-
---(select distinct nClientsID from Works.dbo.clientsContactGroup b
---where b.nContactGroupID in (1022))
-
-
---and a.clients_id not in
-
---(select distinct nClientsID from Works.dbo.clientsContactGroup b
---where b.nContactGroupID in (1017, 1033, 1050, 1051, 1120,1147))
-
---and a.clients_id  in
-
---(select distinct nClientMasterID from Works.dbo.clientMasterMailGroup c
---where c.nMailGroupID in (1000))
-
---and a.cImportDB = 'GalProFront'
-
-SELECT        a.clients_id
-from Works.dbo.clients a
-
-where a.clients_id  in
-
-(select distinct nClientsID from Works.dbo.clientsContactGroup b
-where b.nContactGroupID in (1022))
-
-and (a.bArchived is null or a.bArchived !=1)
-
-and isnull (a.bDeceased,0) ! =1
-
-and isnull (a.bSendPaperMail,0) ! =1
-
-and isnull(a.nMergedToID,0) = 0
-
-and a.clients_id  in
-
-(select distinct nClientMasterID from Works.dbo.clientMasterMailGroup c
-where c.nMailGroupID in (1014))
-
-and (isnull(a.cImportDB,'GalProFront') = 'GalProFront'
-or isnull(a.cImportDB,'') = '')
+SELECT        clients_id
+FROM            clients AS a
+WHERE        (clients_id IN
+                             (SELECT DISTINCT nClientsID
+                               FROM            clientsContactGroup AS b
+                               WHERE        (nContactGroupID IN (1022)))) AND (bArchived IS NULL OR
+                         bArchived <> 1) AND (ISNULL(bDeceased, 0) <> 1) AND (ISNULL(bSendPaperMail, 0) <> 1) AND (ISNULL(nMergedToID, 0) = 0) AND (clients_id IN
+                             (SELECT DISTINCT nClientMasterID
+                               FROM            clientMasterMailGroup AS c
+                               WHERE        (nMailGroupID IN (1014)))) AND (ISNULL(cImportDB, 'GalProFront') = 'GalProFront' OR
+                         ISNULL(cImportDB, '') = '')
 
 
 

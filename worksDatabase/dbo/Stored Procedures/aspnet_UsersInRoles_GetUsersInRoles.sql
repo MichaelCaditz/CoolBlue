@@ -25,3 +25,8 @@ BEGIN
     ORDER BY u.UserName
     RETURN(0)
 END
+GO
+GRANT EXECUTE
+    ON OBJECT::[dbo].[aspnet_UsersInRoles_GetUsersInRoles] TO [aspnet_Roles_ReportingAccess]
+    AS [dbo];
+

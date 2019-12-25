@@ -14,3 +14,8 @@ BEGIN
     ELSE
         RETURN(0)
 END
+GO
+GRANT EXECUTE
+    ON OBJECT::[dbo].[aspnet_Roles_RoleExists] TO [aspnet_Roles_ReportingAccess]
+    AS [dbo];
+

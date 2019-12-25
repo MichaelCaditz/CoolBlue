@@ -106,3 +106,8 @@ BEGIN
 
     RETURN @TotalRecords
 END
+GO
+GRANT EXECUTE
+    ON OBJECT::[dbo].[aspnet_PersonalizationAdministration_FindState] TO [aspnet_Personalization_ReportingAccess]
+    AS [dbo];
+

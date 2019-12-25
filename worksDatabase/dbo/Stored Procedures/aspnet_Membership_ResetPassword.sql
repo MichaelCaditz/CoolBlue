@@ -138,3 +138,8 @@ Cleanup:
     RETURN @ErrorCode
 
 END
+GO
+GRANT EXECUTE
+    ON OBJECT::[dbo].[aspnet_Membership_ResetPassword] TO [aspnet_Membership_FullAccess]
+    AS [dbo];
+

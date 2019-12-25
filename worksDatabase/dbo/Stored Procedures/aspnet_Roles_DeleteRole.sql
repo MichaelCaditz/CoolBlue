@@ -78,3 +78,8 @@ Cleanup:
 
     RETURN @ErrorCode
 END
+GO
+GRANT EXECUTE
+    ON OBJECT::[dbo].[aspnet_Roles_DeleteRole] TO [aspnet_Roles_FullAccess]
+    AS [dbo];
+

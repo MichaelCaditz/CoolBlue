@@ -12,3 +12,8 @@ BEGIN
     FROM   dbo.aspnet_Roles WHERE ApplicationId = @ApplicationId
     ORDER BY RoleName
 END
+GO
+GRANT EXECUTE
+    ON OBJECT::[dbo].[aspnet_Roles_GetAllRoles] TO [aspnet_Roles_ReportingAccess]
+    AS [dbo];
+

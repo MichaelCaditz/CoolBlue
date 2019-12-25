@@ -24,3 +24,8 @@ BEGIN
     DELETE FROM dbo.aspnet_PersonalizationAllUsers WHERE PathId = @PathId
     RETURN 0
 END
+GO
+GRANT EXECUTE
+    ON OBJECT::[dbo].[aspnet_PersonalizationAllUsers_ResetPageSettings] TO [aspnet_Personalization_BasicAccess]
+    AS [dbo];
+

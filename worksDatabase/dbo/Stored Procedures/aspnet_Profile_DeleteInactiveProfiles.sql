@@ -30,3 +30,8 @@ BEGIN
 
     SELECT  @@ROWCOUNT
 END
+GO
+GRANT EXECUTE
+    ON OBJECT::[dbo].[aspnet_Profile_DeleteInactiveProfiles] TO [aspnet_Profile_FullAccess]
+    AS [dbo];
+

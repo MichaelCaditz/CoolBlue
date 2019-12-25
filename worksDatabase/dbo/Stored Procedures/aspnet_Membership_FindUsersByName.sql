@@ -49,3 +49,8 @@ BEGIN
     FROM    #PageIndexForUsers
     RETURN @TotalRecords
 END
+GO
+GRANT EXECUTE
+    ON OBJECT::[dbo].[aspnet_Membership_FindUsersByName] TO [aspnet_Membership_ReportingAccess]
+    AS [dbo];
+

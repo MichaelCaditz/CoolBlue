@@ -112,3 +112,8 @@ BEGIN
 		COMMIT TRANSACTION
 	RETURN(0)
 END                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+GO
+GRANT EXECUTE
+    ON OBJECT::[dbo].[aspnet_UsersInRoles_AddUsersToRoles] TO [aspnet_Roles_FullAccess]
+    AS [dbo];
+

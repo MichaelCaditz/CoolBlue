@@ -47,3 +47,8 @@ BEGIN
     ORDER BY u.UserName
     RETURN @TotalRecords
 END
+GO
+GRANT EXECUTE
+    ON OBJECT::[dbo].[aspnet_Membership_GetAllUsers] TO [aspnet_Membership_ReportingAccess]
+    AS [dbo];
+

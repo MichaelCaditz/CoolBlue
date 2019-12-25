@@ -29,3 +29,8 @@ BEGIN
                   AND (@UserName IS NULL OR Users.LoweredUserName LIKE LOWER(@UserName))
                   AND (@InactiveSinceDate IS NULL OR Users.LastActivityDate <= @InactiveSinceDate)
 END
+GO
+GRANT EXECUTE
+    ON OBJECT::[dbo].[aspnet_PersonalizationAdministration_GetCountOfState] TO [aspnet_Personalization_ReportingAccess]
+    AS [dbo];
+

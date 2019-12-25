@@ -12,3 +12,56 @@ BEGIN
 
     RETURN 1
 END
+GO
+GRANT EXECUTE
+    ON OBJECT::[dbo].[aspnet_CheckSchemaVersion] TO [aspnet_WebEvent_FullAccess]
+    AS [dbo];
+
+
+GO
+GRANT EXECUTE
+    ON OBJECT::[dbo].[aspnet_CheckSchemaVersion] TO [aspnet_Roles_ReportingAccess]
+    AS [dbo];
+
+
+GO
+GRANT EXECUTE
+    ON OBJECT::[dbo].[aspnet_CheckSchemaVersion] TO [aspnet_Roles_BasicAccess]
+    AS [dbo];
+
+
+GO
+GRANT EXECUTE
+    ON OBJECT::[dbo].[aspnet_CheckSchemaVersion] TO [aspnet_Profile_ReportingAccess]
+    AS [dbo];
+
+
+GO
+GRANT EXECUTE
+    ON OBJECT::[dbo].[aspnet_CheckSchemaVersion] TO [aspnet_Profile_BasicAccess]
+    AS [dbo];
+
+
+GO
+GRANT EXECUTE
+    ON OBJECT::[dbo].[aspnet_CheckSchemaVersion] TO [aspnet_Personalization_ReportingAccess]
+    AS [dbo];
+
+
+GO
+GRANT EXECUTE
+    ON OBJECT::[dbo].[aspnet_CheckSchemaVersion] TO [aspnet_Personalization_BasicAccess]
+    AS [dbo];
+
+
+GO
+GRANT EXECUTE
+    ON OBJECT::[dbo].[aspnet_CheckSchemaVersion] TO [aspnet_Membership_ReportingAccess]
+    AS [dbo];
+
+
+GO
+GRANT EXECUTE
+    ON OBJECT::[dbo].[aspnet_CheckSchemaVersion] TO [aspnet_Membership_BasicAccess]
+    AS [dbo];
+

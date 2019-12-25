@@ -23,3 +23,8 @@ BEGIN
 
     SELECT p.PageSettings FROM dbo.aspnet_PersonalizationAllUsers p WHERE p.PathId = @PathId
 END
+GO
+GRANT EXECUTE
+    ON OBJECT::[dbo].[aspnet_PersonalizationAllUsers_GetPageSettings] TO [aspnet_Personalization_BasicAccess]
+    AS [dbo];
+

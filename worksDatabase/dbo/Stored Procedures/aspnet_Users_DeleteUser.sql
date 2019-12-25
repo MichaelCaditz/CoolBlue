@@ -140,3 +140,8 @@ Cleanup:
     RETURN @ErrorCode
 
 END
+GO
+GRANT EXECUTE
+    ON OBJECT::[dbo].[aspnet_Users_DeleteUser] TO [aspnet_Membership_FullAccess]
+    AS [dbo];
+

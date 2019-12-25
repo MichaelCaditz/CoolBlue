@@ -26,3 +26,8 @@ BEGIN
 
     RETURN 0
 END
+GO
+GRANT EXECUTE
+    ON OBJECT::[dbo].[aspnet_Membership_UnlockUser] TO [aspnet_Membership_FullAccess]
+    AS [dbo];
+

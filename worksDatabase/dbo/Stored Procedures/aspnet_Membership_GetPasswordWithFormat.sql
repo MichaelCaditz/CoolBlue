@@ -51,3 +51,8 @@ BEGIN
 
     RETURN 0
 END
+GO
+GRANT EXECUTE
+    ON OBJECT::[dbo].[aspnet_Membership_GetPasswordWithFormat] TO [aspnet_Membership_BasicAccess]
+    AS [dbo];
+

@@ -25,3 +25,8 @@ BEGIN
         SELECT @Count = @@ROWCOUNT
     END
 END
+GO
+GRANT EXECUTE
+    ON OBJECT::[dbo].[aspnet_PersonalizationAdministration_ResetUserState] TO [aspnet_Personalization_FullAccess]
+    AS [dbo];
+

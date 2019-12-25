@@ -34,3 +34,14 @@ BEGIN
     ELSE
         RETURN(0)
 END
+GO
+GRANT EXECUTE
+    ON OBJECT::[dbo].[aspnet_UsersInRoles_IsUserInRole] TO [aspnet_Roles_ReportingAccess]
+    AS [dbo];
+
+
+GO
+GRANT EXECUTE
+    ON OBJECT::[dbo].[aspnet_UsersInRoles_IsUserInRole] TO [aspnet_Roles_BasicAccess]
+    AS [dbo];
+

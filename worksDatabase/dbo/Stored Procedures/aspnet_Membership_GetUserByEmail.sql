@@ -22,3 +22,14 @@ BEGIN
         RETURN(1)
     RETURN(0)
 END
+GO
+GRANT EXECUTE
+    ON OBJECT::[dbo].[aspnet_Membership_GetUserByEmail] TO [aspnet_Membership_ReportingAccess]
+    AS [dbo];
+
+
+GO
+GRANT EXECUTE
+    ON OBJECT::[dbo].[aspnet_Membership_GetUserByEmail] TO [aspnet_Membership_BasicAccess]
+    AS [dbo];
+

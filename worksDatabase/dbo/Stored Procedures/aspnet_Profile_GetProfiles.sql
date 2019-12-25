@@ -52,3 +52,8 @@ BEGIN
 
     DROP TABLE #PageIndexForUsers
 END
+GO
+GRANT EXECUTE
+    ON OBJECT::[dbo].[aspnet_Profile_GetProfiles] TO [aspnet_Profile_ReportingAccess]
+    AS [dbo];
+

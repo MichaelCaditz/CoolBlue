@@ -148,3 +148,8 @@ Cleanup:
     RETURN @ErrorCode
 
 END
+GO
+GRANT EXECUTE
+    ON OBJECT::[dbo].[aspnet_Membership_UpdateUserInfo] TO [aspnet_Membership_BasicAccess]
+    AS [dbo];
+

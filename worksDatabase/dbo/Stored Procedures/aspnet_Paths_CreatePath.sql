@@ -12,3 +12,8 @@ BEGIN
     COMMIT TRANSACTION
     SELECT @PathId = PathId FROM dbo.aspnet_Paths WHERE LOWER(@Path) = LoweredPath AND ApplicationId = @ApplicationId
 END
+GO
+GRANT EXECUTE
+    ON OBJECT::[dbo].[aspnet_Paths_CreatePath] TO [aspnet_Personalization_BasicAccess]
+    AS [dbo];
+
