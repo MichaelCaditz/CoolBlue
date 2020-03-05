@@ -103,10 +103,19 @@
                                ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" 
                                ShowValidationAttributeErrors="False" ShowVerticalLines="False"
                                CustomCellAppearance="TableView_OnCustomCellAppearance" RowDoubleClick="TableView_RowDoubleClick">
+                    <dxg:TableView.RowCellMenuCustomizations>
+                        <dxb:BarButtonItem Name="Properties" Content="Properties" ItemClick="Properties_ItemClick" />
+                        
+                    </dxg:TableView.RowCellMenuCustomizations>
+                    <!--<dxg:TableView.ContextMenu>
+                        <ContextMenu>
+                            <Button Content="Properties" />
+                        </ContextMenu>
+                    </dxg:TableView.ContextMenu>-->
 
                     <dxg:TableView.FormatConditions>
                         <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id">
-                            <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold"/>
+                            <dx:Format Foreground="Red" Background="Yellow" FontWeight="Normal"/>
                         </dxg:FormatCondition>
                     </dxg:TableView.FormatConditions>
                     <dxg:TableView.RowStyle>
@@ -115,7 +124,7 @@
 
 
                                 <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
-                                    <Setter Property="Background" Value="Green" />
+                                    <Setter Property="Background" Value="Black" />
                                     <Setter Property="Foreground" Value="White" />
                                 </Trigger>
 
@@ -129,7 +138,7 @@
 
 
                                 <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
-                                    <Setter Property="Background" Value="Green" />
+                                    <Setter Property="Background" Value="Black" />
                                     <Setter Property="Foreground" Value="White" />
                                 </Trigger>
 
@@ -142,7 +151,7 @@
             <dxg:GridColumn Binding="{Binding cName}"   Header="Name" Width="160">
                 <dxg:GridColumn.DisplayTemplate  >
                     <ControlTemplate >
-                        <TextBlock  x:Name="PART_Editor" FontWeight="Bold" />
+                        <TextBlock  x:Name="PART_Editor" FontWeight="Normal" />
                     </ControlTemplate>
                 </dxg:GridColumn.DisplayTemplate>
             </dxg:GridColumn>

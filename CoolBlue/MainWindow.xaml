@@ -256,11 +256,47 @@
 
         <dxg:GridControl AutoGenerateColumns="None"  EnableSmartColumnsGeneration="False"  ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesUSP_getAllAccountsViewSource}}" Margin="5,0,10,0" Grid.Row="6" Grid.RowSpan="6" Grid.ColumnSpan="2"  CurrentItemChanged="GridControl_CurrentItemChanged">
             <dxg:GridControl.View>
-                <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" ShowColumnHeaders ="False"  Grid.ColumnSpan="1" Margin="0,0,0,0"  Width="223" Height="459" ShowBandsPanel="False" ShowBandsInCustomizationForm="False" ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" ShowValidationAttributeErrors="False" ShowVerticalLines="False"/>
+                <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" ShowColumnHeaders ="False"  Grid.ColumnSpan="1" Margin="0,0,0,0"  Width="223" Height="459" ShowBandsPanel="False" ShowBandsInCustomizationForm="False" ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" ShowValidationAttributeErrors="False" ShowVerticalLines="False" RowDoubleClick="TableView_RowDoubleClick">
+
+                    <dxg:TableView.FormatConditions>
+                        <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id">
+                            <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold"/>
+                        </dxg:FormatCondition>
+                    </dxg:TableView.FormatConditions>
+                    <dxg:TableView.RowStyle>
+                        <Style TargetType="{x:Type dxg:RowControl}">
+                            <Style.Triggers>
+
+
+                                <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
+                                    <Setter Property="Background" Value="Black" />
+                                    <Setter Property="Foreground" Value="White" />
+                                </Trigger>
+
+                            </Style.Triggers>
+                        </Style>
+                    </dxg:TableView.RowStyle>
+
+                    <dxg:TableView.CellStyle>
+                        <Style TargetType="{x:Type dxg:LightweightCellEditor }">
+                            <Style.Triggers>
+
+
+                                <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
+                                    <Setter Property="Background" Value="Black" />
+                                    <Setter Property="Foreground" Value="White" />
+                                </Trigger>
+
+                            </Style.Triggers>
+                        </Style>
+                    </dxg:TableView.CellStyle>
+                </dxg:TableView>
+
             </dxg:GridControl.View>
             <dxg:GridColumn Binding="{Binding cName}"  FieldName="Name" Header="Name" Width="200" />
             <dxg:GridColumn Binding="{Binding cNote}"  FieldName="Note" Header="Note" Width="160"/>
             <dxg:GridColumn Binding="{Binding cDesc}"  FieldName="Description" Header="Description" Width="200"/>
+            
         </dxg:GridControl>
 
 
@@ -286,7 +322,7 @@
 
 
                                 <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
-                                    <Setter Property="Background" Value="Green" />
+                                    <Setter Property="Background" Value="#FFA63B13" />
                                     <Setter Property="Foreground" Value="White" />
                                 </Trigger>
 
@@ -300,7 +336,7 @@
 
 
                                 <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
-                                    <Setter Property="Background" Value="Green" />
+                                    <Setter Property="Background" Value="#FFA63B13" />
                                     <Setter Property="Foreground" Value="White" />
                                 </Trigger>
 
@@ -484,7 +520,7 @@
 
 
                                 <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
-                                    <Setter Property="Background" Value="Green" />
+                                    <Setter Property="Background" Value="#FF16574E" />
                                     <Setter Property="Foreground" Value="White" />
                                 </Trigger>
 
@@ -498,7 +534,7 @@
 
 
                                 <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
-                                    <Setter Property="Background" Value="Green" />
+                                    <Setter Property="Background" Value="#FF16574E" />
                                     <Setter Property="Foreground" Value="White" />
                                 </Trigger>
 

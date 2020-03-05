@@ -35,6 +35,7 @@ namespace coolBlue
     public partial class editAccount : ThemedWindow
     {
         public int nAccountID;
+        public bool bNameChanged;
         public editAccount(int AccountID)
         {
             InitializeComponent();
@@ -218,7 +219,7 @@ namespace coolBlue
             finally
             {
                 if (conn.State == ConnectionState.Open) conn.Close();
-
+                this.bNameChanged = true;
                 //VendorDataSet.EnforceConstraints = false;
 
                 //coolBlue.vendorDataSetTableAdapters.USP_getOneVendorTableAdapter vendorDataSetUSP_getOneVendorTableAdapter = new coolBlue.vendorDataSetTableAdapters.USP_getOneVendorTableAdapter();

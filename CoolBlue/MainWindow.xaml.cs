@@ -1055,5 +1055,53 @@ namespace coolBlue
             TextEditTotalCr.EditValue = sumCr;
             TextEditBalance.EditValue = sumTotal;
         }
+
+        private void TableView_RowDoubleClick(object sender, RowDoubleClickEventArgs e)
+        {
+            goDetails();
+        }
+
+        private void goDetails()
+        {
+
+            System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesUSP_getAllAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesUSP_getAllAccountsViewSource")));
+
+            DataRowView drv = (DataRowView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentItem;
+            int accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
+            
+            editAccount editAccoun1 = new editAccount(accountCurrent);
+           
+            editAccoun1.bNameChanged = false;
+            editAccoun1.ShowDialog();
+            if (editAccoun1.bNameChanged == true)
+            {
+                coolBlue.AccountsDataSet accountsDataSet = ((coolBlue.AccountsDataSet)(this.FindResource("accountsDataSet")));
+                System.Windows.Data.CollectionViewSource uSP_getAllAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountsViewSource")));
+
+
+                coolBlue.AccountsDataSetTableAdapters.USP_getAllAccountsTableAdapter accountsDataSetUSP_getAllAccountsTableAdapter = new coolBlue.AccountsDataSetTableAdapters.USP_getAllAccountsTableAdapter();
+
+
+                accountsDataSet.EnforceConstraints = false;
+
+                accountsDataSetUSP_getAllAccountsTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
+                accountsDataSetUSP_getAllAccountsTableAdapter.Fill(accountsDataSet.USP_getAllAccounts);
+                accountsDataSet.EnforceConstraints = true;
+            }
+
+
+
+
+
+
+
+            
+
+
+           
+            // uSP_getAllAccountTypesViewSource.View.MoveCurrentToFirst();
+
+
+        }
     }
 }

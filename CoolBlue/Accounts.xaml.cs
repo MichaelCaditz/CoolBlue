@@ -261,5 +261,10 @@ namespace coolBlue
         {
             goDetails();
         }
+
+        private void Properties_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+            goDetails();
+        }
     }
 }
