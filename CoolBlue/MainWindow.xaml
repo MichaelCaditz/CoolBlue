@@ -290,6 +290,10 @@
                             </Style.Triggers>
                         </Style>
                     </dxg:TableView.CellStyle>
+                    <dxg:TableView.RowCellMenuCustomizations>
+                        <dxb:BarButtonItem Name="Properties" Content="Properties" ItemClick="Properties_ItemClick" />
+
+                    </dxg:TableView.RowCellMenuCustomizations>
                 </dxg:TableView>
 
             </dxg:GridControl.View>

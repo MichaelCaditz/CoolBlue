@@ -1068,7 +1068,15 @@ namespace coolBlue
 
             DataRowView drv = (DataRowView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentItem;
             int accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
-            
+
+
+           
+
+
+            BindingListCollectionView dv = (BindingListCollectionView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View;
+            int rowIndex = dv.IndexOf(drv);
+
+
             editAccount editAccoun1 = new editAccount(accountCurrent);
            
             editAccoun1.bNameChanged = false;
@@ -1087,6 +1095,9 @@ namespace coolBlue
                 accountsDataSetUSP_getAllAccountsTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
                 accountsDataSetUSP_getAllAccountsTableAdapter.Fill(accountsDataSet.USP_getAllAccounts);
                 accountsDataSet.EnforceConstraints = true;
+
+                uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.MoveCurrentToPosition(rowIndex);
+
             }
 
 
@@ -1102,6 +1113,11 @@ namespace coolBlue
             // uSP_getAllAccountTypesViewSource.View.MoveCurrentToFirst();
 
 
+        }
+
+        private void Properties_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+            goDetails();
         }
     }
 }
