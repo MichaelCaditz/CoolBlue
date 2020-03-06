@@ -1114,6 +1114,28 @@ namespace coolBlue {
             
             private global::System.Data.DataColumn columncDecryptedAcctNum;
             
+            private global::System.Data.DataColumn columncDecryptedCardNum;
+            
+            private global::System.Data.DataColumn columncDecryptedUsername;
+            
+            private global::System.Data.DataColumn columncDecryptedPassword;
+            
+            private global::System.Data.DataColumn columncInstitutionNum;
+            
+            private global::System.Data.DataColumn columncTransitNum;
+            
+            private global::System.Data.DataColumn columncSwiftCode;
+            
+            private global::System.Data.DataColumn columnnCreditLimit;
+            
+            private global::System.Data.DataColumn columncContactName;
+            
+            private global::System.Data.DataColumn columncURL;
+            
+            private global::System.Data.DataColumn columncContactEmail;
+            
+            private global::System.Data.DataColumn columncContactPhone;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public USP_getOneAccountDataTable() {
@@ -1253,6 +1275,94 @@ namespace coolBlue {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn cDecryptedCardNumColumn {
+                get {
+                    return this.columncDecryptedCardNum;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn cDecryptedUsernameColumn {
+                get {
+                    return this.columncDecryptedUsername;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn cDecryptedPasswordColumn {
+                get {
+                    return this.columncDecryptedPassword;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn cInstitutionNumColumn {
+                get {
+                    return this.columncInstitutionNum;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn cTransitNumColumn {
+                get {
+                    return this.columncTransitNum;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn cSwiftCodeColumn {
+                get {
+                    return this.columncSwiftCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn nCreditLimitColumn {
+                get {
+                    return this.columnnCreditLimit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn cContactNameColumn {
+                get {
+                    return this.columncContactName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn cURLColumn {
+                get {
+                    return this.columncURL;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn cContactEmailColumn {
+                get {
+                    return this.columncContactEmail;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn cContactPhoneColumn {
+                get {
+                    return this.columncContactPhone;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1288,7 +1398,30 @@ namespace coolBlue {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public USP_getOneAccountRow AddUSP_getOneAccountRow(System.DateTime dtCreateDate, string cName, string cNote, int nAccountTypeID, string cDesc, string cComment, int nCurrencyID, int nCatID, string cDecryptedPIN, string cDecryptedCV, string cDecryptedExpiry, string cDecryptedAcctNum) {
+            public USP_getOneAccountRow AddUSP_getOneAccountRow(
+                        System.DateTime dtCreateDate, 
+                        string cName, 
+                        string cNote, 
+                        int nAccountTypeID, 
+                        string cDesc, 
+                        string cComment, 
+                        int nCurrencyID, 
+                        int nCatID, 
+                        string cDecryptedPIN, 
+                        string cDecryptedCV, 
+                        string cDecryptedExpiry, 
+                        string cDecryptedAcctNum, 
+                        string cDecryptedCardNum, 
+                        string cDecryptedUsername, 
+                        string cDecryptedPassword, 
+                        string cInstitutionNum, 
+                        string cTransitNum, 
+                        string cSwiftCode, 
+                        decimal nCreditLimit, 
+                        string cContactName, 
+                        string cURL, 
+                        string cContactEmail, 
+                        string cContactPhone) {
                 USP_getOneAccountRow rowUSP_getOneAccountRow = ((USP_getOneAccountRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1303,7 +1436,18 @@ namespace coolBlue {
                         cDecryptedPIN,
                         cDecryptedCV,
                         cDecryptedExpiry,
-                        cDecryptedAcctNum};
+                        cDecryptedAcctNum,
+                        cDecryptedCardNum,
+                        cDecryptedUsername,
+                        cDecryptedPassword,
+                        cInstitutionNum,
+                        cTransitNum,
+                        cSwiftCode,
+                        nCreditLimit,
+                        cContactName,
+                        cURL,
+                        cContactEmail,
+                        cContactPhone};
                 rowUSP_getOneAccountRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowUSP_getOneAccountRow);
                 return rowUSP_getOneAccountRow;
@@ -1346,6 +1490,17 @@ namespace coolBlue {
                 this.columncDecryptedCV = base.Columns["cDecryptedCV"];
                 this.columncDecryptedExpiry = base.Columns["cDecryptedExpiry"];
                 this.columncDecryptedAcctNum = base.Columns["cDecryptedAcctNum"];
+                this.columncDecryptedCardNum = base.Columns["cDecryptedCardNum"];
+                this.columncDecryptedUsername = base.Columns["cDecryptedUsername"];
+                this.columncDecryptedPassword = base.Columns["cDecryptedPassword"];
+                this.columncInstitutionNum = base.Columns["cInstitutionNum"];
+                this.columncTransitNum = base.Columns["cTransitNum"];
+                this.columncSwiftCode = base.Columns["cSwiftCode"];
+                this.columnnCreditLimit = base.Columns["nCreditLimit"];
+                this.columncContactName = base.Columns["cContactName"];
+                this.columncURL = base.Columns["cURL"];
+                this.columncContactEmail = base.Columns["cContactEmail"];
+                this.columncContactPhone = base.Columns["cContactPhone"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1377,6 +1532,28 @@ namespace coolBlue {
                 base.Columns.Add(this.columncDecryptedExpiry);
                 this.columncDecryptedAcctNum = new global::System.Data.DataColumn("cDecryptedAcctNum", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncDecryptedAcctNum);
+                this.columncDecryptedCardNum = new global::System.Data.DataColumn("cDecryptedCardNum", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncDecryptedCardNum);
+                this.columncDecryptedUsername = new global::System.Data.DataColumn("cDecryptedUsername", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncDecryptedUsername);
+                this.columncDecryptedPassword = new global::System.Data.DataColumn("cDecryptedPassword", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncDecryptedPassword);
+                this.columncInstitutionNum = new global::System.Data.DataColumn("cInstitutionNum", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncInstitutionNum);
+                this.columncTransitNum = new global::System.Data.DataColumn("cTransitNum", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncTransitNum);
+                this.columncSwiftCode = new global::System.Data.DataColumn("cSwiftCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncSwiftCode);
+                this.columnnCreditLimit = new global::System.Data.DataColumn("nCreditLimit", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnCreditLimit);
+                this.columncContactName = new global::System.Data.DataColumn("cContactName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncContactName);
+                this.columncURL = new global::System.Data.DataColumn("cURL", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncURL);
+                this.columncContactEmail = new global::System.Data.DataColumn("cContactEmail", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncContactEmail);
+                this.columncContactPhone = new global::System.Data.DataColumn("cContactPhone", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncContactPhone);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AutoIncrement = true;
@@ -2201,6 +2378,184 @@ namespace coolBlue {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string cDecryptedCardNum {
+                get {
+                    try {
+                        return ((string)(this[this.tableUSP_getOneAccount.cDecryptedCardNumColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'cDecryptedCardNum\' in table \'USP_getOneAccount\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUSP_getOneAccount.cDecryptedCardNumColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string cDecryptedUsername {
+                get {
+                    try {
+                        return ((string)(this[this.tableUSP_getOneAccount.cDecryptedUsernameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'cDecryptedUsername\' in table \'USP_getOneAccount\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableUSP_getOneAccount.cDecryptedUsernameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string cDecryptedPassword {
+                get {
+                    try {
+                        return ((string)(this[this.tableUSP_getOneAccount.cDecryptedPasswordColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'cDecryptedPassword\' in table \'USP_getOneAccount\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableUSP_getOneAccount.cDecryptedPasswordColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string cInstitutionNum {
+                get {
+                    try {
+                        return ((string)(this[this.tableUSP_getOneAccount.cInstitutionNumColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'cInstitutionNum\' in table \'USP_getOneAccount\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUSP_getOneAccount.cInstitutionNumColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string cTransitNum {
+                get {
+                    try {
+                        return ((string)(this[this.tableUSP_getOneAccount.cTransitNumColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'cTransitNum\' in table \'USP_getOneAccount\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUSP_getOneAccount.cTransitNumColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string cSwiftCode {
+                get {
+                    try {
+                        return ((string)(this[this.tableUSP_getOneAccount.cSwiftCodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'cSwiftCode\' in table \'USP_getOneAccount\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUSP_getOneAccount.cSwiftCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal nCreditLimit {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableUSP_getOneAccount.nCreditLimitColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nCreditLimit\' in table \'USP_getOneAccount\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUSP_getOneAccount.nCreditLimitColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string cContactName {
+                get {
+                    try {
+                        return ((string)(this[this.tableUSP_getOneAccount.cContactNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'cContactName\' in table \'USP_getOneAccount\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUSP_getOneAccount.cContactNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string cURL {
+                get {
+                    try {
+                        return ((string)(this[this.tableUSP_getOneAccount.cURLColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'cURL\' in table \'USP_getOneAccount\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUSP_getOneAccount.cURLColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string cContactEmail {
+                get {
+                    try {
+                        return ((string)(this[this.tableUSP_getOneAccount.cContactEmailColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'cContactEmail\' in table \'USP_getOneAccount\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUSP_getOneAccount.cContactEmailColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string cContactPhone {
+                get {
+                    try {
+                        return ((string)(this[this.tableUSP_getOneAccount.cContactPhoneColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'cContactPhone\' in table \'USP_getOneAccount\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUSP_getOneAccount.cContactPhoneColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsdtCreateDateNull() {
                 return this.IsNull(this.tableUSP_getOneAccount.dtCreateDateColumn);
             }
@@ -2341,6 +2696,138 @@ namespace coolBlue {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetcDecryptedAcctNumNull() {
                 this[this.tableUSP_getOneAccount.cDecryptedAcctNumColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IscDecryptedCardNumNull() {
+                return this.IsNull(this.tableUSP_getOneAccount.cDecryptedCardNumColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetcDecryptedCardNumNull() {
+                this[this.tableUSP_getOneAccount.cDecryptedCardNumColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IscDecryptedUsernameNull() {
+                return this.IsNull(this.tableUSP_getOneAccount.cDecryptedUsernameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetcDecryptedUsernameNull() {
+                this[this.tableUSP_getOneAccount.cDecryptedUsernameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IscDecryptedPasswordNull() {
+                return this.IsNull(this.tableUSP_getOneAccount.cDecryptedPasswordColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetcDecryptedPasswordNull() {
+                this[this.tableUSP_getOneAccount.cDecryptedPasswordColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IscInstitutionNumNull() {
+                return this.IsNull(this.tableUSP_getOneAccount.cInstitutionNumColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetcInstitutionNumNull() {
+                this[this.tableUSP_getOneAccount.cInstitutionNumColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IscTransitNumNull() {
+                return this.IsNull(this.tableUSP_getOneAccount.cTransitNumColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetcTransitNumNull() {
+                this[this.tableUSP_getOneAccount.cTransitNumColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IscSwiftCodeNull() {
+                return this.IsNull(this.tableUSP_getOneAccount.cSwiftCodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetcSwiftCodeNull() {
+                this[this.tableUSP_getOneAccount.cSwiftCodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsnCreditLimitNull() {
+                return this.IsNull(this.tableUSP_getOneAccount.nCreditLimitColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetnCreditLimitNull() {
+                this[this.tableUSP_getOneAccount.nCreditLimitColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IscContactNameNull() {
+                return this.IsNull(this.tableUSP_getOneAccount.cContactNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetcContactNameNull() {
+                this[this.tableUSP_getOneAccount.cContactNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IscURLNull() {
+                return this.IsNull(this.tableUSP_getOneAccount.cURLColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetcURLNull() {
+                this[this.tableUSP_getOneAccount.cURLColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IscContactEmailNull() {
+                return this.IsNull(this.tableUSP_getOneAccount.cContactEmailColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetcContactEmailNull() {
+                this[this.tableUSP_getOneAccount.cContactEmailColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IscContactPhoneNull() {
+                return this.IsNull(this.tableUSP_getOneAccount.cContactPhoneColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetcContactPhoneNull() {
+                this[this.tableUSP_getOneAccount.cContactPhoneColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2934,6 +3421,17 @@ namespace coolBlue.AccountsDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("cDecryptedCV", "cDecryptedCV");
             tableMapping.ColumnMappings.Add("cDecryptedExpiry", "cDecryptedExpiry");
             tableMapping.ColumnMappings.Add("cDecryptedAcctNum", "cDecryptedAcctNum");
+            tableMapping.ColumnMappings.Add("cDecryptedCardNum", "cDecryptedCardNum");
+            tableMapping.ColumnMappings.Add("cDecryptedUsername", "cDecryptedUsername");
+            tableMapping.ColumnMappings.Add("cDecryptedPassword", "cDecryptedPassword");
+            tableMapping.ColumnMappings.Add("cInstitutionNum", "cInstitutionNum");
+            tableMapping.ColumnMappings.Add("cTransitNum", "cTransitNum");
+            tableMapping.ColumnMappings.Add("cSwiftCode", "cSwiftCode");
+            tableMapping.ColumnMappings.Add("nCreditLimit", "nCreditLimit");
+            tableMapping.ColumnMappings.Add("cContactName", "cContactName");
+            tableMapping.ColumnMappings.Add("cURL", "cURL");
+            tableMapping.ColumnMappings.Add("cContactEmail", "cContactEmail");
+            tableMapping.ColumnMappings.Add("cContactPhone", "cContactPhone");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

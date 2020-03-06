@@ -35,7 +35,8 @@ namespace coolBlue
     public partial class editAccount : ThemedWindow
     {
         public int nAccountID;
-        public bool bNameChanged;
+        public bool bNameChanged = false;
+        public string cOrigName;
         public editAccount(int AccountID)
         {
             InitializeComponent();
@@ -88,6 +89,8 @@ namespace coolBlue
 
             int accountTypeID = (drv == null ? 0 : DBNull.Value.Equals(drv["nAccountTypeID"]) == true ? 0 : (int)drv["nAccountTypeID"]);
             LookupEditAccountType.EditValue = accountTypeID;
+
+            cOrigName = (drv == null ? "" : DBNull.Value.Equals(drv["cName"]) == true ? "" : (string)drv["cName"]);
         }
 
         private void BarButtonItem_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
@@ -219,7 +222,13 @@ namespace coolBlue
             finally
             {
                 if (conn.State == ConnectionState.Open) conn.Close();
-                this.bNameChanged = true;
+                if (cOrigName == cName)
+                {
+                    this.bNameChanged = false;
+                }
+                else
+                { this.bNameChanged = true;
+                }
                 //VendorDataSet.EnforceConstraints = false;
 
                 //coolBlue.vendorDataSetTableAdapters.USP_getOneVendorTableAdapter vendorDataSetUSP_getOneVendorTableAdapter = new coolBlue.vendorDataSetTableAdapters.USP_getOneVendorTableAdapter();
