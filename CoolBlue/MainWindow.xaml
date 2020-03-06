@@ -86,9 +86,9 @@
 
     <Grid DataContext="{StaticResource uSP_getLineViewSource}" IsEnabled="True" Margin="10,0">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="223*"/>
-            <ColumnDefinition Width="15*"/>
-            <ColumnDefinition Width="446*"/>
+            <ColumnDefinition Width="223"/>
+            <ColumnDefinition Width="15"/>
+            <ColumnDefinition Width="446"/>
             <ColumnDefinition Width="297*"/>
             <ColumnDefinition Width="57*"/>
             <ColumnDefinition Width="240*"/>
@@ -118,12 +118,12 @@
 
 
 
-        <dxr:RibbonControl RibbonStyle="Office2010" Grid.ColumnSpan="8" Height="141" Grid.RowSpan="2">
+        <dxr:RibbonControl RibbonStyle="Office2010" Grid.ColumnSpan="8" Height="141" Grid.RowSpan="2" AllowCustomization="False" IsHiddenRibbonCollapsed="False">
             <dxr:RibbonControl.ToolbarItems>
                 <dxb:BarButtonItemLink/>
             </dxr:RibbonControl.ToolbarItems>
             <dxr:RibbonDefaultPageCategory>
-                <dxr:RibbonPage Caption="Home">
+                <!--<dxr:RibbonPage Caption="Home">
                     <dxr:RibbonPageGroup Caption="File">
                         <dxb:BarButtonItem x:Name="newItem" Content="New" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=New_32x32.png}"/>
                         <dxb:BarItemSeparator/>
@@ -138,30 +138,33 @@
                         <dxb:BarItemSeparator/>
                         <dxb:BarButtonItem x:Name="saveAsItem" Content="Save As" LargeGlyph="{dx:DXImage Image=SaveAs_32x32.png}"/>
                     </dxr:RibbonPageGroup>
-                </dxr:RibbonPage>
+                </dxr:RibbonPage>-->
 
 
-                <dxr:RibbonPage Caption="Edit">
-                    <dxr:RibbonPageGroup Caption="File">
+                <dxr:RibbonPage Caption="Lists">
 
-                    </dxr:RibbonPageGroup>
-                    <dxr:RibbonPageGroup Caption="Vendors" AllowRemoveFromParentDuringCustomization="False">
-                        <dxb:BarButtonItem Content="Vendor List" ItemClick="BarButtonItem_ItemClick_2"/>
 
+                    <dxr:RibbonPageGroup Caption="">
+                        <dxb:BarButtonItem Content="Accounts" ItemClick="BarButtonItem_ItemClick_5" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=New_32x32.png}"/>
                     </dxr:RibbonPageGroup>
-                    <dxr:RibbonPageGroup Caption="Tags">
-                        <dxb:BarButtonItem Content="Tag List" ItemClick="BarButtonItem_ItemClick_3"/>
+
+                    <dxr:RibbonPageGroup Caption="">
+                        <dxb:BarButtonItem Content="Vendors" ItemClick="BarButtonItem_ItemClick_2" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=New_32x32.png}"/>
                     </dxr:RibbonPageGroup>
-                    <dxr:RibbonPageGroup Caption="Classes">
-                        <dxb:BarButtonItem Content="Class List" AllowDrop="True" ItemClick="BarButtonItem_ItemClick_4"/>
+
+                    <dxr:RibbonPageGroup Caption="">
+
+                        <dxb:BarButtonItem Content="Categories" ItemClick="BarButtonItem_ItemClick_6" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=New_32x32.png}"/>
                     </dxr:RibbonPageGroup>
-                    <dxr:RibbonPageGroup Caption="Accounts">
-                        <dxb:BarButtonItem Content="Account List" ItemClick="BarButtonItem_ItemClick_5"/>
+                    <dxr:RibbonPageGroup Caption="">
+                        <dxb:BarButtonItem Content="Tags" ItemClick="BarButtonItem_ItemClick_3" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=New_32x32.png}"/>
                     </dxr:RibbonPageGroup>
-                    <dxr:RibbonPageGroup Caption="Categories" IsVisible="False">
-                        <dxb:BarButtonItem Content="Category List" ItemClick="BarButtonItem_ItemClick_6"/>
+                    <dxr:RibbonPageGroup Caption="">
+                        <dxb:BarButtonItem Content="Classes" AllowDrop="True" ItemClick="BarButtonItem_ItemClick_4" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=New_32x32.png}"/>
                     </dxr:RibbonPageGroup>
-                    <dxr:RibbonPageGroup Caption="Ribbon Page Group"/>
+
+
+
                 </dxr:RibbonPage>
                 <dxr:RibbonPage Caption="Reports">
                     <dxr:RibbonPageGroup Caption="Transactions">
@@ -300,7 +303,7 @@
             <dxg:GridColumn Binding="{Binding cName}"  FieldName="Name" Header="Name" Width="200" />
             <dxg:GridColumn Binding="{Binding cNote}"  FieldName="Note" Header="Note" Width="160"/>
             <dxg:GridColumn Binding="{Binding cDesc}"  FieldName="Description" Header="Description" Width="200"/>
-            
+
         </dxg:GridControl>
 
 
@@ -433,7 +436,9 @@
 
 
 
-                --><!--<DataGridCheckBoxColumn Binding="{Binding bXfer}" ClipboardContentBinding="{x:Null}" Header="Xfer"/>--><!--
+                -->
+        <!--<DataGridCheckBoxColumn Binding="{Binding bXfer}" ClipboardContentBinding="{x:Null}" Header="Xfer"/>-->
+        <!--
 
                 <DataGridComboBoxColumn x:Name="nXferAccountIDColumn" SelectedValueBinding="{Binding nAccountID_C}" Width="220"
                 SelectedValuePath="ID"
@@ -900,7 +905,7 @@
         <dx:SimpleButton Content="Update Line" Grid.Column="2" HorizontalAlignment="Left" Height="27" Margin="154,38,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100" Click="SimpleButton_Click_2"/>
         <dxe:TextEdit x:Name="TextEditTotalDr" Grid.Column="2" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="170,21,0,0" Grid.Row="11" VerticalAlignment="Top" Width="80" Mask="F" MaskType="Numeric"/>
         <dxe:TextEdit x:Name="TextEditTotalCr" Grid.Column="2" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="252,21,0,0" Grid.Row="11" VerticalAlignment="Top" Width="80" Mask="F" MaskType="Numeric"/>
-        <dxe:TextEdit x:Name="TextEditBalance" Grid.Column="2" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="346,21,0,0" Grid.Row="11" VerticalAlignment="Top" Width="80" Mask="F" MaskType="Numeric" FontWeight="Bold"/>
+        <dxe:TextEdit x:Name="TextEditBalance" Grid.Column="2" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="336,21,0,0" Grid.Row="11" VerticalAlignment="Top" Width="100" Mask="F" MaskType="Numeric" FontWeight="Normal" Padding="0,0,5,0" Background="Black" Foreground="White"/>
 
     </Grid>
 </dxr:DXRibbonWindow>

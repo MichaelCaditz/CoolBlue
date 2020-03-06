@@ -9,7 +9,7 @@
     xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
     x:Class="coolBlue.Accounts"
     Title="Account" Height="700" Width="800"
-    Loaded="ThemedWindow_Loaded"
+    Loaded="ThemedWindow_Loaded" WindowStartupLocation="CenterScreen"
     >
     <dx:ThemedWindow.Resources>
         <local:EditDataSet x:Key="editDataSet"/>

@@ -119,10 +119,10 @@
 
                         <Label VerticalAlignment="Center" Grid.Row="12" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Currency:"/>
 
-                        <dxg:LookUpEdit x:Name="LookupEditCurrency"  PopupHeight="600" PopupWidth="500" PopupMinHeight="100" PopupMinWidth="100" DisplayMember="cName" 
+                        <dxg:LookUpEdit x:Name="LookupEditCurrency"  PopupHeight="300" PopupWidth="300" PopupMinHeight="100" PopupMinWidth="100" DisplayMember="cName" 
                 ValueMember="ID" AutoPopulateColumns="false" AutoComplete="True" IncrementalFiltering="True" ImmediatePopup="True" 
                 IsPopupAutoWidth="False" Height="24" Width="200" Grid.Column="1" TabIndex="0" FontSize="11"
-                FontFamily="/LDAddonModules;component/Fonts/Merriweather-Regular.ttf#Merriweather" Margin="0" ItemsSource="{Binding Source={StaticResource uSP_getAllCurrencyViewSource}}" IsSynchronizedWithCurrentItem="True" Grid.Row="12" HorizontalAlignment="Left">
+                FontFamily="/LDAddonModules;component/Fonts/Merriweather-Regular.ttf#Merriweather" Margin="0,3" ItemsSource="{Binding Source={StaticResource uSP_getAllCurrencyViewSource}}" IsSynchronizedWithCurrentItem="True" Grid.Row="12" HorizontalAlignment="Left" >
                             <dxg:LookUpEdit.StyleSettings>
                                 <dxg:SearchLookUpEditStyleSettings />
                             </dxg:LookUpEdit.StyleSettings>
@@ -130,11 +130,11 @@
                                 <ControlTemplate>
                                     <dxg:GridControl x:Name="PART_GridControl" AutoExpandAllGroups="True">
                                         <dxg:GridControl.View>
-                                            <dxg:TableView AutoWidth="True" ShowGroupPanel="False" ShowTotalSummary="False" AllowEditing="False" NavigationStyle="Row" 
-                                                    AllowFixedColumnMenu="True" AllowBestFit="True" ShowAutoFilterRow="True" ShowGroupedColumns="True" RowMinHeight="26" />
+                                            <dxg:TableView AutoWidth="false" ShowGroupPanel="False" ShowTotalSummary="False" AllowEditing="False" NavigationStyle="Row" Width="200"
+                                                    AllowFixedColumnMenu="True" AllowBestFit="False" ShowAutoFilterRow="True" ShowGroupedColumns="False" RowMinHeight="26" ShowColumnHeaders="False" ShowHorizontalLines="False" ShowIndicator="False" ShowVerticalLines="False" />
                                         </dxg:GridControl.View>
                                         <dxg:GridColumn FieldName="cName" AllowMoving="False"/>
-                                        <dxg:GridColumn FieldName="cNotes" AllowMoving="False"/>
+                                        <dxg:GridColumn FieldName="cNotes" AllowMoving="False" Width="50"/>
                                     </dxg:GridControl>
                                 </ControlTemplate>
                             </dxg:LookUpEdit.PopupContentTemplate>
