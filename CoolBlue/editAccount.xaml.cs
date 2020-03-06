@@ -107,6 +107,20 @@ namespace coolBlue
             int nCatID = 0;
             int nAccountTypeID = 0;
             int nCurrencyID = 0;
+            decimal nCreditLimit = 0m;
+            string cUsername = "";
+            string cCardNum = "";
+            string cPassword = "";
+            string cInstitutionNum = "";
+            string cTransitNum = "";
+
+            string cSwiftCode = "";
+
+            string cContactName = "";
+            string cURL = "";
+            string cContactEmail = "";
+            string cContactPhone = "";
+
             System.Windows.Data.CollectionViewSource uSP_getOneAccountViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getOneAccountViewSource")));
 
             coolBlue.AccountsDataSet accountsDataSet = ((coolBlue.AccountsDataSet)(this.FindResource("accountsDataSet")));
@@ -155,6 +169,30 @@ namespace coolBlue
                 cDecryptedCV = (DBNull.Value.Equals(drv["cDecryptedCV"]) == true ? "" : (string)drv["cDecryptedCV"]);
                 cExpiry = (DBNull.Value.Equals(drv["cDecryptedExpiry"]) == true ? "" : (string)drv["cDecryptedExpiry"]);
                 cAcctNum = (DBNull.Value.Equals(drv["cDecryptedAcctNum"]) == true ? "" : (string)drv["cDecryptedAcctNum"]);
+                nCreditLimit = (DBNull.Value.Equals(drv["nCreditLimit"]) == true ? 0m : (decimal)drv["nCreditLimit"]);
+                cUsername = (DBNull.Value.Equals(drv["cDecryptedUsername"]) == true ? "" : (string)drv["cDecryptedUsername"]);
+                cCardNum = (DBNull.Value.Equals(drv["cDecryptedCardNum"]) == true ? "" : (string)drv["cDecryptedCardNum"]);
+                cPassword = (DBNull.Value.Equals(drv["cDecryptedPassword"]) == true ? "" : (string)drv["cDecryptedPassword"]);
+                cDecryptedCV = (DBNull.Value.Equals(drv["cDecryptedCV"]) == true ? "" : (string)drv["cDecryptedCV"]);
+
+                cInstitutionNum = (DBNull.Value.Equals(drv["cInstitutionNum"]) == true ? "" : (string)drv["cInstitutionNum"]);
+
+                cTransitNum = (DBNull.Value.Equals(drv["cTransitNum"]) == true ? "" : (string)drv["cTransitNum"]);
+
+                cSwiftCode = (DBNull.Value.Equals(drv["cSwiftCode"]) == true ? "" : (string)drv["cSwiftCode"]);
+
+                cContactName = (DBNull.Value.Equals(drv["cContactName"]) == true ? "" : (string)drv["cContactName"]);
+
+                cURL = (DBNull.Value.Equals(drv["cURL"]) == true ? "" : (string)drv["cURL"]);
+
+                cContactEmail = (DBNull.Value.Equals(drv["cContactEmail"]) == true ? "" : (string)drv["cContactEmail"]);
+
+                cContactPhone = (DBNull.Value.Equals(drv["cContactPhone"]) == true ? "" : (string)drv["cContactPhone"]);
+
+
+               
+
+
 
                 // nAccountTypeID = (int)LookupEditAccountType.EditValue;
                 //nAccountTypeID = (DBNull.Value.Equals(LookupEditAccountType.EditValue) == true ? 0 : (int)LookupEditAccountType.EditValue);
@@ -197,7 +235,20 @@ namespace coolBlue
                     cmd3.Parameters.AddWithValue("@nCurrencyID", nCurrencyID);
                     cmd3.Parameters.AddWithValue("@cExpiry", cExpiry);
                     cmd3.Parameters.AddWithValue("@cAcctNum", cAcctNum);
+                    cmd3.Parameters.AddWithValue("@cCardNum", cCardNum);
+                    cmd3.Parameters.AddWithValue("@cInstitutionNum", cInstitutionNum);
+                    cmd3.Parameters.AddWithValue("@cTransitNum", cTransitNum);
+                    cmd3.Parameters.AddWithValue("@cUsername", cUsername);
+                    cmd3.Parameters.AddWithValue("@cPassword", cPassword);
+                    cmd3.Parameters.AddWithValue("@cSwiftCode", cSwiftCode);
+                    cmd3.Parameters.AddWithValue("@nCreditLimit", nCreditLimit);
+                    cmd3.Parameters.AddWithValue("@cContactName", cContactName);
+                    cmd3.Parameters.AddWithValue("@cURL", cURL);
+                    cmd3.Parameters.AddWithValue("@cContactEmail", cContactEmail);
+                    cmd3.Parameters.AddWithValue("@cContactPhone", cContactPhone);
 
+
+                    
 
 
                     //SqlParameter retval = cmd3.Parameters.Add("@transactIdentity", SqlDbType.Int);
