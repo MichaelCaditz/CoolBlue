@@ -162,9 +162,18 @@
                     <dxr:RibbonPageGroup Caption="">
                         <dxb:BarButtonItem Content="Classes" AllowDrop="True" ItemClick="BarButtonItem_ItemClick_4" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=Cards_32x32.png}"/>
                     </dxr:RibbonPageGroup>
+                    <dxr:RibbonPageGroup Caption="">
+                        <dxb:BarButtonItem Content="Currencies" AllowDrop="True" ItemClick="BarButtonItem_ItemClick_4" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=Currency2_32x32.png}"/>
+                    </dxr:RibbonPageGroup>
 
 
 
+                </dxr:RibbonPage>
+                <dxr:RibbonPage Caption="Budgets">
+                    <dxr:RibbonPageGroup Caption="Transactions">
+                        <dxb:BarButtonItem Content="By Tag" ItemClick="BarButtonItem_ItemClick"/>
+                        <dxb:BarButtonItem Content="All" ItemClick="BarButtonItem_ItemClick_1"/>
+                    </dxr:RibbonPageGroup>
                 </dxr:RibbonPage>
                 <dxr:RibbonPage Caption="Reports">
                     <dxr:RibbonPageGroup Caption="Transactions">
