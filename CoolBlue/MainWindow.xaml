@@ -9,6 +9,7 @@
         Title="CoolBlue" Height="1000" Width="1900" Loaded="DXRibbonWindow_Loaded" WindowStartupLocation="CenterScreen" WindowStyle="None" Background="#FF404383" Opacity="0.98" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
     <dxr:DXRibbonWindow.Resources>
 
+        
         <!--<Style x:Key="SelectedRowStyle" TargetType="{x:Type dxg:RowControl}">
             <Style.Triggers>
                 <DataTrigger Binding="{Binding Path=IsSelected}" Value="True">
