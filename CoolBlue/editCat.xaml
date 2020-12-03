@@ -17,8 +17,8 @@
         <dxr:RibbonControl DockPanel.Dock="Top" RibbonStyle="Office2010">
             <dxr:RibbonDefaultPageCategory>
                 <dxr:RibbonPage Caption="ribbonPage1">
-                    <dxr:RibbonPageGroup Caption="ribbonPageGroup1">
-                        <dxb:BarButtonItem Content="Save Changes" ItemClick="BarButtonItem_ItemClick"/>
+                    <dxr:RibbonPageGroup Caption="">
+                        <dxb:BarButtonItem Content="Save" Glyph="{dx:DXImage Image=Save_32x32.png}" LargeGlyph="{dx:DXImage Image=Save_32x32.png}"  ItemClick="BarButtonItem_ItemClick"/>
                     </dxr:RibbonPageGroup>
                 </dxr:RibbonPage>
             </dxr:RibbonDefaultPageCategory>

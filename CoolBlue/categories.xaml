@@ -6,7 +6,7 @@
     xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
     xmlns:local="clr-namespace:coolBlue"
     x:Class="coolBlue.categories"
-    Title="categories" Height="800" Width="1000" WindowStartupLocation="CenterScreen"
+    Title="Categories" Height="800" Width="1000" WindowStartupLocation="CenterScreen"
     Loaded="ThemedWindow_Loaded"
     >
     <dx:ThemedWindow.Resources>
@@ -18,18 +18,18 @@
         <dxr:RibbonControl DockPanel.Dock="Top" RibbonStyle="Office2010">
             <dxr:RibbonDefaultPageCategory>
                 <dxr:RibbonPage Caption="Categories">
-                    <dxr:RibbonPageGroup Caption="ribbonPageGroup1">
+                    <dxr:RibbonPageGroup Caption="">
                         <dxb:BarButtonItem Content="Category Details" Glyph="{dx:DXImage Image=EditName_32x32.png}" LargeGlyph="{dx:DXImage Image=EditName_32x32.png}" ItemClick="BarButtonItem_ItemClick_1"/>
                     </dxr:RibbonPageGroup>
-                    <dxr:RibbonPageGroup Caption="Ribbon Page Group">
+                    <dxr:RibbonPageGroup Caption="">
                         <dxb:BarButtonItem Content="New Category" Glyph="{dx:DXImage Image=Insert_32x32.png}" LargeGlyph="{dx:DXImage Image=Insert_32x32.png}" ItemClick="BarButtonItem_ItemClick"/>
                     </dxr:RibbonPageGroup>
                 </dxr:RibbonPage>
                 <dxr:RibbonPage Caption="Sub Categories">
-                    <dxr:RibbonPageGroup Caption="Ribbon Page Group">
+                    <dxr:RibbonPageGroup Caption="">
                         <dxb:BarButtonItem Content="Sub Category Details" Glyph="{dx:DXImage Image=EditName_32x32.png}" LargeGlyph="{dx:DXImage Image=EditName_32x32.png}" ItemClick="BarButtonItem_ItemClick_2"/>
                     </dxr:RibbonPageGroup>
-                    <dxr:RibbonPageGroup Caption="Ribbon Page Group">
+                    <dxr:RibbonPageGroup Caption="">
                         <dxb:BarButtonItem Content="New Sub Category" Glyph="{dx:DXImage Image=Insert_32x32.png}" LargeGlyph="{dx:DXImage Image=Insert_32x32.png}" ItemClick="BarButtonItem_ItemClick_3"/>
                     </dxr:RibbonPageGroup>
                 </dxr:RibbonPage>
