@@ -36,7 +36,7 @@
             </dxr:RibbonDefaultPageCategory>
         </dxr:RibbonControl>
         <dxr:RibbonStatusBarControl DockPanel.Dock="Bottom"/>
-        <DataGrid x:Name="uSP_getAllCatsDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="0" RowDetailsVisibilityMode="VisibleWhenSelected" Height="400" Width="500">
+        <DataGrid x:Name="uSP_getAllCatsDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="0,20,0,0" RowDetailsVisibilityMode="VisibleWhenSelected" Height="500" Width="500" IsReadOnly="True" VerticalAlignment="Top">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="iDColumn" Binding="{Binding ID}" Header="ID" IsReadOnly="True" Width="SizeToHeader" Visibility="Hidden"/>
                 <DataGridTemplateColumn x:Name="dtCreateDateColumn" Header="dt Create Date" Width="SizeToHeader" Visibility="Hidden">
@@ -50,7 +50,7 @@
                 <DataGridTextColumn x:Name="cNoteColumn" Binding="{Binding cNote}" Header="Note" Width="200"/>
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid x:Name="uSP_getAllSubCatsDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding Source={StaticResource uSP_getAllCatsUSP_getAllSubCatsViewSource}}" Margin="0,190,0,12" RowDetailsVisibilityMode="VisibleWhenSelected" Width="460">
+        <DataGrid x:Name="uSP_getAllSubCatsDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding Source={StaticResource uSP_getAllCatsUSP_getAllSubCatsViewSource}}" Margin="0,120,0,0" RowDetailsVisibilityMode="VisibleWhenSelected" Width="400" Height="400" IsReadOnly="True" VerticalAlignment="Top">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="cNameColumn1" Binding="{Binding cName}" Header="Sub Category" Width="200"/>
                 <DataGridTextColumn x:Name="iDColumn1" Binding="{Binding ID}" Header="ID" IsReadOnly="True" Width="SizeToHeader" Visibility="Hidden"/>

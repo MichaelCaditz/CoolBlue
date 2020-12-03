@@ -82,7 +82,7 @@
                                 <TransformGroup>
                                     <ScaleTransform/>
                                     <SkewTransform/>
-                                    <RotateTransform Angle="-0.091"/>
+                                    <RotateTransform Angle="-0.000"/>
                                     <TranslateTransform/>
                                 </TransformGroup>
                             </dxg:LookUpEdit.RenderTransform>
@@ -94,7 +94,7 @@
                                     <dxg:GridControl x:Name="PART_GridControl" AutoExpandAllGroups="True">
                                         <dxg:GridControl.View>
                                             <dxg:TableView AutoWidth="True" ShowGroupPanel="False" ShowTotalSummary="False" AllowEditing="False" NavigationStyle="Row" 
-                                                    AllowFixedColumnMenu="True" AllowBestFit="True" ShowAutoFilterRow="True" ShowGroupedColumns="True" RowMinHeight="26" />
+                                                    AllowFixedColumnMenu="True" ShowCheckBoxSelectorInGroupRow="False" ShowHorizontalLines="False" ShowVerticalLines="False" AllowBestFit="True" ShowCheckBoxSelectorColumn="False" ShowColumnHeaders="False" ShowAutoFilterRow="True" ShowGroupedColumns="True" RowMinHeight="26" />
                                         </dxg:GridControl.View>
                                         <dxg:GridColumn FieldName="cName" AllowMoving="False"/>
                                         <dxg:GridColumn FieldName="cNotes" AllowMoving="False"/>

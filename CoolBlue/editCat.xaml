@@ -38,19 +38,32 @@
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
-                        <Label VerticalAlignment="Center" Grid.Row="0" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="ID:"/>
-                        <TextBox x:Name="iDTextBox" Width="120" VerticalAlignment="Center" Text="{Binding ID, Mode=OneWay}" Grid.Row="0" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
-                        <Label VerticalAlignment="Center" Grid.Row="1" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="dt Create Date:"/>
-                        <DatePicker x:Name="dtCreateDateDatePicker" VerticalAlignment="Center" SelectedDate="{Binding dtCreateDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="1" Margin="3" HorizontalAlignment="Left" Grid.Column="1"/>
-                        <Label VerticalAlignment="Center" Grid.Row="2" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="c Name:"/>
+                        <Label VerticalAlignment="Center" Grid.Row="2" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Name:"/>
                         <TextBox x:Name="cNameTextBox" Width="200" VerticalAlignment="Center" Text="{Binding cName, Mode=TwoWay, NotifyOnValidationError=true,UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=true}" Grid.Row="2" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
-                        <Label VerticalAlignment="Center" Grid.Row="3" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="c Note:"/>
+                        <Label VerticalAlignment="Center" Grid.Row="3" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Note:"/>
                         <TextBox x:Name="cNoteTextBox" Width="400" VerticalAlignment="Center" Text="{Binding cNote, Mode=TwoWay, NotifyOnValidationError=true,UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=true}" Grid.Row="3" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
                     </Grid>
                 </Grid>
             </dx:DXTabItem>
             <dx:DXTabItem Header="Tab">
-                <Grid Background="Transparent"/>
+                <Grid Background="Transparent">
+                    <Grid x:Name="grid10" VerticalAlignment="Top" Margin="70,68,0,0" HorizontalAlignment="Left" DataContext="{StaticResource uSP_getOneCatViewSource}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Label VerticalAlignment="Center" Grid.Row="0" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="ID:"/>
+                        <TextBox x:Name="iDTextBox1" Width="120" VerticalAlignment="Center" Text="{Binding ID, Mode=OneWay}" Grid.Row="0" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
+                        <Label VerticalAlignment="Center" Grid.Row="1" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="dt Create Date:"/>
+                        <DatePicker x:Name="dtCreateDateDatePicker1" VerticalAlignment="Center" SelectedDate="{Binding dtCreateDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="1" Margin="3" HorizontalAlignment="Left" Grid.Column="1"/>
+                    </Grid>
+                </Grid>
             </dx:DXTabItem>
         </dx:DXTabControl>
     </DockPanel>
