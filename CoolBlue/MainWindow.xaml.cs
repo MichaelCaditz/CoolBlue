@@ -776,7 +776,8 @@ namespace coolBlue
         private void BarButtonItem_ItemClick_3(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
             Tags Tags1 = new Tags();
-            Tags1.Show();
+            Tags1.ShowDialog();
+           
 
 
         }
@@ -784,7 +785,7 @@ namespace coolBlue
         private void BarButtonItem_ItemClick_4(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
             Classes Classes1 = new Classes();
-            Classes1.Show();
+            Classes1.ShowDialog();
 
         }
 

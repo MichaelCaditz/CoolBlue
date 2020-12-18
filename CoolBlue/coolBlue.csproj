@@ -131,6 +131,9 @@
     <Compile Include="editSubCat.xaml.cs">
       <DependentUpon>editSubCat.xaml</DependentUpon>
     </Compile>
+    <Compile Include="editTag.xaml.cs">
+      <DependentUpon>editTag.xaml</DependentUpon>
+    </Compile>
     <Compile Include="editVendor.xaml.cs">
       <DependentUpon>editVendor.xaml</DependentUpon>
     </Compile>
@@ -156,6 +159,11 @@
     </Compile>
     <Compile Include="reportViewer.xaml.cs">
       <DependentUpon>reportViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="tagDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>tagDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Tags.xaml.cs">
       <DependentUpon>Tags.xaml</DependentUpon>
@@ -192,6 +200,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="editSubCat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="editTag.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -306,6 +318,17 @@
     </None>
     <None Include="RegisterDataSet.xss">
       <DependentUpon>RegisterDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="tagDataSet.xsc">
+      <DependentUpon>tagDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="tagDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>tagDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="tagDataSet.xss">
+      <DependentUpon>tagDataSet.xsd</DependentUpon>
     </None>
     <None Include="vendorDataSet.xsc">
       <DependentUpon>vendorDataSet.xsd</DependentUpon>

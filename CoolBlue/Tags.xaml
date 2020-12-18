@@ -17,8 +17,12 @@
         <dxr:RibbonControl DockPanel.Dock="Top" RibbonStyle="Office2010">
             <dxr:RibbonDefaultPageCategory>
                 <dxr:RibbonPage Caption="">
-                    <dxr:RibbonPageGroup Caption="
-                                         "/>
+                    <dxr:RibbonPageGroup Caption="">
+                        <dxb:BarButtonItem Content="Tag Details" ItemClick="BarButtonItem_ItemClick" Glyph="{dx:DXImage Image=EditName_32x32.png}" LargeGlyph="{dx:DXImage Image=EditName_32x32.png}"/>
+                    </dxr:RibbonPageGroup>
+                    <dxr:RibbonPageGroup Caption="">
+                        <dxb:BarButtonItem Content="New Tag" ItemClick="BarButtonItem_ItemClick_1" Glyph="{dx:DXImage Image=Insert_32x32.png}" LargeGlyph="{dx:DXImage Image=Insert_32x32.png}"/>
+                    </dxr:RibbonPageGroup>
                 </dxr:RibbonPage>
             </dxr:RibbonDefaultPageCategory>
         </dxr:RibbonControl>

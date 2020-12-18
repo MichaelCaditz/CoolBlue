@@ -37,5 +37,30 @@ namespace coolBlue
             System.Windows.Data.CollectionViewSource uSP_getAllTagsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllTagsViewSource")));
             uSP_getAllTagsViewSource.View.MoveCurrentToFirst();
         }
+
+        private void BarButtonItem_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+
+        }
+
+        private void BarButtonItem_ItemClick_1(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+            System.Windows.Data.CollectionViewSource uSP_getAllTagsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllTagsViewSource")));
+
+            DataRowView drv = (DataRowView)uSP_getAllTagsViewSource.View.CurrentItem;
+            int catCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
+            editCat editCat1 = new editCat(catCurrent);
+            editCat1.ShowDialog();
+
+            coolBlue.EditDataSet editDataSet = ((coolBlue.EditDataSet)(this.FindResource("editDataSet"))); coolBlue.CategoriesDataSetTableAdapters.USP_getAllCatsTableAdapter categoriesDataSetUSP_getAllCatsTableAdapter = new coolBlue.CategoriesDataSetTableAdapters.USP_getAllCatsTableAdapter();
+            coolBlue.EditDataSetTableAdapters.USP_getAllTagsTableAdapter editDataSetUSP_getAllTagsTableAdapter = new coolBlue.EditDataSetTableAdapters.USP_getAllTagsTableAdapter();
+
+
+            editDataSet.EnforceConstraints = false;
+            editDataSetUSP_getAllTagsTableAdapter.Fill(editDataSet.USP_getAllTags);
+            editDataSet.EnforceConstraints = true;
+
+            uSP_getAllTagsViewSource.View.MoveCurrentToFirst();
+        }
     }
 }
