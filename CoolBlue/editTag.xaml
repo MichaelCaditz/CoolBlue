@@ -12,7 +12,7 @@
     Loaded="ThemedWindow_Loaded"
     >
     <dx:ThemedWindow.Resources>
-        <local:CategoriesDataSet x:Key="tagDataSet"/>
+        <local:tagDataSet x:Key="tagDataSet"/>
         <CollectionViewSource x:Key="uSP_getOneTagViewSource" Source="{Binding USP_getOneTag, Source={StaticResource tagDataSet}}"/>
         
     </dx:ThemedWindow.Resources>

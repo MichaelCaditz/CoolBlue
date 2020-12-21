@@ -160,6 +160,9 @@
     <Compile Include="reportViewer.xaml.cs">
       <DependentUpon>reportViewer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="tagDataSet.cs">
+      <DependentUpon>tagDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="tagDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
