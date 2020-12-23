@@ -27,10 +27,10 @@
             </dxr:RibbonDefaultPageCategory>
         </dxr:RibbonControl>
         <dxr:RibbonStatusBarControl DockPanel.Dock="Bottom"/>
-        <DataGrid x:Name="uSP_getAllTagsDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="0" RowDetailsVisibilityMode="VisibleWhenSelected">
+        <DataGrid x:Name="uSP_getAllTagsDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="0" RowDetailsVisibilityMode="VisibleWhenSelected" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="iDColumn" Binding="{Binding ID}" Header="ID" IsReadOnly="True" Width="SizeToHeader" Visibility="Hidden"/>
-                <DataGridTextColumn x:Name="cNameColumn" Binding="{Binding cName}" Header="Tag" Width="300"/>
+                <DataGridTextColumn x:Name="cNameColumn" Binding="{Binding cName}" Header="Tag" Width="300" FontWeight="Bold"/>
                 <DataGridTextColumn x:Name="cDescColumn" Binding="{Binding cDesc}" Header="Desc" Width="400"/>
                 <DataGridTemplateColumn x:Name="dtCreateDateColumn" Header="dt Create Date" Width="SizeToHeader" Visibility="Hidden">
                     <DataGridTemplateColumn.CellTemplate>

@@ -16,16 +16,21 @@
     <DockPanel LastChildFill="True" DataContext="{StaticResource uSP_getAllClassViewSource}">
         <dxr:RibbonControl DockPanel.Dock="Top" RibbonStyle="Office2010">
             <dxr:RibbonDefaultPageCategory>
-                <dxr:RibbonPage Caption="ribbonPage1">
-                    <dxr:RibbonPageGroup Caption="ribbonPageGroup1"/>
+                <dxr:RibbonPage Caption="">
+                    <dxr:RibbonPageGroup Caption="">
+                        <dxb:BarButtonItem Content="Class Details" ItemClick="BarButtonItem_ItemClick" Glyph="{dx:DXImage Image=EditName_32x32.png}" LargeGlyph="{dx:DXImage Image=EditName_32x32.png}"/>
+                    </dxr:RibbonPageGroup>
+                    <dxr:RibbonPageGroup Caption="">
+                        <dxb:BarButtonItem Content="New Class" ItemClick="BarButtonItem_ItemClick_1" Glyph="{dx:DXImage Image=Insert_32x32.png}" LargeGlyph="{dx:DXImage Image=Insert_32x32.png}"/>
+                    </dxr:RibbonPageGroup>
                 </dxr:RibbonPage>
             </dxr:RibbonDefaultPageCategory>
         </dxr:RibbonControl>
         <dxr:RibbonStatusBarControl DockPanel.Dock="Bottom"/>
-        <DataGrid x:Name="uSP_getAllClassDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="0" RowDetailsVisibilityMode="VisibleWhenSelected">
+        <DataGrid x:Name="uSP_getAllClassDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="0" RowDetailsVisibilityMode="VisibleWhenSelected" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="iDColumn" Binding="{Binding ID}" Header="ID" IsReadOnly="True" Width="SizeToHeader" Visibility="Hidden"/>
-                <DataGridTextColumn x:Name="cNameColumn" Binding="{Binding cName}" Header="Class" Width="300"/>
+                <DataGridTextColumn x:Name="cNameColumn" Binding="{Binding cName}" Header="Class" Width="300" FontWeight="Bold"/>
                 <DataGridTextColumn x:Name="cDescColumn" Binding="{Binding cDesc}" Header="Desc" Width="300"/>
                 <DataGridTemplateColumn x:Name="dtCreateDateColumn" Header="dt Create Date" Width="SizeToHeader" Visibility="Hidden">
                     <DataGridTemplateColumn.CellTemplate>

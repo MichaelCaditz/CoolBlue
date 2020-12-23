@@ -46,7 +46,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn x:Name="cNameColumn" Binding="{Binding cName}" Header="Category" Width="200"/>
+                <DataGridTextColumn x:Name="cNameColumn" Binding="{Binding cName}" Header="Category" Width="200" FontWeight="Bold"/>
                 <DataGridTextColumn x:Name="cNoteColumn" Binding="{Binding cNote}" Header="Note" Width="200"/>
             </DataGrid.Columns>
         </DataGrid>

@@ -1,4 +1,5 @@
 ﻿<dx:ThemedWindow
+    x:Class="coolBlue.editClass"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
@@ -6,15 +7,13 @@
     xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
     xmlns:local="clr-namespace:coolBlue"
     xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
-    x:Class="coolBlue.editTag"
-    Title="editTag" Height="600" Width="800" WindowStartupLocation="CenterScreen"
-
-    Loaded="ThemedWindow_Loaded"
+    Title="editClass" Height="600" Width="800" WindowStartupLocation="CenterScreen" Loaded="ThemedWindow_Loaded"
     >
+
     <dx:ThemedWindow.Resources>
-        <local:tagDataSet x:Key="tagDataSet"/>
-        <CollectionViewSource x:Key="uSP_getOneTagViewSource" Source="{Binding USP_getOneTag, Source={StaticResource tagDataSet}}"/>
-        
+        <local:classDataSet x:Key="classDataSet"/>
+        <CollectionViewSource x:Key="uSP_getOneClassViewSource" Source="{Binding USP_getOneClass, Source={StaticResource classDataSet}}"/>
+
     </dx:ThemedWindow.Resources>
     <DockPanel LastChildFill="True">
         <dxr:RibbonControl DockPanel.Dock="Top" RibbonStyle="Office2010">
@@ -30,7 +29,7 @@
         <dx:DXTabControl>
             <dx:DXTabItem Header="Tab">
                 <Grid Background="Transparent" >
-                    <Grid x:Name="grid1" Margin="0" DataContext="{StaticResource uSP_getOneTagViewSource}" Width="600" Height="200">
+                    <Grid x:Name="grid1" Margin="0" DataContext="{StaticResource uSP_getOneClassViewSource}" Width="600" Height="200">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>

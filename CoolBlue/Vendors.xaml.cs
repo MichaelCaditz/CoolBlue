@@ -188,6 +188,13 @@ namespace coolBlue
                 int vendorCurrent = TransactID1;
                 editVendor editVendor1 = new editVendor(vendorCurrent);
                 editVendor1.ShowDialog();
+                coolBlue.EditDataSet editDataSet = ((coolBlue.EditDataSet)(this.FindResource("editDataSet")));
+
+                coolBlue.EditDataSetTableAdapters.USP_getAllVendorsTableAdapter editDataSetUSP_getAllVendorsTableAdapter = new coolBlue.EditDataSetTableAdapters.USP_getAllVendorsTableAdapter();
+
+                editDataSetUSP_getAllVendorsTableAdapter.Fill(editDataSet.USP_getAllVendors);
+
+                uSP_getAllVendorsViewSource.View.MoveCurrentToFirst();
             }
         }
 

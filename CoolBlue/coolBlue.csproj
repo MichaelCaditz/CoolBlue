@@ -112,6 +112,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CategoriesDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="classDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>classDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Classes.xaml.cs">
       <DependentUpon>Classes.xaml</DependentUpon>
     </Compile>
@@ -122,6 +127,9 @@
     </Compile>
     <Compile Include="editCat.xaml.cs">
       <DependentUpon>editCat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="editClass.xaml.cs">
+      <DependentUpon>editClass.xaml</DependentUpon>
     </Compile>
     <Compile Include="EditDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -199,6 +207,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="editCat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="editClass.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -294,6 +306,17 @@
     </None>
     <None Include="CategoriesDataSet.xss">
       <DependentUpon>CategoriesDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="classDataSet.xsc">
+      <DependentUpon>classDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="classDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>classDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="classDataSet.xss">
+      <DependentUpon>classDataSet.xsd</DependentUpon>
     </None>
     <None Include="EditDataSet.xsc">
       <DependentUpon>EditDataSet.xsd</DependentUpon>
