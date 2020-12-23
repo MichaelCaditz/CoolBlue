@@ -122,6 +122,9 @@
     </Compile>
     <Compile Include="classes\userFunctions.cs" />
     <Compile Include="classes\ProgramSettings.cs" />
+    <Compile Include="Currency.xaml.cs">
+      <DependentUpon>Currency.xaml</DependentUpon>
+    </Compile>
     <Compile Include="editAccount.xaml.cs">
       <DependentUpon>editAccount.xaml</DependentUpon>
     </Compile>
@@ -199,6 +202,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Classes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Currency.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

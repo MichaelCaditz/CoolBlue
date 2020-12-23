@@ -784,8 +784,8 @@ namespace coolBlue
 
         private void BarButtonItem_ItemClick_4(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
-            Classes Classes1 = new Classes();
-            Classes1.ShowDialog();
+            Currency Currency1 = new Currency();
+            Currency1.ShowDialog();
 
         }
 
