@@ -930,10 +930,10 @@ namespace coolBlue
 
                 DataRowView drv = (DataRowView)uSP_getLineViewSource1.View.CurrentItem;
                 //accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
-                //notes = (DBNull.Value.Equals(drv["cNotes"]) == true ? "" : (string)drv["cNotes"]);
+                notes = (DBNull.Value.Equals(drv["cNote"]) == true ? "" : (string)drv["cNote"]);
 
                 // name = (DBNull.Value.Equals(drv["cName"]) == true ? "" : (string)drv["cName"]);
-                notes = "";
+               // notes = "";
                  lineID = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
 
                 // nCatID = (int)LookupEditCat.EditValue;

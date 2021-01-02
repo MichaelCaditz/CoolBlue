@@ -1,0 +1,62 @@
+﻿<dx:ThemedWindow
+    x:Class="coolBlue.editCurrency"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+    xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
+    xmlns:local="clr-namespace:coolBlue"
+    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+    Title="editCurrency" Height="600" Width="800" WindowStartupLocation="CenterScreen"
+    Loaded="ThemedWindow_Loaded"
+    >
+
+    <dx:ThemedWindow.Resources>
+        <local:tagDataSet x:Key="tagDataSet"/>
+        <CollectionViewSource x:Key="uSP_getOneTagViewSource" Source="{Binding USP_getOneTag, Source={StaticResource tagDataSet}}"/>
+
+    </dx:ThemedWindow.Resources>
+    <DockPanel LastChildFill="True">
+        <dxr:RibbonControl DockPanel.Dock="Top" RibbonStyle="Office2010">
+            <dxr:RibbonDefaultPageCategory>
+                <dxr:RibbonPage Caption="">
+                    <dxr:RibbonPageGroup Caption="">
+                        <dxb:BarButtonItem Content="Save" Glyph="{dx:DXImage Image=Save_32x32.png}" LargeGlyph="{dx:DXImage Image=Save_32x32.png}"  ItemClick="BarButtonItem_ItemClick"/>
+                    </dxr:RibbonPageGroup>
+                </dxr:RibbonPage>
+            </dxr:RibbonDefaultPageCategory>
+        </dxr:RibbonControl>
+        <dxr:RibbonStatusBarControl DockPanel.Dock="Bottom"/>
+        <dx:DXTabControl>
+            <dx:DXTabItem Header="Tab">
+                <Grid Background="Transparent" >
+                    <Grid x:Name="grid1" Margin="0" DataContext="{StaticResource uSP_getOneTagViewSource}" Width="600" Height="200">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Label VerticalAlignment="Center" Grid.Row="0" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="ID:"/>
+                        <TextBox x:Name="iDTextBox" Width="120" VerticalAlignment="Center" Text="{Binding ID, Mode=OneWay}" Grid.Row="0" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
+                        <Label VerticalAlignment="Center" Grid.Row="1" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="dt Create Date:"/>
+                        <DatePicker x:Name="dtCreateDateDatePicker" VerticalAlignment="Center" SelectedDate="{Binding dtCreateDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="1" Margin="3" HorizontalAlignment="Left" Grid.Column="1"/>
+                        <Label VerticalAlignment="Center" Grid.Row="2" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Name:"/>
+                        <TextBox x:Name="cNameTextBox" Width="180" VerticalAlignment="Center" Text="{Binding cName, Mode=TwoWay, NotifyOnValidationError=true, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=true}" Grid.Row="2" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
+                        <Label VerticalAlignment="Center" Grid.Row="3" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Description:"/>
+                        <TextBox x:Name="cNotesTextBox" Width="240" VerticalAlignment="Center" Text="{Binding cDesc, Mode=TwoWay, NotifyOnValidationError=true, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=true}" Grid.Row="3" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
+
+                    </Grid>
+                </Grid>
+            </dx:DXTabItem>
+            <dx:DXTabItem Header="Tab">
+                <Grid Background="Transparent"/>
+            </dx:DXTabItem>
+        </dx:DXTabControl>
+    </DockPanel>
+</dx:ThemedWindow>

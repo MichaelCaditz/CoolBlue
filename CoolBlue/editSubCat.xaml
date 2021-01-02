@@ -63,8 +63,8 @@
                                 <ControlTemplate>
                                     <dxg:GridControl Name="PART_GridControl" AutoExpandAllGroups="True">
                                         <dxg:GridControl.Columns>
-                                            <dxg:GridColumn FieldName="cName" AllowMoving="False"/>
-                                            <dxg:GridColumn FieldName="cNotes" AllowMoving="False"/>
+                                            <dxg:GridColumn FieldName="cName" Header="Category"   AllowMoving="False"/>
+                                            <dxg:GridColumn FieldName="cNotes" Header="Note" AllowMoving="False"/>
                                         </dxg:GridControl.Columns>
                                         <dxg:GridControl.View>
                                             <dxg:TableView AutoWidth="True" ShowGroupPanel="False" ShowTotalSummary="False" AllowEditing="False" NavigationStyle="Row" 

@@ -74,7 +74,7 @@
                         <TextBox x:Name="cDecryptedCV" Width="120" VerticalAlignment="Center" Text="{Binding cDecryptedCV, Mode=TwoWay, NotifyOnValidationError=true, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=true}" Grid.Row="7" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
 
                         <Label VerticalAlignment="Center" Grid.Row="10" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Category:"/>
-                        <dxg:LookUpEdit x:Name="LookupEditCat" PopupHeight="600" PopupWidth="500" PopupMinHeight="100" PopupMinWidth="100" DisplayMember="cName" 
+                        <dxg:LookUpEdit x:Name="LookupEditCat" PopupHeight="600" PopupWidth="300" PopupMinHeight="100" PopupMinWidth="100" DisplayMember="cName" 
                 ValueMember="ID" AutoPopulateColumns="false" AutoComplete="True" IncrementalFiltering="True" ImmediatePopup="True" 
                 IsPopupAutoWidth="False" Width="230" Grid.Column="1" TabIndex="0" FontSize="11"
                 FontFamily="/LDAddonModules;component/Fonts/Merriweather-Regular.ttf#Merriweather" Margin="3,3,0,3" ItemsSource="{Binding Source={StaticResource uSP_getAllCatsViewSource}}" IsSynchronizedWithCurrentItem="True" Grid.Row="10" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5">
@@ -96,8 +96,8 @@
                                             <dxg:TableView AutoWidth="True" ShowGroupPanel="False" ShowTotalSummary="False" AllowEditing="False" NavigationStyle="Row" 
                                                     AllowFixedColumnMenu="True" ShowCheckBoxSelectorInGroupRow="False" ShowHorizontalLines="False" ShowVerticalLines="False" AllowBestFit="True" ShowCheckBoxSelectorColumn="False" ShowColumnHeaders="False" ShowAutoFilterRow="True" ShowGroupedColumns="True" RowMinHeight="26" />
                                         </dxg:GridControl.View>
-                                        <dxg:GridColumn FieldName="cName" AllowMoving="False"/>
-                                        <dxg:GridColumn FieldName="cNotes" AllowMoving="False"/>
+                                        <dxg:GridColumn FieldName="cName" Header="Category"  AllowMoving="False"/>
+                                        <dxg:GridColumn FieldName="cNotes" Header="Note" AllowMoving="False"/>
                                     </dxg:GridControl>
                                 </ControlTemplate>
                             </dxg:LookUpEdit.PopupContentTemplate>
@@ -118,8 +118,8 @@
                                             <dxg:TableView AutoWidth="True" ShowGroupPanel="False" ShowTotalSummary="False" AllowEditing="False" NavigationStyle="Row" 
                                                     AllowFixedColumnMenu="True" AllowBestFit="True" ShowAutoFilterRow="True" ShowGroupedColumns="True" RowMinHeight="26" />
                                         </dxg:GridControl.View>
-                                        <dxg:GridColumn FieldName="cName" AllowMoving="False"/>
-                                        <dxg:GridColumn FieldName="cNotes" AllowMoving="False"/>
+                                        <dxg:GridColumn FieldName="cName" Header="Name" AllowMoving="False"/>
+                                        <dxg:GridColumn FieldName="cNotes" Header="Note"  AllowMoving="False"/>
                                     </dxg:GridControl>
                                 </ControlTemplate>
                             </dxg:LookUpEdit.PopupContentTemplate>

@@ -356,6 +356,10 @@
                                     <Setter Property="Background" Value="#FFA63B13" />
                                     <Setter Property="Foreground" Value="White" />
                                 </Trigger>
+                                <Trigger Property="dxg:GridViewBase.IsFocusedCell" Value="True">
+                                    <Setter Property="Background" Value="White" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </Trigger>
 
                             </Style.Triggers>
                         </Style>
@@ -367,17 +371,18 @@
 
             </dxg:GridControl.View>
 
-            <dxg:GridColumn Binding="{Binding ID}"  FieldName="ID" Header="ID" Width="50" AllowSorting="True"/>
-            <dxg:GridColumn FieldName="dtCreateDate" Header="Date" AllowSorting="True" SortOrder="Descending"/>
+            <dxg:GridColumn Binding="{Binding ID}"  FieldName="ID" Header="ID" Width="50" ReadOnly="True" AllowFocus="False"  AllowSorting="True"/>
+            <dxg:GridColumn FieldName="dtTransDate" Header="Date" ReadOnly="False" AllowFocus="True"  AllowSorting="True" SortOrder="Descending"/>
 
 
 
 
 
 
-            <dxg:GridColumn   FieldName="totalDr" Header="Dr" Width="80" AllowSorting="True"/>
+            <dxg:GridColumn   FieldName="totalDr" Header="Dr" Width="80" ReadOnly="True" AllowFocus="False"  AllowSorting="True"/>
 
-            <dxg:GridColumn   FieldName="totalCr" Header="Cr" Width="80" AllowSorting="True"/>
+            <dxg:GridColumn   FieldName="totalCr" Header="Cr" Width="80" ReadOnly="True"  AllowFocus="False" AllowSorting="True"/>
+            <dxg:GridColumn   FieldName="cNote" Header="Note" Width="80" ReadOnly="False"  AllowFocus="True" AllowSorting="True"/>
 
 
 
@@ -526,7 +531,9 @@
                                ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" 
                                ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" 
                                ShowValidationAttributeErrors="False" ShowVerticalLines="False"
-                               CustomCellAppearance="TableView_OnCustomCellAppearance">
+                               CustomCellAppearance="TableView_OnCustomCellAppearance"
+                               NewItemRowPosition="Bottom"
+                               >
 
                     <dxg:TableView.FormatConditions>
                         <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id">
@@ -536,13 +543,15 @@
                     <dxg:TableView.RowStyle>
                         <Style TargetType="{x:Type dxg:RowControl}">
                             <Style.Triggers>
-
-
-                                <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
+                                <!--<Trigger Property="dxg:GridViewBase.IsFocusedCell" Value="True">
+                                    <Setter Property="Background" Value="LightCyan" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                </Trigger>-->
+                                <!--<Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
                                     <Setter Property="Background" Value="#FF16574E" />
                                     <Setter Property="Foreground" Value="White" />
-                                </Trigger>
-
+                                </Trigger>-->
+                                
                             </Style.Triggers>
                         </Style>
                     </dxg:TableView.RowStyle>
@@ -555,6 +564,10 @@
                                 <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
                                     <Setter Property="Background" Value="#FF16574E" />
                                     <Setter Property="Foreground" Value="White" />
+                                </Trigger>
+                                <Trigger Property="dxg:GridViewBase.IsFocusedCell" Value="True">
+                                    <Setter Property="Background" Value="LightCyan" />
+                                    <Setter Property="Foreground" Value="Black" />
                                 </Trigger>
 
                             </Style.Triggers>
@@ -572,7 +585,7 @@
                                 <dxg:GridControl x:Name="PART_GridControl" ShowBorder="True" >
                                     <dxg:GridControl.View>
                                         <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" 
-                               ShowColumnHeaders ="True"  Grid.ColumnSpan="1" Margin="0,0,0,0"  
+                               ShowColumnHeaders ="False"  Grid.ColumnSpan="1" Margin="0,0,0,0"  
                                 ShowBandsPanel="False" ShowBandsInCustomizationForm="False" 
                                ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" 
                                ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" 
@@ -619,7 +632,7 @@
 
 
 
-            <dxg:GridColumn   FieldName="nAccountID_D" Header="Dr Account" Width="220"  AllowSorting="True" AllowEditing="True">
+            <dxg:GridColumn   FieldName="nAccountID_D" Header="Dr Account" Width="220"  AllowSorting="True" AllowEditing="True" SortOrder="Ascending" SortIndex="0">
                 <dxg:GridColumn.EditSettings>
                     <dxg:LookUpEditSettings  ItemsSource="{Binding Source={StaticResource uSP_getAllAccountsForSplitViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="ID" DisplayMember="cName" >
                         <dxg:LookUpEditSettings.PopupContentTemplate>
@@ -627,7 +640,7 @@
                                 <dxg:GridControl x:Name="PART_GridControl" ShowBorder="True" >
                                     <dxg:GridControl.View>
                                         <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" 
-                               ShowColumnHeaders ="True"  Grid.ColumnSpan="1" Margin="0,0,0,0"  
+                               ShowColumnHeaders ="False"  Grid.ColumnSpan="1" Margin="0,0,0,0"  
                                 ShowBandsPanel="False" ShowBandsInCustomizationForm="False" 
                                ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" 
                                ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" 
