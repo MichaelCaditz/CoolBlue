@@ -869,8 +869,11 @@ namespace coolBlue
            
             //MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
         }
-
         private void SimpleButton_Click_2(object sender, RoutedEventArgs e)
+        {
+            updateLine();
+        }
+          private void updateLine()
         {
             //string message = "Date Changed";
             //string caption = "CoolBlue";
@@ -1119,6 +1122,23 @@ namespace coolBlue
         private void Properties_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
             goDetails();
+        }
+
+        
+        private void TableView_FocusedRowChanged(object sender, FocusedRowChangedEventArgs e)
+        {
+            //updateLine();
+        }
+
+        private void TableView_ValidateRow(object sender, GridRowValidationEventArgs e)
+        {
+            updateLine();
+        }
+
+        private void Exit_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+            //System.Windows.Application.Current.Shutdown();
+            this.Close();
         }
     }
 }
