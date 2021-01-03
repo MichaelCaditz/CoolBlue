@@ -356,7 +356,7 @@ namespace coolBlue
                 registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent);
                 registerDataSetUSP_getLineTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
                 registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent);
-               // registerDataSet.EnforceConstraints = true;
+                // registerDataSet.EnforceConstraints = true;
 
                 //uSP_getLineDataGrid.
 
@@ -365,7 +365,21 @@ namespace coolBlue
                 //resetButtons();
 
 
-                LocateNewLine(TransactID1);
+                //LocateNewLine(TransactID1);
+                //coolBlue.RegisterDataSet registerDataSet = ((coolBlue.RegisterDataSet)(this.FindResource("registerDataSet")));
+                DataTable dt = registerDataSet.USP_getLine;
+                DataRow foundRow = dt.Rows.Find(TransactID1);
+
+
+                int rowHandle = dt.Rows.IndexOf(foundRow);
+
+
+                uSP_getLineDataGrid.View.FocusedRowHandle = rowHandle;
+                SplitsView.AddNewRow();
+                int newRowHandle = DataControlBase.NewItemRowHandle;
+                uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nAccountID_C",accountCurrent);
+                uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nAccountID_D", accountCurrent);
+                SplitsView.Focus();
                 //LineView.Focus();
             }
 
@@ -382,9 +396,9 @@ namespace coolBlue
             //uSP_getLineUSP_getSplitViewSource.View.
 
 
-            SplitsView.AddNewRow();
+           
             
-            int newRowHandle = DataControlBase.NewItemRowHandle;
+            
            
             
             
@@ -394,10 +408,10 @@ namespace coolBlue
             ////SplitsView.FocusedRowHandle = 99;
             //SplitsView.MoveFirstRow();
             //SplitsView.ShowEditor();
-            uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nAmount_C", "77.99");
+           
             //SplitsView.DataControl.RefreshData();
 
-            SplitsView.Focus();
+            
             
             
             
@@ -440,15 +454,15 @@ namespace coolBlue
 
                 // DataRow dr = DataTable1.Rows.Find([primary key value]);
 
-                coolBlue.RegisterDataSet registerDataSet = ((coolBlue.RegisterDataSet)(this.FindResource("registerDataSet")));
-                DataTable dt = registerDataSet.USP_getLine;
-                DataRow foundRow = dt.Rows.Find(IDToFind);
+                //coolBlue.RegisterDataSet registerDataSet = ((coolBlue.RegisterDataSet)(this.FindResource("registerDataSet")));
+                //DataTable dt = registerDataSet.USP_getLine;
+                //DataRow foundRow = dt.Rows.Find(IDToFind);
 
 
-                int rowHandle = dt.Rows.IndexOf(foundRow);
+                //int rowHandle = dt.Rows.IndexOf(foundRow);
 
 
-                uSP_getLineDataGrid.View.FocusedRowHandle = rowHandle;
+                //uSP_getLineDataGrid.View.FocusedRowHandle = rowHandle;
 
 
 
@@ -888,10 +902,10 @@ namespace coolBlue
             accountsDataSetUSP_getAllAccountsTableAdapter.Fill(accountsDataSet.USP_getAllAccounts);
             accountsDataSet.EnforceConstraints = true;
 
-            registerDataSet.EnforceConstraints = false;
+            //registerDataSet.EnforceConstraints = false;
             registerDataSetUSP_getAllAccountsForSplitTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
             registerDataSetUSP_getAllAccountsForSplitTableAdapter.Fill(registerDataSet.USP_getAllAccountsForSplit);
-            registerDataSet.EnforceConstraints = true;
+            //registerDataSet.EnforceConstraints = true; //throws error
 
 
             //uSP_getAllAccountTypesViewSource.View.MoveCurrentToFirst();

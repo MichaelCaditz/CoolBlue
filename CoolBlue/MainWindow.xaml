@@ -378,15 +378,10 @@
 
 
 
-
-
-
             <dxg:GridColumn   FieldName="totalDr" Header="Dr" Width="80" ReadOnly="True" AllowFocus="False"  AllowSorting="True"/>
 
             <dxg:GridColumn   FieldName="totalCr" Header="Cr" Width="80" ReadOnly="True"  AllowFocus="False" AllowSorting="True"/>
             <dxg:GridColumn   FieldName="cNote" Header="Note" Width="80" ReadOnly="False"  AllowFocus="True" AllowSorting="True"/>
-
-
 
 
 
@@ -634,7 +629,7 @@
 
 
 
-            <dxg:GridColumn   FieldName="nAccountID_D" Header="Dr Account" Width="220"  AllowSorting="True" AllowEditing="True" SortOrder="Ascending" SortIndex="0">
+            <dxg:GridColumn   Name ="nAccountID_D" FieldName="nAccountID_D" Header="Dr Account" Width="220"  AllowSorting="True" AllowEditing="True" SortOrder="Ascending" SortIndex="0">
                 <dxg:GridColumn.EditSettings>
                     <dxg:LookUpEditSettings  ItemsSource="{Binding Source={StaticResource uSP_getAllAccountsForSplitViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="ID" DisplayMember="cName" >
                         <dxg:LookUpEditSettings.PopupContentTemplate>
@@ -692,7 +687,7 @@
             <dxg:GridColumn   FieldName="nAmount_D" Header="Dr Amount" Width="100"  AllowSorting="True" AllowEditing="True"/>
 
 
-            <dxg:GridColumn   FieldName="nAccountID_C" Header="Cr Account" Width="220"  AllowSorting="True" AllowEditing="True">
+            <dxg:GridColumn   Name ="nAccountID_C"  FieldName="nAccountID_C" Header="Cr Account" Width="220"  AllowSorting="True" AllowEditing="True">
                 <dxg:GridColumn.EditSettings>
                     <dxg:LookUpEditSettings  ItemsSource="{Binding Source={StaticResource uSP_getAllAccountsForSplitViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="ID" DisplayMember="cName" >
                         <dxg:LookUpEditSettings.PopupContentTemplate>

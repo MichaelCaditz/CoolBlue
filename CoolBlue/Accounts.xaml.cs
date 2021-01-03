@@ -138,6 +138,12 @@ namespace coolBlue
             int nAccountTypeID = (drv == null ? 0 : DBNull.Value.Equals(drv["nAccountTypeID"]) == true ? 0 : (int)drv["nAccountTypeID"]);
             int nCatID = (drv == null ? 0 : DBNull.Value.Equals(drv["nCatID"]) == true ? 0 : (int)drv["nCatID"]);
             int nCurrencyID = (drv == null ? 0 : DBNull.Value.Equals(drv["nCurrencyID"]) == true ? 0 : (int)drv["nCurrencyID"]);
+
+            System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesViewSource")));
+            DataRowView drv1 = (DataRowView)uSP_getAllAccountTypesViewSource.View.CurrentItem;
+            int nID = (drv1 == null ? 0 : DBNull.Value.Equals(drv1["ID"]) == true ? 0 : (int)drv1["ID"]);
+
+
             string cPIN = "";
             string cCV = "";
             string cExpiry = "";
@@ -147,7 +153,7 @@ namespace coolBlue
             // int wasnull = 0;
 
 
-            if (nAccountTypeID == 0)
+            if (nID == 0)
             {
 
                 
@@ -187,7 +193,7 @@ namespace coolBlue
                     //cmd3.Transaction = trans1;
                     cmd3.Parameters.Clear();
                     cmd3.CommandText = "dbo.USP_insertAccount";
-                    cmd3.Parameters.AddWithValue("@nAccountTypeID", nAccountTypeID);
+                    cmd3.Parameters.AddWithValue("@nAccountTypeID", nID);
                     cmd3.Parameters.AddWithValue("@nCatID", nCatID);
                     cmd3.Parameters.AddWithValue("@nCurrencyID", nCurrencyID);
                     cmd3.Parameters.AddWithValue("cPIN", cPIN);
@@ -236,7 +242,7 @@ namespace coolBlue
                 editAccount1.ShowDialog();
                 coolBlue.EditDataSet editDataSet = ((coolBlue.EditDataSet)(this.FindResource("editDataSet")));
 
-                System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesViewSource")));
+                //System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesViewSource")));
                 //System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesUSP_getAllAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesUSP_getAllAccountsViewSource")));
                 //System.Windows.Data.CollectionViewSource uSP_getAllAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountsViewSource")));
                // System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesUSP_getAllAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesUSP_getAllAccountsViewSource")));
