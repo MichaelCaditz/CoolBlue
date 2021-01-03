@@ -363,11 +363,50 @@ namespace coolBlue
                 //uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.MoveCurrentToPosition(0);
 
                 //resetButtons();
+
+
                 LocateNewLine(TransactID1);
+                //LineView.Focus();
             }
 
+            //System.Windows.Data.CollectionViewSource uSP_getLineUSP_getSplitViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getLineUSP_getSplitViewSource")));
+            
+
+            //DataRowView drv3;
+            // uSP_getLineUSP_getSplitViewSource.View.SourceCollection.
+
+           // registerDataSet.USP_getSplit.Rows.Add();
+           // SplitsView.ShowEditor();
+
+            //DataRowView drv3 = (DataRowView)uSP_getLineUSP_getSplitViewSource.View.CurrentItem;
+            //uSP_getLineUSP_getSplitViewSource.View.
 
 
+            SplitsView.AddNewRow();
+            
+            int newRowHandle = DataControlBase.NewItemRowHandle;
+           
+            
+            
+            
+            
+            //SplitsView.DataControl.RefreshData();
+            ////SplitsView.FocusedRowHandle = 99;
+            //SplitsView.MoveFirstRow();
+            //SplitsView.ShowEditor();
+            uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nAmount_C", "77.99");
+            //SplitsView.DataControl.RefreshData();
+
+            SplitsView.Focus();
+            
+            
+            
+            
+            
+            
+            
+            
+            // uSP_getSplitDataGrid.SetCellValue(uSP_getSplitDataGrid.View.FocusedRowHandle, uSP_getSplitDataGrid.Columns["nAmount_C"], 44);
 
         }
 
@@ -379,16 +418,40 @@ namespace coolBlue
         public void LocateNewLine(int IDToFind)
         {
             //int IDToFind = Convert.ToInt32(txt_IdUnique.Text);
+           
 
             if (IDToFind > -1 )
    {
-                foreach (DataRowView drv in (BindingListCollectionView)uSP_getLineDataGrid.ItemsSource)
-                    if ((int)drv["ID"] == IDToFind)
-                    {
-                        // This is the data row view record you want...
-                        uSP_getLineDataGrid.SelectedItem = drv;
-                        break;
-                    }
+                //foreach (DataRowView drv in (BindingListCollectionView)uSP_getLineDataGrid.ItemsSource)
+                //    if ((int)drv["ID"] == IDToFind)
+                //    {
+                //        // This is the data row view record you want...
+                //        uSP_getLineDataGrid.SelectedItem = drv;
+                       
+                       
+                //        break;
+                //    }
+
+
+
+                //System.Windows.Data.CollectionViewSource uSP_getLineViewSource1 = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getLineViewSource1")));
+                // uSP_getLineViewSource1.View.MoveCurrentTo(0);
+                //int rowHandle = uSP_getLineDataGrid.GetRowHandleByListIndex(IDToFind);
+
+                // DataRow dr = DataTable1.Rows.Find([primary key value]);
+
+                coolBlue.RegisterDataSet registerDataSet = ((coolBlue.RegisterDataSet)(this.FindResource("registerDataSet")));
+                DataTable dt = registerDataSet.USP_getLine;
+                DataRow foundRow = dt.Rows.Find(IDToFind);
+
+
+                int rowHandle = dt.Rows.IndexOf(foundRow);
+
+
+                uSP_getLineDataGrid.View.FocusedRowHandle = rowHandle;
+
+
+
             }
         }
 
@@ -1139,6 +1202,11 @@ namespace coolBlue
         {
             //System.Windows.Application.Current.Shutdown();
             this.Close();
+        }
+
+        private void SplitsView_ShowingEditor(object sender, ShowingEditorEventArgs e)
+        {
+            e.Cancel = false;
         }
     }
 }

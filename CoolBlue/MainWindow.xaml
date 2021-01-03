@@ -321,7 +321,7 @@
 
         <dxg:GridControl Name="uSP_getLineDataGrid" AutoGenerateColumns="None"  EnableSmartColumnsGeneration="False"  ItemsSource="{Binding Source={StaticResource uSP_getLineViewSource1}}" Margin="0,0,4,0" Grid.Column="2" Grid.Row="3" Grid.RowSpan="8" SelectionMode="Row">
             <dxg:GridControl.View>
-                <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" 
+                <dxg:TableView Name="LineView"  AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" 
                                ShowColumnHeaders ="True"  Grid.ColumnSpan="1" Margin="0,0,0,0"  
                                 ShowBandsPanel="False" ShowBandsInCustomizationForm="False" 
                                ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" 
@@ -526,7 +526,7 @@
 
         <dxg:GridControl Name="uSP_getSplitDataGrid" AutoGenerateColumns="None"  EnableSmartColumnsGeneration="False"  ItemsSource="{Binding Source={StaticResource uSP_getLineUSP_getSplitViewSource}}" Margin="0,0,0,0" Grid.Column=" 3" Grid.RowSpan="8" Grid.Row="3" Grid.ColumnSpan="5" SelectionMode="Row">
             <dxg:GridControl.View>
-                <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" 
+                <dxg:TableView Name="SplitsView"  AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" 
                                ShowColumnHeaders ="True"  Grid.ColumnSpan="1" Margin="0,0,0,0"  
                                 ShowBandsPanel="False" ShowBandsInCustomizationForm="False" 
                                ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" 
@@ -745,7 +745,7 @@
             </dxg:GridColumn>
 
 
-            <dxg:GridColumn   FieldName="nAmount_C" Header="Cr Amount" Width="100" AllowSorting="True" AllowEditing="True"/>
+            <dxg:GridColumn  Name="nAmount_C" FieldName="nAmount_C" Header="Cr Amount" Width="100" AllowSorting="True" AllowEditing="True"/>
 
 
             <dxg:GridColumn   FieldName="nTagID" Header="Tag" Width="220"  AllowSorting="True" AllowEditing="True">
