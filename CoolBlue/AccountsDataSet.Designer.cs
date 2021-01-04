@@ -43,6 +43,7 @@ namespace coolBlue {
             base.Tables.CollectionChanged += schemaChangedHandler;
             base.Relations.CollectionChanged += schemaChangedHandler;
             this.EndInit();
+            this.InitExpressions();
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -54,6 +55,9 @@ namespace coolBlue {
                 global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler1 = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
                 this.Tables.CollectionChanged += schemaChangedHandler1;
                 this.Relations.CollectionChanged += schemaChangedHandler1;
+                if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.ExcludeSchema)) {
+                    this.InitExpressions();
+                }
                 return;
             }
             string strSchema = ((string)(info.GetValue("XmlSchema", typeof(string))));
@@ -80,6 +84,7 @@ namespace coolBlue {
             }
             else {
                 this.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
+                this.InitExpressions();
             }
             this.GetSerializationData(info, context);
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -161,6 +166,7 @@ namespace coolBlue {
         public override global::System.Data.DataSet Clone() {
             AccountsDataSet cln = ((AccountsDataSet)(base.Clone()));
             cln.InitVars();
+            cln.InitExpressions();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
         }
@@ -255,7 +261,7 @@ namespace coolBlue {
             this.Namespace = "http://tempuri.org/AccountsDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableUSP_getAllAccounts = new USP_getAllAccountsDataTable();
+            this.tableUSP_getAllAccounts = new USP_getAllAccountsDataTable(false);
             base.Tables.Add(this.tableUSP_getAllAccounts);
             this.tableUSP_getAllAccountTypes = new USP_getAllAccountTypesDataTable();
             base.Tables.Add(this.tableUSP_getAllAccountTypes);
@@ -348,6 +354,12 @@ namespace coolBlue {
             return type;
         }
         
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitExpressions() {
+            this.USP_getAllAccounts.cLabelColumn.Expression = "currencySymbol+\'   \'+cName";
+        }
+        
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void USP_getAllAccountsRowChangeEventHandler(object sender, USP_getAllAccountsRowChangeEvent e);
         
@@ -390,12 +402,23 @@ namespace coolBlue {
             
             private global::System.Data.DataColumn columncurrencySymbol;
             
+            private global::System.Data.DataColumn columncLabel;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public USP_getAllAccountsDataTable() {
+            public USP_getAllAccountsDataTable() : 
+                    this(false) {
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public USP_getAllAccountsDataTable(bool initExpressions) {
                 this.TableName = "USP_getAllAccounts";
                 this.BeginInit();
                 this.InitClass();
+                if ((initExpressions == true)) {
+                    this.InitExpressions();
+                }
                 this.EndInit();
             }
             
@@ -529,6 +552,14 @@ namespace coolBlue {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn cLabelColumn {
+                get {
+                    return this.columncLabel;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -564,6 +595,33 @@ namespace coolBlue {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public USP_getAllAccountsRow AddUSP_getAllAccountsRow(System.DateTime dtCreateDate, USP_getAllAccountTypesRow parentUSP_getAllAccountTypesRowByFK_USP_getAllAccountTypes_USP_getAllAccounts, string cName, string cNote, string cDesc, int nCurrencyID, string currencyName, string cDecryptedPIN, string cDecryptedCV, string cDecryptedExpiry, string cDecryptedAcctNum, string currencySymbol, string cLabel) {
+                USP_getAllAccountsRow rowUSP_getAllAccountsRow = ((USP_getAllAccountsRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        dtCreateDate,
+                        null,
+                        cName,
+                        cNote,
+                        cDesc,
+                        nCurrencyID,
+                        currencyName,
+                        cDecryptedPIN,
+                        cDecryptedCV,
+                        cDecryptedExpiry,
+                        cDecryptedAcctNum,
+                        currencySymbol,
+                        cLabel};
+                if ((parentUSP_getAllAccountTypesRowByFK_USP_getAllAccountTypes_USP_getAllAccounts != null)) {
+                    columnValuesArray[2] = parentUSP_getAllAccountTypesRowByFK_USP_getAllAccountTypes_USP_getAllAccounts[0];
+                }
+                rowUSP_getAllAccountsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowUSP_getAllAccountsRow);
+                return rowUSP_getAllAccountsRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public USP_getAllAccountsRow AddUSP_getAllAccountsRow(System.DateTime dtCreateDate, USP_getAllAccountTypesRow parentUSP_getAllAccountTypesRowByFK_USP_getAllAccountTypes_USP_getAllAccounts, string cName, string cNote, string cDesc, int nCurrencyID, string currencyName, string cDecryptedPIN, string cDecryptedCV, string cDecryptedExpiry, string cDecryptedAcctNum, string currencySymbol) {
                 USP_getAllAccountsRow rowUSP_getAllAccountsRow = ((USP_getAllAccountsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -579,7 +637,8 @@ namespace coolBlue {
                         cDecryptedCV,
                         cDecryptedExpiry,
                         cDecryptedAcctNum,
-                        currencySymbol};
+                        currencySymbol,
+                        null};
                 if ((parentUSP_getAllAccountTypesRowByFK_USP_getAllAccountTypes_USP_getAllAccounts != null)) {
                     columnValuesArray[2] = parentUSP_getAllAccountTypesRowByFK_USP_getAllAccountTypes_USP_getAllAccounts[0];
                 }
@@ -625,6 +684,7 @@ namespace coolBlue {
                 this.columncDecryptedExpiry = base.Columns["cDecryptedExpiry"];
                 this.columncDecryptedAcctNum = base.Columns["cDecryptedAcctNum"];
                 this.columncurrencySymbol = base.Columns["currencySymbol"];
+                this.columncLabel = base.Columns["cLabel"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -656,6 +716,8 @@ namespace coolBlue {
                 base.Columns.Add(this.columncDecryptedAcctNum);
                 this.columncurrencySymbol = new global::System.Data.DataColumn("currencySymbol", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncurrencySymbol);
+                this.columncLabel = new global::System.Data.DataColumn("cLabel", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncLabel);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AutoIncrement = true;
@@ -665,6 +727,7 @@ namespace coolBlue {
                 this.columncName.MaxLength = 50;
                 this.columncNote.MaxLength = 2147483647;
                 this.columncDesc.MaxLength = 50;
+                this.columncLabel.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -683,6 +746,12 @@ namespace coolBlue {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
                 return typeof(USP_getAllAccountsRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitExpressions() {
+                this.cLabelColumn.Expression = "currencySymbol+\'   \'+cName";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1926,6 +1995,22 @@ namespace coolBlue {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string cLabel {
+                get {
+                    try {
+                        return ((string)(this[this.tableUSP_getAllAccounts.cLabelColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'cLabel\' in table \'USP_getAllAccounts\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUSP_getAllAccounts.cLabelColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public USP_getAllAccountTypesRow USP_getAllAccountTypesRow {
                 get {
                     return ((USP_getAllAccountTypesRow)(this.GetParentRow(this.Table.ParentRelations["FK_USP_getAllAccountTypes_USP_getAllAccounts"])));
@@ -2077,6 +2162,18 @@ namespace coolBlue {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetcurrencySymbolNull() {
                 this[this.tableUSP_getAllAccounts.currencySymbolColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IscLabelNull() {
+                return this.IsNull(this.tableUSP_getAllAccounts.cLabelColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetcLabelNull() {
+                this[this.tableUSP_getAllAccounts.cLabelColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3153,7 +3250,7 @@ namespace coolBlue.AccountsDataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual AccountsDataSet.USP_getAllAccountsDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            AccountsDataSet.USP_getAllAccountsDataTable dataTable = new AccountsDataSet.USP_getAllAccountsDataTable();
+            AccountsDataSet.USP_getAllAccountsDataTable dataTable = new AccountsDataSet.USP_getAllAccountsDataTable(true);
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

@@ -142,6 +142,7 @@
               <xs:element name="cDecryptedExpiry" msprop:Generator_ColumnVarNameInTable="columncDecryptedExpiry" msprop:Generator_ColumnPropNameInRow="cDecryptedExpiry" msprop:Generator_ColumnPropNameInTable="cDecryptedExpiryColumn" msprop:Generator_UserColumnName="cDecryptedExpiry" type="xs:string" minOccurs="0" />
               <xs:element name="cDecryptedAcctNum" msprop:Generator_ColumnVarNameInTable="columncDecryptedAcctNum" msprop:Generator_ColumnPropNameInRow="cDecryptedAcctNum" msprop:Generator_ColumnPropNameInTable="cDecryptedAcctNumColumn" msprop:Generator_UserColumnName="cDecryptedAcctNum" type="xs:string" minOccurs="0" />
               <xs:element name="currencySymbol" msprop:Generator_ColumnVarNameInTable="columncurrencySymbol" msprop:Generator_ColumnPropNameInRow="currencySymbol" msprop:Generator_ColumnPropNameInTable="currencySymbolColumn" msprop:Generator_UserColumnName="currencySymbol" type="xs:string" minOccurs="0" />
+              <xs:element name="cLabel" msdata:ReadOnly="true" msdata:Expression="currencySymbol+'   '+cName" msprop:Generator_ColumnVarNameInTable="columncLabel" msprop:Generator_ColumnPropNameInRow="cLabel" msprop:Generator_ColumnPropNameInTable="cLabelColumn" msprop:Generator_UserColumnName="cLabel" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
