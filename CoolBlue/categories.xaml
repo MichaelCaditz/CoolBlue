@@ -25,14 +25,14 @@
                         <dxb:BarButtonItem Content="New Category" Glyph="{dx:DXImage Image=Insert_32x32.png}" LargeGlyph="{dx:DXImage Image=Insert_32x32.png}" ItemClick="BarButtonItem_ItemClick"/>
                     </dxr:RibbonPageGroup>
                 </dxr:RibbonPage>
-                <dxr:RibbonPage Caption="Sub Categories">
+                <!--<dxr:RibbonPage Caption="Sub Categories">
                     <dxr:RibbonPageGroup Caption="">
                         <dxb:BarButtonItem Content="Sub Category Details" Glyph="{dx:DXImage Image=EditName_32x32.png}" LargeGlyph="{dx:DXImage Image=EditName_32x32.png}" ItemClick="BarButtonItem_ItemClick_2"/>
                     </dxr:RibbonPageGroup>
                     <dxr:RibbonPageGroup Caption="">
                         <dxb:BarButtonItem Content="New Sub Category" Glyph="{dx:DXImage Image=Insert_32x32.png}" LargeGlyph="{dx:DXImage Image=Insert_32x32.png}" ItemClick="BarButtonItem_ItemClick_3"/>
                     </dxr:RibbonPageGroup>
-                </dxr:RibbonPage>
+                </dxr:RibbonPage>-->
             </dxr:RibbonDefaultPageCategory>
         </dxr:RibbonControl>
         <dxr:RibbonStatusBarControl DockPanel.Dock="Bottom"/>
@@ -50,13 +50,13 @@
                 <DataGridTextColumn x:Name="cNoteColumn" Binding="{Binding cNote}" Header="Note" Width="200"/>
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid x:Name="uSP_getAllSubCatsDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding Source={StaticResource uSP_getAllCatsUSP_getAllSubCatsViewSource}}" Margin="0,120,0,0" RowDetailsVisibilityMode="VisibleWhenSelected" Width="400" Height="400" IsReadOnly="True" VerticalAlignment="Top">
+        <!--<DataGrid x:Name="uSP_getAllSubCatsDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding Source={StaticResource uSP_getAllCatsUSP_getAllSubCatsViewSource}}" Margin="0,120,0,0" RowDetailsVisibilityMode="VisibleWhenSelected" Width="400" Height="400" IsReadOnly="True" VerticalAlignment="Top">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="cNameColumn1" Binding="{Binding cName}" Header="Sub Category" Width="200"/>
                 <DataGridTextColumn x:Name="iDColumn1" Binding="{Binding ID}" Header="ID" IsReadOnly="True" Width="SizeToHeader" Visibility="Hidden"/>
                 <DataGridTextColumn x:Name="nCatIDColumn" Binding="{Binding nCatID}" Header="n Cat ID" Width="SizeToHeader" Visibility="Hidden"/>
                 <DataGridTextColumn x:Name="cNotesColumn" Binding="{Binding cNotes}" Header="Note" Width="200"/>
             </DataGrid.Columns>
-        </DataGrid>
+        </DataGrid>-->
     </DockPanel>
 </dx:ThemedWindow>
