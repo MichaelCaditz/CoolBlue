@@ -126,7 +126,7 @@
             <dxr:RibbonDefaultPageCategory>
 
 
-                <dxr:RibbonPage Caption="Home">
+                <!--<dxr:RibbonPage Caption="Home">
                     <dxr:RibbonPageGroup Caption="">
                         <dxb:BarButtonItem x:Name="Exit" Content="Exit" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=New_32x32.png}" ItemClick="Exit_ItemClick"/>
                         <dxb:BarItemSeparator/>
@@ -141,33 +141,43 @@
                         <dxb:BarItemSeparator/>
                         <dxb:BarButtonItem x:Name="saveAsItem" Content="Save As" LargeGlyph="{dx:DXImage Image=SaveAs_32x32.png}"/>
                     </dxr:RibbonPageGroup>
-                </dxr:RibbonPage>
+                </dxr:RibbonPage>-->
+                <!--<dxr:RibbonPage Caption="File">
+                    <dxr:RibbonPageGroup Caption="Transactions">
+                        <dxb:BarButtonItem Content="By Tag" ItemClick="BarButtonItem_ItemClick"/>
+                        <dxb:BarButtonItem Content="All" ItemClick="BarButtonItem_ItemClick_1"/>
+                    </dxr:RibbonPageGroup>
+                </dxr:RibbonPage>-->
 
+                <dxr:RibbonPage Caption="Home">
+                    <dxr:RibbonPageGroup Caption="Program">
+                        <dxb:BarButtonItem Content="Exit" ItemClick="Exit_ItemClick" Glyph="{dx:DXImage Image=ColumnsThree_32x32.png}" LargeGlyph="{dx:DXImage Image=CalculateNow_32x32.png}" />
 
-                <dxr:RibbonPage Caption="Lists">
-
-
+                        <dxb:BarButtonItem Content="Settings" ItemClick="BarButtonItem_ItemClick" Glyph="{dx:DXImage Image=ColumnsThree_32x32.png}" LargeGlyph="{dx:DXImage Image=CalculateNow_32x32.png}" />
+                    </dxr:RibbonPageGroup>
                     <dxr:RibbonPageGroup Caption="">
+                    </dxr:RibbonPageGroup>
+
+                    <!--<dxr:RibbonPageGroup Caption="">
+                        <dxb:BarButtonItem x:Name="Exit1" Content="Exit" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=New_32x32.png}" ItemClick="Exit_ItemClick"/>
+                    </dxr:RibbonPageGroup>-->
+                    <dxr:RibbonPageGroup Caption="Configure">
                         <dxb:BarButtonItem Content="Accounts" ItemClick="BarButtonItem_ItemClick_5" Glyph="{dx:DXImage Image=ColumnsThree_32x32.png}" LargeGlyph="{dx:DXImage Image=CalculateNow_32x32.png}" />
-                    </dxr:RibbonPageGroup>
-
-                    <dxr:RibbonPageGroup Caption="">
                         <dxb:BarButtonItem Content="Vendors" ItemClick="BarButtonItem_ItemClick_2" Glyph="{dx:DXImage Image=UserGroup_32x32.png}" LargeGlyph="{dx:DXImage Image=UserGroup_32x32.png}"/>
-                    </dxr:RibbonPageGroup>
-
-                    <dxr:RibbonPageGroup Caption="">
-
                         <dxb:BarButtonItem Content="Categories" ItemClick="BarButtonItem_ItemClick_6" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=LineStyle_32x32.png}"/>
-                    </dxr:RibbonPageGroup>
-                    <dxr:RibbonPageGroup Caption="">
                         <dxb:BarButtonItem Content="Tags" ItemClick="BarButtonItem_ItemClick_3" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=CheckBox_32x32.png}"/>
-                    </dxr:RibbonPageGroup>
-                    <dxr:RibbonPageGroup Caption="">
                         <dxb:BarButtonItem Content="Classes" AllowDrop="True" ItemClick="BarButtonItem_ItemClick_4" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=Cards_32x32.png}"/>
-                    </dxr:RibbonPageGroup>
-                    <dxr:RibbonPageGroup Caption="">
                         <dxb:BarButtonItem Content="Currencies" AllowDrop="True" ItemClick="BarButtonItem_ItemClick_4" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=Currency2_32x32.png}"/>
+
                     </dxr:RibbonPageGroup>
+
+                    
+
+                    
+                    
+                    <dxr:RibbonPageGroup Caption="">
+                    </dxr:RibbonPageGroup>
+                  
 
 
 
