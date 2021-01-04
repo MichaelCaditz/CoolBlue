@@ -875,6 +875,8 @@ namespace coolBlue {
             
             private global::System.Data.DataColumn columndtCreateDate;
             
+            private global::System.Data.DataColumn columnnAccountingTypeID;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public USP_getAllAccountTypesDataTable() {
@@ -942,6 +944,14 @@ namespace coolBlue {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn nAccountingTypeIDColumn {
+                get {
+                    return this.columnnAccountingTypeID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -977,13 +987,14 @@ namespace coolBlue {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public USP_getAllAccountTypesRow AddUSP_getAllAccountTypesRow(string cName, string cNote, System.DateTime dtCreateDate) {
+            public USP_getAllAccountTypesRow AddUSP_getAllAccountTypesRow(string cName, string cNote, System.DateTime dtCreateDate, int nAccountingTypeID) {
                 USP_getAllAccountTypesRow rowUSP_getAllAccountTypesRow = ((USP_getAllAccountTypesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         cName,
                         cNote,
-                        dtCreateDate};
+                        dtCreateDate,
+                        nAccountingTypeID};
                 rowUSP_getAllAccountTypesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowUSP_getAllAccountTypesRow);
                 return rowUSP_getAllAccountTypesRow;
@@ -1017,6 +1028,7 @@ namespace coolBlue {
                 this.columncName = base.Columns["cName"];
                 this.columncNote = base.Columns["cNote"];
                 this.columndtCreateDate = base.Columns["dtCreateDate"];
+                this.columnnAccountingTypeID = base.Columns["nAccountingTypeID"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1030,6 +1042,8 @@ namespace coolBlue {
                 base.Columns.Add(this.columncNote);
                 this.columndtCreateDate = new global::System.Data.DataColumn("dtCreateDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndtCreateDate);
+                this.columnnAccountingTypeID = new global::System.Data.DataColumn("nAccountingTypeID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnAccountingTypeID);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AutoIncrement = true;
@@ -2252,6 +2266,23 @@ namespace coolBlue {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int nAccountingTypeID {
+                get {
+                    try {
+                        return ((int)(this[this.tableUSP_getAllAccountTypes.nAccountingTypeIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nAccountingTypeID\' in table \'USP_getAllAccountTypes\' is DBN" +
+                                "ull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUSP_getAllAccountTypes.nAccountingTypeIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IscNameNull() {
                 return this.IsNull(this.tableUSP_getAllAccountTypes.cNameColumn);
             }
@@ -2284,6 +2315,18 @@ namespace coolBlue {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetdtCreateDateNull() {
                 this[this.tableUSP_getAllAccountTypes.dtCreateDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsnAccountingTypeIDNull() {
+                return this.IsNull(this.tableUSP_getAllAccountTypes.nAccountingTypeIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetnAccountingTypeIDNull() {
+                this[this.tableUSP_getAllAccountTypes.nAccountingTypeIDColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3381,6 +3424,7 @@ namespace coolBlue.AccountsDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("cName", "cName");
             tableMapping.ColumnMappings.Add("cNote", "cNote");
             tableMapping.ColumnMappings.Add("dtCreateDate", "dtCreateDate");
+            tableMapping.ColumnMappings.Add("nAccountingTypeID", "nAccountingTypeID");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

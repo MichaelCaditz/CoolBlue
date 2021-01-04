@@ -209,16 +209,16 @@
         <!--<Grid HorizontalAlignment="Left" Height="100" Margin="527,5,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100" Grid.Column="3"/>-->
 
 
-        <dxg:GridControl Name="uSP_getAllAccountTypesDataGrid" AutoGenerateColumns="None"  EnableSmartColumnsGeneration="False"  ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesViewSource}}" Margin="5,0,10,0" Grid.Row="3" Grid.RowSpan="3" Grid.ColumnSpan="2" SelectionMode="Row">
+        <dxg:GridControl Name="uSP_getAllAccountTypesDataGrid" AutoGenerateColumns="None"  EnableSmartColumnsGeneration="False"  ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesViewSource}}" Margin="5,0,10,0" Grid.Row="3" Grid.RowSpan="3" Grid.ColumnSpan="2" SelectionMode="Row" ScrollViewer.CanContentScroll="True">
             <dxg:GridControl.View>
                 <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" 
                                ShowColumnHeaders ="False"  Grid.ColumnSpan="1" Margin="0,0,0,0"  
-                               Width="223" Height="459" ShowBandsPanel="False" ShowBandsInCustomizationForm="False" 
+                               Width="223" Height="220" ShowBandsPanel="False" ShowBandsInCustomizationForm="False" 
                                ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" 
                                ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" 
                                ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" 
                                ShowValidationAttributeErrors="False" ShowVerticalLines="False"
-                               CustomCellAppearance="TableView_OnCustomCellAppearance">
+                               CustomCellAppearance="TableView_OnCustomCellAppearance" ScrollingMode="Smart">
 
                     <dxg:TableView.FormatConditions>
                         <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id">
@@ -552,7 +552,7 @@
                                ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" 
                                ShowValidationAttributeErrors="False" ShowVerticalLines="False"
                                CustomCellAppearance="TableView_OnCustomCellAppearance"
-                               NewItemRowPosition="Bottom"
+                               NewItemRowPosition="Bottom" ValidateRow="SplitsView_ValidateRow"
                                >
 
                     <dxg:TableView.FormatConditions>
@@ -944,7 +944,6 @@
 
         <ComboBox Grid.Column="2" Margin="0,48,10,0" Grid.Row="2" IsSynchronizedWithCurrentItem = "True" SelectedItem="" DisplayMemberPath="cLabel" ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesUSP_getAllAccountsViewSource}}" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
         <dx:SimpleButton Content="New Transaction" Grid.Column="2" HorizontalAlignment="Left" Height="27" Margin="1,17,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120" Click="SimpleButton_Click_1" RenderTransformOrigin="-1.733,0.444"/>
-        <dx:SimpleButton x:Name="btnSaveConfig" Content="Save Config" Grid.Column="4" HorizontalAlignment="Left" Height="34" Margin="0,10,0,0" Grid.Row="2" VerticalAlignment="Top" Width="85" Click="btnSaveConfig_Click" Grid.ColumnSpan="2"/>
         <dxe:TextEdit x:Name="TextEditTotalDr" Grid.Column="2" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="170,21,0,0" Grid.Row="11" VerticalAlignment="Top" Width="80" Mask="F" MaskType="Numeric"/>
         <dxe:TextEdit x:Name="TextEditTotalCr" Grid.Column="2" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="252,21,0,0" Grid.Row="11" VerticalAlignment="Top" Width="80" Mask="F" MaskType="Numeric"/>
         <dxe:TextEdit x:Name="TextEditBalance" Grid.Column="2" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="336,21,0,0" Grid.Row="11" VerticalAlignment="Top" Width="100" Mask="F" MaskType="Numeric" FontWeight="Normal" Padding="0,0,5,0" Background="Black" Foreground="White"/>

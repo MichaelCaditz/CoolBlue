@@ -272,11 +272,13 @@ namespace coolBlue
         {
             int TransactID1 = 0;
             System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesUSP_getAllAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesUSP_getAllAccountsViewSource")));
+            System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesViewSource")));
 
             coolBlue.RegisterDataSet registerDataSet = ((coolBlue.RegisterDataSet)(this.FindResource("registerDataSet")));
 
 
             int accountCurrent = 0;
+            int accountingTypeCurrent = 0;
             int wasnull = 0;
             wasnull = (uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View == null ? 1 : 0);
             if (wasnull == 1)
@@ -310,11 +312,17 @@ namespace coolBlue
             {
                 DataRowView drv = (DataRowView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentItem;
                 accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
+
+                DataRowView drv1 = (DataRowView)uSP_getAllAccountTypesViewSource.View.CurrentItem;
+                accountingTypeCurrent = (drv1 == null ? 0 : DBNull.Value.Equals(drv1["nAccountingTypeID"]) == true ? 0 : (int)drv1["nAccountingTypeID"]);
+
+
+
             }
 
 
 
-            
+
 
 
             SqlConnection conn = new SqlConnection() { ConnectionString = ProgramSettings.coolblueconnectionString };
@@ -377,9 +385,37 @@ namespace coolBlue
                 uSP_getLineDataGrid.View.FocusedRowHandle = rowHandle;
                 SplitsView.AddNewRow();
                 int newRowHandle = DataControlBase.NewItemRowHandle;
-                uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nAccountID_C",accountCurrent);
-                uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nAccountID_D", accountCurrent);
+
+                switch (accountingTypeCurrent)
+                {
+
+                    case 1000:
+
+                        uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nAccountID_C", accountCurrent);
+
+                        break;
+
+                    case 1001:
+
+                        uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nAccountID_C", accountCurrent);
+
+                        break;
+
+                    case 1003:
+
+                        uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nAccountID_D", accountCurrent);
+
+                        break;
+
+                }
+
+
+
+
+               
                 SplitsView.Focus();
+
+
                 //LineView.Focus();
             }
 
@@ -1221,6 +1257,11 @@ namespace coolBlue
         private void SplitsView_ShowingEditor(object sender, ShowingEditorEventArgs e)
         {
             e.Cancel = false;
+        }
+
+        private void SplitsView_ValidateRow(object sender, GridRowValidationEventArgs e)
+        {
+            saveConfig();
         }
     }
 }
