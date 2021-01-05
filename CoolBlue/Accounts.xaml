@@ -28,8 +28,8 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Name = "c0"  Width="100"/>
                 <ColumnDefinition Name = "c1" Width="100"/>
-                <ColumnDefinition Name = "c2" Width="100"/>
-                <ColumnDefinition Name = "c3" Width="100"/>
+                <ColumnDefinition Name = "c2" Width="70"/>
+                <ColumnDefinition Name = "c3" Width="60"/>
                 <ColumnDefinition Name = "c4" Width="100"/>
                 <ColumnDefinition Name = "c5" Width="100"/>
                 <ColumnDefinition Name = "c6" Width="100"/>
@@ -73,7 +73,7 @@
 
             <dxg:GridControl Name="uSP_getAllAccountTypesDataGrid" AutoGenerateColumns="None"  EnableSmartColumnsGeneration="False" 
                          ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesViewSource}}" 
-                         Margin="0" Width="328" Grid.Row="2" Grid.RowSpan="3" Grid.ColumnSpan="6" SelectionMode="Row" HorizontalAlignment="Left" VerticalAlignment="Top">
+                         Margin="3,0,0,0" Grid.Row="2" Grid.ColumnSpan="6" SelectionMode="Row" HorizontalAlignment="Left" VerticalAlignment="Top">
                 <dxg:GridControl.View>
                     <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" 
                                ShowColumnHeaders ="True"  Grid.ColumnSpan="1" Margin="0,0,0,0"  
@@ -134,7 +134,7 @@
             </dxg:GridControl>
             <dxg:GridControl Name="uSP_getAllAccountsDataGrid" AutoGenerateColumns="None"  EnableSmartColumnsGeneration="False" 
                          ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesUSP_getAllAccountsViewSource}}" 
-                         Margin="0" Width="360" Grid.Row="2" Grid.RowSpan="4" Grid.ColumnSpan="9" SelectionMode="Row" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top">
+                         Margin="3,12,0,0" Grid.Row="3" Grid.RowSpan="3" Grid.ColumnSpan="9" SelectionMode="Row" HorizontalAlignment="Left" VerticalAlignment="Top">
             <dxg:GridControl.View>
                 <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" 
                                ShowColumnHeaders ="True"  Grid.ColumnSpan="1" Margin="0,0,0,0"  
