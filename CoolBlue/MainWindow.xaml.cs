@@ -1284,7 +1284,7 @@ namespace coolBlue
 
             if (((TableView)SplitsView).HasValidationError)
             {
-                return;
+                e.Cancel=true;
             }
         }
     }
