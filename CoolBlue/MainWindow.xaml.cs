@@ -1251,6 +1251,17 @@ namespace coolBlue
         private void Exit_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
             //System.Windows.Application.Current.Shutdown();
+
+            // (TableView)SplitsView.
+
+           
+            New.Focus(); //needed in case user was still typing in splitsview so validate runs
+
+            if (((TableView)SplitsView).HasValidationError)
+            {
+                return;
+            }
+
             this.Close();
         }
 
@@ -1261,7 +1272,20 @@ namespace coolBlue
 
         private void SplitsView_ValidateRow(object sender, GridRowValidationEventArgs e)
         {
+
+          
+
             saveConfig();
+        }
+
+        private void DXRibbonWindow_Closing(object sender, CancelEventArgs e)
+        {
+            New.Focus(); //needed in case user was still typing in splitsview so validate runs
+
+            if (((TableView)SplitsView).HasValidationError)
+            {
+                return;
+            }
         }
     }
 }
