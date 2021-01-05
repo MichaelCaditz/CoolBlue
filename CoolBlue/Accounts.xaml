@@ -1,24 +1,59 @@
 ﻿<dx:ThemedWindow
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-	xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
-    xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
-    xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
+    
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+     xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+     xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
+     xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+     xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" 
+     xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+     xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui"
+     xmlns:dxp="http://schemas.devexpress.com/winfx/2008/xaml/printing"
+    
     xmlns:local="clr-namespace:coolBlue"
-    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
-    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
     x:Class="coolBlue.Accounts"
-    Title="Account" Height="700" Width="800"
-    Loaded="ThemedWindow_Loaded" WindowStartupLocation="CenterScreen"
+    Title="Accounts" Height="600" Width="800"
+    Loaded="ThemedWindow_Loaded" WindowStartupLocation="CenterScreen" HorizontalAlignment="Center" VerticalAlignment="Center"
     >
     <dx:ThemedWindow.Resources>
         <local:EditDataSet x:Key="editDataSet"/>
         <CollectionViewSource x:Key="uSP_getAllAccountTypesViewSource" Source="{Binding USP_getAllAccountTypes, Source={StaticResource editDataSet}}"/>
         <CollectionViewSource x:Key="uSP_getAllAccountTypesUSP_getAllAccountsViewSource" Source="{Binding FK_USP_getAllAccountTypes_USP_getAllAccounts, Source={StaticResource uSP_getAllAccountTypesViewSource}}"/>
     </dx:ThemedWindow.Resources>
-    <DockPanel LastChildFill="True" DataContext="{StaticResource uSP_getAllAccountTypesViewSource}">
-        <dxr:RibbonControl DockPanel.Dock="Top" RibbonStyle="Office2010">
-            <dxr:RibbonDefaultPageCategory>
+
+    <dxlc:ScrollBox HorizontalAlignment="Left"  Grid.Row="0" Grid.RowSpan="100" Grid.ColumnSpan="100" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="0" Padding="0" DragScrolling="False" Background="{x:Null}" Width="800" Height="600" >
+
+        <Grid  IsEnabled="True" Margin="0,0" Background="#FF093472" ScrollViewer.HorizontalScrollBarVisibility="Visible" Width="800" Height="600">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Name = "c0"  Width="100"/>
+                <ColumnDefinition Name = "c1" Width="100"/>
+                <ColumnDefinition Name = "c2" Width="100"/>
+                <ColumnDefinition Name = "c3" Width="100"/>
+                <ColumnDefinition Name = "c4" Width="100"/>
+                <ColumnDefinition Name = "c5" Width="100"/>
+                <ColumnDefinition Name = "c6" Width="100"/>
+                <ColumnDefinition Name = "c7" Width="*"/>
+
+
+
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Name="r0" Height="100" MinHeight="0"/>
+                <RowDefinition Name="r1" Height="60" MinHeight="0"/>
+                <RowDefinition Name="r2" Height="100"/>
+
+                <RowDefinition Name="r3" Height="80" MinHeight="0"/>
+                <RowDefinition Name="r4" Height="80" MinHeight="0"/>
+                <RowDefinition Name="r5" Height="100" MinHeight="0"/>
+                <RowDefinition Name="r6" Height="40" MinHeight="0"/>
+                
+            </Grid.RowDefinitions>
+
+
+            <!--<DockPanel LastChildFill="True" DataContext="{StaticResource uSP_getAllAccountTypesViewSource}">-->
+            <dxr:RibbonControl  RibbonStyle="Office2010" Grid.ColumnSpan="100" AllowCustomization="False" IsHiddenRibbonCollapsed="False" Grid.RowSpan="3" Margin="3,0,-3,0" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" VerticalAlignment="Top">
+                <dxr:RibbonDefaultPageCategory>
                 <dxr:RibbonPage Caption="">
                     <dxr:RibbonPageGroup Caption="" SmallGlyph="{dx:DXImage Image=Insert_16x16.png}" Glyph="{dx:DXImage Image=Insert_32x32.png}">
                         <dxb:BarButtonItem Content="Account Details" Glyph="{dx:DXImage Image=EditName_32x32.png}" LargeGlyph="{dx:DXImage Image=EditName_32x32.png}" ItemClick="BarButtonItem_ItemClick"/>
@@ -29,12 +64,18 @@
                 </dxr:RibbonPage>
             </dxr:RibbonDefaultPageCategory>
         </dxr:RibbonControl>
-        <dxr:RibbonStatusBarControl DockPanel.Dock="Bottom"/>
-        <dxg:GridControl Name="uSP_getAllAccountTypesDataGrid" AutoGenerateColumns="None"  EnableSmartColumnsGeneration="False" 
+
+            <dxr:RibbonStatusBarControl Height="26" VerticalAlignment="Bottom" Grid.Row="6" Grid.ColumnSpan="11" Foreground="#FF405FB2"  Background="#FF405FB2" >
+                <dxr:RibbonStatusBarControl.RightItems>
+                    <dxb:BarButtonItem x:Name="printItem" Content="Print" Glyph="{dx:DXImage Image=Print_16x16.png}"/>
+                </dxr:RibbonStatusBarControl.RightItems>
+            </dxr:RibbonStatusBarControl>
+
+            <dxg:GridControl Name="uSP_getAllAccountTypesDataGrid" AutoGenerateColumns="None"  EnableSmartColumnsGeneration="False" 
                          ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesViewSource}}" 
-                         Margin="10,101,0,101" Width="328" Height="300" Grid.Row="0" Grid.RowSpan="1" Grid.ColumnSpan="1" SelectionMode="Row">
-            <dxg:GridControl.View>
-                <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" 
+                         Margin="0" Width="328" Grid.Row="2" Grid.RowSpan="3" Grid.ColumnSpan="6" SelectionMode="Row" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <dxg:GridControl.View>
+                    <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" 
                                ShowColumnHeaders ="True"  Grid.ColumnSpan="1" Margin="0,0,0,0"  
                                ShowBandsPanel="False" ShowBandsInCustomizationForm="False" 
                                ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" 
@@ -43,57 +84,57 @@
                                ShowValidationAttributeErrors="False" ShowVerticalLines="False"
                                CustomCellAppearance="TableView_OnCustomCellAppearance">
 
-                    <dxg:TableView.FormatConditions>
-                        <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id">
-                            <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold"/>
-                        </dxg:FormatCondition>
-                    </dxg:TableView.FormatConditions>
-                    <dxg:TableView.RowStyle>
-                        <Style TargetType="{x:Type dxg:RowControl}">
-                            <Style.Triggers>
+                        <dxg:TableView.FormatConditions>
+                            <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id">
+                                <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold"/>
+                            </dxg:FormatCondition>
+                        </dxg:TableView.FormatConditions>
+                        <dxg:TableView.RowStyle>
+                            <Style TargetType="{x:Type dxg:RowControl}">
+                                <Style.Triggers>
 
 
-                                <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
-                                    <Setter Property="Background" Value="Green" />
-                                    <Setter Property="Foreground" Value="White" />
-                                </Trigger>
+                                    <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
+                                        <Setter Property="Background" Value="Green" />
+                                        <Setter Property="Foreground" Value="White" />
+                                    </Trigger>
 
-                            </Style.Triggers>
-                        </Style>
-                    </dxg:TableView.RowStyle>
+                                </Style.Triggers>
+                            </Style>
+                        </dxg:TableView.RowStyle>
 
-                    <dxg:TableView.CellStyle>
-                        <Style TargetType="{x:Type dxg:LightweightCellEditor }">
-                            <Style.Triggers>
-
-
-                                <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
-                                    <Setter Property="Background" Value="Green" />
-                                    <Setter Property="Foreground" Value="White" />
-                                </Trigger>
-
-                            </Style.Triggers>
-                        </Style>
-                    </dxg:TableView.CellStyle>
-                </dxg:TableView>
-            </dxg:GridControl.View>
-
-            <dxg:GridColumn Binding="{Binding cName}"   Header="Name" Width="160">
-                <dxg:GridColumn.DisplayTemplate  >
-                    <ControlTemplate >
-                        <TextBlock  x:Name="PART_Editor" FontWeight="Bold" />
-                    </ControlTemplate>
-                </dxg:GridColumn.DisplayTemplate>
-            </dxg:GridColumn>
+                        <dxg:TableView.CellStyle>
+                            <Style TargetType="{x:Type dxg:LightweightCellEditor }">
+                                <Style.Triggers>
 
 
-            <dxg:GridColumn Binding="{Binding cNote}"  FieldName="Note" Header="Note" Width="160"/>
+                                    <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
+                                        <Setter Property="Background" Value="Green" />
+                                        <Setter Property="Foreground" Value="White" />
+                                    </Trigger>
+
+                                </Style.Triggers>
+                            </Style>
+                        </dxg:TableView.CellStyle>
+                    </dxg:TableView>
+                </dxg:GridControl.View>
+
+                <dxg:GridColumn Binding="{Binding cName}"   Header="Account Type" Width="160">
+                    <dxg:GridColumn.DisplayTemplate  >
+                        <ControlTemplate >
+                            <TextBlock  x:Name="PART_Editor" FontWeight="Bold" />
+                        </ControlTemplate>
+                    </dxg:GridColumn.DisplayTemplate>
+                </dxg:GridColumn>
 
 
-        </dxg:GridControl>
-        <dxg:GridControl Name="uSP_getAllAccountsDataGrid" AutoGenerateColumns="None"  EnableSmartColumnsGeneration="False" 
+                <dxg:GridColumn Binding="{Binding cNote}"  FieldName="Note" Header="Note" Width="160"/>
+
+
+            </dxg:GridControl>
+            <dxg:GridControl Name="uSP_getAllAccountsDataGrid" AutoGenerateColumns="None"  EnableSmartColumnsGeneration="False" 
                          ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesUSP_getAllAccountsViewSource}}" 
-                         Margin="0,101" Width="400" Height="300" Grid.Row="0" Grid.RowSpan="1" Grid.ColumnSpan="1" SelectionMode="Row">
+                         Margin="0" Width="360" Grid.Row="2" Grid.RowSpan="4" Grid.ColumnSpan="9" SelectionMode="Row" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top">
             <dxg:GridControl.View>
                 <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" 
                                ShowColumnHeaders ="True"  Grid.ColumnSpan="1" Margin="0,0,0,0"  
@@ -102,7 +143,7 @@
                                ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" 
                                ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" 
                                ShowValidationAttributeErrors="False" ShowVerticalLines="False"
-                               CustomCellAppearance="TableView_OnCustomCellAppearance" RowDoubleClick="TableView_RowDoubleClick">
+                               CustomCellAppearance="TableView_OnCustomCellAppearance" RowDoubleClick="TableView_RowDoubleClick" HorizontalAlignment="Left" VerticalAlignment="Top">
                     <dxg:TableView.RowCellMenuCustomizations>
                         <dxb:BarButtonItem Name="Properties" Content="Properties" ItemClick="Properties_ItemClick" />
                         
@@ -148,7 +189,7 @@
                 </dxg:TableView>
             </dxg:GridControl.View>
 
-            <dxg:GridColumn Binding="{Binding cName}"   Header="Name" Width="160">
+            <dxg:GridColumn Binding="{Binding cName}"     Header="Account Name" Width="160" SortOrder="Ascending" SortIndex="0">
                 <dxg:GridColumn.DisplayTemplate  >
                     <ControlTemplate >
                         <TextBlock  x:Name="PART_Editor" FontWeight="Normal" />
@@ -161,7 +202,8 @@
             <dxg:GridColumn Binding="{Binding cCurrency}"  FieldName="cCurrency" Header="Currency" Width="100"/>
 
         </dxg:GridControl>
+        </Grid>
 
+    </dxlc:ScrollBox>
 
-    </DockPanel>
 </dx:ThemedWindow>

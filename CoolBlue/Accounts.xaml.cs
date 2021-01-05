@@ -96,8 +96,8 @@ namespace coolBlue
 
             DataRowView drv = (DataRowView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentItem;
             int accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
-            editAccount editAccoun1 = new editAccount(accountCurrent);
-            editAccoun1.ShowDialog();
+            editAccount editAccount1 = new editAccount(accountCurrent);
+            editAccount1.ShowDialog();
 
             coolBlue.EditDataSet editDataSet = ((coolBlue.EditDataSet)(this.FindResource("editDataSet")));
 

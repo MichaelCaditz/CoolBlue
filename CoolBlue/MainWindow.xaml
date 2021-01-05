@@ -5,7 +5,13 @@
         xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
         xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
-        xmlns:local="clr-namespace:coolBlue" xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" xmlns:AccountsDataSetTableAdapters="clr-namespace:coolBlue.AccountsDataSetTableAdapters" xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol" xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui" xmlns:dxp="http://schemas.devexpress.com/winfx/2008/xaml/printing" x:Class="coolBlue.MainWindow"
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" 
+        xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+        xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui"
+        xmlns:dxp="http://schemas.devexpress.com/winfx/2008/xaml/printing"
+        x:Class="coolBlue.MainWindow"
+        xmlns:AccountsDataSetTableAdapters="clr-namespace:coolBlue.AccountsDataSetTableAdapters"
+        xmlns:local="clr-namespace:coolBlue" 
         Title="CoolBlue" Height="1138" Width="1920" Loaded="DXRibbonWindow_Loaded" WindowStartupLocation="Manual" Background="#FFB4B4BB" Closing="DXRibbonWindow_Closing" WindowState="Maximized" ScrollViewer.VerticalScrollBarVisibility="Auto" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="#FFD4E80C" BorderEffectActiveColor="#FFF0E6E6" ShowActivated="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" WindowStyle="None">
     <dxr:DXRibbonWindow.Resources>
 
