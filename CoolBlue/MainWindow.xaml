@@ -6,7 +6,7 @@
         xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
         xmlns:local="clr-namespace:coolBlue" xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" xmlns:AccountsDataSetTableAdapters="clr-namespace:coolBlue.AccountsDataSetTableAdapters" xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol" xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui" xmlns:dxp="http://schemas.devexpress.com/winfx/2008/xaml/printing" x:Class="coolBlue.MainWindow"
-        Title="CoolBlue" Height="1200" Width="1800" Loaded="DXRibbonWindow_Loaded" WindowStartupLocation="Manual" WindowStyle="ThreeDBorderWindow" Background="#FF404383" Opacity="0.98" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Closing="DXRibbonWindow_Closing" WindowState="Maximized" ResizeMode="CanResizeWithGrip">
+        Title="CoolBlue" Height="1080" Width="1800" Loaded="DXRibbonWindow_Loaded" WindowStartupLocation="Manual" Background="#FF404383" Closing="DXRibbonWindow_Closing" WindowState="Maximized" ResizeMode="CanResizeWithGrip" ScrollViewer.VerticalScrollBarVisibility="Disabled" HorizontalAlignment="Center" VerticalAlignment="Center" WindowStyle="None">
     <dxr:DXRibbonWindow.Resources>
 
 
@@ -83,50 +83,52 @@
         <CollectionViewSource x:Key="uSP_getAllAccountsForSplitViewSource" Source="{Binding USP_getAllAccountsForSplit, Source={StaticResource registerDataSet}}"/>
     </dxr:DXRibbonWindow.Resources>
 
+    <dxlc:ScrollBox HorizontalAlignment="Left"  Grid.Row="0" Grid.RowSpan="11" Grid.ColumnSpan="7" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="0,30,0,0" Padding="0" >
 
 
-    <Grid DataContext="{StaticResource uSP_getLineViewSource}" IsEnabled="True" Margin="10,0">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="223"/>
-            <ColumnDefinition Width="15"/>
-            <ColumnDefinition Width="446"/>
-            <ColumnDefinition Width="297*"/>
-            <ColumnDefinition Width="57*"/>
-            <ColumnDefinition Width="240*"/>
-            <ColumnDefinition Width="297*"/>
-            <ColumnDefinition Width="297*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Name="r0" Height="100" MinHeight="0"/>
-            <RowDefinition Name="r1" Height="100" MinHeight="0"/>
-            <RowDefinition Name="r2" Height="100" MinHeight="0"/>
-            <RowDefinition Name="r3" Height="100" MinHeight="0"/>
-            <RowDefinition Name="r4" Height="60" MinHeight="0"/>
-            <RowDefinition Name="r5" Height="60" MinHeight="0"/>
-            <RowDefinition Name="r6" Height="10" MinHeight="0"/>
-            <RowDefinition Name="r7" Height="100" MinHeight="0"/>
-            <RowDefinition Name="r8" Height="100" MinHeight="0"/>
-            <RowDefinition Name="r9" Height="340" MinHeight="0"/>
-            <RowDefinition Name="r10" Height="60" MinHeight="0"/>
-            <RowDefinition Name="r11" Height="1" MinHeight="0"/>
-            <RowDefinition Name="r12" Height="*" MinHeight="0"/>
-        </Grid.RowDefinitions>
-
-
-
-
-
+        <Grid DataContext="{StaticResource uSP_getLineViewSource}" IsEnabled="True" Margin="10,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="223"/>
+                <ColumnDefinition Width="15"/>
+                <ColumnDefinition Width="446"/>
+                <ColumnDefinition Width="297*"/>
+                <ColumnDefinition Width="57*"/>
+                <ColumnDefinition Width="240*"/>
+                <ColumnDefinition Width="297*"/>
+                <ColumnDefinition Width="297*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Name="r0" Height="100" MinHeight="0"/>
+                <RowDefinition Name="r1" Height="40" MinHeight="0"/>
+                <RowDefinition Name="r2" Height="70"/>
+             
+                <RowDefinition Name="r3" Height="100" MinHeight="0"/>
+                <RowDefinition Name="r4" Height="60" MinHeight="0"/>
+                <RowDefinition Name="r5" Height="60" MinHeight="0"/>
+                <RowDefinition Name="r6" Height="10" MinHeight="0"/>
+                <RowDefinition Name="r7" Height="100" MinHeight="0"/>
+                <RowDefinition Name="r8" Height="100" MinHeight="0"/>
+                <RowDefinition Name="r9" Height="310" MinHeight="0"/>
+                <RowDefinition Name="r10" Height="48" MinHeight="0"/>
+                <RowDefinition Name="r11" Height="1" MinHeight="0"/>
+                <RowDefinition Name="r12" Height="*" MinHeight="0"/>
+            </Grid.RowDefinitions>
 
 
 
-        <dxr:RibbonControl RibbonStyle="Office2010" Grid.ColumnSpan="8" Height="141" Grid.RowSpan="2" AllowCustomization="False" IsHiddenRibbonCollapsed="False">
-            <dxr:RibbonControl.ToolbarItems>
-                <dxb:BarButtonItemLink/>
-            </dxr:RibbonControl.ToolbarItems>
-            <dxr:RibbonDefaultPageCategory>
 
 
-                <!--<dxr:RibbonPage Caption="Home">
+
+
+
+            <dxr:RibbonControl RibbonStyle="Office2010" Grid.ColumnSpan="8" Height="141" AllowCustomization="False" IsHiddenRibbonCollapsed="False" Grid.RowSpan="3">
+                <dxr:RibbonControl.ToolbarItems>
+                    <dxb:BarButtonItemLink/>
+                </dxr:RibbonControl.ToolbarItems>
+                <dxr:RibbonDefaultPageCategory>
+
+
+                    <!--<dxr:RibbonPage Caption="Home">
                     <dxr:RibbonPageGroup Caption="">
                         <dxb:BarButtonItem x:Name="Exit" Content="Exit" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=New_32x32.png}" ItemClick="Exit_ItemClick"/>
                         <dxb:BarItemSeparator/>
@@ -142,77 +144,77 @@
                         <dxb:BarButtonItem x:Name="saveAsItem" Content="Save As" LargeGlyph="{dx:DXImage Image=SaveAs_32x32.png}"/>
                     </dxr:RibbonPageGroup>
                 </dxr:RibbonPage>-->
-                <!--<dxr:RibbonPage Caption="File">
+                    <!--<dxr:RibbonPage Caption="File">
                     <dxr:RibbonPageGroup Caption="Transactions">
                         <dxb:BarButtonItem Content="By Tag" ItemClick="BarButtonItem_ItemClick"/>
                         <dxb:BarButtonItem Content="All" ItemClick="BarButtonItem_ItemClick_1"/>
                     </dxr:RibbonPageGroup>
                 </dxr:RibbonPage>-->
 
-                <dxr:RibbonPage Caption="Home" Name="Home">
-                    <dxr:RibbonPageGroup Caption="Program">
-                        <dxb:BarButtonItem Content="Exit" ItemClick="Exit_ItemClick" Glyph="{dx:DXImage Image=ColumnsThree_32x32.png}" LargeGlyph="{dx:DXImage Image=CalculateNow_32x32.png}" />
+                    <dxr:RibbonPage Caption="Home" Name="Home">
+                        <dxr:RibbonPageGroup Caption="Program">
+                            <dxb:BarButtonItem Content="Exit" ItemClick="Exit_ItemClick" Glyph="{dx:DXImage Image=ColumnsThree_32x32.png}" LargeGlyph="{dx:DXImage Image=CalculateNow_32x32.png}" />
 
-                        <dxb:BarButtonItem Content="Settings" ItemClick="BarButtonItem_ItemClick" Glyph="{dx:DXImage Image=ColumnsThree_32x32.png}" LargeGlyph="{dx:DXImage Image=CalculateNow_32x32.png}" />
-                    </dxr:RibbonPageGroup>
-                    <dxr:RibbonPageGroup Caption="">
-                    </dxr:RibbonPageGroup>
+                            <dxb:BarButtonItem Content="Settings" ItemClick="BarButtonItem_ItemClick" Glyph="{dx:DXImage Image=ColumnsThree_32x32.png}" LargeGlyph="{dx:DXImage Image=CalculateNow_32x32.png}" />
+                        </dxr:RibbonPageGroup>
+                        <dxr:RibbonPageGroup Caption="">
+                        </dxr:RibbonPageGroup>
 
-                    <!--<dxr:RibbonPageGroup Caption="">
+                        <!--<dxr:RibbonPageGroup Caption="">
                         <dxb:BarButtonItem x:Name="Exit1" Content="Exit" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=New_32x32.png}" ItemClick="Exit_ItemClick"/>
                     </dxr:RibbonPageGroup>-->
-                    <dxr:RibbonPageGroup Caption="Configure">
-                        <dxb:BarButtonItem Content="Accounts" ItemClick="BarButtonItem_ItemClick_5" Glyph="{dx:DXImage Image=ColumnsThree_32x32.png}" LargeGlyph="{dx:DXImage Image=CalculateNow_32x32.png}" />
-                        <dxb:BarButtonItem Content="Vendors" ItemClick="BarButtonItem_ItemClick_2" Glyph="{dx:DXImage Image=UserGroup_32x32.png}" LargeGlyph="{dx:DXImage Image=UserGroup_32x32.png}"/>
-                        <dxb:BarButtonItem Content="Categories" ItemClick="BarButtonItem_ItemClick_6" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=LineStyle_32x32.png}"/>
-                        <dxb:BarButtonItem Content="Tags" ItemClick="BarButtonItem_ItemClick_3" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=CheckBox_32x32.png}"/>
-                        <dxb:BarButtonItem Content="Classes" AllowDrop="True" ItemClick="BarButtonItem_ItemClick_4" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=Cards_32x32.png}"/>
-                        <dxb:BarButtonItem Content="Currencies" AllowDrop="True" ItemClick="BarButtonItem_ItemClick_4" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=Currency2_32x32.png}"/>
+                        <dxr:RibbonPageGroup Caption="Configure">
+                            <dxb:BarButtonItem Content="Accounts" ItemClick="BarButtonItem_ItemClick_5" Glyph="{dx:DXImage Image=ColumnsThree_32x32.png}" LargeGlyph="{dx:DXImage Image=CalculateNow_32x32.png}" />
+                            <dxb:BarButtonItem Content="Vendors" ItemClick="BarButtonItem_ItemClick_2" Glyph="{dx:DXImage Image=UserGroup_32x32.png}" LargeGlyph="{dx:DXImage Image=UserGroup_32x32.png}"/>
+                            <dxb:BarButtonItem Content="Categories" ItemClick="BarButtonItem_ItemClick_6" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=LineStyle_32x32.png}"/>
+                            <dxb:BarButtonItem Content="Tags" ItemClick="BarButtonItem_ItemClick_3" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=CheckBox_32x32.png}"/>
+                            <dxb:BarButtonItem Content="Classes" AllowDrop="True" ItemClick="BarButtonItem_ItemClick_4" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=Cards_32x32.png}"/>
+                            <dxb:BarButtonItem Content="Currencies" AllowDrop="True" ItemClick="BarButtonItem_ItemClick_4" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=Currency2_32x32.png}"/>
 
-                    </dxr:RibbonPageGroup>
-
-                    
-
-                    
-                    
-                    <dxr:RibbonPageGroup Caption="">
-                    </dxr:RibbonPageGroup>
-                  
-
-
-
-                </dxr:RibbonPage>
-                <dxr:RibbonPage Caption="Budgets">
-                    <dxr:RibbonPageGroup Caption="Transactions">
-                        <dxb:BarButtonItem Content="By Tag" ItemClick="BarButtonItem_ItemClick"/>
-                        <dxb:BarButtonItem Content="All" ItemClick="BarButtonItem_ItemClick_1"/>
-                    </dxr:RibbonPageGroup>
-                </dxr:RibbonPage>
-                <dxr:RibbonPage Caption="Reports">
-                    <dxr:RibbonPageGroup Caption="Transactions">
-                        <dxb:BarButtonItem Content="By Tag" ItemClick="BarButtonItem_ItemClick"/>
-                        <dxb:BarButtonItem Content="All" ItemClick="BarButtonItem_ItemClick_1"/>
-                    </dxr:RibbonPageGroup>
-                </dxr:RibbonPage>
+                        </dxr:RibbonPageGroup>
 
 
 
 
-            </dxr:RibbonDefaultPageCategory>
-        </dxr:RibbonControl>
-        <dxr:RibbonStatusBarControl Height="26" VerticalAlignment="Bottom" Grid.Row="12" Grid.ColumnSpan="8">
-            <dxr:RibbonStatusBarControl.RightItems>
-                <dxb:BarButtonItem x:Name="printItem" Content="Print" Glyph="{dx:DXImage Image=Print_16x16.png}"/>
-            </dxr:RibbonStatusBarControl.RightItems>
-        </dxr:RibbonStatusBarControl>
 
-        <!--<Grid HorizontalAlignment="Left" Height="100" Margin="527,5,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100" Grid.Column="3"/>-->
+                        <dxr:RibbonPageGroup Caption="">
+                        </dxr:RibbonPageGroup>
 
 
-        <dxg:GridControl Name="uSP_getAllAccountTypesDataGrid" AutoGenerateColumns="None"  EnableSmartColumnsGeneration="False"  ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesViewSource}}" Margin="5,0,10,0" Grid.Row="3" Grid.RowSpan="3" Grid.ColumnSpan="2" SelectionMode="Row" ScrollViewer.CanContentScroll="True">
-            <dxg:GridControl.View>
-                <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" 
-                               ShowColumnHeaders ="False"  Grid.ColumnSpan="1" Margin="0,0,0,0"  
+
+
+                    </dxr:RibbonPage>
+                    <dxr:RibbonPage Caption="Budgets">
+                        <dxr:RibbonPageGroup Caption="Transactions">
+                            <dxb:BarButtonItem Content="By Tag" ItemClick="BarButtonItem_ItemClick"/>
+                            <dxb:BarButtonItem Content="All" ItemClick="BarButtonItem_ItemClick_1"/>
+                        </dxr:RibbonPageGroup>
+                    </dxr:RibbonPage>
+                    <dxr:RibbonPage Caption="Reports">
+                        <dxr:RibbonPageGroup Caption="Transactions">
+                            <dxb:BarButtonItem Content="By Tag" ItemClick="BarButtonItem_ItemClick"/>
+                            <dxb:BarButtonItem Content="All" ItemClick="BarButtonItem_ItemClick_1"/>
+                        </dxr:RibbonPageGroup>
+                    </dxr:RibbonPage>
+
+
+
+
+                </dxr:RibbonDefaultPageCategory>
+            </dxr:RibbonControl>
+            <dxr:RibbonStatusBarControl Height="26" VerticalAlignment="Bottom" Grid.Row="12" Grid.ColumnSpan="8">
+                <dxr:RibbonStatusBarControl.RightItems>
+                    <dxb:BarButtonItem x:Name="printItem" Content="Print" Glyph="{dx:DXImage Image=Print_16x16.png}"/>
+                </dxr:RibbonStatusBarControl.RightItems>
+            </dxr:RibbonStatusBarControl>
+
+            <!--<Grid HorizontalAlignment="Left" Height="100" Margin="527,5,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100" Grid.Column="3"/>-->
+
+
+            <dxg:GridControl Name="uSP_getAllAccountTypesDataGrid" AutoGenerateColumns="None"  EnableSmartColumnsGeneration="False"  ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesViewSource}}" Margin="5,6,10,0" Grid.Row="2" Grid.RowSpan="4" Grid.ColumnSpan="2" SelectionMode="Row" ScrollViewer.CanContentScroll="True">
+                <dxg:GridControl.View>
+                    <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" 
+                               ShowColumnHeaders ="False"  Grid.ColumnSpan="1" Margin="0,6,0,0"  
                                Width="223" ShowBandsPanel="False" ShowBandsInCustomizationForm="False" 
                                ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" 
                                ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" 
@@ -220,141 +222,141 @@
                                ShowValidationAttributeErrors="False" ShowVerticalLines="False"
                                CustomCellAppearance="TableView_OnCustomCellAppearance" ScrollingMode="Smart">
 
-                    <dxg:TableView.FormatConditions>
-                        <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id">
-                            <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold"/>
-                        </dxg:FormatCondition>
-                    </dxg:TableView.FormatConditions>
-                    <dxg:TableView.RowStyle>
-                        <Style TargetType="{x:Type dxg:RowControl}">
-                            <Style.Triggers>
+                        <dxg:TableView.FormatConditions>
+                            <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id">
+                                <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold"/>
+                            </dxg:FormatCondition>
+                        </dxg:TableView.FormatConditions>
+                        <dxg:TableView.RowStyle>
+                            <Style TargetType="{x:Type dxg:RowControl}">
+                                <Style.Triggers>
 
 
-                                <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
-                                    <Setter Property="Background" Value="Green" />
-                                    <Setter Property="Foreground" Value="White" />
-                                </Trigger>
+                                    <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
+                                        <Setter Property="Background" Value="Green" />
+                                        <Setter Property="Foreground" Value="White" />
+                                    </Trigger>
 
-                            </Style.Triggers>
-                        </Style>
-                    </dxg:TableView.RowStyle>
+                                </Style.Triggers>
+                            </Style>
+                        </dxg:TableView.RowStyle>
 
-                    <dxg:TableView.CellStyle>
-                        <Style TargetType="{x:Type dxg:LightweightCellEditor }">
-                            <Style.Triggers>
-
-
-                                <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
-                                    <Setter Property="Background" Value="Green" />
-                                    <Setter Property="Foreground" Value="White" />
-                                </Trigger>
-
-                            </Style.Triggers>
-                        </Style>
-                    </dxg:TableView.CellStyle>
-
-                </dxg:TableView>
-
-            </dxg:GridControl.View>
-
-            <dxg:GridColumn Binding="{Binding accountingTypeSymbol}"  FieldName="Symbol"  IsEnabled="False" AllowFocus="False"  Header="" Width="30">
-                <dxg:GridColumn.DisplayTemplate  >
-                    <ControlTemplate >
-                        <TextBlock  x:Name="PART_Editor" FontWeight="Bold" Foreground="#FF0B1AAA" FontSize="10" />
-                    </ControlTemplate>
-                </dxg:GridColumn.DisplayTemplate>
+                        <dxg:TableView.CellStyle>
+                            <Style TargetType="{x:Type dxg:LightweightCellEditor }">
+                                <Style.Triggers>
 
 
-            </dxg:GridColumn>
+                                    <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
+                                        <Setter Property="Background" Value="Green" />
+                                        <Setter Property="Foreground" Value="White" />
+                                    </Trigger>
 
-            <dxg:GridColumn Binding="{Binding cName}"   Header="Name" Width="100">
+                                </Style.Triggers>
+                            </Style>
+                        </dxg:TableView.CellStyle>
 
-                <dxg:GridColumn.DisplayTemplate  >
-                    <ControlTemplate >
-                        <TextBlock  x:Name="PART_Editor" FontWeight="Bold" />
-                    </ControlTemplate>
-                </dxg:GridColumn.DisplayTemplate>
+                    </dxg:TableView>
 
+                </dxg:GridControl.View>
 
-            </dxg:GridColumn>
-
-
-            <dxg:GridColumn Binding="{Binding cNote}"  FieldName="Note" Header="Note" Width="100"/>
-
-        </dxg:GridControl>
-
+                <dxg:GridColumn Binding="{Binding accountingTypeSymbol}"  FieldName="Symbol"  IsEnabled="False" AllowFocus="False"  Header="" Width="30">
+                    <dxg:GridColumn.DisplayTemplate  >
+                        <ControlTemplate >
+                            <TextBlock  x:Name="PART_Editor" FontWeight="Bold" Foreground="#FF0B1AAA" FontSize="10" />
+                        </ControlTemplate>
+                    </dxg:GridColumn.DisplayTemplate>
 
 
+                </dxg:GridColumn>
+
+                <dxg:GridColumn Binding="{Binding cName}"   Header="Name" Width="100">
+
+                    <dxg:GridColumn.DisplayTemplate  >
+                        <ControlTemplate >
+                            <TextBlock  x:Name="PART_Editor" FontWeight="Bold" />
+                        </ControlTemplate>
+                    </dxg:GridColumn.DisplayTemplate>
+
+
+                </dxg:GridColumn>
+
+
+                <dxg:GridColumn Binding="{Binding cNote}"  FieldName="Note" Header="Note" Width="100"/>
+
+            </dxg:GridControl>
 
 
 
 
-        <dxg:GridControl Name="grdAccounts" AutoGenerateColumns="None"  EnableSmartColumnsGeneration="False"  ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesUSP_getAllAccountsViewSource}}" Margin="5,0,10,0" Grid.Row="7" Grid.RowSpan="3" Grid.ColumnSpan="2"  CurrentItemChanged="GridControl_CurrentItemChanged">
-            <dxg:GridControl.View>
-                <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" ShowColumnHeaders ="False"  Grid.ColumnSpan="1" Margin="0,0,0,0"  Width="223"  ShowBandsPanel="False" ShowBandsInCustomizationForm="False" ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" ShowValidationAttributeErrors="False" ShowVerticalLines="False" RowDoubleClick="TableView_RowDoubleClick">
-
-                    <dxg:TableView.FormatConditions>
-                        <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id">
-                            <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold"/>
-                        </dxg:FormatCondition>
-                    </dxg:TableView.FormatConditions>
-                    <dxg:TableView.RowStyle>
-                        <Style TargetType="{x:Type dxg:RowControl}">
-                            <Style.Triggers>
 
 
-                                <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
-                                    <Setter Property="Background" Value="Black" />
-                                    <Setter Property="Foreground" Value="White" />
-                                </Trigger>
 
-                            </Style.Triggers>
-                        </Style>
-                    </dxg:TableView.RowStyle>
+            <dxg:GridControl Name="grdAccounts" AutoGenerateColumns="None"  EnableSmartColumnsGeneration="False"  ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesUSP_getAllAccountsViewSource}}" Margin="5,0,10,0" Grid.Row="7" Grid.RowSpan="3" Grid.ColumnSpan="2"  CurrentItemChanged="GridControl_CurrentItemChanged">
+                <dxg:GridControl.View>
+                    <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" ShowColumnHeaders ="False"  Grid.ColumnSpan="1" Margin="0,0,0,0"  Width="223"  ShowBandsPanel="False" ShowBandsInCustomizationForm="False" ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" ShowValidationAttributeErrors="False" ShowVerticalLines="False" RowDoubleClick="TableView_RowDoubleClick">
 
-                    <dxg:TableView.CellStyle>
-                        <Style TargetType="{x:Type dxg:LightweightCellEditor }">
-                            <Style.Triggers>
-
-
-                                <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
-                                    <Setter Property="Background" Value="Black" />
-                                    <Setter Property="Foreground" Value="White" />
-                                </Trigger>
-
-                            </Style.Triggers>
-                        </Style>
-                    </dxg:TableView.CellStyle>
-                    <dxg:TableView.RowCellMenuCustomizations>
-                        <dxb:BarButtonItem Name="Properties" Content="Properties" ItemClick="Properties_ItemClick" />
-
-                    </dxg:TableView.RowCellMenuCustomizations>
-                </dxg:TableView>
-
-            </dxg:GridControl.View>
-            <dxg:GridColumn Binding="{Binding currencySymbol}"  FieldName="Symbol"  IsEnabled="False" AllowFocus="False"  Header="" Width="26">
-                <dxg:GridColumn.DisplayTemplate  >
-                    <ControlTemplate >
-                        <TextBlock  x:Name="PART_Editor" FontWeight="Normal" Foreground="#FF0B1AAA" FontSize="9" />
-                    </ControlTemplate>
-                </dxg:GridColumn.DisplayTemplate>
+                        <dxg:TableView.FormatConditions>
+                            <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id">
+                                <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold"/>
+                            </dxg:FormatCondition>
+                        </dxg:TableView.FormatConditions>
+                        <dxg:TableView.RowStyle>
+                            <Style TargetType="{x:Type dxg:RowControl}">
+                                <Style.Triggers>
 
 
-            </dxg:GridColumn>
-                
-                
-                
-            <dxg:GridColumn Binding="{Binding cName}"  FieldName="Name" Header="Name" IsEnabled="False" AllowFocus="False" Width="200" />
+                                    <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
+                                        <Setter Property="Background" Value="Black" />
+                                        <Setter Property="Foreground" Value="White" />
+                                    </Trigger>
 
-            <dxg:GridColumn Binding="{Binding cNote}"  FieldName="Note" IsEnabled="False" Header="Note" AllowFocus="False" Width="160"/>
-            <dxg:GridColumn Binding="{Binding cDesc}"  FieldName="Description" Header="Description" AllowFocus="False" Width="200"/>
+                                </Style.Triggers>
+                            </Style>
+                        </dxg:TableView.RowStyle>
 
-        </dxg:GridControl>
+                        <dxg:TableView.CellStyle>
+                            <Style TargetType="{x:Type dxg:LightweightCellEditor }">
+                                <Style.Triggers>
 
 
-        <dxg:GridControl Name="uSP_getLineDataGrid" AutoGenerateColumns="None"  EnableSmartColumnsGeneration="False"  ItemsSource="{Binding Source={StaticResource uSP_getLineViewSource1}}" Margin="0,0,4,0" Grid.Column="2" Grid.Row="3" Grid.RowSpan="7" SelectionMode="Row">
-            <dxg:GridControl.View>
-                <dxg:TableView Name="LineView"  AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" 
+                                    <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
+                                        <Setter Property="Background" Value="Black" />
+                                        <Setter Property="Foreground" Value="White" />
+                                    </Trigger>
+
+                                </Style.Triggers>
+                            </Style>
+                        </dxg:TableView.CellStyle>
+                        <dxg:TableView.RowCellMenuCustomizations>
+                            <dxb:BarButtonItem Name="Properties" Content="Properties" ItemClick="Properties_ItemClick" />
+
+                        </dxg:TableView.RowCellMenuCustomizations>
+                    </dxg:TableView>
+
+                </dxg:GridControl.View>
+                <dxg:GridColumn Binding="{Binding currencySymbol}"  FieldName="Symbol"  IsEnabled="False" AllowFocus="False"  Header="" Width="26">
+                    <dxg:GridColumn.DisplayTemplate  >
+                        <ControlTemplate >
+                            <TextBlock  x:Name="PART_Editor" FontWeight="Normal" Foreground="#FF0B1AAA" FontSize="9" />
+                        </ControlTemplate>
+                    </dxg:GridColumn.DisplayTemplate>
+
+
+                </dxg:GridColumn>
+
+
+
+                <dxg:GridColumn Binding="{Binding cName}"  FieldName="Name" Header="Name" IsEnabled="False" AllowFocus="False" Width="200" />
+
+                <dxg:GridColumn Binding="{Binding cNote}"  FieldName="Note" IsEnabled="False" Header="Note" AllowFocus="False" Width="160"/>
+                <dxg:GridColumn Binding="{Binding cDesc}"  FieldName="Description" Header="Description" AllowFocus="False" Width="200"/>
+
+            </dxg:GridControl>
+
+
+            <dxg:GridControl Name="uSP_getLineDataGrid" AutoGenerateColumns="None"  EnableSmartColumnsGeneration="False"  ItemsSource="{Binding Source={StaticResource uSP_getLineViewSource1}}" Margin="0,0,4,0" Grid.Column="2" Grid.Row="3" Grid.RowSpan="7" SelectionMode="Row">
+                <dxg:GridControl.View>
+                    <dxg:TableView Name="LineView"  AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" 
                                ShowColumnHeaders ="True"  Grid.ColumnSpan="1" Margin="0,0,0,0"  
                                 ShowBandsPanel="False" ShowBandsInCustomizationForm="False" 
                                ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" 
@@ -363,68 +365,68 @@
                                ShowValidationAttributeErrors="False" ShowVerticalLines="False"
                                CustomCellAppearance="TableView_OnCustomCellAppearance" FocusedRowChanged="TableView_FocusedRowChanged" ValidateRow="TableView_ValidateRow">
 
-                    <dxg:TableView.FormatConditions>
-                        <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id">
-                            <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold"/>
-                        </dxg:FormatCondition>
-                    </dxg:TableView.FormatConditions>
-                    <dxg:TableView.RowStyle>
-                        <Style TargetType="{x:Type dxg:RowControl}">
-                            <Style.Triggers>
+                        <dxg:TableView.FormatConditions>
+                            <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id">
+                                <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold"/>
+                            </dxg:FormatCondition>
+                        </dxg:TableView.FormatConditions>
+                        <dxg:TableView.RowStyle>
+                            <Style TargetType="{x:Type dxg:RowControl}">
+                                <Style.Triggers>
 
 
-                                <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
-                                    <Setter Property="Background" Value="#FFA63B13" />
-                                    <Setter Property="Foreground" Value="White" />
-                                </Trigger>
+                                    <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
+                                        <Setter Property="Background" Value="#FFA63B13" />
+                                        <Setter Property="Foreground" Value="White" />
+                                    </Trigger>
 
-                            </Style.Triggers>
-                        </Style>
-                    </dxg:TableView.RowStyle>
+                                </Style.Triggers>
+                            </Style>
+                        </dxg:TableView.RowStyle>
 
-                    <dxg:TableView.CellStyle>
-                        <Style TargetType="{x:Type dxg:LightweightCellEditor }">
-                            <Style.Triggers>
-
-
-                                <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
-                                    <Setter Property="Background" Value="#FFA63B13" />
-                                    <Setter Property="Foreground" Value="White" />
-                                </Trigger>
-                                <Trigger Property="dxg:GridViewBase.IsFocusedCell" Value="True">
-                                    <Setter Property="Background" Value="White" />
-                                    <Setter Property="Foreground" Value="Black" />
-                                </Trigger>
-
-                            </Style.Triggers>
-                        </Style>
-                    </dxg:TableView.CellStyle>
+                        <dxg:TableView.CellStyle>
+                            <Style TargetType="{x:Type dxg:LightweightCellEditor }">
+                                <Style.Triggers>
 
 
-                </dxg:TableView>
+                                    <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
+                                        <Setter Property="Background" Value="#FFA63B13" />
+                                        <Setter Property="Foreground" Value="White" />
+                                    </Trigger>
+                                    <Trigger Property="dxg:GridViewBase.IsFocusedCell" Value="True">
+                                        <Setter Property="Background" Value="White" />
+                                        <Setter Property="Foreground" Value="Black" />
+                                    </Trigger>
+
+                                </Style.Triggers>
+                            </Style>
+                        </dxg:TableView.CellStyle>
 
 
-            </dxg:GridControl.View>
-
-            <dxg:GridColumn Binding="{Binding ID}"  FieldName="ID" Header="ID" Width="50" ReadOnly="True" AllowFocus="False"  AllowSorting="True"/>
-            <dxg:GridColumn FieldName="dtTransDate" Header="Date" ReadOnly="False" AllowFocus="True"  AllowSorting="True" SortOrder="Descending"/>
+                    </dxg:TableView>
 
 
+                </dxg:GridControl.View>
 
-            <dxg:GridColumn   FieldName="totalDr" Header="Dr" Width="80" ReadOnly="True" AllowFocus="False"  AllowSorting="True"/>
-
-            <dxg:GridColumn   FieldName="totalCr" Header="Cr" Width="80" ReadOnly="True"  AllowFocus="False" AllowSorting="True"/>
-            <dxg:GridColumn   FieldName="cNote" Header="Note" Width="80" ReadOnly="False"  AllowFocus="True" AllowSorting="True"/>
+                <dxg:GridColumn Binding="{Binding ID}"  FieldName="ID" Header="ID" Width="50" ReadOnly="True" AllowFocus="False"  AllowSorting="True"/>
+                <dxg:GridColumn FieldName="dtTransDate" Header="Date" ReadOnly="False" AllowFocus="True"  AllowSorting="True" SortOrder="Descending"/>
 
 
 
-        </dxg:GridControl>
+                <dxg:GridColumn   FieldName="totalDr" Header="Dr" Width="80" ReadOnly="True" AllowFocus="False"  AllowSorting="True"/>
+
+                <dxg:GridColumn   FieldName="totalCr" Header="Cr" Width="80" ReadOnly="True"  AllowFocus="False" AllowSorting="True"/>
+                <dxg:GridColumn   FieldName="cNote" Header="Note" Width="80" ReadOnly="False"  AllowFocus="True" AllowSorting="True"/>
+
+
+
+            </dxg:GridControl>
 
 
 
 
 
-        <!--<DataGrid x:Name="uSP_getSplitDataGrid" AutoGenerateColumns="False" Grid.Column="3" EnableRowVirtualization="True" ItemsSource="{Binding Source={StaticResource uSP_getLineUSP_getSplitViewSource}}" Margin="0" RowDetailsVisibilityMode="VisibleWhenSelected" Grid.RowSpan="8" Grid.Row="3" Grid.ColumnSpan="5" CellEditEnding="uSP_getSplitDataGrid_CellEditEnding" CurrentCellChanged="uSP_getSplitDataGrid_CurrentCellChanged">
+            <!--<DataGrid x:Name="uSP_getSplitDataGrid" AutoGenerateColumns="False" Grid.Column="3" EnableRowVirtualization="True" ItemsSource="{Binding Source={StaticResource uSP_getLineUSP_getSplitViewSource}}" Margin="0" RowDetailsVisibilityMode="VisibleWhenSelected" Grid.RowSpan="8" Grid.Row="3" Grid.ColumnSpan="5" CellEditEnding="uSP_getSplitDataGrid_CellEditEnding" CurrentCellChanged="uSP_getSplitDataGrid_CurrentCellChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="iDColumn1" Binding="{Binding ID}" Header="ID" IsReadOnly="True" Width="SizeToHeader" Visibility="Hidden"/>
                 <DataGridTemplateColumn x:Name="dtCreateDateColumn1" Header="dt Create Date" Width="SizeToHeader" Visibility="Hidden">
@@ -482,8 +484,8 @@
 
 
                 -->
-        <!--<DataGridCheckBoxColumn Binding="{Binding bXfer}" ClipboardContentBinding="{x:Null}" Header="Xfer"/>-->
-        <!--
+            <!--<DataGridCheckBoxColumn Binding="{Binding bXfer}" ClipboardContentBinding="{x:Null}" Header="Xfer"/>-->
+            <!--
 
                 <DataGridComboBoxColumn x:Name="nXferAccountIDColumn" SelectedValueBinding="{Binding nAccountID_C}" Width="220"
                 SelectedValuePath="ID"
@@ -552,9 +554,9 @@
 
 
 
-        <dxg:GridControl Name="uSP_getSplitDataGrid" AutoGenerateColumns="None"  EnableSmartColumnsGeneration="False"  ItemsSource="{Binding Source={StaticResource uSP_getLineUSP_getSplitViewSource}}" Margin="0,0,0,0" Grid.Column=" 3" Grid.RowSpan="7" Grid.Row="3" Grid.ColumnSpan="5" SelectionMode="Row">
-            <dxg:GridControl.View>
-                <dxg:TableView Name="SplitsView"  AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" 
+            <dxg:GridControl Name="uSP_getSplitDataGrid" AutoGenerateColumns="None"  EnableSmartColumnsGeneration="False"  ItemsSource="{Binding Source={StaticResource uSP_getLineUSP_getSplitViewSource}}" Margin="0,0,0,0" Grid.Column=" 3" Grid.RowSpan="7" Grid.Row="3" Grid.ColumnSpan="5" SelectionMode="Row">
+                <dxg:GridControl.View>
+                    <dxg:TableView Name="SplitsView"  AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" 
                                ShowColumnHeaders ="True"  Grid.ColumnSpan="1" Margin="0,0,0,0"  
                                 ShowBandsPanel="False" ShowBandsInCustomizationForm="False" 
                                ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" 
@@ -565,56 +567,56 @@
                                NewItemRowPosition="Bottom" ValidateRow="SplitsView_ValidateRow"
                                >
 
-                    <dxg:TableView.FormatConditions>
-                        <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id">
-                            <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold"/>
-                        </dxg:FormatCondition>
-                    </dxg:TableView.FormatConditions>
-                    <dxg:TableView.RowStyle>
-                        <Style TargetType="{x:Type dxg:RowControl}">
-                            <Style.Triggers>
-                                <!--<Trigger Property="dxg:GridViewBase.IsFocusedCell" Value="True">
+                        <dxg:TableView.FormatConditions>
+                            <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id">
+                                <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold"/>
+                            </dxg:FormatCondition>
+                        </dxg:TableView.FormatConditions>
+                        <dxg:TableView.RowStyle>
+                            <Style TargetType="{x:Type dxg:RowControl}">
+                                <Style.Triggers>
+                                    <!--<Trigger Property="dxg:GridViewBase.IsFocusedCell" Value="True">
                                     <Setter Property="Background" Value="LightCyan" />
                                     <Setter Property="Foreground" Value="Black" />
                                 </Trigger>-->
-                                <!--<Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
+                                    <!--<Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
                                     <Setter Property="Background" Value="#FF16574E" />
                                     <Setter Property="Foreground" Value="White" />
                                 </Trigger>-->
 
-                            </Style.Triggers>
-                        </Style>
-                    </dxg:TableView.RowStyle>
+                                </Style.Triggers>
+                            </Style>
+                        </dxg:TableView.RowStyle>
 
-                    <dxg:TableView.CellStyle>
-                        <Style TargetType="{x:Type dxg:LightweightCellEditor }">
-                            <Style.Triggers>
-
-
-                                <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
-                                    <Setter Property="Background" Value="#FF16574E" />
-                                    <Setter Property="Foreground" Value="White" />
-                                </Trigger>
-                                <Trigger Property="dxg:GridViewBase.IsFocusedCell" Value="True">
-                                    <Setter Property="Background" Value="LightCyan" />
-                                    <Setter Property="Foreground" Value="Black" />
-                                </Trigger>
-
-                            </Style.Triggers>
-                        </Style>
-                    </dxg:TableView.CellStyle>
-                </dxg:TableView>
-            </dxg:GridControl.View>
+                        <dxg:TableView.CellStyle>
+                            <Style TargetType="{x:Type dxg:LightweightCellEditor }">
+                                <Style.Triggers>
 
 
-            <dxg:GridColumn   FieldName="nVendorsID" Header="Vendor" Width="220"  AllowSorting="True" AllowEditing="True">
-                <dxg:GridColumn.EditSettings>
-                    <dxg:LookUpEditSettings  ItemsSource="{Binding Source={StaticResource uSP_getAllVendorsViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="vendors_id" DisplayMember="cmpDisplay" >
-                        <dxg:LookUpEditSettings.PopupContentTemplate>
-                            <ControlTemplate TargetType="ContentControl">
-                                <dxg:GridControl x:Name="PART_GridControl" ShowBorder="True" >
-                                    <dxg:GridControl.View>
-                                        <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" 
+                                    <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
+                                        <Setter Property="Background" Value="#FF16574E" />
+                                        <Setter Property="Foreground" Value="White" />
+                                    </Trigger>
+                                    <Trigger Property="dxg:GridViewBase.IsFocusedCell" Value="True">
+                                        <Setter Property="Background" Value="LightCyan" />
+                                        <Setter Property="Foreground" Value="Black" />
+                                    </Trigger>
+
+                                </Style.Triggers>
+                            </Style>
+                        </dxg:TableView.CellStyle>
+                    </dxg:TableView>
+                </dxg:GridControl.View>
+
+
+                <dxg:GridColumn   FieldName="nVendorsID" Header="Vendor" Width="220"  AllowSorting="True" AllowEditing="True">
+                    <dxg:GridColumn.EditSettings>
+                        <dxg:LookUpEditSettings  ItemsSource="{Binding Source={StaticResource uSP_getAllVendorsViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="vendors_id" DisplayMember="cmpDisplay" >
+                            <dxg:LookUpEditSettings.PopupContentTemplate>
+                                <ControlTemplate TargetType="ContentControl">
+                                    <dxg:GridControl x:Name="PART_GridControl" ShowBorder="True" >
+                                        <dxg:GridControl.View>
+                                            <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" 
                                ShowColumnHeaders ="False"  Grid.ColumnSpan="1" Margin="0,0,0,0"  
                                 ShowBandsPanel="False" ShowBandsInCustomizationForm="False" 
                                ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" 
@@ -622,54 +624,54 @@
                                ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" 
                                ShowValidationAttributeErrors="False" ShowVerticalLines="False"
                                CustomCellAppearance="TableView_OnCustomCellAppearance">
-                                            <dxg:TableView.FormatConditions>
-                                                <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id">
-                                                    <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold"/>
-                                                </dxg:FormatCondition>
-                                            </dxg:TableView.FormatConditions>
-                                            <dxg:TableView.RowStyle>
-                                                <Style TargetType="{x:Type dxg:RowControl}">
-                                                    <Style.Triggers>
-                                                        <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
-                                                            <Setter Property="Background" Value="Green" />
-                                                            <Setter Property="Foreground" Value="White" />
-                                                        </Trigger>
-                                                    </Style.Triggers>
-                                                </Style>
-                                            </dxg:TableView.RowStyle>
-                                            <dxg:TableView.CellStyle>
-                                                <Style TargetType="{x:Type dxg:LightweightCellEditor }">
-                                                    <Style.Triggers>
-                                                        <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
-                                                            <Setter Property="Background" Value="Green" />
-                                                            <Setter Property="Foreground" Value="White" />
-                                                        </Trigger>
-                                                    </Style.Triggers>
-                                                </Style>
-                                            </dxg:TableView.CellStyle>
-                                        </dxg:TableView>
-                                    </dxg:GridControl.View>
-                                    <dxg:GridControl.Columns>
-                                        <dxg:GridColumn FieldName="cmpDisplay" />
-                                    </dxg:GridControl.Columns>
-                                </dxg:GridControl>
-                            </ControlTemplate>
-                        </dxg:LookUpEditSettings.PopupContentTemplate>
-                    </dxg:LookUpEditSettings>
-                </dxg:GridColumn.EditSettings>
-            </dxg:GridColumn>
+                                                <dxg:TableView.FormatConditions>
+                                                    <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id">
+                                                        <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold"/>
+                                                    </dxg:FormatCondition>
+                                                </dxg:TableView.FormatConditions>
+                                                <dxg:TableView.RowStyle>
+                                                    <Style TargetType="{x:Type dxg:RowControl}">
+                                                        <Style.Triggers>
+                                                            <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
+                                                                <Setter Property="Background" Value="Green" />
+                                                                <Setter Property="Foreground" Value="White" />
+                                                            </Trigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </dxg:TableView.RowStyle>
+                                                <dxg:TableView.CellStyle>
+                                                    <Style TargetType="{x:Type dxg:LightweightCellEditor }">
+                                                        <Style.Triggers>
+                                                            <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
+                                                                <Setter Property="Background" Value="Green" />
+                                                                <Setter Property="Foreground" Value="White" />
+                                                            </Trigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </dxg:TableView.CellStyle>
+                                            </dxg:TableView>
+                                        </dxg:GridControl.View>
+                                        <dxg:GridControl.Columns>
+                                            <dxg:GridColumn FieldName="cmpDisplay" />
+                                        </dxg:GridControl.Columns>
+                                    </dxg:GridControl>
+                                </ControlTemplate>
+                            </dxg:LookUpEditSettings.PopupContentTemplate>
+                        </dxg:LookUpEditSettings>
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
 
 
 
 
-            <dxg:GridColumn   Name ="nAccountID_D" FieldName="nAccountID_D" Header="Dr Account" Width="220"  AllowSorting="True" AllowEditing="True">
-                <dxg:GridColumn.EditSettings>
-                    <dxg:LookUpEditSettings  ItemsSource="{Binding Source={StaticResource uSP_getAllAccountsForSplitViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="ID" DisplayMember="cName" >
-                        <dxg:LookUpEditSettings.PopupContentTemplate>
-                            <ControlTemplate TargetType="ContentControl">
-                                <dxg:GridControl x:Name="PART_GridControl" ShowBorder="True" >
-                                    <dxg:GridControl.View>
-                                        <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" 
+                <dxg:GridColumn   Name ="nAccountID_D" FieldName="nAccountID_D" Header="Dr Account" Width="220"  AllowSorting="True" AllowEditing="True">
+                    <dxg:GridColumn.EditSettings>
+                        <dxg:LookUpEditSettings  ItemsSource="{Binding Source={StaticResource uSP_getAllAccountsForSplitViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="ID" DisplayMember="cName" >
+                            <dxg:LookUpEditSettings.PopupContentTemplate>
+                                <ControlTemplate TargetType="ContentControl">
+                                    <dxg:GridControl x:Name="PART_GridControl" ShowBorder="True" >
+                                        <dxg:GridControl.View>
+                                            <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" 
                                ShowColumnHeaders ="False"  Grid.ColumnSpan="1" Margin="0,0,0,0"  
                                 ShowBandsPanel="False" ShowBandsInCustomizationForm="False" 
                                ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" 
@@ -677,57 +679,57 @@
                                ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" 
                                ShowValidationAttributeErrors="False" ShowVerticalLines="False"
                                CustomCellAppearance="TableView_OnCustomCellAppearance">
-                                            <dxg:TableView.FormatConditions>
-                                                <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id">
-                                                    <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold"/>
-                                                </dxg:FormatCondition>
-                                            </dxg:TableView.FormatConditions>
-                                            <dxg:TableView.RowStyle>
-                                                <Style TargetType="{x:Type dxg:RowControl}">
-                                                    <Style.Triggers>
-                                                        <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
-                                                            <Setter Property="Background" Value="Green" />
-                                                            <Setter Property="Foreground" Value="White" />
-                                                        </Trigger>
-                                                    </Style.Triggers>
-                                                </Style>
-                                            </dxg:TableView.RowStyle>
-                                            <dxg:TableView.CellStyle>
-                                                <Style TargetType="{x:Type dxg:LightweightCellEditor }">
-                                                    <Style.Triggers>
-                                                        <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
-                                                            <Setter Property="Background" Value="Green" />
-                                                            <Setter Property="Foreground" Value="White" />
-                                                        </Trigger>
-                                                    </Style.Triggers>
-                                                </Style>
-                                            </dxg:TableView.CellStyle>
-                                        </dxg:TableView>
-                                    </dxg:GridControl.View>
-                                    <dxg:GridControl.Columns>
-                                        <dxg:GridColumn FieldName="cName" />
-                                    </dxg:GridControl.Columns>
-                                </dxg:GridControl>
-                            </ControlTemplate>
-                        </dxg:LookUpEditSettings.PopupContentTemplate>
-                    </dxg:LookUpEditSettings>
-                </dxg:GridColumn.EditSettings>
-            </dxg:GridColumn>
+                                                <dxg:TableView.FormatConditions>
+                                                    <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id">
+                                                        <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold"/>
+                                                    </dxg:FormatCondition>
+                                                </dxg:TableView.FormatConditions>
+                                                <dxg:TableView.RowStyle>
+                                                    <Style TargetType="{x:Type dxg:RowControl}">
+                                                        <Style.Triggers>
+                                                            <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
+                                                                <Setter Property="Background" Value="Green" />
+                                                                <Setter Property="Foreground" Value="White" />
+                                                            </Trigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </dxg:TableView.RowStyle>
+                                                <dxg:TableView.CellStyle>
+                                                    <Style TargetType="{x:Type dxg:LightweightCellEditor }">
+                                                        <Style.Triggers>
+                                                            <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
+                                                                <Setter Property="Background" Value="Green" />
+                                                                <Setter Property="Foreground" Value="White" />
+                                                            </Trigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </dxg:TableView.CellStyle>
+                                            </dxg:TableView>
+                                        </dxg:GridControl.View>
+                                        <dxg:GridControl.Columns>
+                                            <dxg:GridColumn FieldName="cName" />
+                                        </dxg:GridControl.Columns>
+                                    </dxg:GridControl>
+                                </ControlTemplate>
+                            </dxg:LookUpEditSettings.PopupContentTemplate>
+                        </dxg:LookUpEditSettings>
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
 
 
 
 
-            <dxg:GridColumn   FieldName="nAmount_D" Header="Dr Amount" EditSettings="{ dxe:TextSettings DisplayFormat=###########.00}" Width="100"  AllowSorting="True" AllowEditing="True" SortOrder="Ascending" SortIndex="0"/>
+                <dxg:GridColumn   FieldName="nAmount_D" Header="Dr Amount" EditSettings="{ dxe:TextSettings DisplayFormat=###########.00}" Width="100"  AllowSorting="True" AllowEditing="True" SortOrder="Ascending" SortIndex="0"/>
 
 
-            <dxg:GridColumn   Name ="nAccountID_C"  FieldName="nAccountID_C" Header="Cr Account" Width="220"  AllowSorting="True" AllowEditing="True">
-                <dxg:GridColumn.EditSettings>
-                    <dxg:LookUpEditSettings  ItemsSource="{Binding Source={StaticResource uSP_getAllAccountsForSplitViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="ID" DisplayMember="cName" >
-                        <dxg:LookUpEditSettings.PopupContentTemplate>
-                            <ControlTemplate TargetType="ContentControl">
-                                <dxg:GridControl x:Name="PART_GridControl" ShowBorder="True" >
-                                    <dxg:GridControl.View>
-                                        <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" 
+                <dxg:GridColumn   Name ="nAccountID_C"  FieldName="nAccountID_C" Header="Cr Account" Width="220"  AllowSorting="True" AllowEditing="True">
+                    <dxg:GridColumn.EditSettings>
+                        <dxg:LookUpEditSettings  ItemsSource="{Binding Source={StaticResource uSP_getAllAccountsForSplitViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="ID" DisplayMember="cName" >
+                            <dxg:LookUpEditSettings.PopupContentTemplate>
+                                <ControlTemplate TargetType="ContentControl">
+                                    <dxg:GridControl x:Name="PART_GridControl" ShowBorder="True" >
+                                        <dxg:GridControl.View>
+                                            <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" 
                                ShowColumnHeaders ="True"  Grid.ColumnSpan="1" Margin="0,0,0,0"  
                                 ShowBandsPanel="False" ShowBandsInCustomizationForm="False" 
                                ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" 
@@ -735,55 +737,55 @@
                                ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" 
                                ShowValidationAttributeErrors="False" ShowVerticalLines="False"
                                CustomCellAppearance="TableView_OnCustomCellAppearance">
-                                            <dxg:TableView.FormatConditions>
-                                                <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id">
-                                                    <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold"/>
-                                                </dxg:FormatCondition>
-                                            </dxg:TableView.FormatConditions>
-                                            <dxg:TableView.RowStyle>
-                                                <Style TargetType="{x:Type dxg:RowControl}">
-                                                    <Style.Triggers>
-                                                        <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
-                                                            <Setter Property="Background" Value="Green" />
-                                                            <Setter Property="Foreground" Value="White" />
-                                                        </Trigger>
-                                                    </Style.Triggers>
-                                                </Style>
-                                            </dxg:TableView.RowStyle>
-                                            <dxg:TableView.CellStyle>
-                                                <Style TargetType="{x:Type dxg:LightweightCellEditor }">
-                                                    <Style.Triggers>
-                                                        <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
-                                                            <Setter Property="Background" Value="Green" />
-                                                            <Setter Property="Foreground" Value="White" />
-                                                        </Trigger>
-                                                    </Style.Triggers>
-                                                </Style>
-                                            </dxg:TableView.CellStyle>
-                                        </dxg:TableView>
-                                    </dxg:GridControl.View>
-                                    <dxg:GridControl.Columns>
-                                        <dxg:GridColumn FieldName="cName" />
-                                    </dxg:GridControl.Columns>
-                                </dxg:GridControl>
-                            </ControlTemplate>
-                        </dxg:LookUpEditSettings.PopupContentTemplate>
-                    </dxg:LookUpEditSettings>
-                </dxg:GridColumn.EditSettings>
-            </dxg:GridColumn>
+                                                <dxg:TableView.FormatConditions>
+                                                    <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id">
+                                                        <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold"/>
+                                                    </dxg:FormatCondition>
+                                                </dxg:TableView.FormatConditions>
+                                                <dxg:TableView.RowStyle>
+                                                    <Style TargetType="{x:Type dxg:RowControl}">
+                                                        <Style.Triggers>
+                                                            <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
+                                                                <Setter Property="Background" Value="Green" />
+                                                                <Setter Property="Foreground" Value="White" />
+                                                            </Trigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </dxg:TableView.RowStyle>
+                                                <dxg:TableView.CellStyle>
+                                                    <Style TargetType="{x:Type dxg:LightweightCellEditor }">
+                                                        <Style.Triggers>
+                                                            <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
+                                                                <Setter Property="Background" Value="Green" />
+                                                                <Setter Property="Foreground" Value="White" />
+                                                            </Trigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </dxg:TableView.CellStyle>
+                                            </dxg:TableView>
+                                        </dxg:GridControl.View>
+                                        <dxg:GridControl.Columns>
+                                            <dxg:GridColumn FieldName="cName" />
+                                        </dxg:GridControl.Columns>
+                                    </dxg:GridControl>
+                                </ControlTemplate>
+                            </dxg:LookUpEditSettings.PopupContentTemplate>
+                        </dxg:LookUpEditSettings>
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
 
 
-            <dxg:GridColumn  Name="nAmount_C" FieldName="nAmount_C" Header="Cr Amount" EditSettings="{ dxe:TextSettings DisplayFormat=###########.00}" Width="100" AllowSorting="True" AllowEditing="True"/>
+                <dxg:GridColumn  Name="nAmount_C" FieldName="nAmount_C" Header="Cr Amount" EditSettings="{ dxe:TextSettings DisplayFormat=###########.00}" Width="100" AllowSorting="True" AllowEditing="True"/>
 
 
-            <dxg:GridColumn   FieldName="nTagID" Header="Tag" Width="220"  AllowSorting="True" AllowEditing="True">
-                <dxg:GridColumn.EditSettings>
-                    <dxg:LookUpEditSettings  ItemsSource="{Binding Source={StaticResource uSP_getAllTagsViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="ID" DisplayMember="cName" >
-                        <dxg:LookUpEditSettings.PopupContentTemplate>
-                            <ControlTemplate TargetType="ContentControl">
-                                <dxg:GridControl x:Name="PART_GridControl" ShowBorder="True" >
-                                    <dxg:GridControl.View>
-                                        <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" 
+                <dxg:GridColumn   FieldName="nTagID" Header="Tag" Width="220"  AllowSorting="True" AllowEditing="True">
+                    <dxg:GridColumn.EditSettings>
+                        <dxg:LookUpEditSettings  ItemsSource="{Binding Source={StaticResource uSP_getAllTagsViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="ID" DisplayMember="cName" >
+                            <dxg:LookUpEditSettings.PopupContentTemplate>
+                                <ControlTemplate TargetType="ContentControl">
+                                    <dxg:GridControl x:Name="PART_GridControl" ShowBorder="True" >
+                                        <dxg:GridControl.View>
+                                            <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" 
                                ShowColumnHeaders ="True"  Grid.ColumnSpan="1" Margin="0,0,0,0"  
                                 ShowBandsPanel="False" ShowBandsInCustomizationForm="False" 
                                ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" 
@@ -791,52 +793,52 @@
                                ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" 
                                ShowValidationAttributeErrors="False" ShowVerticalLines="False"
                                CustomCellAppearance="TableView_OnCustomCellAppearance">
-                                            <dxg:TableView.FormatConditions>
-                                                <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id">
-                                                    <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold"/>
-                                                </dxg:FormatCondition>
-                                            </dxg:TableView.FormatConditions>
-                                            <dxg:TableView.RowStyle>
-                                                <Style TargetType="{x:Type dxg:RowControl}">
-                                                    <Style.Triggers>
-                                                        <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
-                                                            <Setter Property="Background" Value="Green" />
-                                                            <Setter Property="Foreground" Value="White" />
-                                                        </Trigger>
-                                                    </Style.Triggers>
-                                                </Style>
-                                            </dxg:TableView.RowStyle>
-                                            <dxg:TableView.CellStyle>
-                                                <Style TargetType="{x:Type dxg:LightweightCellEditor }">
-                                                    <Style.Triggers>
-                                                        <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
-                                                            <Setter Property="Background" Value="Green" />
-                                                            <Setter Property="Foreground" Value="White" />
-                                                        </Trigger>
-                                                    </Style.Triggers>
-                                                </Style>
-                                            </dxg:TableView.CellStyle>
-                                        </dxg:TableView>
-                                    </dxg:GridControl.View>
-                                    <dxg:GridControl.Columns>
-                                        <dxg:GridColumn FieldName="cName" />
-                                    </dxg:GridControl.Columns>
-                                </dxg:GridControl>
-                            </ControlTemplate>
-                        </dxg:LookUpEditSettings.PopupContentTemplate>
-                    </dxg:LookUpEditSettings>
-                </dxg:GridColumn.EditSettings>
-            </dxg:GridColumn>
+                                                <dxg:TableView.FormatConditions>
+                                                    <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id">
+                                                        <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold"/>
+                                                    </dxg:FormatCondition>
+                                                </dxg:TableView.FormatConditions>
+                                                <dxg:TableView.RowStyle>
+                                                    <Style TargetType="{x:Type dxg:RowControl}">
+                                                        <Style.Triggers>
+                                                            <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
+                                                                <Setter Property="Background" Value="Green" />
+                                                                <Setter Property="Foreground" Value="White" />
+                                                            </Trigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </dxg:TableView.RowStyle>
+                                                <dxg:TableView.CellStyle>
+                                                    <Style TargetType="{x:Type dxg:LightweightCellEditor }">
+                                                        <Style.Triggers>
+                                                            <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
+                                                                <Setter Property="Background" Value="Green" />
+                                                                <Setter Property="Foreground" Value="White" />
+                                                            </Trigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </dxg:TableView.CellStyle>
+                                            </dxg:TableView>
+                                        </dxg:GridControl.View>
+                                        <dxg:GridControl.Columns>
+                                            <dxg:GridColumn FieldName="cName" />
+                                        </dxg:GridControl.Columns>
+                                    </dxg:GridControl>
+                                </ControlTemplate>
+                            </dxg:LookUpEditSettings.PopupContentTemplate>
+                        </dxg:LookUpEditSettings>
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
 
 
-            <dxg:GridColumn   FieldName="nClassID" Header="Class" Width="220"  AllowSorting="True" AllowEditing="True">
-                <dxg:GridColumn.EditSettings>
-                    <dxg:LookUpEditSettings  ItemsSource="{Binding Source={StaticResource uSP_getAllClassViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="ID" DisplayMember="cName" >
-                        <dxg:LookUpEditSettings.PopupContentTemplate>
-                            <ControlTemplate TargetType="ContentControl">
-                                <dxg:GridControl x:Name="PART_GridControl" ShowBorder="True" >
-                                    <dxg:GridControl.View>
-                                        <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" 
+                <dxg:GridColumn   FieldName="nClassID" Header="Class" Width="220"  AllowSorting="True" AllowEditing="True">
+                    <dxg:GridColumn.EditSettings>
+                        <dxg:LookUpEditSettings  ItemsSource="{Binding Source={StaticResource uSP_getAllClassViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="ID" DisplayMember="cName" >
+                            <dxg:LookUpEditSettings.PopupContentTemplate>
+                                <ControlTemplate TargetType="ContentControl">
+                                    <dxg:GridControl x:Name="PART_GridControl" ShowBorder="True" >
+                                        <dxg:GridControl.View>
+                                            <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" 
                                ShowColumnHeaders ="True"  Grid.ColumnSpan="1" Margin="0,0,0,0"  
                                 ShowBandsPanel="False" ShowBandsInCustomizationForm="False" 
                                ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" 
@@ -844,57 +846,57 @@
                                ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" 
                                ShowValidationAttributeErrors="False" ShowVerticalLines="False"
                                CustomCellAppearance="TableView_OnCustomCellAppearance">
-                                            <dxg:TableView.FormatConditions>
-                                                <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id">
-                                                    <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold"/>
-                                                </dxg:FormatCondition>
-                                            </dxg:TableView.FormatConditions>
-                                            <dxg:TableView.RowStyle>
-                                                <Style TargetType="{x:Type dxg:RowControl}">
-                                                    <Style.Triggers>
-                                                        <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
-                                                            <Setter Property="Background" Value="Green" />
-                                                            <Setter Property="Foreground" Value="White" />
-                                                        </Trigger>
-                                                    </Style.Triggers>
-                                                </Style>
-                                            </dxg:TableView.RowStyle>
-                                            <dxg:TableView.CellStyle>
-                                                <Style TargetType="{x:Type dxg:LightweightCellEditor }">
-                                                    <Style.Triggers>
-                                                        <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
-                                                            <Setter Property="Background" Value="Green" />
-                                                            <Setter Property="Foreground" Value="White" />
-                                                        </Trigger>
-                                                    </Style.Triggers>
-                                                </Style>
-                                            </dxg:TableView.CellStyle>
-                                        </dxg:TableView>
-                                    </dxg:GridControl.View>
-                                    <dxg:GridControl.Columns>
-                                        <dxg:GridColumn FieldName="cName" />
-                                    </dxg:GridControl.Columns>
-                                </dxg:GridControl>
-                            </ControlTemplate>
-                        </dxg:LookUpEditSettings.PopupContentTemplate>
-                    </dxg:LookUpEditSettings>
-                </dxg:GridColumn.EditSettings>
-            </dxg:GridColumn>
+                                                <dxg:TableView.FormatConditions>
+                                                    <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id">
+                                                        <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold"/>
+                                                    </dxg:FormatCondition>
+                                                </dxg:TableView.FormatConditions>
+                                                <dxg:TableView.RowStyle>
+                                                    <Style TargetType="{x:Type dxg:RowControl}">
+                                                        <Style.Triggers>
+                                                            <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
+                                                                <Setter Property="Background" Value="Green" />
+                                                                <Setter Property="Foreground" Value="White" />
+                                                            </Trigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </dxg:TableView.RowStyle>
+                                                <dxg:TableView.CellStyle>
+                                                    <Style TargetType="{x:Type dxg:LightweightCellEditor }">
+                                                        <Style.Triggers>
+                                                            <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
+                                                                <Setter Property="Background" Value="Green" />
+                                                                <Setter Property="Foreground" Value="White" />
+                                                            </Trigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </dxg:TableView.CellStyle>
+                                            </dxg:TableView>
+                                        </dxg:GridControl.View>
+                                        <dxg:GridControl.Columns>
+                                            <dxg:GridColumn FieldName="cName" />
+                                        </dxg:GridControl.Columns>
+                                    </dxg:GridControl>
+                                </ControlTemplate>
+                            </dxg:LookUpEditSettings.PopupContentTemplate>
+                        </dxg:LookUpEditSettings>
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
 
-            <dxg:GridColumn  FieldName="cMemo" Header="Memo" Width="200" AllowSorting="True"/>
-            <dxg:GridColumn FieldName="nOriginalAmount" Header="Original Amnt." AllowSorting="True" Width = "100"/>
-
-
+                <dxg:GridColumn  FieldName="cMemo" Header="Memo" Width="200" AllowSorting="True"/>
+                <dxg:GridColumn FieldName="nOriginalAmount" Header="Original Amnt." AllowSorting="True" Width = "100"/>
 
 
-            <dxg:GridColumn   FieldName="nCurrencyID" Header="Original Currency" Width="220"  AllowSorting="True" AllowEditing="True">
-                <dxg:GridColumn.EditSettings>
-                    <dxg:LookUpEditSettings  ItemsSource="{Binding Source={StaticResource uSP_getAllCurrencyViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="ID" DisplayMember="cName" >
-                        <dxg:LookUpEditSettings.PopupContentTemplate>
-                            <ControlTemplate TargetType="ContentControl">
-                                <dxg:GridControl x:Name="PART_GridControl" ShowBorder="True" >
-                                    <dxg:GridControl.View>
-                                        <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" 
+
+
+                <dxg:GridColumn   FieldName="nCurrencyID" Header="Original Currency" Width="220"  AllowSorting="True" AllowEditing="True">
+                    <dxg:GridColumn.EditSettings>
+                        <dxg:LookUpEditSettings  ItemsSource="{Binding Source={StaticResource uSP_getAllCurrencyViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="ID" DisplayMember="cName" >
+                            <dxg:LookUpEditSettings.PopupContentTemplate>
+                                <ControlTemplate TargetType="ContentControl">
+                                    <dxg:GridControl x:Name="PART_GridControl" ShowBorder="True" >
+                                        <dxg:GridControl.View>
+                                            <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" 
                                ShowColumnHeaders ="True"  Grid.ColumnSpan="1" Margin="0,0,0,0"  
                                 ShowBandsPanel="False" ShowBandsInCustomizationForm="False" 
                                ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" 
@@ -902,61 +904,53 @@
                                ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" 
                                ShowValidationAttributeErrors="False" ShowVerticalLines="False"
                                CustomCellAppearance="TableView_OnCustomCellAppearance">
-                                            <dxg:TableView.FormatConditions>
-                                                <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id">
-                                                    <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold"/>
-                                                </dxg:FormatCondition>
-                                            </dxg:TableView.FormatConditions>
-                                            <dxg:TableView.RowStyle>
-                                                <Style TargetType="{x:Type dxg:RowControl}">
-                                                    <Style.Triggers>
-                                                        <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
-                                                            <Setter Property="Background" Value="Green" />
-                                                            <Setter Property="Foreground" Value="White" />
-                                                        </Trigger>
-                                                    </Style.Triggers>
-                                                </Style>
-                                            </dxg:TableView.RowStyle>
-                                            <dxg:TableView.CellStyle>
-                                                <Style TargetType="{x:Type dxg:LightweightCellEditor }">
-                                                    <Style.Triggers>
-                                                        <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
-                                                            <Setter Property="Background" Value="Green" />
-                                                            <Setter Property="Foreground" Value="White" />
-                                                        </Trigger>
-                                                    </Style.Triggers>
-                                                </Style>
-                                            </dxg:TableView.CellStyle>
-                                        </dxg:TableView>
-                                    </dxg:GridControl.View>
-                                    <dxg:GridControl.Columns>
-                                        <dxg:GridColumn FieldName="cName" />
-                                    </dxg:GridControl.Columns>
-                                </dxg:GridControl>
-                            </ControlTemplate>
-                        </dxg:LookUpEditSettings.PopupContentTemplate>
-                    </dxg:LookUpEditSettings>
-                </dxg:GridColumn.EditSettings>
-            </dxg:GridColumn>
+                                                <dxg:TableView.FormatConditions>
+                                                    <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id">
+                                                        <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold"/>
+                                                    </dxg:FormatCondition>
+                                                </dxg:TableView.FormatConditions>
+                                                <dxg:TableView.RowStyle>
+                                                    <Style TargetType="{x:Type dxg:RowControl}">
+                                                        <Style.Triggers>
+                                                            <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
+                                                                <Setter Property="Background" Value="Green" />
+                                                                <Setter Property="Foreground" Value="White" />
+                                                            </Trigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </dxg:TableView.RowStyle>
+                                                <dxg:TableView.CellStyle>
+                                                    <Style TargetType="{x:Type dxg:LightweightCellEditor }">
+                                                        <Style.Triggers>
+                                                            <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
+                                                                <Setter Property="Background" Value="Green" />
+                                                                <Setter Property="Foreground" Value="White" />
+                                                            </Trigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </dxg:TableView.CellStyle>
+                                            </dxg:TableView>
+                                        </dxg:GridControl.View>
+                                        <dxg:GridControl.Columns>
+                                            <dxg:GridColumn FieldName="cName" />
+                                        </dxg:GridControl.Columns>
+                                    </dxg:GridControl>
+                                </ControlTemplate>
+                            </dxg:LookUpEditSettings.PopupContentTemplate>
+                        </dxg:LookUpEditSettings>
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
 
 
+            </dxg:GridControl>
+
+            <ComboBox Grid.Column="2" Margin="0,36,10,0" Grid.Row="2" IsSynchronizedWithCurrentItem = "True" SelectedItem="" DisplayMemberPath="cLabel" ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesUSP_getAllAccountsViewSource}}" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Grid.RowSpan="2"/>
+            <dx:SimpleButton Name="New"  Content="New Transaction" Grid.Column="2" HorizontalAlignment="Left" Height="27" Margin="1,6,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120" Click="SimpleButton_Click_1" RenderTransformOrigin="-1.733,0.444"/>
+            <dxe:TextEdit x:Name="TextEditTotalDr" Grid.Column="2" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="170,10,0,0" Grid.Row="10" VerticalAlignment="Top" Width="80" Mask="F" MaskType="Numeric"/>
+            <dxe:TextEdit x:Name="TextEditTotalCr" Grid.Column="2" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="252,10,0,0" Grid.Row="10" VerticalAlignment="Top" Width="80" Mask="F" MaskType="Numeric"/>
+            <dxe:TextEdit x:Name="TextEditBalance" Grid.Column="2" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="336,10,0,0" Grid.Row="10" VerticalAlignment="Top" Width="100" Mask="F" MaskType="Numeric" FontWeight="Normal" Padding="0,0,5,0" Background="Black" Foreground="White"/>
 
 
-
-
-
-        </dxg:GridControl>
-
-
-
-
-
-
-        <ComboBox Grid.Column="2" Margin="0,48,10,0" Grid.Row="2" IsSynchronizedWithCurrentItem = "True" SelectedItem="" DisplayMemberPath="cLabel" ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesUSP_getAllAccountsViewSource}}" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
-        <dx:SimpleButton Name="New"  Content="New Transaction" Grid.Column="2" HorizontalAlignment="Left" Height="27" Margin="1,17,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120" Click="SimpleButton_Click_1" RenderTransformOrigin="-1.733,0.444"/>
-        <dxe:TextEdit x:Name="TextEditTotalDr" Grid.Column="2" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="170,21,0,0" Grid.Row="10" VerticalAlignment="Top" Width="80" Mask="F" MaskType="Numeric"/>
-        <dxe:TextEdit x:Name="TextEditTotalCr" Grid.Column="2" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="252,21,0,0" Grid.Row="10" VerticalAlignment="Top" Width="80" Mask="F" MaskType="Numeric"/>
-        <dxe:TextEdit x:Name="TextEditBalance" Grid.Column="2" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="336,21,0,0" Grid.Row="10" VerticalAlignment="Top" Width="100" Mask="F" MaskType="Numeric" FontWeight="Normal" Padding="0,0,5,0" Background="Black" Foreground="White"/>
-
-    </Grid>
+        </Grid>
+    </dxlc:ScrollBox>
 </dxr:DXRibbonWindow>
