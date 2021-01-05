@@ -5,6 +5,9 @@
     [bDeleted]      BIT            NULL,
     [dtDateDeleted] DATETIME2 (7)  NULL,
     [dtCreateDate]  DATETIME2 (7)  CONSTRAINT [DF_accountingType_dtCreateDate] DEFAULT (getdate()) NULL,
+    [cSymbol]       NVARCHAR (10)  NULL,
     CONSTRAINT [PK_accountingType] PRIMARY KEY CLUSTERED ([ID] ASC)
 );
+
+
 

@@ -6,7 +6,7 @@
         xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
         xmlns:local="clr-namespace:coolBlue" xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" xmlns:AccountsDataSetTableAdapters="clr-namespace:coolBlue.AccountsDataSetTableAdapters" xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol" xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui" xmlns:dxp="http://schemas.devexpress.com/winfx/2008/xaml/printing" x:Class="coolBlue.MainWindow"
-        Title="CoolBlue" Height="900" Width="1800" Loaded="DXRibbonWindow_Loaded" WindowStartupLocation="Manual" WindowStyle="ThreeDBorderWindow" Background="#FF404383" Opacity="0.98" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Closing="DXRibbonWindow_Closing" ShowInTaskbar="False" HorizontalAlignment="Center" VerticalAlignment="Center" WindowState="Maximized">
+        Title="CoolBlue" Height="1200" Width="1800" Loaded="DXRibbonWindow_Loaded" WindowStartupLocation="Manual" WindowStyle="ThreeDBorderWindow" Background="#FF404383" Opacity="0.98" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Closing="DXRibbonWindow_Closing" WindowState="Maximized" ResizeMode="CanResizeWithGrip">
     <dxr:DXRibbonWindow.Resources>
 
 
@@ -97,19 +97,19 @@
             <ColumnDefinition Width="297*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" MinHeight="0"/>
-            <RowDefinition Height="*" MinHeight="0"/>
-            <RowDefinition Height="*" MinHeight="0"/>
-            <RowDefinition Height="*" MinHeight="0"/>
-            <RowDefinition Height="*" MinHeight="0"/>
-            <RowDefinition Height="*" MinHeight="0"/>
-            <RowDefinition Height="*" MinHeight="0"/>
-            <RowDefinition Height="*" MinHeight="0"/>
-            <RowDefinition Height="*" MinHeight="0"/>
-            <RowDefinition Height="*" MinHeight="0"/>
-            <RowDefinition Height="*" MinHeight="0"/>
-            <RowDefinition Height="*" MinHeight="0"/>
-            <RowDefinition Height="*" MinHeight="0"/>
+            <RowDefinition Name="r0" Height="100" MinHeight="0"/>
+            <RowDefinition Name="r1" Height="100" MinHeight="0"/>
+            <RowDefinition Name="r2" Height="100" MinHeight="0"/>
+            <RowDefinition Name="r3" Height="100" MinHeight="0"/>
+            <RowDefinition Name="r4" Height="60" MinHeight="0"/>
+            <RowDefinition Name="r5" Height="60" MinHeight="0"/>
+            <RowDefinition Name="r6" Height="10" MinHeight="0"/>
+            <RowDefinition Name="r7" Height="100" MinHeight="0"/>
+            <RowDefinition Name="r8" Height="100" MinHeight="0"/>
+            <RowDefinition Name="r9" Height="340" MinHeight="0"/>
+            <RowDefinition Name="r10" Height="60" MinHeight="0"/>
+            <RowDefinition Name="r11" Height="1" MinHeight="0"/>
+            <RowDefinition Name="r12" Height="*" MinHeight="0"/>
         </Grid.RowDefinitions>
 
 
@@ -213,7 +213,7 @@
             <dxg:GridControl.View>
                 <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" 
                                ShowColumnHeaders ="False"  Grid.ColumnSpan="1" Margin="0,0,0,0"  
-                               Width="223" Height="220" ShowBandsPanel="False" ShowBandsInCustomizationForm="False" 
+                               Width="223" ShowBandsPanel="False" ShowBandsInCustomizationForm="False" 
                                ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" 
                                ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" 
                                ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" 
@@ -257,6 +257,16 @@
 
             </dxg:GridControl.View>
 
+            <dxg:GridColumn Binding="{Binding accountingTypeSymbol}"  FieldName="Symbol"  IsEnabled="False" AllowFocus="False"  Header="" Width="30">
+                <dxg:GridColumn.DisplayTemplate  >
+                    <ControlTemplate >
+                        <TextBlock  x:Name="PART_Editor" FontWeight="Bold" Foreground="#FF0B1AAA" FontSize="10" />
+                    </ControlTemplate>
+                </dxg:GridColumn.DisplayTemplate>
+
+
+            </dxg:GridColumn>
+
             <dxg:GridColumn Binding="{Binding cName}"   Header="Name" Width="100">
 
                 <dxg:GridColumn.DisplayTemplate  >
@@ -279,9 +289,9 @@
 
 
 
-        <dxg:GridControl AutoGenerateColumns="None"  EnableSmartColumnsGeneration="False"  ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesUSP_getAllAccountsViewSource}}" Margin="5,0,10,0" Grid.Row="6" Grid.RowSpan="6" Grid.ColumnSpan="2"  CurrentItemChanged="GridControl_CurrentItemChanged">
+        <dxg:GridControl Name="grdAccounts" AutoGenerateColumns="None"  EnableSmartColumnsGeneration="False"  ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesUSP_getAllAccountsViewSource}}" Margin="5,0,10,0" Grid.Row="7" Grid.RowSpan="3" Grid.ColumnSpan="2"  CurrentItemChanged="GridControl_CurrentItemChanged">
             <dxg:GridControl.View>
-                <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" ShowColumnHeaders ="False"  Grid.ColumnSpan="1" Margin="0,0,0,0"  Width="223" Height="459" ShowBandsPanel="False" ShowBandsInCustomizationForm="False" ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" ShowValidationAttributeErrors="False" ShowVerticalLines="False" RowDoubleClick="TableView_RowDoubleClick">
+                <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" ShowColumnHeaders ="False"  Grid.ColumnSpan="1" Margin="0,0,0,0"  Width="223"  ShowBandsPanel="False" ShowBandsInCustomizationForm="False" ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" ShowValidationAttributeErrors="False" ShowVerticalLines="False" RowDoubleClick="TableView_RowDoubleClick">
 
                     <dxg:TableView.FormatConditions>
                         <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id">
@@ -342,7 +352,7 @@
         </dxg:GridControl>
 
 
-        <dxg:GridControl Name="uSP_getLineDataGrid" AutoGenerateColumns="None"  EnableSmartColumnsGeneration="False"  ItemsSource="{Binding Source={StaticResource uSP_getLineViewSource1}}" Margin="0,0,4,0" Grid.Column="2" Grid.Row="3" Grid.RowSpan="8" SelectionMode="Row">
+        <dxg:GridControl Name="uSP_getLineDataGrid" AutoGenerateColumns="None"  EnableSmartColumnsGeneration="False"  ItemsSource="{Binding Source={StaticResource uSP_getLineViewSource1}}" Margin="0,0,4,0" Grid.Column="2" Grid.Row="3" Grid.RowSpan="7" SelectionMode="Row">
             <dxg:GridControl.View>
                 <dxg:TableView Name="LineView"  AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" 
                                ShowColumnHeaders ="True"  Grid.ColumnSpan="1" Margin="0,0,0,0"  
@@ -542,7 +552,7 @@
 
 
 
-        <dxg:GridControl Name="uSP_getSplitDataGrid" AutoGenerateColumns="None"  EnableSmartColumnsGeneration="False"  ItemsSource="{Binding Source={StaticResource uSP_getLineUSP_getSplitViewSource}}" Margin="0,0,0,0" Grid.Column=" 3" Grid.RowSpan="8" Grid.Row="3" Grid.ColumnSpan="5" SelectionMode="Row">
+        <dxg:GridControl Name="uSP_getSplitDataGrid" AutoGenerateColumns="None"  EnableSmartColumnsGeneration="False"  ItemsSource="{Binding Source={StaticResource uSP_getLineUSP_getSplitViewSource}}" Margin="0,0,0,0" Grid.Column=" 3" Grid.RowSpan="7" Grid.Row="3" Grid.ColumnSpan="5" SelectionMode="Row">
             <dxg:GridControl.View>
                 <dxg:TableView Name="SplitsView"  AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" 
                                ShowColumnHeaders ="True"  Grid.ColumnSpan="1" Margin="0,0,0,0"  
@@ -944,9 +954,9 @@
 
         <ComboBox Grid.Column="2" Margin="0,48,10,0" Grid.Row="2" IsSynchronizedWithCurrentItem = "True" SelectedItem="" DisplayMemberPath="cLabel" ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesUSP_getAllAccountsViewSource}}" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
         <dx:SimpleButton Name="New"  Content="New Transaction" Grid.Column="2" HorizontalAlignment="Left" Height="27" Margin="1,17,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120" Click="SimpleButton_Click_1" RenderTransformOrigin="-1.733,0.444"/>
-        <dxe:TextEdit x:Name="TextEditTotalDr" Grid.Column="2" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="170,21,0,0" Grid.Row="11" VerticalAlignment="Top" Width="80" Mask="F" MaskType="Numeric"/>
-        <dxe:TextEdit x:Name="TextEditTotalCr" Grid.Column="2" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="252,21,0,0" Grid.Row="11" VerticalAlignment="Top" Width="80" Mask="F" MaskType="Numeric"/>
-        <dxe:TextEdit x:Name="TextEditBalance" Grid.Column="2" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="336,21,0,0" Grid.Row="11" VerticalAlignment="Top" Width="100" Mask="F" MaskType="Numeric" FontWeight="Normal" Padding="0,0,5,0" Background="Black" Foreground="White"/>
+        <dxe:TextEdit x:Name="TextEditTotalDr" Grid.Column="2" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="170,21,0,0" Grid.Row="10" VerticalAlignment="Top" Width="80" Mask="F" MaskType="Numeric"/>
+        <dxe:TextEdit x:Name="TextEditTotalCr" Grid.Column="2" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="252,21,0,0" Grid.Row="10" VerticalAlignment="Top" Width="80" Mask="F" MaskType="Numeric"/>
+        <dxe:TextEdit x:Name="TextEditBalance" Grid.Column="2" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="336,21,0,0" Grid.Row="10" VerticalAlignment="Top" Width="100" Mask="F" MaskType="Numeric" FontWeight="Normal" Padding="0,0,5,0" Background="Black" Foreground="White"/>
 
     </Grid>
 </dxr:DXRibbonWindow>

@@ -20,10 +20,12 @@ BEGIN
 
 	--a.cNameFirst,a.cNameLast,
 	
-	 SELECT a.ID,a.cName,a.cNote,a.dtCreateDate,a.nAccountingTypeID
+	 SELECT a.ID,a.cName,a.cNote,a.dtCreateDate,a.nAccountingTypeID,b.cName as accountingTypeName,b.cSymbol as accountingTypeSymbol
 
 
 	 FROM accountType a WITH (NOLOCK)
+
+	 left join accountingType b on a.nAccountingTypeID = b.ID
 
 	 where  a.bDeleted is null or a.bDeleted=0
 		

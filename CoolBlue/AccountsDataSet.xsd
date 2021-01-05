@@ -56,6 +56,8 @@
               <Mapping SourceColumn="cNote" DataSetColumn="cNote" />
               <Mapping SourceColumn="dtCreateDate" DataSetColumn="dtCreateDate" />
               <Mapping SourceColumn="nAccountingTypeID" DataSetColumn="nAccountingTypeID" />
+              <Mapping SourceColumn="accountingTypeName" DataSetColumn="accountingTypeName" />
+              <Mapping SourceColumn="accountingTypeSymbol" DataSetColumn="accountingTypeSymbol" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -167,6 +169,8 @@
               </xs:element>
               <xs:element name="dtCreateDate" msprop:Generator_ColumnVarNameInTable="columndtCreateDate" msprop:Generator_ColumnPropNameInRow="dtCreateDate" msprop:Generator_ColumnPropNameInTable="dtCreateDateColumn" msprop:Generator_UserColumnName="dtCreateDate" type="xs:dateTime" minOccurs="0" />
               <xs:element name="nAccountingTypeID" msprop:Generator_ColumnVarNameInTable="columnnAccountingTypeID" msprop:Generator_ColumnPropNameInRow="nAccountingTypeID" msprop:Generator_ColumnPropNameInTable="nAccountingTypeIDColumn" msprop:Generator_UserColumnName="nAccountingTypeID" type="xs:int" minOccurs="0" />
+              <xs:element name="accountingTypeName" msprop:Generator_ColumnVarNameInTable="columnaccountingTypeName" msprop:Generator_ColumnPropNameInRow="accountingTypeName" msprop:Generator_ColumnPropNameInTable="accountingTypeNameColumn" msprop:Generator_UserColumnName="accountingTypeName" type="xs:string" minOccurs="0" />
+              <xs:element name="accountingTypeSymbol" msprop:Generator_ColumnVarNameInTable="columnaccountingTypeSymbol" msprop:Generator_ColumnPropNameInRow="accountingTypeSymbol" msprop:Generator_ColumnPropNameInTable="accountingTypeSymbolColumn" msprop:Generator_UserColumnName="accountingTypeSymbol" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

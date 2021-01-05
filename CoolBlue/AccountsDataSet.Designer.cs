@@ -877,6 +877,10 @@ namespace coolBlue {
             
             private global::System.Data.DataColumn columnnAccountingTypeID;
             
+            private global::System.Data.DataColumn columnaccountingTypeName;
+            
+            private global::System.Data.DataColumn columnaccountingTypeSymbol;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public USP_getAllAccountTypesDataTable() {
@@ -952,6 +956,22 @@ namespace coolBlue {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn accountingTypeNameColumn {
+                get {
+                    return this.columnaccountingTypeName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn accountingTypeSymbolColumn {
+                get {
+                    return this.columnaccountingTypeSymbol;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -987,14 +1007,16 @@ namespace coolBlue {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public USP_getAllAccountTypesRow AddUSP_getAllAccountTypesRow(string cName, string cNote, System.DateTime dtCreateDate, int nAccountingTypeID) {
+            public USP_getAllAccountTypesRow AddUSP_getAllAccountTypesRow(string cName, string cNote, System.DateTime dtCreateDate, int nAccountingTypeID, string accountingTypeName, string accountingTypeSymbol) {
                 USP_getAllAccountTypesRow rowUSP_getAllAccountTypesRow = ((USP_getAllAccountTypesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         cName,
                         cNote,
                         dtCreateDate,
-                        nAccountingTypeID};
+                        nAccountingTypeID,
+                        accountingTypeName,
+                        accountingTypeSymbol};
                 rowUSP_getAllAccountTypesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowUSP_getAllAccountTypesRow);
                 return rowUSP_getAllAccountTypesRow;
@@ -1029,6 +1051,8 @@ namespace coolBlue {
                 this.columncNote = base.Columns["cNote"];
                 this.columndtCreateDate = base.Columns["dtCreateDate"];
                 this.columnnAccountingTypeID = base.Columns["nAccountingTypeID"];
+                this.columnaccountingTypeName = base.Columns["accountingTypeName"];
+                this.columnaccountingTypeSymbol = base.Columns["accountingTypeSymbol"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1044,6 +1068,10 @@ namespace coolBlue {
                 base.Columns.Add(this.columndtCreateDate);
                 this.columnnAccountingTypeID = new global::System.Data.DataColumn("nAccountingTypeID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnAccountingTypeID);
+                this.columnaccountingTypeName = new global::System.Data.DataColumn("accountingTypeName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnaccountingTypeName);
+                this.columnaccountingTypeSymbol = new global::System.Data.DataColumn("accountingTypeSymbol", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnaccountingTypeSymbol);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AutoIncrement = true;
@@ -2283,6 +2311,40 @@ namespace coolBlue {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string accountingTypeName {
+                get {
+                    try {
+                        return ((string)(this[this.tableUSP_getAllAccountTypes.accountingTypeNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'accountingTypeName\' in table \'USP_getAllAccountTypes\' is DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tableUSP_getAllAccountTypes.accountingTypeNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string accountingTypeSymbol {
+                get {
+                    try {
+                        return ((string)(this[this.tableUSP_getAllAccountTypes.accountingTypeSymbolColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'accountingTypeSymbol\' in table \'USP_getAllAccountTypes\' is " +
+                                "DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUSP_getAllAccountTypes.accountingTypeSymbolColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IscNameNull() {
                 return this.IsNull(this.tableUSP_getAllAccountTypes.cNameColumn);
             }
@@ -2327,6 +2389,30 @@ namespace coolBlue {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetnAccountingTypeIDNull() {
                 this[this.tableUSP_getAllAccountTypes.nAccountingTypeIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsaccountingTypeNameNull() {
+                return this.IsNull(this.tableUSP_getAllAccountTypes.accountingTypeNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetaccountingTypeNameNull() {
+                this[this.tableUSP_getAllAccountTypes.accountingTypeNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsaccountingTypeSymbolNull() {
+                return this.IsNull(this.tableUSP_getAllAccountTypes.accountingTypeSymbolColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetaccountingTypeSymbolNull() {
+                this[this.tableUSP_getAllAccountTypes.accountingTypeSymbolColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3425,6 +3511,8 @@ namespace coolBlue.AccountsDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("cNote", "cNote");
             tableMapping.ColumnMappings.Add("dtCreateDate", "dtCreateDate");
             tableMapping.ColumnMappings.Add("nAccountingTypeID", "nAccountingTypeID");
+            tableMapping.ColumnMappings.Add("accountingTypeName", "accountingTypeName");
+            tableMapping.ColumnMappings.Add("accountingTypeSymbol", "accountingTypeSymbol");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
