@@ -5,6 +5,9 @@
     [dtCreateDate]  DATETIME2 (7)  CONSTRAINT [DF_currency_dtCreateDate] DEFAULT (getdate()) NULL,
     [cNote]         NVARCHAR (MAX) NULL,
     [dtDateDeleted] DATETIME2 (7)  NULL,
+    [cSymbol]       NVARCHAR (50)  NULL,
     CONSTRAINT [PK_currency] PRIMARY KEY CLUSTERED ([ID] ASC)
 );
+
+
 

@@ -28,7 +28,7 @@ BEGIN
 
 	--a.cNameFirst,a.cNameLast,
 	
-	 SELECT a.ID,a.dtCreateDate,a.nAccountTypeID,a.cName as cShortName,a.cNote,a.cDesc,a.nCurrencyID,a.nCatID,b.cName as currencyName,
+	 SELECT a.ID,a.dtCreateDate,a.nAccountTypeID,a.cName as cShortName,a.cNote,a.cDesc,a.nCurrencyID,a.nCatID,b.cName as currencyName,b.cSymbol as currencySymbol,
 	  isnull(c.cName+': ','')+ a.cName as cName,
 	   
 	  CONVERT(nvarchar,  

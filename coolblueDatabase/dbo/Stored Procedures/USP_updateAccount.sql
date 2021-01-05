@@ -19,7 +19,18 @@ CREATE PROCEDURE [dbo].[USP_updateAccount]
 	@cDecryptedPIN nvarchar(255),
 	@cDecryptedCV nvarchar(255),
 	@cExpiry nvarchar(255),
-	@cAcctNum nvarchar(255)
+	@cAcctNum nvarchar(255),
+	@cCardNum nvarchar(255),
+	@cInstitutionNum nvarchar(255),
+	@cTransitNum nvarchar(255),
+	@cUsername nvarchar(255),
+	@cPassword nvarchar(255),
+	@cSwiftCode nvarchar(255),
+	@nCreditLimit decimal(14,2),
+	@cContactName nvarchar(255),
+	@cURL nvarchar(255),
+	@cContactEmail nvarchar(255),
+	@cContactPhone nvarchar(255)
 	
 	
 AS
@@ -48,6 +59,18 @@ BEGIN
 	cComment=@cComment,
 	nCatID=@nCatID,
 	nCurrencyID=@nCurrencyID,
+
+	cInstitutionNum=@cInstitutionNum,
+	cTransitNum=@cTransitNum,
+	
+	cSwiftCode=@cSwiftCode,
+	nCreditLimit=@nCreditLimit,
+	cContactName=@cContactName ,
+	cURL=@cURL ,
+	cContactEmail=@cContactEmail,
+	cContactPhone=@cContactPhone ,
+
+
 	pin_Encrypted=EncryptByKey(Key_GUID('PIN_Key11')  
     , convert(varbinary,@cDecryptedPIN),1, HashBytes('SHA1', CONVERT( varbinary  
     , @ID))) ,
@@ -62,6 +85,18 @@ BEGIN
 
 	acctNum_Encrypted = EncryptByKey(Key_GUID('PIN_Key11')  
     , convert(varbinary,@cAcctNum),1, HashBytes('SHA1', CONVERT( varbinary  
+    , @ID))),
+
+	cardNum_Encrypted = EncryptByKey(Key_GUID('PIN_Key11')  
+    , convert(varbinary,@cCardNum),1, HashBytes('SHA1', CONVERT( varbinary  
+    , @ID))),
+
+	username_Encrypted = EncryptByKey(Key_GUID('PIN_Key11')  
+    , convert(varbinary,@cUsername),1, HashBytes('SHA1', CONVERT( varbinary  
+    , @ID))),
+
+	password_Encrypted = EncryptByKey(Key_GUID('PIN_Key11')  
+    , convert(varbinary,@cPassword),1, HashBytes('SHA1', CONVERT( varbinary  
     , @ID)))
 
 

@@ -3,11 +3,8 @@
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE [dbo].[USP_getAllAccountTypes]
-	
-	--@InventoryNumber nVarchar(255),
-	--@Title nVarchar(255)
-	--@accountID int
+create PROCEDURE [dbo].[USP_getOneClass]
+	@classID int
 
 AS
 BEGIN
@@ -20,12 +17,16 @@ BEGIN
 
 	--a.cNameFirst,a.cNameLast,
 	
-	 SELECT a.ID,a.cName,a.cNote,a.dtCreateDate,a.nAccountingTypeID
+	 SELECT a.ID, a.cName,a.cDesc,a.dtCreateDate
 
 
-	 FROM accountType a WITH (NOLOCK)
+	 FROM dbo.class a  WITH (NOLOCK)
+	 
+	 --left join dbo.line b on a.nLineID = b.ID
+	 
+	 where a.ID = @classID and (a.bDeleted is null or a.bDeleted=0) 
 
-	 where  a.bDeleted is null or a.bDeleted=0
+	 --where b.nAccountID = @accountID and (a.bDeleted is null or a.bDeleted=0) and (b.bDeleted is null or b.bDeleted=0)
 		
 	order by a.cName
 
@@ -34,6 +35,3 @@ BEGIN
 		
                    				 
 end
-
-
-

@@ -20,7 +20,7 @@ BEGIN
 
 	--a.cNameFirst,a.cNameLast,
 	
-	 SELECT a.ID,a.dtCreateDate,a.nAccountID,a.dtTransDate,a.cNote,
+	 SELECT distinct a.ID,a.dtCreateDate,a.nAccountID,a.dtTransDate,a.cNote,
 	 
 	 (select isnull(sum(s.nAmount),0) as "totalSplit" from dbo.split s where s.nLineID = a.ID
 	 and (s.nAccountID_C = @accountID or s.nAccountID_D = @accountID)
@@ -47,6 +47,8 @@ BEGIN
 	( b.nAccountID_C = @accountID or b.nAccountID_D = @accountID or a.nAccountID = @accountID)
 	  
 	 and ((a.bDeleted is null or a.bDeleted=0) and (b.bDeleted is null or b.bDeleted=0))
+
+	 and @accountID>0
 		
 	order by a.dtTransDate desc
 

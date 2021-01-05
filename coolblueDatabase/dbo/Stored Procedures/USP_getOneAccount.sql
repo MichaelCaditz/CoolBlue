@@ -26,6 +26,11 @@ BEGIN
 	--a.cNameFirst,a.cNameLast,
 	
 	 SELECT a.ID,a.dtCreateDate,a.cName,a.cNote,a.nAccountTypeID,a.cDesc,a.cComment,a.nCurrencyID,a.nCatID,
+
+	 cInstitutionNum,cTransitNum,cSwiftCode,nCreditLimit,cContactName,cURL,cContactEmail,cContactPhone,
+
+
+
 	CONVERT(nvarchar,  
     DecryptByKey(a.pin_Encrypted, 1 ,   
     HashBytes('SHA1', CONVERT(varbinary, a.ID))))  
@@ -44,8 +49,22 @@ BEGIN
 	CONVERT(nvarchar,  
     DecryptByKey(a.acctNum_Encrypted, 1 ,   
     HashBytes('SHA1', CONVERT(varbinary, a.ID))))  
-    AS 'cDecryptedAcctNum' 
+    AS 'cDecryptedAcctNum' ,
 
+	CONVERT(nvarchar,  
+    DecryptByKey(a.cardNum_Encrypted, 1 ,   
+    HashBytes('SHA1', CONVERT(varbinary, a.ID))))  
+    AS 'cDecryptedCardNum' ,
+
+	CONVERT(nvarchar,  
+    DecryptByKey(a.username_Encrypted, 1 ,   
+    HashBytes('SHA1', CONVERT(varbinary, a.ID))))  
+    AS 'cDecryptedUsername' ,
+
+	CONVERT(nvarchar,  
+    DecryptByKey(a.password_Encrypted, 1 ,   
+    HashBytes('SHA1', CONVERT(varbinary, a.ID))))  
+    AS 'cDecryptedPassword' 
 
 	 FROM dbo.account a  WITH (NOLOCK)
 
