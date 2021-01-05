@@ -414,6 +414,7 @@ namespace coolBlue
 
                
                 SplitsView.Focus();
+                Vendor.Focus();
 
 
                 //LineView.Focus();

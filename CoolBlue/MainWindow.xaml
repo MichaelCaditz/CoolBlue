@@ -6,7 +6,7 @@
         xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
         xmlns:local="clr-namespace:coolBlue" xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" xmlns:AccountsDataSetTableAdapters="clr-namespace:coolBlue.AccountsDataSetTableAdapters" xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol" xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui" xmlns:dxp="http://schemas.devexpress.com/winfx/2008/xaml/printing" x:Class="coolBlue.MainWindow"
-        Title="CoolBlue" Height="1080" Width="1800" Loaded="DXRibbonWindow_Loaded" WindowStartupLocation="Manual" Background="#FF404383" Closing="DXRibbonWindow_Closing" WindowState="Maximized" ResizeMode="CanResizeWithGrip" ScrollViewer.VerticalScrollBarVisibility="Disabled" HorizontalAlignment="Center" VerticalAlignment="Center" WindowStyle="None">
+        Title="CoolBlue" Height="1080" Width="1920" Loaded="DXRibbonWindow_Loaded" WindowStartupLocation="Manual" Background="#FF404383" Closing="DXRibbonWindow_Closing" WindowState="Maximized" ResizeMode="CanResizeWithGrip" ScrollViewer.VerticalScrollBarVisibility="Disabled" HorizontalAlignment="Center" VerticalAlignment="Center" WindowStyle="None">
     <dxr:DXRibbonWindow.Resources>
 
 
@@ -91,11 +91,11 @@
                 <ColumnDefinition Width="223"/>
                 <ColumnDefinition Width="15"/>
                 <ColumnDefinition Width="446"/>
-                <ColumnDefinition Width="297*"/>
-                <ColumnDefinition Width="57*"/>
-                <ColumnDefinition Width="240*"/>
-                <ColumnDefinition Width="297*"/>
-                <ColumnDefinition Width="297*"/>
+                <ColumnDefinition Width="297"/>
+                <ColumnDefinition Width="57"/>
+                <ColumnDefinition Width="240"/>
+                <ColumnDefinition Width="240"/>
+                <ColumnDefinition Width="380"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Name="r0" Height="100" MinHeight="0"/>
@@ -609,7 +609,7 @@
                 </dxg:GridControl.View>
 
 
-                <dxg:GridColumn   FieldName="nVendorsID" Header="Vendor" Width="220"  AllowSorting="True" AllowEditing="True">
+                <dxg:GridColumn   Name="Vendor"  FieldName="nVendorsID" Header="Vendor" Width="180"  AllowSorting="True" AllowEditing="True">
                     <dxg:GridColumn.EditSettings>
                         <dxg:LookUpEditSettings  ItemsSource="{Binding Source={StaticResource uSP_getAllVendorsViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="vendors_id" DisplayMember="cmpDisplay" >
                             <dxg:LookUpEditSettings.PopupContentTemplate>
@@ -664,7 +664,7 @@
 
 
 
-                <dxg:GridColumn   Name ="nAccountID_D" FieldName="nAccountID_D" Header="Dr Account" Width="220"  AllowSorting="True" AllowEditing="True">
+                <dxg:GridColumn   Name ="nAccountID_D" FieldName="nAccountID_D" Header="Dr Account" Width="150"  AllowSorting="True" AllowEditing="True">
                     <dxg:GridColumn.EditSettings>
                         <dxg:LookUpEditSettings  ItemsSource="{Binding Source={StaticResource uSP_getAllAccountsForSplitViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="ID" DisplayMember="cName" >
                             <dxg:LookUpEditSettings.PopupContentTemplate>
@@ -722,7 +722,7 @@
                 <dxg:GridColumn   FieldName="nAmount_D" Header="Dr Amount" EditSettings="{ dxe:TextSettings DisplayFormat=###########.00}" Width="100"  AllowSorting="True" AllowEditing="True" SortOrder="Ascending" SortIndex="0"/>
 
 
-                <dxg:GridColumn   Name ="nAccountID_C"  FieldName="nAccountID_C" Header="Cr Account" Width="220"  AllowSorting="True" AllowEditing="True">
+                <dxg:GridColumn   Name ="nAccountID_C"  FieldName="nAccountID_C" Header="Cr Account" Width="150"  AllowSorting="True" AllowEditing="True">
                     <dxg:GridColumn.EditSettings>
                         <dxg:LookUpEditSettings  ItemsSource="{Binding Source={StaticResource uSP_getAllAccountsForSplitViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="ID" DisplayMember="cName" >
                             <dxg:LookUpEditSettings.PopupContentTemplate>
@@ -778,7 +778,7 @@
                 <dxg:GridColumn  Name="nAmount_C" FieldName="nAmount_C" Header="Cr Amount" EditSettings="{ dxe:TextSettings DisplayFormat=###########.00}" Width="100" AllowSorting="True" AllowEditing="True"/>
 
 
-                <dxg:GridColumn   FieldName="nTagID" Header="Tag" Width="220"  AllowSorting="True" AllowEditing="True">
+                <dxg:GridColumn   FieldName="nTagID" Header="Tag" Width="100"  AllowSorting="True" AllowEditing="True">
                     <dxg:GridColumn.EditSettings>
                         <dxg:LookUpEditSettings  ItemsSource="{Binding Source={StaticResource uSP_getAllTagsViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="ID" DisplayMember="cName" >
                             <dxg:LookUpEditSettings.PopupContentTemplate>
@@ -831,7 +831,7 @@
                 </dxg:GridColumn>
 
 
-                <dxg:GridColumn   FieldName="nClassID" Header="Class" Width="220"  AllowSorting="True" AllowEditing="True">
+                <dxg:GridColumn   FieldName="nClassID" Header="Class" Width="100"  AllowSorting="True" AllowEditing="True">
                     <dxg:GridColumn.EditSettings>
                         <dxg:LookUpEditSettings  ItemsSource="{Binding Source={StaticResource uSP_getAllClassViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="ID" DisplayMember="cName" >
                             <dxg:LookUpEditSettings.PopupContentTemplate>
@@ -883,13 +883,13 @@
                     </dxg:GridColumn.EditSettings>
                 </dxg:GridColumn>
 
-                <dxg:GridColumn  FieldName="cMemo" Header="Memo" Width="200" AllowSorting="True"/>
+                <dxg:GridColumn  FieldName="cMemo" Header="Memo" Width="130" AllowSorting="True"/>
                 <dxg:GridColumn FieldName="nOriginalAmount" Header="Original Amnt." AllowSorting="True" Width = "100"/>
 
 
 
 
-                <dxg:GridColumn   FieldName="nCurrencyID" Header="Original Currency" Width="220"  AllowSorting="True" AllowEditing="True">
+                <dxg:GridColumn   FieldName="nCurrencyID" Header="Original Currency" Width="110"  AllowSorting="True" AllowEditing="True">
                     <dxg:GridColumn.EditSettings>
                         <dxg:LookUpEditSettings  ItemsSource="{Binding Source={StaticResource uSP_getAllCurrencyViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="ID" DisplayMember="cName" >
                             <dxg:LookUpEditSettings.PopupContentTemplate>
