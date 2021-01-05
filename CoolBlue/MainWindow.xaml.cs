@@ -52,7 +52,7 @@ namespace coolBlue
 
         private void DXRibbonWindow_Loaded(object sender, RoutedEventArgs e)
         {
-
+         
             coolBlue.AccountsDataSet accountsDataSet = ((coolBlue.AccountsDataSet)(this.FindResource("accountsDataSet")));
             
 

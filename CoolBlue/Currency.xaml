@@ -7,7 +7,7 @@
     xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
     xmlns:local="clr-namespace:coolBlue"
     Title="Currency" Height="800" Width="800" WindowStartupLocation="CenterScreen"
-    Loaded="ThemedWindow_Loaded"
+    Loaded="ThemedWindow_Loaded" ScrollViewer.HorizontalScrollBarVisibility="Visible"
     >
 
     <dx:ThemedWindow.Resources>
