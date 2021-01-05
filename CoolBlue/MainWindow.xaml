@@ -6,7 +6,7 @@
         xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
         xmlns:local="clr-namespace:coolBlue" xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" xmlns:AccountsDataSetTableAdapters="clr-namespace:coolBlue.AccountsDataSetTableAdapters" xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol" xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui" xmlns:dxp="http://schemas.devexpress.com/winfx/2008/xaml/printing" x:Class="coolBlue.MainWindow"
-        Title="CoolBlue" Height="1080" Width="1920" Loaded="DXRibbonWindow_Loaded" WindowStartupLocation="Manual" Background="#FF404383" Closing="DXRibbonWindow_Closing" WindowState="Maximized" ResizeMode="CanResizeWithGrip" ScrollViewer.VerticalScrollBarVisibility="Disabled" HorizontalAlignment="Center" VerticalAlignment="Center" WindowStyle="None">
+        Title="CoolBlue" Height="1080" Width="1920" Loaded="DXRibbonWindow_Loaded" WindowStartupLocation="Manual" Background="#FFB4B4BB" Closing="DXRibbonWindow_Closing" WindowState="Maximized" ScrollViewer.VerticalScrollBarVisibility="Disabled" HorizontalAlignment="Center" VerticalAlignment="Center" WindowStyle="None" Foreground="#FFD4E80C" BorderEffectActiveColor="#FFF0E6E6" ShowActivated="True">
     <dxr:DXRibbonWindow.Resources>
 
 
@@ -83,7 +83,7 @@
         <CollectionViewSource x:Key="uSP_getAllAccountsForSplitViewSource" Source="{Binding USP_getAllAccountsForSplit, Source={StaticResource registerDataSet}}"/>
     </dxr:DXRibbonWindow.Resources>
 
-    <dxlc:ScrollBox HorizontalAlignment="Left"  Grid.Row="0" Grid.RowSpan="11" Grid.ColumnSpan="7" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="0,30,0,0" Padding="0" >
+    <dxlc:ScrollBox HorizontalAlignment="Left"  Grid.Row="0" Grid.RowSpan="11" Grid.ColumnSpan="7" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="0,30,0,0" Padding="0" Background="#FF0B4678" >
 
 
         <Grid DataContext="{StaticResource uSP_getLineViewSource}" IsEnabled="True" Margin="10,0">
@@ -202,7 +202,7 @@
 
                 </dxr:RibbonDefaultPageCategory>
             </dxr:RibbonControl>
-            <dxr:RibbonStatusBarControl Height="26" VerticalAlignment="Bottom" Grid.Row="12" Grid.ColumnSpan="8">
+            <dxr:RibbonStatusBarControl Height="26" VerticalAlignment="Bottom" Grid.Row="12" Grid.ColumnSpan="8" Foreground="#FF405FB2"  Background="#FF405FB2" >
                 <dxr:RibbonStatusBarControl.RightItems>
                     <dxb:BarButtonItem x:Name="printItem" Content="Print" Glyph="{dx:DXImage Image=Print_16x16.png}"/>
                 </dxr:RibbonStatusBarControl.RightItems>
