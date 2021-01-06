@@ -789,8 +789,22 @@ namespace coolBlue
             TextEditTotalCr.EditValue = sumCr;
             TextEditBalance.EditValue = sumTotal;
 
+            //LineView.Focus();
+            // Vendor.Focus();
+
+            DataTable dt = registerDataSet.USP_getLine;
+            DataRow foundRow = dt.Rows.Find(lineCurrent);
+
+
+            int rowHandle = dt.Rows.IndexOf(foundRow);
+
+
+            uSP_getLineDataGrid.View.FocusedRowHandle = rowHandle;
+
 
         }
+
+       
 
         private DataRowView rowBeingEdited = null;
 
