@@ -321,7 +321,24 @@ namespace coolBlue
             }
 
 
+            if (accountCurrent == 0)
+            {
+                string message = "Please select an account";
+                string caption = "CoolBlue";
 
+                MessageBoxButton buttons = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Information;
+                MessageBoxResult defaultResult = MessageBoxResult.OK;
+                MessageBoxOptions options = MessageBoxOptions.RtlReading;
+
+                MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+
+                if (result == MessageBoxResult.OK)
+                {
+
+                }
+                return;
+            }
 
 
 
