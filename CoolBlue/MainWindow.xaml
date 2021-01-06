@@ -278,7 +278,7 @@
 
                 </dxg:GridColumn>
 
-                <dxg:GridColumn Binding="{Binding cName}"   Header="Name" Width="100">
+                <dxg:GridColumn Binding="{Binding cName}"   Header="Name" Width="120">
 
                     <dxg:GridColumn.DisplayTemplate  >
                         <ControlTemplate >
@@ -337,6 +337,8 @@
                             </Style>
                         </dxg:TableView.CellStyle>
                         <dxg:TableView.RowCellMenuCustomizations>
+                            <dxb:BarButtonItem Name="NewTrans" Content="New Transaction" ItemClick="NewTrans_ItemClick" />
+
                             <dxb:BarButtonItem Name="Properties" Content="Properties" ItemClick="Properties_ItemClick" />
 
                         </dxg:TableView.RowCellMenuCustomizations>

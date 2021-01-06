@@ -1319,5 +1319,10 @@ namespace coolBlue
                 e.Cancel=true;
             }
         }
+
+        private void NewTrans_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+            insertNewLine();
+        }
     }
 }
