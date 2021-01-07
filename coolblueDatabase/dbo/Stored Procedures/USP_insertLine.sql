@@ -3,12 +3,13 @@
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-create PROCEDURE [dbo].[USP_insertLine]
+CREATE PROCEDURE [dbo].[USP_insertLine]
 	-- Add the parameters for the stored procedure here
 	--<@Param1, sysname, @p1> <Datatype_For_Param1, , int> = <Default_Value_For_Param1, , 0>, 
 	--<@Param2, sysname, @p2> <Datatype_For_Param2, , int> = <Default_Value_For_Param2, , 0>
 	
 	@nAccount  int = 0,
+	@nAccountingPeriod int = 0,
 
 	@transactIdentity int output
 	
@@ -30,7 +31,8 @@ BEGIN
 	cNote,
 	nAccountID,
 	dtTransDate,
-	bDeleted
+	bDeleted,
+	nAccountingPeriodID
 	
 	
 	)
@@ -39,7 +41,8 @@ BEGIN
 	'',
 	@nAccount,
 	getDate(),
-	0
+	0,
+	@nAccountingPeriod
 	
 
 	)

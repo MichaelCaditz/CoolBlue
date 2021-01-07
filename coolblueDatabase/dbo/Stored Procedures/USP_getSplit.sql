@@ -7,7 +7,8 @@ CREATE PROCEDURE [dbo].[USP_getSplit]
 	
 	--@InventoryNumber nVarchar(255),
 	--@Title nVarchar(255)
-	@accountID int
+	@accountID int,
+	@accountingPeriod int
 
 AS
 BEGIN
@@ -26,11 +27,11 @@ BEGIN
 
 	 FROM split a  WITH (NOLOCK)
 	 
-	 left join dbo.line b on a.nLineID = b.ID
+	 right join dbo.line b on a.nLineID = b.ID
 	 
 	
 
-	 where (a.nAccountID_C = @accountID or a.nAccountID_D = @accountID)
+	 where (a.nAccountID_C = @accountID or a.nAccountID_D = @accountID) and b.nAccountingPeriodID=@accountingPeriod
 	 
 	 --b.nAccountID = @accountID 
 	 

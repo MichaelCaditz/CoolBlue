@@ -7,7 +7,8 @@ CREATE PROCEDURE [dbo].[USP_getLine]
 	
 	--@InventoryNumber nVarchar(255),
 	--@Title nVarchar(255)
-	@accountID int
+	@accountID int,
+	@accountingPeriod int
 
 AS
 BEGIN
@@ -48,7 +49,7 @@ BEGIN
 	  
 	 and ((a.bDeleted is null or a.bDeleted=0) and (b.bDeleted is null or b.bDeleted=0))
 
-	 and @accountID>0
+	 and @accountID>0 and a.nAccountingPeriodID=@accountingPeriod
 		
 	order by a.dtTransDate desc
 
