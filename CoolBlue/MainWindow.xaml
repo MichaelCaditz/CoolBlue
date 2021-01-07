@@ -575,7 +575,7 @@
                                ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" 
                                ShowValidationAttributeErrors="False" ShowVerticalLines="False"
                                CustomCellAppearance="TableView_OnCustomCellAppearance"
-                               NewItemRowPosition="Bottom" ValidateRow="SplitsView_ValidateRow" EnableImmediatePosting="True" EditFormPostMode="Immediate" EditFormShowMode="Inline" EditorButtonShowMode="ShowForFocusedCell" EditFormColumnCount="4" InvalidRowException="SplitsView_InvalidRowException"
+                               NewItemRowPosition="Bottom" ValidateRow="SplitsView_ValidateRow" EnableImmediatePosting="True" EditFormPostMode="Immediate" EditFormShowMode="Inline" EditorButtonShowMode="ShowForFocusedCell" EditFormColumnCount="4" InvalidRowException="SplitsView_InvalidRowException" ValidateCell="SplitsView_ValidateCell"
                                >
 
                         <dxg:TableView.FormatConditions>

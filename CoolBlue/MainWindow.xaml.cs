@@ -29,7 +29,7 @@ using System.Windows.Threading;
 using System.Collections.ObjectModel;
 using DevExpress.Mvvm;
 using DevExpress.XtraEditors.DXErrorProvider;
-using System.Threading.Tasks;
+//using System.Threading.Tasks;
 
 
 namespace coolBlue
@@ -1315,16 +1315,65 @@ namespace coolBlue
         {
             e.Cancel = false;
         }
+       
 
-        private void SplitsView_ValidateRow(object sender, GridRowValidationEventArgs e)
+
+            private void SplitsView_ValidateRow(object sender, GridRowValidationEventArgs e)
         {
 
-            //decimal crAmount = ((Task)e.Row).nAmount_C;
-            //decimal drAmount = ((Task)e.Row).nAmount_D;
+            //decimal crAmount = (decimal) uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_D");
 
-            //decimal crAmount = e.n
+
+            decimal crAmount = (uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_C") == null ? 0 : DBNull.Value.Equals(uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_C")) == true ? 0 : (decimal)uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_C"));
+            decimal drAmount = (uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_D") == null ? 0 : DBNull.Value.Equals(uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_D")) == true ? 0 : (decimal)uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_D"));
+            if (crAmount==0)
+            { 
+                e.IsValid = false;
+                e.ErrorType = ErrorType.Critical;
+                e.ErrorContent = string.Format("Pleae specify credit amount");
+                return;
+            }
+            if (drAmount == 0)
+            {
+                e.IsValid = false;
+                e.ErrorType = ErrorType.Critical;
+                e.ErrorContent = string.Format("Pleae specify debit amount");
+                return;
+            }
+
+            //decimal drAmount = ((Task)e.Row).nAmount_D;
+            //e.IsValid = crAmount > 0;
+            ////decimal crAmount = e.n
             saveConfig();
         }
+
+        private void SplitsView_InvalidRowException(object sender, InvalidRowExceptionEventArgs e)
+        {
+            // e.ExceptionMode = ExceptionMode.NoAction;
+           e.WindowCaption = "CoolBlue";
+           // e.ErrorText = "Would you like to make a correction?";
+           
+        }
+
+        private void SplitsView_ValidateCell(object sender, GridCellValidationEventArgs e)
+        {
+           //decimal crAmount = ((sender) sender.).nAmount_D;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         private void DXRibbonWindow_Closing(object sender, CancelEventArgs e)
         {
@@ -1341,9 +1390,6 @@ namespace coolBlue
             insertNewLine();
         }
 
-        private void SplitsView_InvalidRowException(object sender, InvalidRowExceptionEventArgs e)
-        {
-
-        }
+        
     }
 }
