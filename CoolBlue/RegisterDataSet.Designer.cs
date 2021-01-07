@@ -5555,19 +5555,26 @@ namespace coolBlue.RegisterDataSetTableAdapters {
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@accountID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@accountingPeriod", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(RegisterDataSet.USP_getLineDataTable dataTable, global::System.Nullable<int> accountID) {
+        public virtual int Fill(RegisterDataSet.USP_getLineDataTable dataTable, global::System.Nullable<int> accountID, global::System.Nullable<int> accountingPeriod) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((accountID.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(accountID.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((accountingPeriod.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(accountingPeriod.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -5580,13 +5587,19 @@ namespace coolBlue.RegisterDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual RegisterDataSet.USP_getLineDataTable GetData(global::System.Nullable<int> accountID) {
+        public virtual RegisterDataSet.USP_getLineDataTable GetData(global::System.Nullable<int> accountID, global::System.Nullable<int> accountingPeriod) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((accountID.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(accountID.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((accountingPeriod.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(accountingPeriod.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             RegisterDataSet.USP_getLineDataTable dataTable = new RegisterDataSet.USP_getLineDataTable();
             this.Adapter.Fill(dataTable);
@@ -5754,19 +5767,26 @@ namespace coolBlue.RegisterDataSetTableAdapters {
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@accountID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@accountingPeriod", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(RegisterDataSet.USP_getSplitDataTable dataTable, global::System.Nullable<int> accountID) {
+        public virtual int Fill(RegisterDataSet.USP_getSplitDataTable dataTable, global::System.Nullable<int> accountID, global::System.Nullable<int> accountingPeriod) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((accountID.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(accountID.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((accountingPeriod.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(accountingPeriod.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
