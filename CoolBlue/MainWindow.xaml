@@ -568,14 +568,14 @@
             <dxg:GridControl Name="uSP_getSplitDataGrid" AutoGenerateColumns="None"  EnableSmartColumnsGeneration="False"  ItemsSource="{Binding Source={StaticResource uSP_getLineUSP_getSplitViewSource}}" Margin="0,0,0,0" Grid.Column="6" Grid.RowSpan="7" Grid.Row="3" Grid.ColumnSpan="5" SelectionMode="Row">
                 <dxg:GridControl.View>
                     <dxg:TableView Name="SplitsView"  AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" 
-                               ShowColumnHeaders ="True"  Grid.ColumnSpan="1" Margin="0,0,0,0"  
+                               ShowColumnHeaders ="True"  Grid.ColumnSpan="1" Margin="0,0,0,0"  NavigationStyle="Cell"
                                 ShowBandsPanel="False" ShowBandsInCustomizationForm="False" 
                                ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" 
-                               ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" 
+                               ShowEditFormOnEnterKey="True" ShowEditFormOnF2Key="True" 
                                ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" 
                                ShowValidationAttributeErrors="False" ShowVerticalLines="False"
                                CustomCellAppearance="TableView_OnCustomCellAppearance"
-                               NewItemRowPosition="Bottom" ValidateRow="SplitsView_ValidateRow" EnableImmediatePosting="True" EditFormPostMode="Immediate" EditFormShowMode="Dialog"
+                               NewItemRowPosition="Bottom" ValidateRow="SplitsView_ValidateRow" EnableImmediatePosting="True" EditFormPostMode="Immediate" EditFormShowMode="Inline" EditorButtonShowMode="ShowForFocusedCell" EditFormColumnCount="4" InvalidRowException="SplitsView_InvalidRowException"
                                >
 
                         <dxg:TableView.FormatConditions>
@@ -730,7 +730,7 @@
 
 
 
-                <dxg:GridColumn   FieldName="nAmount_D" Header="Dr Amount" Width="100"  AllowSorting="True" AllowEditing="True" SortOrder="Ascending" SortIndex="0">
+                <dxg:GridColumn   Name ="nAmount_D" FieldName="nAmount_D" Header="Dr Amount" Width="100"  AllowSorting="True" AllowEditing="True" SortOrder="Ascending" SortIndex="0">
                     <dxg:GridColumn.EditSettings>
                         <dxe:TextEditSettings DisplayFormat="###########.00" MaskUseAsDisplayFormat="True" MaskType="Numeric" Mask="f2"/>
                     </dxg:GridColumn.EditSettings>
@@ -790,7 +790,7 @@
                 </dxg:GridColumn>
 
 
-                <dxg:GridColumn  Name="nAmount_C" FieldName="nAmount_C" Header="Cr Amount" Width="100" AllowSorting="True" AllowEditing="True">
+                <dxg:GridColumn   Name="nAmount_C" FieldName="nAmount_C" Header="Cr Amount" Width="100" AllowSorting="True" AllowEditing="True">
                     <dxg:GridColumn.EditSettings>
                         <dxe:TextEditSettings DisplayFormat="###########.00" MaskUseAsDisplayFormat="True" MaskType="Numeric" Mask="f2"/>
                     </dxg:GridColumn.EditSettings>

@@ -25,6 +25,12 @@ using System.Drawing;
 //using DevExpress.XtraReports.UI;
 //using DevExpress.XtraPrinting.Preview;
 using DevExpress.Xpf.Printing;
+using System.Windows.Threading;
+using System.Collections.ObjectModel;
+using DevExpress.Mvvm;
+using DevExpress.XtraEditors.DXErrorProvider;
+using System.Threading.Tasks;
+
 
 namespace coolBlue
 {
@@ -432,6 +438,14 @@ namespace coolBlue
                
                 SplitsView.Focus();
                 Vendor.Focus();
+                //System.Windows.Forms.SendKeys.SendWait("{ENTER}");
+
+                //SplitsView.FocusedRowHandle = 0;
+                Dispatcher.BeginInvoke(new Action(() =>
+                {
+                    SplitsView.ShowInlineEditForm();
+                }), DispatcherPriority.Render);
+                //Dispatcher.BeginInvoke((Action)SplitsView.ShowEditor, DispatcherPriority.Render);
 
 
                 //LineView.Focus();
@@ -1305,8 +1319,10 @@ namespace coolBlue
         private void SplitsView_ValidateRow(object sender, GridRowValidationEventArgs e)
         {
 
-          
+            //decimal crAmount = ((Task)e.Row).nAmount_C;
+            //decimal drAmount = ((Task)e.Row).nAmount_D;
 
+            //decimal crAmount = e.n
             saveConfig();
         }
 
@@ -1323,6 +1339,11 @@ namespace coolBlue
         private void NewTrans_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
             insertNewLine();
+        }
+
+        private void SplitsView_InvalidRowException(object sender, InvalidRowExceptionEventArgs e)
+        {
+
         }
     }
 }
