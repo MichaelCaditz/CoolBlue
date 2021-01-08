@@ -13,8 +13,8 @@
     
     xmlns:local="clr-namespace:coolBlue"
     x:Class="coolBlue.Accounts"
-    Title="Accounts" Height="600" Width="800"
-    Loaded="ThemedWindow_Loaded" WindowStartupLocation="CenterScreen" HorizontalAlignment="Center" VerticalAlignment="Center"
+    Title="Accounts" Height="640" Width="860"
+    Loaded="ThemedWindow_Loaded" WindowStartupLocation="CenterScreen" HorizontalAlignment="Center" VerticalAlignment="Center" ShowStatusPanel="True" ShowBackButton="False"
     >
     <dx:ThemedWindow.Resources>
         <local:EditDataSet x:Key="editDataSet"/>
@@ -24,7 +24,7 @@
 
     <dxlc:ScrollBox HorizontalAlignment="Left"  Grid.Row="0" Grid.RowSpan="11" Grid.ColumnSpan="7" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="0" Padding="0" DragScrolling="False" Background="{x:Null}" >
 
-        <Grid  IsEnabled="True" Margin="0,0" Background="#FF093472" ScrollViewer.HorizontalScrollBarVisibility="Visible" Width="800" Height="600">
+        <Grid  IsEnabled="True" Margin="0,0" Background="#FF093472" ScrollViewer.HorizontalScrollBarVisibility="Visible" Width="840" Height="580">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Name = "c0"  Width="100"/>
                 <ColumnDefinition Name = "c1" Width="100"/>
@@ -32,7 +32,7 @@
                 <ColumnDefinition Name = "c3" Width="60"/>
                 <ColumnDefinition Name = "c4" Width="100"/>
                 <ColumnDefinition Name = "c5" Width="100"/>
-                <ColumnDefinition Name = "c6" Width="100"/>
+                <ColumnDefinition Name = "c6" Width="140"/>
                 <ColumnDefinition Name = "c7" Width="*"/>
 
 
@@ -45,8 +45,8 @@
 
                 <RowDefinition Name="r3" Height="80" MinHeight="0"/>
                 <RowDefinition Name="r4" Height="80" MinHeight="0"/>
-                <RowDefinition Name="r5" Height="100" MinHeight="0"/>
-                <RowDefinition Name="r6" Height="40" MinHeight="0"/>
+                <RowDefinition Name="r5" Height="85" MinHeight="0"/>
+                <RowDefinition Name="r6" Height="60" MinHeight="0"/>
                 
             </Grid.RowDefinitions>
 

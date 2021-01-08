@@ -15,7 +15,7 @@
     
     x:Class="coolBlue.editAccount"
     Title="Account" Height="720" Width="800"
-    Loaded="ThemedWindow_Loaded" WindowStartupLocation="CenterScreen"
+    Loaded="ThemedWindow_Loaded" WindowStartupLocation="CenterScreen" ShowStatusPanel="True"
     >
     <dx:ThemedWindow.Resources>
         <local:AccountsDataSet x:Key="accountsDataSet"/>
@@ -28,7 +28,7 @@
     </dx:ThemedWindow.Resources>
     <dxlc:ScrollBox HorizontalAlignment="Left"  Grid.Row="0" Grid.RowSpan="11" Grid.ColumnSpan="7" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="0" Padding="0" DragScrolling="False" Background="{x:Null}" >
 
-        <Grid  IsEnabled="True" Margin="0,0" Background="#FF093472" ScrollViewer.HorizontalScrollBarVisibility="Visible" Width="800" Height="650">
+        <Grid  IsEnabled="True" Margin="0,0" Background="#FF093472" ScrollViewer.HorizontalScrollBarVisibility="Visible" Width="800" Height="690">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Name = "c0"  Width="100"/>
                 <ColumnDefinition Name = "c1" Width="100"/>
@@ -49,8 +49,8 @@
                 <RowDefinition Name="r2" Height="120"/>
 
                 <RowDefinition Name="r3" Height="120" MinHeight="0"/>
-                <RowDefinition Name="r4" Height="120" MinHeight="0"/>
-                <RowDefinition Name="r5" Height="140" MinHeight="0"/>
+                <RowDefinition Name="r4" Height="110" MinHeight="0"/>
+                <RowDefinition Name="r5" Height="120" MinHeight="0"/>
                 <RowDefinition Name="r6" Height="40" MinHeight="0"/>
 
             </Grid.RowDefinitions>

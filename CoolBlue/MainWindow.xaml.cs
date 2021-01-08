@@ -37,7 +37,7 @@ namespace coolBlue
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : DXRibbonWindow
+    public partial class MainWindow : DevExpress.Xpf.Core.ThemedWindow
     {
 
         //coolBlue.RegisterDataSet registerDataSet;

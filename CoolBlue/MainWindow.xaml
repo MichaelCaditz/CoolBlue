@@ -1,19 +1,23 @@
-﻿<dxr:DXRibbonWindow
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
-        xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
-        xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
-        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
-        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" 
-        xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
-        xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui"
-        xmlns:dxp="http://schemas.devexpress.com/winfx/2008/xaml/printing"
-        x:Class="coolBlue.MainWindow"
-        xmlns:AccountsDataSetTableAdapters="clr-namespace:coolBlue.AccountsDataSetTableAdapters"
-        xmlns:local="clr-namespace:coolBlue" 
-        Title="CoolBlue" Height="1138" Width="1920" Loaded="DXRibbonWindow_Loaded" WindowStartupLocation="Manual" Background="#FFB4B4BB" Closing="DXRibbonWindow_Closing" WindowState="Maximized" ScrollViewer.VerticalScrollBarVisibility="Auto" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="#FFD4E80C" BorderEffectActiveColor="#FFF0E6E6" ShowActivated="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" WindowStyle="None">
-    <dxr:DXRibbonWindow.Resources>
+﻿<dx:ThemedWindow 
+    x:Class="coolBlue.MainWindow" Title="CoolBlue" Height="1138" Width="1920" 
+    Loaded="DXRibbonWindow_Loaded" WindowStartupLocation="Manual" 
+    Background="#FFB4B4BB" Closing="DXRibbonWindow_Closing" WindowState="Maximized" 
+    ScrollViewer.VerticalScrollBarVisibility="Auto" HorizontalAlignment="Center" 
+    VerticalAlignment="Top" Foreground="#FFD4E80C" 
+    ShowActivated="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" WindowStyle="SingleBorderWindow" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
+    xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" 
+    xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon" 
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" 
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol" 
+    xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui" 
+    xmlns:dxp="http://schemas.devexpress.com/winfx/2008/xaml/printing" 
+    xmlns:AccountsDataSetTableAdapters="clr-namespace:coolBlue.AccountsDataSetTableAdapters" 
+    xmlns:local="clr-namespace:coolBlue" ShowBackButton="True" ShowStatusPanel="True">
+    <Window.Resources>
 
         <!--<Style x:Key="SelectedRowStyle" TargetType="{x:Type dxg:RowControl}">
             <Style.Triggers>
@@ -45,81 +49,81 @@
         </Style>-->
 
 
-        <local:AccountsDataSet x:Key="accountsDataSet"/>
-        <CollectionViewSource x:Key="uSP_getLineViewSource" Source="{Binding USP_getLine, Source={StaticResource accountsDataSet}}"/>
-        <CollectionViewSource x:Key="uSP_getSplitViewSource" Source="{Binding USP_getSplit, Source={StaticResource accountsDataSet}}"/>
+        <local:AccountsDataSet x:Key="accountsDataSet" />
+        <CollectionViewSource x:Key="uSP_getLineViewSource" Source="{Binding USP_getLine, Source={StaticResource accountsDataSet}}" />
+        <CollectionViewSource x:Key="uSP_getSplitViewSource" Source="{Binding USP_getSplit, Source={StaticResource accountsDataSet}}" />
         <CollectionViewSource x:Key="uSP_getAllAccountsViewSource" Source="{Binding USP_getAllAccounts, Source={StaticResource accountsDataSet}}" />
-        <CollectionViewSource x:Key="uSP_getAllAccountTypesViewSource" Source="{Binding USP_getAllAccountTypes, Source={StaticResource accountsDataSet}}"/>
+        <CollectionViewSource x:Key="uSP_getAllAccountTypesViewSource" Source="{Binding USP_getAllAccountTypes, Source={StaticResource accountsDataSet}}" />
         <dx:TypedSimpleSource x:Key="TypedSimpleSource" AdapterType="{x:Type AccountsDataSetTableAdapters:USP_getAllAccountTypesTableAdapter}" ContextType="{x:Type local:AccountsDataSet}" Path="USP_getAllAccountTypes">
             <dx:DesignDataManager.DesignData>
-                <dx:DesignDataSettings RowCount="5"/>
+                <dx:DesignDataSettings RowCount="5" />
             </dx:DesignDataManager.DesignData>
         </dx:TypedSimpleSource>
         <dx:TypedSimpleSource x:Key="TypedSimpleSource1" AdapterType="{x:Type AccountsDataSetTableAdapters:USP_getAllAccountTypesTableAdapter}" ContextType="{x:Type local:AccountsDataSet}" Path="USP_getAllAccounts">
             <dx:DesignDataManager.DesignData>
-                <dx:DesignDataSettings RowCount="5"/>
+                <dx:DesignDataSettings RowCount="5" />
             </dx:DesignDataManager.DesignData>
         </dx:TypedSimpleSource>
-        <CollectionViewSource x:Key="uSP_getAllAccountTypesUSP_getAllAccountsViewSource" Source="{Binding FK_USP_getAllAccountTypes_USP_getAllAccounts, Source={StaticResource uSP_getAllAccountTypesViewSource}}"/>
+        <CollectionViewSource x:Key="uSP_getAllAccountTypesUSP_getAllAccountsViewSource" Source="{Binding FK_USP_getAllAccountTypes_USP_getAllAccounts, Source={StaticResource uSP_getAllAccountTypesViewSource}}" />
         <dx:TypedSimpleSource x:Key="TypedSimpleSource2" AdapterType="{x:Type AccountsDataSetTableAdapters:USP_getAllAccountsTableAdapter}" ContextType="{x:Type local:AccountsDataSet}" Path="USP_getAllAccounts">
             <dx:DesignDataManager.DesignData>
-                <dx:DesignDataSettings RowCount="5"/>
+                <dx:DesignDataSettings RowCount="5" />
             </dx:DesignDataManager.DesignData>
         </dx:TypedSimpleSource>
         <dx:TypedSimpleSource x:Key="TypedSimpleSource3" AdapterType="{x:Type AccountsDataSetTableAdapters:USP_getAllAccountsTableAdapter}" ContextType="{x:Type local:AccountsDataSet}" Path="USP_getAllAccounts">
             <dx:DesignDataManager.DesignData>
-                <dx:DesignDataSettings RowCount="5"/>
+                <dx:DesignDataSettings RowCount="5" />
             </dx:DesignDataManager.DesignData>
         </dx:TypedSimpleSource>
-        <local:RegisterDataSet x:Key="registerDataSet"/>
-        <CollectionViewSource x:Key="uSP_getLineViewSource1" Source="{Binding USP_getLine, Source={StaticResource registerDataSet}}"/>
-        <CollectionViewSource x:Key="uSP_getSplitViewSource1" Source="{Binding USP_getSplit, Source={StaticResource registerDataSet}}"/>
-        <CollectionViewSource x:Key="uSP_getLineUSP_getSplitViewSource" Source="{Binding FK_USP_getLine_USP_getSplit, Source={StaticResource uSP_getLineViewSource1}}"/>
-        <CollectionViewSource x:Key="uSP_getSubCatsViewSource" Source="{Binding USP_getSubCats, Source={StaticResource registerDataSet}}"/>
-        <CollectionViewSource x:Key="uSP_getAllVendorsViewSource" Source="{Binding USP_getAllVendors, Source={StaticResource registerDataSet}}"/>
-        <CollectionViewSource x:Key="uSP_getAllTagsViewSource" Source="{Binding USP_getAllTags, Source={StaticResource registerDataSet}}"/>
-        <CollectionViewSource x:Key="uSP_getAllClassViewSource" Source="{Binding USP_getAllClass, Source={StaticResource registerDataSet}}"/>
-        <CollectionViewSource x:Key="uSP_getAllCurrencyViewSource" Source="{Binding USP_getAllCurrency, Source={StaticResource registerDataSet}}"/>
+        <local:RegisterDataSet x:Key="registerDataSet" />
+        <CollectionViewSource x:Key="uSP_getLineViewSource1" Source="{Binding USP_getLine, Source={StaticResource registerDataSet}}" />
+        <CollectionViewSource x:Key="uSP_getSplitViewSource1" Source="{Binding USP_getSplit, Source={StaticResource registerDataSet}}" />
+        <CollectionViewSource x:Key="uSP_getLineUSP_getSplitViewSource" Source="{Binding FK_USP_getLine_USP_getSplit, Source={StaticResource uSP_getLineViewSource1}}" />
+        <CollectionViewSource x:Key="uSP_getSubCatsViewSource" Source="{Binding USP_getSubCats, Source={StaticResource registerDataSet}}" />
+        <CollectionViewSource x:Key="uSP_getAllVendorsViewSource" Source="{Binding USP_getAllVendors, Source={StaticResource registerDataSet}}" />
+        <CollectionViewSource x:Key="uSP_getAllTagsViewSource" Source="{Binding USP_getAllTags, Source={StaticResource registerDataSet}}" />
+        <CollectionViewSource x:Key="uSP_getAllClassViewSource" Source="{Binding USP_getAllClass, Source={StaticResource registerDataSet}}" />
+        <CollectionViewSource x:Key="uSP_getAllCurrencyViewSource" Source="{Binding USP_getAllCurrency, Source={StaticResource registerDataSet}}" />
         <dx:TypedSimpleSource x:Key="TypedSimpleSource4" AdapterType="{x:Type AccountsDataSetTableAdapters:USP_getAllAccountsTableAdapter}" ContextType="{x:Type local:AccountsDataSet}" Path="USP_getAllAccounts">
             <dx:DesignDataManager.DesignData>
-                <dx:DesignDataSettings RowCount="5"/>
+                <dx:DesignDataSettings RowCount="5" />
             </dx:DesignDataManager.DesignData>
         </dx:TypedSimpleSource>
-        <CollectionViewSource x:Key="uSP_getAllAccountsForSplitViewSource" Source="{Binding USP_getAllAccountsForSplit, Source={StaticResource registerDataSet}}"/>
-    </dxr:DXRibbonWindow.Resources>
+        <CollectionViewSource x:Key="uSP_getAllAccountsForSplitViewSource" Source="{Binding USP_getAllAccountsForSplit, Source={StaticResource registerDataSet}}" />
+    </Window.Resources>
 
-    <dxlc:ScrollBox HorizontalAlignment="Left"  Grid.Row="0" Grid.RowSpan="11" Grid.ColumnSpan="7" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="0" Padding="0" DragScrolling="False" Background="{x:Null}" >
+    <dxlc:ScrollBox HorizontalAlignment="Left" Grid.Row="0" Grid.RowSpan="11" Grid.ColumnSpan="7" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="0" Padding="0" DragScrolling="False" Background="{x:Null}">
         <!--<ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="0" HorizontalAlignment="Left" VerticalAlignment="Top" >-->
 
         <Grid DataContext="{StaticResource uSP_getLineViewSource}" IsEnabled="True" Margin="0,0" Width="1920" Height="1080" Background="#FF093472">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="99"/>
-                <ColumnDefinition Width="21"/>
-                <ColumnDefinition Width="21"/>
-                <ColumnDefinition Width="82"/>
-                <ColumnDefinition Width="15"/>
-                <ColumnDefinition Width="446"/>
-                <ColumnDefinition Width="297"/>
-                <ColumnDefinition Width="57"/>
-                <ColumnDefinition Width="240"/>
-                <ColumnDefinition Width="240"/>
-                <ColumnDefinition Width="400"/>
+                <ColumnDefinition Width="99" />
+                <ColumnDefinition Width="21" />
+                <ColumnDefinition Width="21" />
+                <ColumnDefinition Width="82" />
+                <ColumnDefinition Width="15" />
+                <ColumnDefinition Width="446" />
+                <ColumnDefinition Width="297" />
+                <ColumnDefinition Width="57" />
+                <ColumnDefinition Width="240" />
+                <ColumnDefinition Width="240" />
+                <ColumnDefinition Width="400" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Name="r0" Height="100" MinHeight="0"/>
-                <RowDefinition Name="r1" Height="40" MinHeight="0"/>
-                <RowDefinition Name="r2" Height="70"/>
+                <RowDefinition Name="r0" Height="100" MinHeight="0" />
+                <RowDefinition Name="r1" Height="40" MinHeight="0" />
+                <RowDefinition Name="r2" Height="70" />
 
-                <RowDefinition Name="r3" Height="100" MinHeight="0"/>
-                <RowDefinition Name="r4" Height="60" MinHeight="0"/>
-                <RowDefinition Name="r5" Height="60" MinHeight="0"/>
-                <RowDefinition Name="r6" Height="10" MinHeight="0"/>
-                <RowDefinition Name="r7" Height="100" MinHeight="0"/>
-                <RowDefinition Name="r8" Height="100" MinHeight="0"/>
-                <RowDefinition Name="r9" Height="350" MinHeight="0"/>
-                <RowDefinition Name="r10" Height="48" MinHeight="0"/>
-                <RowDefinition Name="r11" Height="1" MinHeight="0"/>
-                <RowDefinition Name="r12" Height="*" MinHeight="0"/>
+                <RowDefinition Name="r3" Height="100" MinHeight="0" />
+                <RowDefinition Name="r4" Height="60" MinHeight="0" />
+                <RowDefinition Name="r5" Height="60" MinHeight="0" />
+                <RowDefinition Name="r6" Height="10" MinHeight="0" />
+                <RowDefinition Name="r7" Height="100" MinHeight="0" />
+                <RowDefinition Name="r8" Height="100" MinHeight="0" />
+                <RowDefinition Name="r9" Height="350" MinHeight="0" />
+                <RowDefinition Name="r10" Height="48" MinHeight="0" />
+                <RowDefinition Name="r11" Height="1" MinHeight="0" />
+                <RowDefinition Name="r12" Height="*" MinHeight="0" />
             </Grid.RowDefinitions>
 
 
@@ -132,7 +136,7 @@
 
             <dxr:RibbonControl RibbonStyle="Office2010" Grid.ColumnSpan="11" Height="141" AllowCustomization="False" IsHiddenRibbonCollapsed="False" Grid.RowSpan="3" Margin="3,0,-3,0">
                 <dxr:RibbonControl.ToolbarItems>
-                    <dxb:BarButtonItemLink/>
+                    <dxb:BarButtonItemLink />
                 </dxr:RibbonControl.ToolbarItems>
                 <dxr:RibbonDefaultPageCategory>
 
@@ -174,11 +178,11 @@
                     </dxr:RibbonPageGroup>-->
                         <dxr:RibbonPageGroup Caption="Configure">
                             <dxb:BarButtonItem Content="Accounts" ItemClick="BarButtonItem_ItemClick_5" Glyph="{dx:DXImage Image=ColumnsThree_32x32.png}" LargeGlyph="{dx:DXImage Image=CalculateNow_32x32.png}" />
-                            <dxb:BarButtonItem Content="Vendors" ItemClick="BarButtonItem_ItemClick_2" Glyph="{dx:DXImage Image=UserGroup_32x32.png}" LargeGlyph="{dx:DXImage Image=UserGroup_32x32.png}"/>
-                            <dxb:BarButtonItem Content="Categories" ItemClick="BarButtonItem_ItemClick_6" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=LineStyle_32x32.png}"/>
-                            <dxb:BarButtonItem Content="Tags" ItemClick="BarButtonItem_ItemClick_3" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=CheckBox_32x32.png}"/>
-                            <dxb:BarButtonItem Content="Classes" AllowDrop="True" ItemClick="BarButtonItem_ItemClick_4" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=Cards_32x32.png}"/>
-                            <dxb:BarButtonItem Content="Currencies" AllowDrop="True" ItemClick="BarButtonItem_ItemClick_4" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=Currency2_32x32.png}"/>
+                            <dxb:BarButtonItem Content="Vendors" ItemClick="BarButtonItem_ItemClick_2" Glyph="{dx:DXImage Image=UserGroup_32x32.png}" LargeGlyph="{dx:DXImage Image=UserGroup_32x32.png}" />
+                            <dxb:BarButtonItem Content="Categories" ItemClick="BarButtonItem_ItemClick_6" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=LineStyle_32x32.png}" />
+                            <dxb:BarButtonItem Content="Tags" ItemClick="BarButtonItem_ItemClick_3" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=CheckBox_32x32.png}" />
+                            <dxb:BarButtonItem Content="Classes" AllowDrop="True" ItemClick="BarButtonItem_ItemClick_4" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=Cards_32x32.png}" />
+                            <dxb:BarButtonItem Content="Currencies" AllowDrop="True" ItemClick="BarButtonItem_ItemClick_4" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=Currency2_32x32.png}" />
 
                         </dxr:RibbonPageGroup>
 
@@ -195,14 +199,14 @@
                     </dxr:RibbonPage>
                     <dxr:RibbonPage Caption="Budgets">
                         <dxr:RibbonPageGroup Caption="Transactions">
-                            <dxb:BarButtonItem Content="By Tag" ItemClick="BarButtonItem_ItemClick"/>
-                            <dxb:BarButtonItem Content="All" ItemClick="BarButtonItem_ItemClick_1"/>
+                            <dxb:BarButtonItem Content="By Tag" ItemClick="BarButtonItem_ItemClick" />
+                            <dxb:BarButtonItem Content="All" ItemClick="BarButtonItem_ItemClick_1" />
                         </dxr:RibbonPageGroup>
                     </dxr:RibbonPage>
                     <dxr:RibbonPage Caption="Reports">
                         <dxr:RibbonPageGroup Caption="Transactions">
-                            <dxb:BarButtonItem Content="By Tag" ItemClick="BarButtonItem_ItemClick"/>
-                            <dxb:BarButtonItem Content="All" ItemClick="BarButtonItem_ItemClick_1"/>
+                            <dxb:BarButtonItem Content="By Tag" ItemClick="BarButtonItem_ItemClick" />
+                            <dxb:BarButtonItem Content="All" ItemClick="BarButtonItem_ItemClick_1" />
                         </dxr:RibbonPageGroup>
                     </dxr:RibbonPage>
 
@@ -211,29 +215,22 @@
 
                 </dxr:RibbonDefaultPageCategory>
             </dxr:RibbonControl>
-            <dxr:RibbonStatusBarControl Height="26" VerticalAlignment="Bottom" Grid.Row="12" Grid.ColumnSpan="11" Foreground="#FF405FB2"  Background="#FF405FB2" >
+            <dxr:RibbonStatusBarControl Height="26" VerticalAlignment="Bottom" Grid.Row="12" Grid.ColumnSpan="11" Foreground="#FF405FB2" Background="#FF405FB2">
                 <dxr:RibbonStatusBarControl.RightItems>
-                    <dxb:BarButtonItem x:Name="printItem" Content="Print" Glyph="{dx:DXImage Image=Print_16x16.png}"/>
+                    <dxb:BarButtonItem x:Name="printItem" Content="Print" Glyph="{dx:DXImage Image=Print_16x16.png}" />
                 </dxr:RibbonStatusBarControl.RightItems>
             </dxr:RibbonStatusBarControl>
 
             <!--<Grid HorizontalAlignment="Left" Height="100" Margin="527,5,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100" Grid.Column="3"/>-->
 
 
-            <dxg:GridControl Name="uSP_getAllAccountTypesDataGrid" AutoGenerateColumns="None"  EnableSmartColumnsGeneration="False"  ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesViewSource}}" Margin="5,6,10,0" Grid.Row="2" Grid.RowSpan="4" Grid.ColumnSpan="5" SelectionMode="Row" ScrollViewer.CanContentScroll="True">
+            <dxg:GridControl Name="uSP_getAllAccountTypesDataGrid" AutoGenerateColumns="None" EnableSmartColumnsGeneration="False" ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesViewSource}}" Margin="5,6,10,0" Grid.Row="2" Grid.RowSpan="4" Grid.ColumnSpan="5" SelectionMode="Row" ScrollViewer.CanContentScroll="True">
                 <dxg:GridControl.View>
-                    <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" 
-                               ShowColumnHeaders ="False"  Grid.ColumnSpan="1" Margin="0,6,0,0"  
-                               Width="223" ShowBandsPanel="False" ShowBandsInCustomizationForm="False" 
-                               ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" 
-                               ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" 
-                               ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" 
-                               ShowValidationAttributeErrors="False" ShowVerticalLines="False"
-                               CustomCellAppearance="TableView_OnCustomCellAppearance" ScrollingMode="Smart">
+                    <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" ShowColumnHeaders="False" Grid.ColumnSpan="1" Margin="0,6,0,0" Width="223" ShowBandsPanel="False" ShowBandsInCustomizationForm="False" ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" ShowValidationAttributeErrors="False" ShowVerticalLines="False" CustomCellAppearance="TableView_OnCustomCellAppearance" ScrollingMode="Smart">
 
                         <dxg:TableView.FormatConditions>
                             <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id">
-                                <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold"/>
+                                <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold" />
                             </dxg:FormatCondition>
                         </dxg:TableView.FormatConditions>
                         <dxg:TableView.RowStyle>
@@ -268,21 +265,21 @@
 
                 </dxg:GridControl.View>
 
-                <dxg:GridColumn Binding="{Binding accountingTypeSymbol}"  FieldName="Symbol"  IsEnabled="False" AllowFocus="False"  Header="" Width="30">
-                    <dxg:GridColumn.DisplayTemplate  >
-                        <ControlTemplate >
-                            <TextBlock  x:Name="PART_Editor" FontWeight="Bold" Foreground="#FF0B1AAA" FontSize="10" />
+                <dxg:GridColumn Binding="{Binding accountingTypeSymbol}" FieldName="Symbol" IsEnabled="False" AllowFocus="False" Header="" Width="30">
+                    <dxg:GridColumn.DisplayTemplate>
+                        <ControlTemplate>
+                            <TextBlock x:Name="PART_Editor" FontWeight="Bold" Foreground="#FF0B1AAA" FontSize="10" />
                         </ControlTemplate>
                     </dxg:GridColumn.DisplayTemplate>
 
 
                 </dxg:GridColumn>
 
-                <dxg:GridColumn Binding="{Binding cName}"   Header="Name" Width="120">
+                <dxg:GridColumn Binding="{Binding cName}" Header="Name" Width="120">
 
-                    <dxg:GridColumn.DisplayTemplate  >
-                        <ControlTemplate >
-                            <TextBlock  x:Name="PART_Editor" FontWeight="Bold" />
+                    <dxg:GridColumn.DisplayTemplate>
+                        <ControlTemplate>
+                            <TextBlock x:Name="PART_Editor" FontWeight="Bold" />
                         </ControlTemplate>
                     </dxg:GridColumn.DisplayTemplate>
 
@@ -290,7 +287,7 @@
                 </dxg:GridColumn>
 
 
-                <dxg:GridColumn Binding="{Binding cNote}"  FieldName="Note" Header="Note" Width="100"/>
+                <dxg:GridColumn Binding="{Binding cNote}" FieldName="Note" Header="Note" Width="100" />
 
             </dxg:GridControl>
 
@@ -300,13 +297,13 @@
 
 
 
-            <dxg:GridControl Name="grdAccounts" AutoGenerateColumns="None"  EnableSmartColumnsGeneration="False"  ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesUSP_getAllAccountsViewSource}}" Margin="5,0,10,0" Grid.Row="7" Grid.RowSpan="3" Grid.ColumnSpan="5"  CurrentItemChanged="GridControl_CurrentItemChanged">
+            <dxg:GridControl Name="grdAccounts" AutoGenerateColumns="None" EnableSmartColumnsGeneration="False" ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesUSP_getAllAccountsViewSource}}" Margin="5,0,10,0" Grid.Row="7" Grid.RowSpan="3" Grid.ColumnSpan="5" CurrentItemChanged="GridControl_CurrentItemChanged">
                 <dxg:GridControl.View>
-                    <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" ShowColumnHeaders ="False"  Grid.ColumnSpan="1" Margin="0,0,0,0"  Width="223"  ShowBandsPanel="False" ShowBandsInCustomizationForm="False" ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" ShowValidationAttributeErrors="False" ShowVerticalLines="False" RowDoubleClick="TableView_RowDoubleClick">
+                    <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" ShowColumnHeaders="False" Grid.ColumnSpan="1" Margin="0,0,0,0" Width="223" ShowBandsPanel="False" ShowBandsInCustomizationForm="False" ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" ShowValidationAttributeErrors="False" ShowVerticalLines="False" RowDoubleClick="TableView_RowDoubleClick">
 
                         <dxg:TableView.FormatConditions>
                             <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id">
-                                <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold"/>
+                                <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold" />
                             </dxg:FormatCondition>
                         </dxg:TableView.FormatConditions>
                         <dxg:TableView.RowStyle>
@@ -345,10 +342,10 @@
                     </dxg:TableView>
 
                 </dxg:GridControl.View>
-                <dxg:GridColumn Binding="{Binding currencySymbol}"  FieldName="Symbol"  IsEnabled="False" AllowFocus="False"  Header="" Width="26">
-                    <dxg:GridColumn.DisplayTemplate  >
-                        <ControlTemplate >
-                            <TextBlock  x:Name="PART_Editor" FontWeight="Normal" Foreground="#FF0B1AAA" FontSize="9" />
+                <dxg:GridColumn Binding="{Binding currencySymbol}" FieldName="Symbol" IsEnabled="False" AllowFocus="False" Header="" Width="26">
+                    <dxg:GridColumn.DisplayTemplate>
+                        <ControlTemplate>
+                            <TextBlock x:Name="PART_Editor" FontWeight="Normal" Foreground="#FF0B1AAA" FontSize="9" />
                         </ControlTemplate>
                     </dxg:GridColumn.DisplayTemplate>
 
@@ -357,28 +354,21 @@
 
 
 
-                <dxg:GridColumn Binding="{Binding cName}"  FieldName="Name" Header="Name" IsEnabled="False" AllowFocus="False" Width="200" />
+                <dxg:GridColumn Binding="{Binding cName}" FieldName="Name" Header="Name" IsEnabled="False" AllowFocus="False" Width="200" />
 
-                <dxg:GridColumn Binding="{Binding cNote}"  FieldName="Note" IsEnabled="False" Header="Note" AllowFocus="False" Width="160"/>
-                <dxg:GridColumn Binding="{Binding cDesc}"  FieldName="Description" Header="Description" AllowFocus="False" Width="200"/>
+                <dxg:GridColumn Binding="{Binding cNote}" FieldName="Note" IsEnabled="False" Header="Note" AllowFocus="False" Width="160" />
+                <dxg:GridColumn Binding="{Binding cDesc}" FieldName="Description" Header="Description" AllowFocus="False" Width="200" />
 
             </dxg:GridControl>
 
 
-            <dxg:GridControl Name="uSP_getLineDataGrid" AutoGenerateColumns="None"  EnableSmartColumnsGeneration="False"  ItemsSource="{Binding Source={StaticResource uSP_getLineViewSource1}}" Margin="0,0,4,0" Grid.Column="5" Grid.Row="3" Grid.RowSpan="7" SelectionMode="Row">
+            <dxg:GridControl Name="uSP_getLineDataGrid" AutoGenerateColumns="None" EnableSmartColumnsGeneration="False" ItemsSource="{Binding Source={StaticResource uSP_getLineViewSource1}}" Margin="0,0,4,0" Grid.Column="5" Grid.Row="3" Grid.RowSpan="7" SelectionMode="Row">
                 <dxg:GridControl.View>
-                    <dxg:TableView Name="LineView"  AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" 
-                               ShowColumnHeaders ="True"  Grid.ColumnSpan="1" Margin="0,0,0,0"  
-                                ShowBandsPanel="False" ShowBandsInCustomizationForm="False" 
-                               ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" 
-                               ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" 
-                               ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" 
-                               ShowValidationAttributeErrors="False" ShowVerticalLines="False"
-                               CustomCellAppearance="TableView_OnCustomCellAppearance" FocusedRowChanged="TableView_FocusedRowChanged" ValidateRow="TableView_ValidateRow">
+                    <dxg:TableView Name="LineView" AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" ShowColumnHeaders="True" Grid.ColumnSpan="1" Margin="0,0,0,0" ShowBandsPanel="False" ShowBandsInCustomizationForm="False" ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" ShowValidationAttributeErrors="False" ShowVerticalLines="False" CustomCellAppearance="TableView_OnCustomCellAppearance" FocusedRowChanged="TableView_FocusedRowChanged" ValidateRow="TableView_ValidateRow">
 
                         <dxg:TableView.FormatConditions>
                             <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id">
-                                <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold"/>
+                                <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold" />
                             </dxg:FormatCondition>
                         </dxg:TableView.FormatConditions>
                         <dxg:TableView.RowStyle>
@@ -419,15 +409,15 @@
 
                 </dxg:GridControl.View>
 
-                <dxg:GridColumn Binding="{Binding ID}"  FieldName="ID" Header="ID" Width="50" ReadOnly="True" AllowFocus="False"  AllowSorting="True"/>
-                <dxg:GridColumn FieldName="dtTransDate" Header="Date" ReadOnly="False" AllowFocus="True"  AllowSorting="True" SortOrder="Descending"/>
+                <dxg:GridColumn Binding="{Binding ID}" FieldName="ID" Header="ID" Width="50" ReadOnly="True" AllowFocus="False" AllowSorting="True" />
+                <dxg:GridColumn FieldName="dtTransDate" Header="Date" ReadOnly="False" AllowFocus="True" AllowSorting="True" SortOrder="Descending" />
 
 
 
-                <dxg:GridColumn   FieldName="totalDr" Header="Dr" Width="80" ReadOnly="True" AllowFocus="False"  AllowSorting="True"/>
+                <dxg:GridColumn FieldName="totalDr" Header="Dr" Width="80" ReadOnly="True" AllowFocus="False" AllowSorting="True" />
 
-                <dxg:GridColumn   FieldName="totalCr" Header="Cr" Width="80" ReadOnly="True"  AllowFocus="False" AllowSorting="True"/>
-                <dxg:GridColumn   FieldName="cNote" Header="Note" Width="80" ReadOnly="False"  AllowFocus="True" AllowSorting="True"/>
+                <dxg:GridColumn FieldName="totalCr" Header="Cr" Width="80" ReadOnly="True" AllowFocus="False" AllowSorting="True" />
+                <dxg:GridColumn FieldName="cNote" Header="Note" Width="80" ReadOnly="False" AllowFocus="True" AllowSorting="True" />
 
 
 
@@ -565,22 +555,13 @@
 
 
 
-            <dxg:GridControl Name="uSP_getSplitDataGrid" AutoGenerateColumns="None"  EnableSmartColumnsGeneration="False"  ItemsSource="{Binding Source={StaticResource uSP_getLineUSP_getSplitViewSource}}" Margin="0,0,0,0" Grid.Column="6" Grid.RowSpan="7" Grid.Row="3" Grid.ColumnSpan="5" SelectionMode="Row">
+            <dxg:GridControl Name="uSP_getSplitDataGrid" AutoGenerateColumns="None" EnableSmartColumnsGeneration="False" ItemsSource="{Binding Source={StaticResource uSP_getLineUSP_getSplitViewSource}}" Margin="0,0,0,0" Grid.Column="6" Grid.RowSpan="7" Grid.Row="3" Grid.ColumnSpan="5" SelectionMode="Row">
                 <dxg:GridControl.View>
-                    <dxg:TableView Name="SplitsView"  AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" 
-                               ShowColumnHeaders ="True"  Grid.ColumnSpan="1" Margin="0,0,0,0"  NavigationStyle="Cell"
-                                ShowBandsPanel="False" ShowBandsInCustomizationForm="False" 
-                               ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" 
-                               ShowEditFormOnEnterKey="True" ShowEditFormOnF2Key="True" 
-                               ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" 
-                               ShowValidationAttributeErrors="False" ShowVerticalLines="False"
-                               CustomCellAppearance="TableView_OnCustomCellAppearance"
-                               NewItemRowPosition="Bottom" ValidateRow="SplitsView_ValidateRow" EnableImmediatePosting="True" EditFormPostMode="Immediate" EditFormShowMode="Inline" EditorButtonShowMode="ShowForFocusedCell" EditFormColumnCount="4" InvalidRowException="SplitsView_InvalidRowException" ValidateCell="SplitsView_ValidateCell"
-                               >
+                    <dxg:TableView Name="SplitsView" AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" ShowColumnHeaders="True" Grid.ColumnSpan="1" Margin="0,0,0,0" NavigationStyle="Cell" ShowBandsPanel="False" ShowBandsInCustomizationForm="False" ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnEnterKey="True" ShowEditFormOnF2Key="True" ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" ShowValidationAttributeErrors="False" ShowVerticalLines="False" CustomCellAppearance="TableView_OnCustomCellAppearance" NewItemRowPosition="Bottom" ValidateRow="SplitsView_ValidateRow" EnableImmediatePosting="True" EditFormPostMode="Immediate" EditFormShowMode="Inline" EditorButtonShowMode="ShowForFocusedCell" EditFormColumnCount="4" InvalidRowException="SplitsView_InvalidRowException" ValidateCell="SplitsView_ValidateCell">
 
                         <dxg:TableView.FormatConditions>
                             <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id">
-                                <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold"/>
+                                <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold" />
                             </dxg:FormatCondition>
                         </dxg:TableView.FormatConditions>
                         <dxg:TableView.RowStyle>
@@ -620,24 +601,17 @@
                 </dxg:GridControl.View>
 
 
-                <dxg:GridColumn   Name="Vendor"  FieldName="nVendorsID" Header="Vendor" Width="180"  AllowSorting="True" AllowEditing="True">
+                <dxg:GridColumn Name="Vendor" FieldName="nVendorsID" Header="Vendor" Width="180" AllowSorting="True" AllowEditing="True">
                     <dxg:GridColumn.EditSettings>
-                        <dxg:LookUpEditSettings  ItemsSource="{Binding Source={StaticResource uSP_getAllVendorsViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="vendors_id" DisplayMember="cmpDisplay" >
+                        <dxg:LookUpEditSettings ItemsSource="{Binding Source={StaticResource uSP_getAllVendorsViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="vendors_id" DisplayMember="cmpDisplay">
                             <dxg:LookUpEditSettings.PopupContentTemplate>
                                 <ControlTemplate TargetType="ContentControl">
-                                    <dxg:GridControl x:Name="PART_GridControl" ShowBorder="True" >
+                                    <dxg:GridControl x:Name="PART_GridControl" ShowBorder="True">
                                         <dxg:GridControl.View>
-                                            <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" 
-                               ShowColumnHeaders ="False"  Grid.ColumnSpan="1" Margin="0,0,0,0"  
-                                ShowBandsPanel="False" ShowBandsInCustomizationForm="False" 
-                               ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" 
-                               ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" 
-                               ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" 
-                               ShowValidationAttributeErrors="False" ShowVerticalLines="False"
-                               CustomCellAppearance="TableView_OnCustomCellAppearance">
+                                            <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" ShowColumnHeaders="False" Grid.ColumnSpan="1" Margin="0,0,0,0" ShowBandsPanel="False" ShowBandsInCustomizationForm="False" ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" ShowValidationAttributeErrors="False" ShowVerticalLines="False" CustomCellAppearance="TableView_OnCustomCellAppearance">
                                                 <dxg:TableView.FormatConditions>
                                                     <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id">
-                                                        <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold"/>
+                                                        <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold" />
                                                     </dxg:FormatCondition>
                                                 </dxg:TableView.FormatConditions>
                                                 <dxg:TableView.RowStyle>
@@ -675,24 +649,17 @@
 
 
 
-                <dxg:GridColumn   Name ="nAccountID_D" FieldName="nAccountID_D" Header="Dr Account" Width="150"  AllowSorting="True" AllowEditing="True" ShowValidationAttributeErrors="True">
+                <dxg:GridColumn Name="nAccountID_D" FieldName="nAccountID_D" Header="Dr Account" Width="150" AllowSorting="True" AllowEditing="True" ShowValidationAttributeErrors="True">
                     <dxg:GridColumn.EditSettings>
-                        <dxg:LookUpEditSettings  ItemsSource="{Binding Source={StaticResource uSP_getAllAccountsForSplitViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="ID" DisplayMember="cName" >
+                        <dxg:LookUpEditSettings ItemsSource="{Binding Source={StaticResource uSP_getAllAccountsForSplitViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="ID" DisplayMember="cName">
                             <dxg:LookUpEditSettings.PopupContentTemplate>
                                 <ControlTemplate TargetType="ContentControl">
-                                    <dxg:GridControl x:Name="PART_GridControl" ShowBorder="True" >
+                                    <dxg:GridControl x:Name="PART_GridControl" ShowBorder="True">
                                         <dxg:GridControl.View>
-                                            <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" 
-                               ShowColumnHeaders ="False"  Grid.ColumnSpan="1" Margin="0,0,0,0"  
-                                ShowBandsPanel="False" ShowBandsInCustomizationForm="False" 
-                               ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" 
-                               ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" 
-                               ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" 
-                               ShowValidationAttributeErrors="False" ShowVerticalLines="False"
-                               CustomCellAppearance="TableView_OnCustomCellAppearance">
+                                            <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" ShowColumnHeaders="False" Grid.ColumnSpan="1" Margin="0,0,0,0" ShowBandsPanel="False" ShowBandsInCustomizationForm="False" ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" ShowValidationAttributeErrors="False" ShowVerticalLines="False" CustomCellAppearance="TableView_OnCustomCellAppearance">
                                                 <dxg:TableView.FormatConditions>
                                                     <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id">
-                                                        <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold"/>
+                                                        <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold" />
                                                     </dxg:FormatCondition>
                                                 </dxg:TableView.FormatConditions>
                                                 <dxg:TableView.RowStyle>
@@ -730,31 +697,24 @@
 
 
 
-                <dxg:GridColumn   Name ="nAmount_D" FieldName="nAmount_D" Header="Dr Amount" Width="100"  AllowSorting="True" AllowEditing="True" SortOrder="Ascending" SortIndex="0">
+                <dxg:GridColumn Name="nAmount_D" FieldName="nAmount_D" Header="Dr Amount" Width="100" AllowSorting="True" AllowEditing="True" SortOrder="Ascending" SortIndex="0">
                     <dxg:GridColumn.EditSettings>
-                        <dxe:TextEditSettings DisplayFormat="###########.00" MaskUseAsDisplayFormat="True" MaskType="Numeric" Mask="f2"/>
+                        <dxe:TextEditSettings DisplayFormat="###########.00" MaskUseAsDisplayFormat="True" MaskType="Numeric" Mask="f2" />
                     </dxg:GridColumn.EditSettings>
                 </dxg:GridColumn>
 
 
-                <dxg:GridColumn   Name ="nAccountID_C"  FieldName="nAccountID_C" Header="Cr Account" Width="150"  AllowSorting="True" AllowEditing="True">
+                <dxg:GridColumn Name="nAccountID_C" FieldName="nAccountID_C" Header="Cr Account" Width="150" AllowSorting="True" AllowEditing="True">
                     <dxg:GridColumn.EditSettings>
-                        <dxg:LookUpEditSettings  ItemsSource="{Binding Source={StaticResource uSP_getAllAccountsForSplitViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="ID" DisplayMember="cName" >
+                        <dxg:LookUpEditSettings ItemsSource="{Binding Source={StaticResource uSP_getAllAccountsForSplitViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="ID" DisplayMember="cName">
                             <dxg:LookUpEditSettings.PopupContentTemplate>
                                 <ControlTemplate TargetType="ContentControl">
-                                    <dxg:GridControl x:Name="PART_GridControl" ShowBorder="True" >
+                                    <dxg:GridControl x:Name="PART_GridControl" ShowBorder="True">
                                         <dxg:GridControl.View>
-                                            <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" 
-                               ShowColumnHeaders ="True"  Grid.ColumnSpan="1" Margin="0,0,0,0"  
-                                ShowBandsPanel="False" ShowBandsInCustomizationForm="False" 
-                               ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" 
-                               ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" 
-                               ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" 
-                               ShowValidationAttributeErrors="False" ShowVerticalLines="False"
-                               CustomCellAppearance="TableView_OnCustomCellAppearance">
+                                            <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" ShowColumnHeaders="True" Grid.ColumnSpan="1" Margin="0,0,0,0" ShowBandsPanel="False" ShowBandsInCustomizationForm="False" ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" ShowValidationAttributeErrors="False" ShowVerticalLines="False" CustomCellAppearance="TableView_OnCustomCellAppearance">
                                                 <dxg:TableView.FormatConditions>
                                                     <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id">
-                                                        <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold"/>
+                                                        <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold" />
                                                     </dxg:FormatCondition>
                                                 </dxg:TableView.FormatConditions>
                                                 <dxg:TableView.RowStyle>
@@ -790,31 +750,24 @@
                 </dxg:GridColumn>
 
 
-                <dxg:GridColumn   Name="nAmount_C" FieldName="nAmount_C" Header="Cr Amount" Width="100" AllowSorting="True" AllowEditing="True">
+                <dxg:GridColumn Name="nAmount_C" FieldName="nAmount_C" Header="Cr Amount" Width="100" AllowSorting="True" AllowEditing="True">
                     <dxg:GridColumn.EditSettings>
-                        <dxe:TextEditSettings DisplayFormat="###########.00" MaskUseAsDisplayFormat="True" MaskType="Numeric" Mask="f2"/>
+                        <dxe:TextEditSettings DisplayFormat="###########.00" MaskUseAsDisplayFormat="True" MaskType="Numeric" Mask="f2" />
                     </dxg:GridColumn.EditSettings>
                 </dxg:GridColumn>
 
 
-                <dxg:GridColumn   FieldName="nTagID" Header="Tag" Width="100"  AllowSorting="True" AllowEditing="True">
+                <dxg:GridColumn FieldName="nTagID" Header="Tag" Width="100" AllowSorting="True" AllowEditing="True">
                     <dxg:GridColumn.EditSettings>
-                        <dxg:LookUpEditSettings  ItemsSource="{Binding Source={StaticResource uSP_getAllTagsViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="ID" DisplayMember="cName" >
+                        <dxg:LookUpEditSettings ItemsSource="{Binding Source={StaticResource uSP_getAllTagsViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="ID" DisplayMember="cName">
                             <dxg:LookUpEditSettings.PopupContentTemplate>
                                 <ControlTemplate TargetType="ContentControl">
-                                    <dxg:GridControl x:Name="PART_GridControl" ShowBorder="True" >
+                                    <dxg:GridControl x:Name="PART_GridControl" ShowBorder="True">
                                         <dxg:GridControl.View>
-                                            <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" 
-                               ShowColumnHeaders ="True"  Grid.ColumnSpan="1" Margin="0,0,0,0"  
-                                ShowBandsPanel="False" ShowBandsInCustomizationForm="False" 
-                               ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" 
-                               ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" 
-                               ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" 
-                               ShowValidationAttributeErrors="False" ShowVerticalLines="False"
-                               CustomCellAppearance="TableView_OnCustomCellAppearance">
+                                            <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" ShowColumnHeaders="True" Grid.ColumnSpan="1" Margin="0,0,0,0" ShowBandsPanel="False" ShowBandsInCustomizationForm="False" ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" ShowValidationAttributeErrors="False" ShowVerticalLines="False" CustomCellAppearance="TableView_OnCustomCellAppearance">
                                                 <dxg:TableView.FormatConditions>
                                                     <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id">
-                                                        <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold"/>
+                                                        <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold" />
                                                     </dxg:FormatCondition>
                                                 </dxg:TableView.FormatConditions>
                                                 <dxg:TableView.RowStyle>
@@ -850,24 +803,17 @@
                 </dxg:GridColumn>
 
 
-                <dxg:GridColumn   FieldName="nClassID" Header="Class" Width="100"  AllowSorting="True" AllowEditing="True">
+                <dxg:GridColumn FieldName="nClassID" Header="Class" Width="100" AllowSorting="True" AllowEditing="True">
                     <dxg:GridColumn.EditSettings>
-                        <dxg:LookUpEditSettings  ItemsSource="{Binding Source={StaticResource uSP_getAllClassViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="ID" DisplayMember="cName" >
+                        <dxg:LookUpEditSettings ItemsSource="{Binding Source={StaticResource uSP_getAllClassViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="ID" DisplayMember="cName">
                             <dxg:LookUpEditSettings.PopupContentTemplate>
                                 <ControlTemplate TargetType="ContentControl">
-                                    <dxg:GridControl x:Name="PART_GridControl" ShowBorder="True" >
+                                    <dxg:GridControl x:Name="PART_GridControl" ShowBorder="True">
                                         <dxg:GridControl.View>
-                                            <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" 
-                               ShowColumnHeaders ="True"  Grid.ColumnSpan="1" Margin="0,0,0,0"  
-                                ShowBandsPanel="False" ShowBandsInCustomizationForm="False" 
-                               ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" 
-                               ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" 
-                               ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" 
-                               ShowValidationAttributeErrors="False" ShowVerticalLines="False"
-                               CustomCellAppearance="TableView_OnCustomCellAppearance">
+                                            <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" ShowColumnHeaders="True" Grid.ColumnSpan="1" Margin="0,0,0,0" ShowBandsPanel="False" ShowBandsInCustomizationForm="False" ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" ShowValidationAttributeErrors="False" ShowVerticalLines="False" CustomCellAppearance="TableView_OnCustomCellAppearance">
                                                 <dxg:TableView.FormatConditions>
                                                     <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id">
-                                                        <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold"/>
+                                                        <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold" />
                                                     </dxg:FormatCondition>
                                                 </dxg:TableView.FormatConditions>
                                                 <dxg:TableView.RowStyle>
@@ -902,34 +848,27 @@
                     </dxg:GridColumn.EditSettings>
                 </dxg:GridColumn>
 
-                <dxg:GridColumn  FieldName="cMemo" Header="Memo" Width="130" AllowSorting="True"/>
-                <dxg:GridColumn FieldName="nOriginalAmount" Header="Original Amnt." AllowSorting="True" Width = "100">
+                <dxg:GridColumn FieldName="cMemo" Header="Memo" Width="130" AllowSorting="True" />
+                <dxg:GridColumn FieldName="nOriginalAmount" Header="Original Amnt." AllowSorting="True" Width="100">
                     <dxg:GridColumn.EditSettings>
-                        <dxe:TextEditSettings MaskUseAsDisplayFormat="True" MaskType="Numeric" Mask="f2"/>
+                        <dxe:TextEditSettings MaskUseAsDisplayFormat="True" MaskType="Numeric" Mask="f2" />
                     </dxg:GridColumn.EditSettings>
                 </dxg:GridColumn>
 
 
 
 
-                <dxg:GridColumn   FieldName="nCurrencyID" Header="Original Currency" Width="110"  AllowSorting="True" AllowEditing="True">
+                <dxg:GridColumn FieldName="nCurrencyID" Header="Original Currency" Width="110" AllowSorting="True" AllowEditing="True">
                     <dxg:GridColumn.EditSettings>
-                        <dxg:LookUpEditSettings  ItemsSource="{Binding Source={StaticResource uSP_getAllCurrencyViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="ID" DisplayMember="cName" >
+                        <dxg:LookUpEditSettings ItemsSource="{Binding Source={StaticResource uSP_getAllCurrencyViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="ID" DisplayMember="cName">
                             <dxg:LookUpEditSettings.PopupContentTemplate>
                                 <ControlTemplate TargetType="ContentControl">
-                                    <dxg:GridControl x:Name="PART_GridControl" ShowBorder="True" >
+                                    <dxg:GridControl x:Name="PART_GridControl" ShowBorder="True">
                                         <dxg:GridControl.View>
-                                            <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" 
-                               ShowColumnHeaders ="True"  Grid.ColumnSpan="1" Margin="0,0,0,0"  
-                                ShowBandsPanel="False" ShowBandsInCustomizationForm="False" 
-                               ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" 
-                               ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" 
-                               ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" 
-                               ShowValidationAttributeErrors="False" ShowVerticalLines="False"
-                               CustomCellAppearance="TableView_OnCustomCellAppearance">
+                                            <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" ShowColumnHeaders="True" Grid.ColumnSpan="1" Margin="0,0,0,0" ShowBandsPanel="False" ShowBandsInCustomizationForm="False" ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" ShowValidationAttributeErrors="False" ShowVerticalLines="False" CustomCellAppearance="TableView_OnCustomCellAppearance">
                                                 <dxg:TableView.FormatConditions>
                                                     <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id">
-                                                        <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold"/>
+                                                        <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold" />
                                                     </dxg:FormatCondition>
                                                 </dxg:TableView.FormatConditions>
                                                 <dxg:TableView.RowStyle>
@@ -967,16 +906,15 @@
 
             </dxg:GridControl>
 
-            <ComboBox Grid.Column="5" Margin="0,36,10,0" Grid.Row="2" IsSynchronizedWithCurrentItem = "True" SelectedItem="" DisplayMemberPath="cLabel" ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesUSP_getAllAccountsViewSource}}" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
-            <dx:SimpleButton Name="New"  Content="New Transaction" Grid.Column="5" HorizontalAlignment="Left" Height="27" Margin="1,6,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120" Click="SimpleButton_Click_1" RenderTransformOrigin="-1.733,0.444"/>
-            <dxe:TextEdit x:Name="TextEditTotalDr" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="170,10,0,0" Grid.Row="10" VerticalAlignment="Top" Width="80" Mask="F" MaskType="Numeric"/>
-            <dxe:TextEdit x:Name="TextEditTotalCr" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="252,10,0,0" Grid.Row="10" VerticalAlignment="Top" Width="80" Mask="F" MaskType="Numeric"/>
-            <dxe:TextEdit x:Name="TextEditBalance" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="336,10,0,0" Grid.Row="10" VerticalAlignment="Top" Width="100" Mask="F" MaskType="Numeric" FontWeight="Normal" Padding="0,0,5,0" Background="Black" Foreground="White"/>
+            <ComboBox Grid.Column="5" Margin="0,36,10,0" Grid.Row="2" IsSynchronizedWithCurrentItem="True" SelectedItem="" DisplayMemberPath="cLabel" ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesUSP_getAllAccountsViewSource}}" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" />
+            <dx:SimpleButton Name="New" Content="New Transaction" Grid.Column="5" HorizontalAlignment="Left" Height="27" Margin="1,6,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120" Click="SimpleButton_Click_1" RenderTransformOrigin="-1.733,0.444" />
+            <dxe:TextEdit x:Name="TextEditTotalDr" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="170,10,0,0" Grid.Row="10" VerticalAlignment="Top" Width="80" Mask="F" MaskType="Numeric" />
+            <dxe:TextEdit x:Name="TextEditTotalCr" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="252,10,0,0" Grid.Row="10" VerticalAlignment="Top" Width="80" Mask="F" MaskType="Numeric" />
+            <dxe:TextEdit x:Name="TextEditBalance" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="336,10,0,0" Grid.Row="10" VerticalAlignment="Top" Width="100" Mask="F" MaskType="Numeric" FontWeight="Normal" Padding="0,0,5,0" Background="Black" Foreground="White" />
 
             <!--</dxlc:ScrollBox>-->
 
         </Grid>
         <!--</ScrollViewer >-->
     </dxlc:ScrollBox>
-</dxr:DXRibbonWindow>
-
+</dx:ThemedWindow>
