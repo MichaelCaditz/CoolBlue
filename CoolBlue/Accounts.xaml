@@ -13,8 +13,8 @@
     
     xmlns:local="clr-namespace:coolBlue"
     x:Class="coolBlue.Accounts"
-    Title="Accounts" Height="640" Width="860"
-    Loaded="ThemedWindow_Loaded" WindowStartupLocation="CenterScreen" HorizontalAlignment="Center" VerticalAlignment="Center" ShowStatusPanel="True" ShowBackButton="False"
+    Title="Accounts" Height="640" Width="870"
+    Loaded="ThemedWindow_Loaded" WindowStartupLocation="CenterScreen" HorizontalAlignment="Left" VerticalAlignment="Top" ShowStatusPanel="True" ShowBackButton="False"
     >
     <dx:ThemedWindow.Resources>
         <local:EditDataSet x:Key="editDataSet"/>
@@ -45,8 +45,8 @@
 
                 <RowDefinition Name="r3" Height="80" MinHeight="0"/>
                 <RowDefinition Name="r4" Height="80" MinHeight="0"/>
-                <RowDefinition Name="r5" Height="85" MinHeight="0"/>
-                <RowDefinition Name="r6" Height="60" MinHeight="0"/>
+                <RowDefinition Name="r5" Height="70" MinHeight="0"/>
+                <RowDefinition Name="r6" Height="50" MinHeight="0"/>
                 
             </Grid.RowDefinitions>
 
