@@ -15,7 +15,7 @@
     
     x:Class="coolBlue.editAccount"
     Title="Account" Height="720" Width="800"
-    Loaded="ThemedWindow_Loaded" WindowStartupLocation="CenterScreen" ShowStatusPanel="True"
+    Loaded="ThemedWindow_Loaded" WindowStartupLocation="CenterScreen" ShowStatusPanel="True" ShowBackButton="True"
     >
     <dx:ThemedWindow.Resources>
         <local:AccountsDataSet x:Key="accountsDataSet"/>

@@ -41,7 +41,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Name="r0" Height="100" MinHeight="0"/>
                 <RowDefinition Name="r1" Height="60" MinHeight="0"/>
-                <RowDefinition Name="r2" Height="100"/>
+                <RowDefinition Name="r2" Height="140"/>
 
                 <RowDefinition Name="r3" Height="80" MinHeight="0"/>
                 <RowDefinition Name="r4" Height="80" MinHeight="0"/>
