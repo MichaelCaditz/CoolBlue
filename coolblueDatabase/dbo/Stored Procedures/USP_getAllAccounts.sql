@@ -28,8 +28,8 @@ BEGIN
 
 	--a.cNameFirst,a.cNameLast,
 	
-	 SELECT a.ID,a.dtCreateDate,a.nAccountTypeID,a.cName as cShortName,a.cNote,a.cDesc,a.nCurrencyID,a.nCatID,b.cName as currencyName,b.cSymbol as currencySymbol,
-	  isnull(c.cName+': ','')+ a.cName as cName,
+	 SELECT a.ID,a.dtCreateDate,a.nAccountTypeID,a.cName as cShortName,replace(left(a.cNote,160),CHAR(13)+CHAR(10),' ') as cNote,a.cDesc,a.nCurrencyID,a.nCatID,b.cSymbol as currencyName,b.cSymbol as currencySymbol,
+	  isnull(c.cName+': ','')+ a.cName as cName, a.nBillDate, a.nForeignConversionFee,
 	   
 	  CONVERT(nvarchar,  
     DecryptByKey(a.pin_Encrypted, 1 ,   

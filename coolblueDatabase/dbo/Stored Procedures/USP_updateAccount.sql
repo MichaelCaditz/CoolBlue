@@ -30,7 +30,10 @@ CREATE PROCEDURE [dbo].[USP_updateAccount]
 	@cContactName nvarchar(255),
 	@cURL nvarchar(255),
 	@cContactEmail nvarchar(255),
-	@cContactPhone nvarchar(255)
+	@cContactPhone nvarchar(255),
+	@nBillDate int,
+	@nForeignConversionFee decimal(14,4),
+	@nRoutingNumber nvarchar(255)
 	
 	
 AS
@@ -69,34 +72,37 @@ BEGIN
 	cURL=@cURL ,
 	cContactEmail=@cContactEmail,
 	cContactPhone=@cContactPhone ,
+	nBillDate=@nBillDate ,
+	nForeignConversionFee=@nForeignConversionFee ,
+	nRoutingNumber=@nRoutingNumber,
 
 
 	pin_Encrypted=EncryptByKey(Key_GUID('PIN_Key11')  
-    , convert(varbinary,@cDecryptedPIN),1, HashBytes('SHA1', CONVERT( varbinary  
+    , convert(varbinary(256),@cDecryptedPIN),1, HashBytes('SHA1', CONVERT( varbinary(256)
     , @ID))) ,
 
 	CV_Encrypted=EncryptByKey(Key_GUID('PIN_Key11')  
-    , convert(varbinary,@cDecryptedCV),1, HashBytes('SHA1', CONVERT( varbinary  
+    , convert(varbinary(256),@cDecryptedCV),1, HashBytes('SHA1', CONVERT( varbinary(256)
     , @ID))) ,
 
 	expiry_Encrypted = EncryptByKey(Key_GUID('PIN_Key11')  
-    , convert(varbinary,@cExpiry),1, HashBytes('SHA1', CONVERT( varbinary  
+    , convert(varbinary(256),@cExpiry),1, HashBytes('SHA1', CONVERT( varbinary(256) 
     , @ID))),
 
 	acctNum_Encrypted = EncryptByKey(Key_GUID('PIN_Key11')  
-    , convert(varbinary,@cAcctNum),1, HashBytes('SHA1', CONVERT( varbinary  
+    , convert(varbinary(256),@cAcctNum),1, HashBytes('SHA1', CONVERT( varbinary(256)
     , @ID))),
 
 	cardNum_Encrypted = EncryptByKey(Key_GUID('PIN_Key11')  
-    , convert(varbinary,@cCardNum),1, HashBytes('SHA1', CONVERT( varbinary  
+    , convert(varbinary(256),@cCardNum),1, HashBytes('SHA1', CONVERT( varbinary(256)
     , @ID))),
 
 	username_Encrypted = EncryptByKey(Key_GUID('PIN_Key11')  
-    , convert(varbinary,@cUsername),1, HashBytes('SHA1', CONVERT( varbinary  
+    , convert(varbinary(256),@cUsername),1, HashBytes('SHA1', CONVERT( varbinary(256)  
     , @ID))),
 
 	password_Encrypted = EncryptByKey(Key_GUID('PIN_Key11')  
-    , convert(varbinary,@cPassword),1, HashBytes('SHA1', CONVERT( varbinary  
+    , convert(varbinary(256),@cPassword),1, HashBytes('SHA1', CONVERT( varbinary(256)  
     , @ID)))
 
 

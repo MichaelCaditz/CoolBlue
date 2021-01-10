@@ -29,41 +29,43 @@ BEGIN
 
 	 cInstitutionNum,cTransitNum,cSwiftCode,nCreditLimit,cContactName,cURL,cContactEmail,cContactPhone,
 
+	 a.nBillDate, a.nForeignConversionFee,a.nRoutingNumber,
 
 
-	CONVERT(nvarchar,  
+
+	CONVERT(nvarchar(50),  
     DecryptByKey(a.pin_Encrypted, 1 ,   
-    HashBytes('SHA1', CONVERT(varbinary, a.ID))))  
+    HashBytes('SHA1', CONVERT(varbinary(256), a.ID))))  
     AS 'cDecryptedPIN' ,
 
-	CONVERT(nvarchar,  
+	CONVERT(nvarchar(50),  
     DecryptByKey(a.CV_Encrypted, 1 ,   
-    HashBytes('SHA1', CONVERT(varbinary, a.ID))))  
+    HashBytes('SHA1', CONVERT(varbinary(256), a.ID))))  
     AS 'cDecryptedCV' ,
 
-	CONVERT(nvarchar,  
+	CONVERT(nvarchar(50),  
     DecryptByKey(a.expiry_Encrypted, 1 ,   
-    HashBytes('SHA1', CONVERT(varbinary, a.ID))))  
+    HashBytes('SHA1', CONVERT(varbinary(256), a.ID))))  
     AS 'cDecryptedExpiry' ,
 
-	CONVERT(nvarchar,  
+	CONVERT(nvarchar(50),  
     DecryptByKey(a.acctNum_Encrypted, 1 ,   
-    HashBytes('SHA1', CONVERT(varbinary, a.ID))))  
+    HashBytes('SHA1', CONVERT(varbinary(256), a.ID))))  
     AS 'cDecryptedAcctNum' ,
 
-	CONVERT(nvarchar,  
+	CONVERT(nvarchar(50),  
     DecryptByKey(a.cardNum_Encrypted, 1 ,   
-    HashBytes('SHA1', CONVERT(varbinary, a.ID))))  
+    HashBytes('SHA1', CONVERT(varbinary(256), a.ID))))  
     AS 'cDecryptedCardNum' ,
 
-	CONVERT(nvarchar,  
+	CONVERT(nvarchar(50),  
     DecryptByKey(a.username_Encrypted, 1 ,   
-    HashBytes('SHA1', CONVERT(varbinary, a.ID))))  
+    HashBytes('SHA1', CONVERT(varbinary(256), a.ID))))  
     AS 'cDecryptedUsername' ,
 
-	CONVERT(nvarchar,  
+	CONVERT(nvarchar(50),  
     DecryptByKey(a.password_Encrypted, 1 ,   
-    HashBytes('SHA1', CONVERT(varbinary, a.ID))))  
+    HashBytes('SHA1', CONVERT(varbinary(256), a.ID))))  
     AS 'cDecryptedPassword' 
 
 	 FROM dbo.account a  WITH (NOLOCK)
