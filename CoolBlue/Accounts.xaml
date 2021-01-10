@@ -134,7 +134,7 @@
             </dxg:GridControl>
             <dxg:GridControl Name="uSP_getAllAccountsDataGrid" AutoGenerateColumns="None"  EnableSmartColumnsGeneration="False" 
                          ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesUSP_getAllAccountsViewSource}}" 
-                         Margin="3,12,0,0" Grid.Row="3" Grid.RowSpan="3" Grid.ColumnSpan="9" SelectionMode="Row" HorizontalAlignment="Left" VerticalAlignment="Top">
+                         Margin="3,12,0,0" Grid.Row="3" Grid.RowSpan="3" Grid.ColumnSpan="8" SelectionMode="Row" HorizontalAlignment="Left" VerticalAlignment="Top">
             <dxg:GridControl.View>
                 <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" 
                                ShowColumnHeaders ="True"  Grid.ColumnSpan="1" Margin="0,0,0,0"  
@@ -197,11 +197,17 @@
                 </dxg:GridColumn.DisplayTemplate>
             </dxg:GridColumn>
 
-            <dxg:GridColumn Binding="{Binding cDesc}"  FieldName="Description" Header="Description" Width="100"/>
-            <dxg:GridColumn Binding="{Binding cNote}"  FieldName="Note" Header="Note" Width="160"/>
-                <dxg:GridColumn Binding="{Binding currencyName}"  FieldName="currencyName" Header="Currency" Width="100"/>
+            <dxg:GridColumn Binding="{Binding cDesc}"  FieldName="Description" Header="Description" Width="140"/>
+                <dxg:GridColumn Binding="{Binding cDecryptedExpiry}"  FieldName="cDecryptedExpiry" Header="Expiry" Width="120"/>
+            <dxg:GridColumn Binding="{Binding currencyName}"  FieldName="currencyName" Header="Currency" Width="100"/>
+                <dxg:GridColumn Binding="{Binding nBillDate}"  FieldName="nBillDate" Header="Bill Date" Width="60"/>
+                <dxg:GridColumn Binding="{Binding nForeignConversionFee}"  FieldName="nForeignConversionFee" Header="Foreign Conv Fee" Width="110"/>
 
-        </dxg:GridControl>
+
+
+
+
+            </dxg:GridControl>
         </Grid>
 
     </dxlc:ScrollBox>

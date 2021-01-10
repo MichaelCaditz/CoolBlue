@@ -404,6 +404,10 @@ namespace coolBlue {
             
             private global::System.Data.DataColumn columncLabel;
             
+            private global::System.Data.DataColumn columnnBillDate;
+            
+            private global::System.Data.DataColumn columnnForeignConversionFee;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public USP_getAllAccountsDataTable() : 
@@ -560,6 +564,22 @@ namespace coolBlue {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn nBillDateColumn {
+                get {
+                    return this.columnnBillDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn nForeignConversionFeeColumn {
+                get {
+                    return this.columnnForeignConversionFee;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -595,7 +615,7 @@ namespace coolBlue {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public USP_getAllAccountsRow AddUSP_getAllAccountsRow(System.DateTime dtCreateDate, USP_getAllAccountTypesRow parentUSP_getAllAccountTypesRowByFK_USP_getAllAccountTypes_USP_getAllAccounts, string cName, string cNote, string cDesc, int nCurrencyID, string currencyName, string cDecryptedPIN, string cDecryptedCV, string cDecryptedExpiry, string cDecryptedAcctNum, string currencySymbol, string cLabel) {
+            public USP_getAllAccountsRow AddUSP_getAllAccountsRow(System.DateTime dtCreateDate, USP_getAllAccountTypesRow parentUSP_getAllAccountTypesRowByFK_USP_getAllAccountTypes_USP_getAllAccounts, string cName, string cNote, string cDesc, int nCurrencyID, string currencyName, string cDecryptedPIN, string cDecryptedCV, string cDecryptedExpiry, string cDecryptedAcctNum, string currencySymbol, string cLabel, int nBillDate, decimal nForeignConversionFee) {
                 USP_getAllAccountsRow rowUSP_getAllAccountsRow = ((USP_getAllAccountsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -611,7 +631,9 @@ namespace coolBlue {
                         cDecryptedExpiry,
                         cDecryptedAcctNum,
                         currencySymbol,
-                        cLabel};
+                        cLabel,
+                        nBillDate,
+                        nForeignConversionFee};
                 if ((parentUSP_getAllAccountTypesRowByFK_USP_getAllAccountTypes_USP_getAllAccounts != null)) {
                     columnValuesArray[2] = parentUSP_getAllAccountTypesRowByFK_USP_getAllAccountTypes_USP_getAllAccounts[0];
                 }
@@ -622,7 +644,7 @@ namespace coolBlue {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public USP_getAllAccountsRow AddUSP_getAllAccountsRow(System.DateTime dtCreateDate, USP_getAllAccountTypesRow parentUSP_getAllAccountTypesRowByFK_USP_getAllAccountTypes_USP_getAllAccounts, string cName, string cNote, string cDesc, int nCurrencyID, string currencyName, string cDecryptedPIN, string cDecryptedCV, string cDecryptedExpiry, string cDecryptedAcctNum, string currencySymbol) {
+            public USP_getAllAccountsRow AddUSP_getAllAccountsRow(System.DateTime dtCreateDate, USP_getAllAccountTypesRow parentUSP_getAllAccountTypesRowByFK_USP_getAllAccountTypes_USP_getAllAccounts, string cName, string cNote, string cDesc, int nCurrencyID, string currencyName, string cDecryptedPIN, string cDecryptedCV, string cDecryptedExpiry, string cDecryptedAcctNum, string currencySymbol, int nBillDate, decimal nForeignConversionFee) {
                 USP_getAllAccountsRow rowUSP_getAllAccountsRow = ((USP_getAllAccountsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -638,7 +660,9 @@ namespace coolBlue {
                         cDecryptedExpiry,
                         cDecryptedAcctNum,
                         currencySymbol,
-                        null};
+                        null,
+                        nBillDate,
+                        nForeignConversionFee};
                 if ((parentUSP_getAllAccountTypesRowByFK_USP_getAllAccountTypes_USP_getAllAccounts != null)) {
                     columnValuesArray[2] = parentUSP_getAllAccountTypesRowByFK_USP_getAllAccountTypes_USP_getAllAccounts[0];
                 }
@@ -685,6 +709,8 @@ namespace coolBlue {
                 this.columncDecryptedAcctNum = base.Columns["cDecryptedAcctNum"];
                 this.columncurrencySymbol = base.Columns["currencySymbol"];
                 this.columncLabel = base.Columns["cLabel"];
+                this.columnnBillDate = base.Columns["nBillDate"];
+                this.columnnForeignConversionFee = base.Columns["nForeignConversionFee"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -718,6 +744,10 @@ namespace coolBlue {
                 base.Columns.Add(this.columncurrencySymbol);
                 this.columncLabel = new global::System.Data.DataColumn("cLabel", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncLabel);
+                this.columnnBillDate = new global::System.Data.DataColumn("nBillDate", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnBillDate);
+                this.columnnForeignConversionFee = new global::System.Data.DataColumn("nForeignConversionFee", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnForeignConversionFee);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AutoIncrement = true;
@@ -1261,6 +1291,12 @@ namespace coolBlue {
             
             private global::System.Data.DataColumn columncContactPhone;
             
+            private global::System.Data.DataColumn columnnBillDate;
+            
+            private global::System.Data.DataColumn columnnForeignConversionFee;
+            
+            private global::System.Data.DataColumn columnnRoutingNumber;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public USP_getOneAccountDataTable() {
@@ -1488,6 +1524,30 @@ namespace coolBlue {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn nBillDateColumn {
+                get {
+                    return this.columnnBillDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn nForeignConversionFeeColumn {
+                get {
+                    return this.columnnForeignConversionFee;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn nRoutingNumberColumn {
+                get {
+                    return this.columnnRoutingNumber;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1546,7 +1606,10 @@ namespace coolBlue {
                         string cContactName, 
                         string cURL, 
                         string cContactEmail, 
-                        string cContactPhone) {
+                        string cContactPhone, 
+                        int nBillDate, 
+                        decimal nForeignConversionFee, 
+                        string nRoutingNumber) {
                 USP_getOneAccountRow rowUSP_getOneAccountRow = ((USP_getOneAccountRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1572,7 +1635,10 @@ namespace coolBlue {
                         cContactName,
                         cURL,
                         cContactEmail,
-                        cContactPhone};
+                        cContactPhone,
+                        nBillDate,
+                        nForeignConversionFee,
+                        nRoutingNumber};
                 rowUSP_getOneAccountRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowUSP_getOneAccountRow);
                 return rowUSP_getOneAccountRow;
@@ -1626,6 +1692,9 @@ namespace coolBlue {
                 this.columncURL = base.Columns["cURL"];
                 this.columncContactEmail = base.Columns["cContactEmail"];
                 this.columncContactPhone = base.Columns["cContactPhone"];
+                this.columnnBillDate = base.Columns["nBillDate"];
+                this.columnnForeignConversionFee = base.Columns["nForeignConversionFee"];
+                this.columnnRoutingNumber = base.Columns["nRoutingNumber"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1679,6 +1748,12 @@ namespace coolBlue {
                 base.Columns.Add(this.columncContactEmail);
                 this.columncContactPhone = new global::System.Data.DataColumn("cContactPhone", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncContactPhone);
+                this.columnnBillDate = new global::System.Data.DataColumn("nBillDate", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnBillDate);
+                this.columnnForeignConversionFee = new global::System.Data.DataColumn("nForeignConversionFee", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnForeignConversionFee);
+                this.columnnRoutingNumber = new global::System.Data.DataColumn("nRoutingNumber", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnRoutingNumber);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AutoIncrement = true;
@@ -2053,6 +2128,39 @@ namespace coolBlue {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int nBillDate {
+                get {
+                    try {
+                        return ((int)(this[this.tableUSP_getAllAccounts.nBillDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nBillDate\' in table \'USP_getAllAccounts\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUSP_getAllAccounts.nBillDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal nForeignConversionFee {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableUSP_getAllAccounts.nForeignConversionFeeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nForeignConversionFee\' in table \'USP_getAllAccounts\' is DBN" +
+                                "ull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUSP_getAllAccounts.nForeignConversionFeeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public USP_getAllAccountTypesRow USP_getAllAccountTypesRow {
                 get {
                     return ((USP_getAllAccountTypesRow)(this.GetParentRow(this.Table.ParentRelations["FK_USP_getAllAccountTypes_USP_getAllAccounts"])));
@@ -2216,6 +2324,30 @@ namespace coolBlue {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetcLabelNull() {
                 this[this.tableUSP_getAllAccounts.cLabelColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsnBillDateNull() {
+                return this.IsNull(this.tableUSP_getAllAccounts.nBillDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetnBillDateNull() {
+                this[this.tableUSP_getAllAccounts.nBillDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsnForeignConversionFeeNull() {
+                return this.IsNull(this.tableUSP_getAllAccounts.nForeignConversionFeeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetnForeignConversionFeeNull() {
+                this[this.tableUSP_getAllAccounts.nForeignConversionFeeColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2824,6 +2956,55 @@ namespace coolBlue {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int nBillDate {
+                get {
+                    try {
+                        return ((int)(this[this.tableUSP_getOneAccount.nBillDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nBillDate\' in table \'USP_getOneAccount\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUSP_getOneAccount.nBillDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal nForeignConversionFee {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableUSP_getOneAccount.nForeignConversionFeeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nForeignConversionFee\' in table \'USP_getOneAccount\' is DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tableUSP_getOneAccount.nForeignConversionFeeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string nRoutingNumber {
+                get {
+                    try {
+                        return ((string)(this[this.tableUSP_getOneAccount.nRoutingNumberColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nRoutingNumber\' in table \'USP_getOneAccount\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUSP_getOneAccount.nRoutingNumberColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsdtCreateDateNull() {
                 return this.IsNull(this.tableUSP_getOneAccount.dtCreateDateColumn);
             }
@@ -3097,6 +3278,42 @@ namespace coolBlue {
             public void SetcContactPhoneNull() {
                 this[this.tableUSP_getOneAccount.cContactPhoneColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsnBillDateNull() {
+                return this.IsNull(this.tableUSP_getOneAccount.nBillDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetnBillDateNull() {
+                this[this.tableUSP_getOneAccount.nBillDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsnForeignConversionFeeNull() {
+                return this.IsNull(this.tableUSP_getOneAccount.nForeignConversionFeeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetnForeignConversionFeeNull() {
+                this[this.tableUSP_getOneAccount.nForeignConversionFeeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsnRoutingNumberNull() {
+                return this.IsNull(this.tableUSP_getOneAccount.nRoutingNumberColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetnRoutingNumberNull() {
+                this[this.tableUSP_getOneAccount.nRoutingNumberColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -3339,6 +3556,8 @@ namespace coolBlue.AccountsDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("cDecryptedExpiry", "cDecryptedExpiry");
             tableMapping.ColumnMappings.Add("cDecryptedAcctNum", "cDecryptedAcctNum");
             tableMapping.ColumnMappings.Add("currencySymbol", "currencySymbol");
+            tableMapping.ColumnMappings.Add("nBillDate", "nBillDate");
+            tableMapping.ColumnMappings.Add("nForeignConversionFee", "nForeignConversionFee");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -3704,6 +3923,9 @@ namespace coolBlue.AccountsDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("cURL", "cURL");
             tableMapping.ColumnMappings.Add("cContactEmail", "cContactEmail");
             tableMapping.ColumnMappings.Add("cContactPhone", "cContactPhone");
+            tableMapping.ColumnMappings.Add("nBillDate", "nBillDate");
+            tableMapping.ColumnMappings.Add("nForeignConversionFee", "nForeignConversionFee");
+            tableMapping.ColumnMappings.Add("nRoutingNumber", "nRoutingNumber");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
