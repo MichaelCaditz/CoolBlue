@@ -107,8 +107,11 @@ namespace coolBlue
             int nCatID = 0;
             int nAccountTypeID = 0;
             int nCurrencyID = 0;
+            int nBillDate = 0;
             decimal nCreditLimit = 0m;
+            decimal nForeignConversionFee = 0m;
             string cUsername = "";
+            string nRoutingNumber = "";
             string cCardNum = "";
             string cPassword = "";
             string cInstitutionNum = "";
@@ -174,6 +177,9 @@ namespace coolBlue
                 cCardNum = (DBNull.Value.Equals(drv["cDecryptedCardNum"]) == true ? "" : (string)drv["cDecryptedCardNum"]);
                 cPassword = (DBNull.Value.Equals(drv["cDecryptedPassword"]) == true ? "" : (string)drv["cDecryptedPassword"]);
                 cDecryptedCV = (DBNull.Value.Equals(drv["cDecryptedCV"]) == true ? "" : (string)drv["cDecryptedCV"]);
+                nRoutingNumber = (DBNull.Value.Equals(drv["nRoutingNumber"]) == true ? "" : (string)drv["nRoutingNumber"]);
+                nBillDate = (drv == null ? 0 : DBNull.Value.Equals(drv["nBillDate"]) == true ? 0 : (int)drv["nBillDate"]);
+                nForeignConversionFee = (DBNull.Value.Equals(drv["nForeignConversionFee"]) == true ? 0m : (decimal)drv["nForeignConversionFee"]);
 
                 cInstitutionNum = (DBNull.Value.Equals(drv["cInstitutionNum"]) == true ? "" : (string)drv["cInstitutionNum"]);
 
@@ -246,9 +252,12 @@ namespace coolBlue
                     cmd3.Parameters.AddWithValue("@cURL", cURL);
                     cmd3.Parameters.AddWithValue("@cContactEmail", cContactEmail);
                     cmd3.Parameters.AddWithValue("@cContactPhone", cContactPhone);
+                    cmd3.Parameters.AddWithValue("@nBillDate", nBillDate);
+                    cmd3.Parameters.AddWithValue("@nForeignConversionFee", nForeignConversionFee);
+                    cmd3.Parameters.AddWithValue("@nRoutingNumber", nRoutingNumber);
 
 
-                    
+
 
 
                     //SqlParameter retval = cmd3.Parameters.Add("@transactIdentity", SqlDbType.Int);

@@ -200,7 +200,7 @@
             <dxg:GridColumn Binding="{Binding cDesc}"  FieldName="Description" Header="Description" Width="140"/>
                 <dxg:GridColumn Binding="{Binding cDecryptedExpiry}"  FieldName="cDecryptedExpiry" Header="Expiry" Width="120"/>
             <dxg:GridColumn Binding="{Binding currencyName}"  FieldName="currencyName" Header="Currency" Width="100"/>
-                <dxg:GridColumn Binding="{Binding nBillDate}"  FieldName="nBillDate" Header="Bill Date" Width="60"/>
+                <dxg:GridColumn Binding="{Binding nBillDate}"  FieldName="nBillDate" Header="Payment Due" Width="80"/>
                 <dxg:GridColumn Binding="{Binding nForeignConversionFee}"  FieldName="nForeignConversionFee" Header="Foreign Conv Fee" Width="110"/>
 
 
