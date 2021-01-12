@@ -649,7 +649,7 @@
 
 
 
-                <dxg:GridColumn Name="nAccountID_D" FieldName="nAccountID_D" Header="Dr Account" Width="150" AllowSorting="True" AllowEditing="True" ShowValidationAttributeErrors="True">
+                <dxg:GridColumn Name="nAccountID_D" FieldName="nAccountID_D" Header="Dr Account" Width="150" AllowSorting="True" AllowEditing="True" ShowValidationAttributeErrors="True" SortOrder="Ascending" SortIndex="0">
                     <dxg:GridColumn.EditSettings>
                         <dxg:LookUpEditSettings ItemsSource="{Binding Source={StaticResource uSP_getAllAccountsForSplitViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="ID" DisplayMember="cName">
                             <dxg:LookUpEditSettings.PopupContentTemplate>
@@ -685,7 +685,8 @@
                                             </dxg:TableView>
                                         </dxg:GridControl.View>
                                         <dxg:GridControl.Columns>
-                                            <dxg:GridColumn FieldName="cName" />
+                                            <dxg:GridColumn FieldName="cName" Width="200" />
+                                            <dxg:GridColumn FieldName="cAccountTypeName" />
                                         </dxg:GridControl.Columns>
                                     </dxg:GridControl>
                                 </ControlTemplate>
@@ -697,7 +698,7 @@
 
 
 
-                <dxg:GridColumn Name="nAmount_D" FieldName="nAmount_D" Header="Dr Amount" Width="100" AllowSorting="True" AllowEditing="True" SortOrder="Ascending" SortIndex="0">
+                <dxg:GridColumn Name="nAmount_D" FieldName="nAmount_D" Header="Dr Amount" Width="100" AllowSorting="True" AllowEditing="True">
                     <dxg:GridColumn.EditSettings>
                         <dxe:TextEditSettings DisplayFormat="###########.00" MaskUseAsDisplayFormat="True" MaskType="Numeric" Mask="f2" />
                     </dxg:GridColumn.EditSettings>
@@ -740,7 +741,8 @@
                                             </dxg:TableView>
                                         </dxg:GridControl.View>
                                         <dxg:GridControl.Columns>
-                                            <dxg:GridColumn FieldName="cName" />
+                                            <dxg:GridColumn FieldName="cName" Width="200" />
+                                            <dxg:GridColumn FieldName="cAccountTypeName" />
                                         </dxg:GridControl.Columns>
                                     </dxg:GridControl>
                                 </ControlTemplate>

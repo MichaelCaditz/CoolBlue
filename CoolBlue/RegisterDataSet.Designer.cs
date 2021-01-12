@@ -3071,6 +3071,8 @@ namespace coolBlue {
             
             private global::System.Data.DataColumn columncurrencyName;
             
+            private global::System.Data.DataColumn columncAccountTypeName;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public USP_getAllAccountsForSplitDataTable() {
@@ -3170,6 +3172,14 @@ namespace coolBlue {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn cAccountTypeNameColumn {
+                get {
+                    return this.columncAccountTypeName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3205,7 +3215,7 @@ namespace coolBlue {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public USP_getAllAccountsForSplitRow AddUSP_getAllAccountsForSplitRow(System.DateTime dtCreateDate, int nAccountTypeID, string cName, string cNote, string cDesc, int nCurrencyID, string currencyName) {
+            public USP_getAllAccountsForSplitRow AddUSP_getAllAccountsForSplitRow(System.DateTime dtCreateDate, int nAccountTypeID, string cName, string cNote, string cDesc, int nCurrencyID, string currencyName, string cAccountTypeName) {
                 USP_getAllAccountsForSplitRow rowUSP_getAllAccountsForSplitRow = ((USP_getAllAccountsForSplitRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -3215,7 +3225,8 @@ namespace coolBlue {
                         cNote,
                         cDesc,
                         nCurrencyID,
-                        currencyName};
+                        currencyName,
+                        cAccountTypeName};
                 rowUSP_getAllAccountsForSplitRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowUSP_getAllAccountsForSplitRow);
                 return rowUSP_getAllAccountsForSplitRow;
@@ -3253,6 +3264,7 @@ namespace coolBlue {
                 this.columncDesc = base.Columns["cDesc"];
                 this.columnnCurrencyID = base.Columns["nCurrencyID"];
                 this.columncurrencyName = base.Columns["currencyName"];
+                this.columncAccountTypeName = base.Columns["cAccountTypeName"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3274,6 +3286,8 @@ namespace coolBlue {
                 base.Columns.Add(this.columnnCurrencyID);
                 this.columncurrencyName = new global::System.Data.DataColumn("currencyName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncurrencyName);
+                this.columncAccountTypeName = new global::System.Data.DataColumn("cAccountTypeName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncAccountTypeName);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AutoIncrement = true;
@@ -5047,6 +5061,23 @@ namespace coolBlue {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string cAccountTypeName {
+                get {
+                    try {
+                        return ((string)(this[this.tableUSP_getAllAccountsForSplit.cAccountTypeNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'cAccountTypeName\' in table \'USP_getAllAccountsForSplit\' is " +
+                                "DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUSP_getAllAccountsForSplit.cAccountTypeNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsdtCreateDateNull() {
                 return this.IsNull(this.tableUSP_getAllAccountsForSplit.dtCreateDateColumn);
             }
@@ -5127,6 +5158,18 @@ namespace coolBlue {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetcurrencyNameNull() {
                 this[this.tableUSP_getAllAccountsForSplit.currencyNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IscAccountTypeNameNull() {
+                return this.IsNull(this.tableUSP_getAllAccountsForSplit.cAccountTypeNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetcAccountTypeNameNull() {
+                this[this.tableUSP_getAllAccountsForSplit.cAccountTypeNameColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -6731,6 +6774,7 @@ namespace coolBlue.RegisterDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("cDesc", "cDesc");
             tableMapping.ColumnMappings.Add("nCurrencyID", "nCurrencyID");
             tableMapping.ColumnMappings.Add("currencyName", "currencyName");
+            tableMapping.ColumnMappings.Add("cAccountTypeName", "cAccountTypeName");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

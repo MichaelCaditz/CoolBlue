@@ -368,7 +368,7 @@ namespace coolBlue
                     cmd3.Parameters.Clear();
                     cmd3.CommandText = "dbo.USP_insertLine";
                     cmd3.Parameters.AddWithValue("@nAccount", accountCurrent);
-                    cmd3.Parameters.AddWithValue("@nAccount", accountingPeriod);
+                    cmd3.Parameters.AddWithValue("@nAccountingPeriod", accountingPeriod);
 
                     
 
@@ -413,12 +413,9 @@ namespace coolBlue
                 //coolBlue.RegisterDataSet registerDataSet = ((coolBlue.RegisterDataSet)(this.FindResource("registerDataSet")));
                 DataTable dt = registerDataSet.USP_getLine;
                 DataRow foundRow = dt.Rows.Find(TransactID1);
-
-
                 int rowHandle = dt.Rows.IndexOf(foundRow);
-
-
                 uSP_getLineDataGrid.View.FocusedRowHandle = rowHandle;
+           
                 SplitsView.AddNewRow();
                 int newRowHandle = DataControlBase.NewItemRowHandle;
 
@@ -445,10 +442,10 @@ namespace coolBlue
 
                 }
 
+                uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nAmount_C", 0);
+                uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nAmount_D", 0);
 
 
-
-               
                 SplitsView.Focus();
                 Vendor.Focus();
                 //System.Windows.Forms.SendKeys.SendWait("{ENTER}");
@@ -515,7 +512,7 @@ namespace coolBlue
             //int IDToFind = Convert.ToInt32(txt_IdUnique.Text);
            
 
-            if (IDToFind > -1 )
+            //if (IDToFind > -1 )
    {
                 //foreach (DataRowView drv in (BindingListCollectionView)uSP_getLineDataGrid.ItemsSource)
                 //    if ((int)drv["ID"] == IDToFind)
