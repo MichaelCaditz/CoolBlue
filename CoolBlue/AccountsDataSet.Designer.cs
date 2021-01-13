@@ -1301,7 +1301,7 @@ namespace coolBlue {
             
             private global::System.Data.DataColumn columncAccountHolderName2;
             
-            private global::System.Data.DataColumn columnCV_Encrypted2;
+            private global::System.Data.DataColumn columncDecryptedCV2;
             
             private global::System.Data.DataColumn columncDecryptedPIN2;
             
@@ -1576,9 +1576,9 @@ namespace coolBlue {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn CV_Encrypted2Column {
+            public global::System.Data.DataColumn cDecryptedCV2Column {
                 get {
-                    return this.columnCV_Encrypted2;
+                    return this.columncDecryptedCV2;
                 }
             }
             
@@ -1672,7 +1672,7 @@ namespace coolBlue {
                         string nRoutingNumber, 
                         string cAccountHolderName1, 
                         string cAccountHolderName2, 
-                        string CV_Encrypted2, 
+                        string cDecryptedCV2, 
                         string cDecryptedPIN2, 
                         string cDecryptedExpiry2, 
                         string cDecryptedCardNum2) {
@@ -1707,7 +1707,7 @@ namespace coolBlue {
                         nRoutingNumber,
                         cAccountHolderName1,
                         cAccountHolderName2,
-                        CV_Encrypted2,
+                        cDecryptedCV2,
                         cDecryptedPIN2,
                         cDecryptedExpiry2,
                         cDecryptedCardNum2};
@@ -1769,7 +1769,7 @@ namespace coolBlue {
                 this.columnnRoutingNumber = base.Columns["nRoutingNumber"];
                 this.columncAccountHolderName1 = base.Columns["cAccountHolderName1"];
                 this.columncAccountHolderName2 = base.Columns["cAccountHolderName2"];
-                this.columnCV_Encrypted2 = base.Columns["CV_Encrypted2"];
+                this.columncDecryptedCV2 = base.Columns["cDecryptedCV2"];
                 this.columncDecryptedPIN2 = base.Columns["cDecryptedPIN2"];
                 this.columncDecryptedExpiry2 = base.Columns["cDecryptedExpiry2"];
                 this.columncDecryptedCardNum2 = base.Columns["cDecryptedCardNum2"];
@@ -1836,8 +1836,8 @@ namespace coolBlue {
                 base.Columns.Add(this.columncAccountHolderName1);
                 this.columncAccountHolderName2 = new global::System.Data.DataColumn("cAccountHolderName2", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncAccountHolderName2);
-                this.columnCV_Encrypted2 = new global::System.Data.DataColumn("CV_Encrypted2", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCV_Encrypted2);
+                this.columncDecryptedCV2 = new global::System.Data.DataColumn("cDecryptedCV2", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncDecryptedCV2);
                 this.columncDecryptedPIN2 = new global::System.Data.DataColumn("cDecryptedPIN2", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncDecryptedPIN2);
                 this.columncDecryptedExpiry2 = new global::System.Data.DataColumn("cDecryptedExpiry2", typeof(string), null, global::System.Data.MappingType.Element);
@@ -3129,17 +3129,17 @@ namespace coolBlue {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string CV_Encrypted2 {
+            public string cDecryptedCV2 {
                 get {
                     try {
-                        return ((string)(this[this.tableUSP_getOneAccount.CV_Encrypted2Column]));
+                        return ((string)(this[this.tableUSP_getOneAccount.cDecryptedCV2Column]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CV_Encrypted2\' in table \'USP_getOneAccount\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'cDecryptedCV2\' in table \'USP_getOneAccount\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableUSP_getOneAccount.CV_Encrypted2Column] = value;
+                    this[this.tableUSP_getOneAccount.cDecryptedCV2Column] = value;
                 }
             }
             
@@ -3530,14 +3530,14 @@ namespace coolBlue {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsCV_Encrypted2Null() {
-                return this.IsNull(this.tableUSP_getOneAccount.CV_Encrypted2Column);
+            public bool IscDecryptedCV2Null() {
+                return this.IsNull(this.tableUSP_getOneAccount.cDecryptedCV2Column);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetCV_Encrypted2Null() {
-                this[this.tableUSP_getOneAccount.CV_Encrypted2Column] = global::System.Convert.DBNull;
+            public void SetcDecryptedCV2Null() {
+                this[this.tableUSP_getOneAccount.cDecryptedCV2Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4189,7 +4189,7 @@ namespace coolBlue.AccountsDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("nRoutingNumber", "nRoutingNumber");
             tableMapping.ColumnMappings.Add("cAccountHolderName1", "cAccountHolderName1");
             tableMapping.ColumnMappings.Add("cAccountHolderName2", "cAccountHolderName2");
-            tableMapping.ColumnMappings.Add("cDecryptedCV2", "CV_Encrypted2");
+            tableMapping.ColumnMappings.Add("cDecryptedCV2", "cDecryptedCV2");
             tableMapping.ColumnMappings.Add("cDecryptedPIN2", "cDecryptedPIN2");
             tableMapping.ColumnMappings.Add("cDecryptedExpiry2", "cDecryptedExpiry2");
             tableMapping.ColumnMappings.Add("cDecryptedCardNum2", "cDecryptedCardNum2");

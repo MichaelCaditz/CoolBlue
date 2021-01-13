@@ -107,7 +107,7 @@
               <Mapping SourceColumn="nRoutingNumber" DataSetColumn="nRoutingNumber" />
               <Mapping SourceColumn="cAccountHolderName1" DataSetColumn="cAccountHolderName1" />
               <Mapping SourceColumn="cAccountHolderName2" DataSetColumn="cAccountHolderName2" />
-              <Mapping SourceColumn="cDecryptedCV2" DataSetColumn="CV_Encrypted2" />
+              <Mapping SourceColumn="cDecryptedCV2" DataSetColumn="cDecryptedCV2" />
               <Mapping SourceColumn="cDecryptedPIN2" DataSetColumn="cDecryptedPIN2" />
               <Mapping SourceColumn="cDecryptedExpiry2" DataSetColumn="cDecryptedExpiry2" />
               <Mapping SourceColumn="cDecryptedCardNum2" DataSetColumn="cDecryptedCardNum2" />
@@ -243,7 +243,7 @@
               <xs:element name="nRoutingNumber" msprop:Generator_ColumnVarNameInTable="columnnRoutingNumber" msprop:Generator_ColumnPropNameInRow="nRoutingNumber" msprop:Generator_ColumnPropNameInTable="nRoutingNumberColumn" msprop:Generator_UserColumnName="nRoutingNumber" type="xs:string" minOccurs="0" />
               <xs:element name="cAccountHolderName1" msprop:Generator_ColumnVarNameInTable="columncAccountHolderName1" msprop:Generator_ColumnPropNameInRow="cAccountHolderName1" msprop:Generator_ColumnPropNameInTable="cAccountHolderName1Column" msprop:Generator_UserColumnName="cAccountHolderName1" type="xs:string" minOccurs="0" />
               <xs:element name="cAccountHolderName2" msprop:Generator_ColumnVarNameInTable="columncAccountHolderName2" msprop:Generator_ColumnPropNameInRow="cAccountHolderName2" msprop:Generator_ColumnPropNameInTable="cAccountHolderName2Column" msprop:Generator_UserColumnName="cAccountHolderName2" type="xs:string" minOccurs="0" />
-              <xs:element name="CV_Encrypted2" msprop:Generator_ColumnVarNameInTable="columnCV_Encrypted2" msprop:Generator_ColumnPropNameInRow="CV_Encrypted2" msprop:Generator_ColumnPropNameInTable="CV_Encrypted2Column" msprop:Generator_UserColumnName="CV_Encrypted2" type="xs:string" minOccurs="0" />
+              <xs:element name="cDecryptedCV2" msprop:Generator_ColumnVarNameInTable="columncDecryptedCV2" msprop:Generator_ColumnPropNameInRow="cDecryptedCV2" msprop:Generator_ColumnPropNameInTable="cDecryptedCV2Column" msprop:Generator_UserColumnName="cDecryptedCV2" type="xs:string" minOccurs="0" />
               <xs:element name="cDecryptedPIN2" msprop:Generator_ColumnVarNameInTable="columncDecryptedPIN2" msprop:Generator_ColumnPropNameInRow="cDecryptedPIN2" msprop:Generator_ColumnPropNameInTable="cDecryptedPIN2Column" msprop:Generator_UserColumnName="cDecryptedPIN2" type="xs:string" minOccurs="0" />
               <xs:element name="cDecryptedExpiry2" msprop:Generator_ColumnVarNameInTable="columncDecryptedExpiry2" msprop:Generator_ColumnPropNameInRow="cDecryptedExpiry2" msprop:Generator_ColumnPropNameInTable="cDecryptedExpiry2Column" msprop:Generator_UserColumnName="cDecryptedExpiry2" type="xs:string" minOccurs="0" />
               <xs:element name="cDecryptedCardNum2" msprop:Generator_ColumnVarNameInTable="columncDecryptedCardNum2" msprop:Generator_ColumnPropNameInRow="cDecryptedCardNum2" msprop:Generator_ColumnPropNameInTable="cDecryptedCardNum2Column" msprop:Generator_UserColumnName="cDecryptedCardNum2" type="xs:string" minOccurs="0" />

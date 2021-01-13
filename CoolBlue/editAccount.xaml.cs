@@ -102,8 +102,8 @@ namespace coolBlue
             string cComment = "";
             string cDecryptedPIN = "";
             string cDecryptedCV = "";
-            string cExpiry = "";
-            string cAcctNum = "";
+            string expiry_Decrypted = "";
+            string cDecryptedAcctNum = "";
             int nCatID = 0;
             int nAccountTypeID = 0;
             int nCurrencyID = 0;
@@ -112,7 +112,7 @@ namespace coolBlue
             decimal nForeignConversionFee = 0m;
             string cUsername = "";
             string nRoutingNumber = "";
-            string cCardNum = "";
+            string cDecryptedCardNum = "";
             string cPassword = "";
             string cInstitutionNum = "";
             string cTransitNum = "";
@@ -123,6 +123,16 @@ namespace coolBlue
             string cURL = "";
             string cContactEmail = "";
             string cContactPhone = "";
+
+            string cDecryptedPIN2 = "";
+            string cDecryptedCV2 = "";
+            string cDecryptedExpiry2 = "";
+            string cDecryptedCardNum2 = "";
+            string cAccountHolderName1 = "";
+            string cAccountHolderName2 = "";
+
+
+
 
             System.Windows.Data.CollectionViewSource uSP_getOneAccountViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getOneAccountViewSource")));
 
@@ -170,11 +180,11 @@ namespace coolBlue
                 cComment = (DBNull.Value.Equals(drv["cComment"]) == true ? "" : (string)drv["cComment"]);
                 cDecryptedPIN = (DBNull.Value.Equals(drv["cDecryptedPIN"]) == true ? "" : (string)drv["cDecryptedPIN"]);
                 cDecryptedCV = (DBNull.Value.Equals(drv["cDecryptedCV"]) == true ? "" : (string)drv["cDecryptedCV"]);
-                cExpiry = (DBNull.Value.Equals(drv["cDecryptedExpiry"]) == true ? "" : (string)drv["cDecryptedExpiry"]);
-                cAcctNum = (DBNull.Value.Equals(drv["cDecryptedAcctNum"]) == true ? "" : (string)drv["cDecryptedAcctNum"]);
+                expiry_Decrypted = (DBNull.Value.Equals(drv["cDecryptedExpiry"]) == true ? "" : (string)drv["cDecryptedExpiry"]);
+                cDecryptedAcctNum = (DBNull.Value.Equals(drv["cDecryptedAcctNum"]) == true ? "" : (string)drv["cDecryptedAcctNum"]);
                 nCreditLimit = (DBNull.Value.Equals(drv["nCreditLimit"]) == true ? 0m : (decimal)drv["nCreditLimit"]);
                 cUsername = (DBNull.Value.Equals(drv["cDecryptedUsername"]) == true ? "" : (string)drv["cDecryptedUsername"]);
-                cCardNum = (DBNull.Value.Equals(drv["cDecryptedCardNum"]) == true ? "" : (string)drv["cDecryptedCardNum"]);
+                cDecryptedCardNum = (DBNull.Value.Equals(drv["cDecryptedCardNum"]) == true ? "" : (string)drv["cDecryptedCardNum"]);
                 cPassword = (DBNull.Value.Equals(drv["cDecryptedPassword"]) == true ? "" : (string)drv["cDecryptedPassword"]);
                 cDecryptedCV = (DBNull.Value.Equals(drv["cDecryptedCV"]) == true ? "" : (string)drv["cDecryptedCV"]);
                 nRoutingNumber = (DBNull.Value.Equals(drv["nRoutingNumber"]) == true ? "" : (string)drv["nRoutingNumber"]);
@@ -195,8 +205,15 @@ namespace coolBlue
 
                 cContactPhone = (DBNull.Value.Equals(drv["cContactPhone"]) == true ? "" : (string)drv["cContactPhone"]);
 
+                cDecryptedPIN2 = (DBNull.Value.Equals(drv["cDecryptedPIN2"]) == true ? "" : (string)drv["cDecryptedPIN2"]);
+                cDecryptedCV2 = (DBNull.Value.Equals(drv["cDecryptedCV2"]) == true ? "" : (string)drv["cDecryptedCV2"]);
+                cDecryptedExpiry2 = (DBNull.Value.Equals(drv["cDecryptedExpiry2"]) == true ? "" : (string)drv["cDecryptedExpiry2"]);
+                cDecryptedCardNum2 = (DBNull.Value.Equals(drv["cDecryptedCardNum2"]) == true ? "" : (string)drv["cDecryptedCardNum2"]);
+                cAccountHolderName1 = (DBNull.Value.Equals(drv["cAccountHolderName1"]) == true ? "" : (string)drv["cAccountHolderName1"]);
+                cAccountHolderName2 = (DBNull.Value.Equals(drv["cAccountHolderName2"]) == true ? "" : (string)drv["cAccountHolderName2"]);
 
-               
+
+
 
 
 
@@ -232,16 +249,16 @@ namespace coolBlue
                     cmd3.Parameters.AddWithValue("@ID", nAccountID);
                     cmd3.Parameters.AddWithValue("@cNote", cNote);
                     cmd3.Parameters.AddWithValue("@cName", cName);
+                    cmd3.Parameters.AddWithValue("@nAccountTypeID", nAccountTypeID);
                     cmd3.Parameters.AddWithValue("@cDesc", cDesc);
                     cmd3.Parameters.AddWithValue("@cComment", cComment);
-                    cmd3.Parameters.AddWithValue("@cDecryptedPIN", cDecryptedPIN);
-                    cmd3.Parameters.AddWithValue("@cDecryptedCV", cDecryptedCV);
-                    cmd3.Parameters.AddWithValue("@nAccountTypeID", nAccountTypeID);
                     cmd3.Parameters.AddWithValue("@nCatID", nCatID);
                     cmd3.Parameters.AddWithValue("@nCurrencyID", nCurrencyID);
-                    cmd3.Parameters.AddWithValue("@cExpiry", cExpiry);
-                    cmd3.Parameters.AddWithValue("@cAcctNum", cAcctNum);
-                    cmd3.Parameters.AddWithValue("@cCardNum", cCardNum);
+                    cmd3.Parameters.AddWithValue("@cDecryptedPIN", cDecryptedPIN);
+                    cmd3.Parameters.AddWithValue("@cDecryptedCV", cDecryptedCV);
+                    cmd3.Parameters.AddWithValue("@expiry_Decrypted", expiry_Decrypted);
+                    cmd3.Parameters.AddWithValue("@cDecryptedAcctNum", cDecryptedAcctNum);
+                    cmd3.Parameters.AddWithValue("@cDecryptedCardNum", cDecryptedCardNum);
                     cmd3.Parameters.AddWithValue("@cInstitutionNum", cInstitutionNum);
                     cmd3.Parameters.AddWithValue("@cTransitNum", cTransitNum);
                     cmd3.Parameters.AddWithValue("@cUsername", cUsername);
@@ -255,6 +272,14 @@ namespace coolBlue
                     cmd3.Parameters.AddWithValue("@nBillDate", nBillDate);
                     cmd3.Parameters.AddWithValue("@nForeignConversionFee", nForeignConversionFee);
                     cmd3.Parameters.AddWithValue("@nRoutingNumber", nRoutingNumber);
+                    cmd3.Parameters.AddWithValue("@cDecryptedPIN2", cDecryptedPIN2);
+                    cmd3.Parameters.AddWithValue("@cDecryptedCV2", cDecryptedCV2);
+                    cmd3.Parameters.AddWithValue("@expiry_Decrypted2", cDecryptedExpiry2);
+                    cmd3.Parameters.AddWithValue("@cDecryptedCardNum2", cDecryptedCardNum2);
+                    cmd3.Parameters.AddWithValue("@cAccountHolderName1", cAccountHolderName1);
+                    cmd3.Parameters.AddWithValue("@cAccountHolderName2", cAccountHolderName2);
+
+
 
 
 
