@@ -9,7 +9,6 @@ CREATE PROCEDURE [dbo].[USP_updateAccount]
 	--<@Param2, sysname, @p2> <Datatype_For_Param2, , int> = <Default_Value_For_Param2, , 0>
 	@ID int,
 	@cNote varchar(max),
-	
 	@cName nvarchar(255),
 	@nAccountTypeID int,
 	@cDesc nvarchar(255),
@@ -18,9 +17,9 @@ CREATE PROCEDURE [dbo].[USP_updateAccount]
 	@nCurrencyID int,
 	@cDecryptedPIN nvarchar(255),
 	@cDecryptedCV nvarchar(255),
-	@cExpiry nvarchar(255),
-	@cAcctNum nvarchar(255),
-	@cCardNum nvarchar(255),
+	@expiry_Decrypted nvarchar(255),
+	@cDecryptedAcctNum nvarchar(255),
+	@cDecryptedCardNum nvarchar(255),
 	@cInstitutionNum nvarchar(255),
 	@cTransitNum nvarchar(255),
 	@cUsername nvarchar(255),
@@ -33,7 +32,13 @@ CREATE PROCEDURE [dbo].[USP_updateAccount]
 	@cContactPhone nvarchar(255),
 	@nBillDate int,
 	@nForeignConversionFee decimal(14,4),
-	@nRoutingNumber nvarchar(255)
+	@nRoutingNumber nvarchar(255),
+	@cDecryptedPIN2 nvarchar(255),
+	@cDecryptedCV2 nvarchar(255),
+	@expiry_Decrypted2 nvarchar(255),
+	@cDecryptedCardNum2 nvarchar(255),
+	@cAccountHolderName1 nvarchar(255),
+	@cAccountHolderName2 nvarchar(255)
 	
 	
 AS
@@ -86,15 +91,15 @@ BEGIN
     , @ID))) ,
 
 	expiry_Encrypted = EncryptByKey(Key_GUID('PIN_Key11')  
-    , convert(varbinary(256),@cExpiry),1, HashBytes('SHA1', CONVERT( varbinary(256) 
+    , convert(varbinary(256),@expiry_Decrypted),1, HashBytes('SHA1', CONVERT( varbinary(256) 
     , @ID))),
 
 	acctNum_Encrypted = EncryptByKey(Key_GUID('PIN_Key11')  
-    , convert(varbinary(256),@cAcctNum),1, HashBytes('SHA1', CONVERT( varbinary(256)
+    , convert(varbinary(256),@cDecryptedAcctNum),1, HashBytes('SHA1', CONVERT( varbinary(256)
     , @ID))),
 
 	cardNum_Encrypted = EncryptByKey(Key_GUID('PIN_Key11')  
-    , convert(varbinary(256),@cCardNum),1, HashBytes('SHA1', CONVERT( varbinary(256)
+    , convert(varbinary(256),@cDecryptedCardNum),1, HashBytes('SHA1', CONVERT( varbinary(256)
     , @ID))),
 
 	username_Encrypted = EncryptByKey(Key_GUID('PIN_Key11')  
@@ -103,8 +108,29 @@ BEGIN
 
 	password_Encrypted = EncryptByKey(Key_GUID('PIN_Key11')  
     , convert(varbinary(256),@cPassword),1, HashBytes('SHA1', CONVERT( varbinary(256)  
-    , @ID)))
+    , @ID))),
 
+
+
+	pin_Encrypted2=EncryptByKey(Key_GUID('PIN_Key11')  
+    , convert(varbinary(256),@cDecryptedPIN2),1, HashBytes('SHA1', CONVERT( varbinary(256)
+    , @ID))) ,
+
+	CV_Encrypted2=EncryptByKey(Key_GUID('PIN_Key11')  
+    , convert(varbinary(256),@cDecryptedCV2),1, HashBytes('SHA1', CONVERT( varbinary(256)
+    , @ID))) ,
+
+	expiry_Encrypted2 = EncryptByKey(Key_GUID('PIN_Key11')  
+    , convert(varbinary(256),@expiry_Decrypted2),1, HashBytes('SHA1', CONVERT( varbinary(256) 
+    , @ID))),
+
+	cardNum_Encrypted2 = EncryptByKey(Key_GUID('PIN_Key11')  
+    , convert(varbinary(256),@cDecryptedCardNum2),1, HashBytes('SHA1', CONVERT( varbinary(256)
+    , @ID))),
+
+	cAccountHolderName1=@cAccountHolderName1,
+
+	cAccountHolderName2=@cAccountHolderName2
 
 	
 
