@@ -29,7 +29,9 @@ BEGIN
 
 	 cInstitutionNum,cTransitNum,cSwiftCode,nCreditLimit,cContactName,cURL,cContactEmail,cContactPhone,
 
-	 a.nBillDate, a.nForeignConversionFee,a.nRoutingNumber,
+	 a.nBillDate, a.nForeignConversionFee,a.nRoutingNumber,a.cAccountHolderName1,a.cAccountHolderName2,
+
+	
 
 
 
@@ -66,7 +68,28 @@ BEGIN
 	CONVERT(nvarchar(50),  
     DecryptByKey(a.password_Encrypted, 1 ,   
     HashBytes('SHA1', CONVERT(varbinary(256), a.ID))))  
-    AS 'cDecryptedPassword' 
+    AS 'cDecryptedPassword' ,
+
+	CONVERT(nvarchar(50),  
+    DecryptByKey(a.CV_Encrypted2, 1 ,   
+    HashBytes('SHA1', CONVERT(varbinary(256), a.ID))))  
+    AS 'cDecryptedCV2' ,
+
+	CONVERT(nvarchar(50),  
+    DecryptByKey(a.pin_Encrypted2, 1 ,   
+    HashBytes('SHA1', CONVERT(varbinary(256), a.ID))))  
+    AS 'cDecryptedPIN2' ,
+
+	CONVERT(nvarchar(50),  
+    DecryptByKey(a.expiry_Encrypted2, 1 ,   
+    HashBytes('SHA1', CONVERT(varbinary(256), a.ID))))  
+    AS 'cDecryptedExpiry2' ,
+
+	CONVERT(nvarchar(50),  
+    DecryptByKey(a.cardNum_Encrypted2, 1 ,   
+    HashBytes('SHA1', CONVERT(varbinary(256), a.ID))))  
+    AS 'cDecryptedCardNum2' 
+
 
 	 FROM dbo.account a  WITH (NOLOCK)
 

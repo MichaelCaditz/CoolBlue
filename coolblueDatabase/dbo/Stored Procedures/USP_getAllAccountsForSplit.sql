@@ -21,18 +21,19 @@ BEGIN
 	--a.cNameFirst,a.cNameLast,
 	
 	 SELECT a.ID,a.dtCreateDate,a.nAccountTypeID,a.cName as cShortName,a.cNote,a.cDesc,a.nCurrencyID,a.nCatID,b.cName as currencyName,
-	  isnull(c.cName+': ','')+ a.cName as cName
+	  isnull(c.cName+': ','')+ a.cName as cName,d.cName as cAccountTypeName
 
 
 	 FROM dbo.account a WITH (NOLOCK)
 	 left join dbo.currency b on a.nCurrencyID = b.ID
 	  left join dbo.cat c on a.nCatID = c.ID
-
+	  left join dbo.accountType d on 
+	   a.nAccountTypeID = d.ID
 	 where (a.bDeleted is null or a.bDeleted=0)
 		
 	--order by a.nAccountTypeID
 
-	order by c.cName+': '+ a.cName
+	order by cAccountTypeName, c.cName+': '+ a.cName
 
 	
 	
