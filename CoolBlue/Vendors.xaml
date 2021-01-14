@@ -4,9 +4,10 @@
 	xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
     xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
     xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
-    xmlns:local="clr-namespace:coolBlue"
     xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
     xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+    
+    xmlns:local="clr-namespace:coolBlue"
     x:Class="coolBlue.Vendors"
     Title="Vendors" Height="600" Width="900"
     Loaded="ThemedWindow_Loaded" WindowStartupLocation="CenterScreen"
@@ -34,13 +35,13 @@
                          Margin="0"  SelectionMode="Row">
             <dxg:GridControl.View>
                 <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" 
-                               ShowColumnHeaders ="True"  Grid.ColumnSpan="1" Margin="0,0,0,0"  
+                               ShowColumnHeaders ="True"  Grid.ColumnSpan="1" Margin="10,0"  
                                ShowBandsPanel="False" ShowBandsInCustomizationForm="False" 
                                ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" 
                                ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" 
                                ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" 
                                ShowValidationAttributeErrors="False" ShowVerticalLines="False"
-                               CustomCellAppearance="TableView_OnCustomCellAppearance" RowDoubleClick="TableView_RowDoubleClick">
+                               CustomCellAppearance="TableView_OnCustomCellAppearance" RowDoubleClick="TableView_RowDoubleClick" AllowEditing="False">
 
                     <dxg:TableView.FormatConditions>
                         <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id">
@@ -77,7 +78,7 @@
                 </dxg:TableView>
             </dxg:GridControl.View>
 
-            <dxg:GridColumn Binding="{Binding name}"   Header="Name" Width="160">
+            <dxg:GridColumn Binding="{Binding name}"   Header="Name" Width="160" EditFormVisible="False">
                 <dxg:GridColumn.DisplayTemplate  >
                     <ControlTemplate >
                         <TextBlock  x:Name="PART_Editor" FontWeight="Bold" />

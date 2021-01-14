@@ -313,6 +313,8 @@ namespace coolBlue
                 uSP_getAllCatsUSP_getAllSubCatsViewSource.View.MoveCurrentToFirst();
             }
         }
+
+       
     }
     
 }
