@@ -55,6 +55,11 @@ namespace coolBlue
 
         private void BarButtonItem_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
+            goDetails();
+        }
+
+        private void goDetails()
+        {
             System.Windows.Data.CollectionViewSource uSP_getAllClassViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllClassViewSource")));
 
             DataRowView drv = (DataRowView)uSP_getAllClassViewSource.View.CurrentItem;
@@ -73,9 +78,25 @@ namespace coolBlue
 
             uSP_getAllClassViewSource.View.MoveCurrentToFirst();
         }
-        private void BarButtonItem_ItemClick_1(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+
+
+            private void BarButtonItem_ItemClick_1(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
             
+        }
+
+        private void TableView_CustomCellAppearance(object sender, CustomCellAppearanceEventArgs e)
+        {
+            if (e.RowSelectionState != SelectionState.None)
+            {
+                e.Result = e.ConditionalValue;
+                e.Handled = true;
+            }
+        }
+
+        private void TableView_RowDoubleClick(object sender, RowDoubleClickEventArgs e)
+        {
+            goDetails();
         }
     }
 }

@@ -40,7 +40,7 @@
                                ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" 
                                ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" 
                                ShowValidationAttributeErrors="False" ShowVerticalLines="False"
-                                AllowEditing="False">
+                                AllowEditing="False" CustomCellAppearance="TableView_CustomCellAppearance" RowDoubleClick="TableView_RowDoubleClick">
 
                     <dxg:TableView.FormatConditions>
                         <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id">

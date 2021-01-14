@@ -34,21 +34,31 @@ namespace coolBlue
     /// </summary>
     public partial class editCurrency : ThemedWindow
     {
-        public editCurrency()
+        public int nCurrencyID;
+        public bool bNameChanged = false;
+        public string cOrigName;
+        public editCurrency(int currencyCurrent  )
         {
             InitializeComponent();
+            nCurrencyID = currencyCurrent;
         }
         private void ThemedWindow_Loaded(object sender, RoutedEventArgs e)
         {
 
-            coolBlue.EditDataSet editDataSet = ((coolBlue.EditDataSet)(this.FindResource("editDataSet")));
+            coolBlue.tagDataSet TagDataSet = (coolBlue.tagDataSet)(this.FindResource("tagDataSet"));
+            // TODO: Add code here to load data into the table USP_getOneCat.
+            // This code could not be generated, because the categoriesDataSetUSP_getOneCatTableAdapter.Fill method is missing, or has unrecognized parameters.
+            coolBlue.tagDataSetTableAdapters.USP_getOneTagTableAdapter TagDataSetUSP_getOneTagTableAdapter = new coolBlue.tagDataSetTableAdapters.USP_getOneTagTableAdapter();
 
-            coolBlue.EditDataSetTableAdapters.USP_getAllCurrencyTableAdapter editDataSetUSP_getAllCurrencyTableAdapter = new coolBlue.EditDataSetTableAdapters.USP_getAllCurrencyTableAdapter();
 
-            editDataSetUSP_getAllCurrencyTableAdapter.Fill(editDataSet.USP_getAllCurrency);
+            TagDataSet.EnforceConstraints = false;
 
-            System.Windows.Data.CollectionViewSource uSP_getAllCurrencyViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllCurrencyViewSource")));
-            uSP_getAllCurrencyViewSource.View.MoveCurrentToFirst();
+            TagDataSetUSP_getOneTagTableAdapter.Fill(TagDataSet.USP_getOneTag, nCurrencyID);
+
+            TagDataSet.EnforceConstraints = true;
+
+            System.Windows.Data.CollectionViewSource uSP_getOneTagViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getOneTagViewSource")));
+            uSP_getOneTagViewSource.View.MoveCurrentToFirst();
         }
 
         private void BarButtonItem_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)

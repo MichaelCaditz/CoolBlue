@@ -54,6 +54,11 @@ namespace coolBlue
 
         private void BarButtonItem_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
+            goDetails(); 
+        }
+
+        private void goDetails()
+        {
             System.Windows.Data.CollectionViewSource uSP_getAllTagsViewSource = (System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllTagsViewSource"));
 
             DataRowView drv = (DataRowView)uSP_getAllTagsViewSource.View.CurrentItem;
@@ -68,12 +73,12 @@ namespace coolBlue
             editDataSet.EnforceConstraints = false;
             editDataSetUSP_getAllTagsTableAdapter.Fill(editDataSet.USP_getAllTags);
             editDataSet.EnforceConstraints = true;
-           
+
 
             uSP_getAllTagsViewSource.View.MoveCurrentToFirst();
         }
 
-        private void BarButtonItem_ItemClick_1(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+            private void BarButtonItem_ItemClick_1(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
             int TransactID1 = 0;
             System.Windows.Data.CollectionViewSource uSP_getAllTagsViewSource = (System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllTagsViewSource"));
@@ -172,6 +177,20 @@ namespace coolBlue
 
                 uSP_getAllTagsViewSource.View.MoveCurrentToFirst();
             }
+        }
+
+        private void TableView_CustomCellAppearance(object sender, CustomCellAppearanceEventArgs e)
+        {
+            if (e.RowSelectionState != SelectionState.None)
+            {
+                e.Result = e.ConditionalValue;
+                e.Handled = true;
+            }
+        }
+
+        private void TableView_RowDoubleClick(object sender, RowDoubleClickEventArgs e)
+        {
+            goDetails();
         }
     }
 }

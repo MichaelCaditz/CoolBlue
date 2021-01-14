@@ -161,6 +161,12 @@ namespace coolBlue
 
         private void BarButtonItem_ItemClick_1(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
+            goDetails();
+        }
+
+        private void goDetails()
+        {
+
             System.Windows.Data.CollectionViewSource uSP_getAllCatsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllCatsViewSource")));
 
             DataRowView drv = (DataRowView)uSP_getAllCatsViewSource.View.CurrentItem;
@@ -177,9 +183,10 @@ namespace coolBlue
             categoriesDataSet.EnforceConstraints = true;
 
             uSP_getAllCatsViewSource.View.MoveCurrentToFirst();
+
         }
 
-        private void BarButtonItem_ItemClick_2(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+            private void BarButtonItem_ItemClick_2(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
             System.Windows.Data.CollectionViewSource uSP_getAllCatsUSP_getAllSubCatsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllCatsUSP_getAllSubCatsViewSource")));
 
@@ -314,7 +321,19 @@ namespace coolBlue
             }
         }
 
-       
+        private void TableView_CustomCellAppearance(object sender, CustomCellAppearanceEventArgs e)
+        {
+            if (e.RowSelectionState != SelectionState.None)
+            {
+                e.Result = e.ConditionalValue;
+                e.Handled = true;
+            }
+        }
+
+        private void TableView_RowDoubleClick(object sender, RowDoubleClickEventArgs e)
+        {
+            goDetails();
+        }
     }
     
 }

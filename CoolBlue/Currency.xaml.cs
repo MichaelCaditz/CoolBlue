@@ -53,23 +53,30 @@ namespace coolBlue
 
         private void BarButtonItem_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
-            System.Windows.Data.CollectionViewSource uSP_getAllTagsViewSource = (System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllTagsViewSource"));
+            goDetails();
+        }
 
-            DataRowView drv = (DataRowView)uSP_getAllTagsViewSource.View.CurrentItem;
-            int tagCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
-            editTag editTag1 = new editTag(tagCurrent);
-            editTag1.ShowDialog();
+        private void goDetails()
+        {
+
+            System.Windows.Data.CollectionViewSource uSP_getAllCurrencyViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllCurrencyViewSource")));
+
+            DataRowView drv = (DataRowView)uSP_getAllCurrencyViewSource.View.CurrentItem;
+            int currencyCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
+            editCurrency editCurrency1 = new editCurrency(currencyCurrent);
+            editCurrency1.ShowDialog();
 
             coolBlue.EditDataSet editDataSet = ((coolBlue.EditDataSet)(this.FindResource("editDataSet")));
-            coolBlue.EditDataSetTableAdapters.USP_getAllTagsTableAdapter editDataSetUSP_getAllTagsTableAdapter = new coolBlue.EditDataSetTableAdapters.USP_getAllTagsTableAdapter();
+            coolBlue.EditDataSetTableAdapters.USP_getAllCurrencyTableAdapter editDataSetUSP_getAllCurrencyTableAdapter = new coolBlue.EditDataSetTableAdapters.USP_getAllCurrencyTableAdapter();
 
 
             editDataSet.EnforceConstraints = false;
-            editDataSetUSP_getAllTagsTableAdapter.Fill(editDataSet.USP_getAllTags);
+            editDataSetUSP_getAllCurrencyTableAdapter.Fill(editDataSet.USP_getAllCurrency);
             editDataSet.EnforceConstraints = true;
 
 
-            uSP_getAllTagsViewSource.View.MoveCurrentToFirst();
+            uSP_getAllCurrencyViewSource.View.MoveCurrentToFirst();
+
         }
 
         private void BarButtonItem_ItemClick_1(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
@@ -171,6 +178,20 @@ namespace coolBlue
 
                 uSP_getAllTagsViewSource.View.MoveCurrentToFirst();
             }
+        }
+
+        private void TableView_CustomCellAppearance(object sender, CustomCellAppearanceEventArgs e)
+        {
+            if (e.RowSelectionState != SelectionState.None)
+            {
+                e.Result = e.ConditionalValue;
+                e.Handled = true;
+            }
+        }
+
+        private void TableView_RowDoubleClick(object sender, RowDoubleClickEventArgs e)
+        {
+            goDetails();
         }
     }
 }
