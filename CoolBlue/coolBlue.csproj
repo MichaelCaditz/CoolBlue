@@ -129,6 +129,11 @@
     <Compile Include="Currency.xaml.cs">
       <DependentUpon>Currency.xaml</DependentUpon>
     </Compile>
+    <Compile Include="currencyDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>currencyDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="editAccount.xaml.cs">
       <DependentUpon>editAccount.xaml</DependentUpon>
     </Compile>
@@ -335,6 +340,17 @@
     </None>
     <None Include="classDataSet.xss">
       <DependentUpon>classDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="currencyDataSet.xsc">
+      <DependentUpon>currencyDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="currencyDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>currencyDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="currencyDataSet.xss">
+      <DependentUpon>currencyDataSet.xsd</DependentUpon>
     </None>
     <None Include="EditDataSet.xsc">
       <DependentUpon>EditDataSet.xsd</DependentUpon>

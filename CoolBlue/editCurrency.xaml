@@ -12,8 +12,8 @@
     >
 
     <dx:ThemedWindow.Resources>
-        <local:tagDataSet x:Key="tagDataSet"/>
-        <CollectionViewSource x:Key="uSP_getOneTagViewSource" Source="{Binding USP_getOneTag, Source={StaticResource tagDataSet}}"/>
+        <local:currencyDataSet x:Key="currencyDataSet"/>
+        <CollectionViewSource x:Key="uSP_getOneCurrencyViewSource" Source="{Binding USP_getOneCurrency, Source={StaticResource currencyDataSet}}"/>
 
     </dx:ThemedWindow.Resources>
     <DockPanel LastChildFill="True">
@@ -30,7 +30,7 @@
         <dx:DXTabControl>
             <dx:DXTabItem Header="Tab">
                 <Grid Background="Transparent" >
-                    <Grid x:Name="grid1" Margin="0" DataContext="{StaticResource uSP_getOneTagViewSource}" Width="600" Height="200">
+                    <Grid x:Name="grid1" Margin="0" DataContext="{StaticResource uSP_getOneCurrencyViewSource}" Width="600" Height="200">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
@@ -48,8 +48,10 @@
                         <DatePicker x:Name="dtCreateDateDatePicker" VerticalAlignment="Center" SelectedDate="{Binding dtCreateDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="1" Margin="3" HorizontalAlignment="Left" Grid.Column="1"/>
                         <Label VerticalAlignment="Center" Grid.Row="2" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Name:"/>
                         <TextBox x:Name="cNameTextBox" Width="180" VerticalAlignment="Center" Text="{Binding cName, Mode=TwoWay, NotifyOnValidationError=true, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=true}" Grid.Row="2" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
-                        <Label VerticalAlignment="Center" Grid.Row="3" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Description:"/>
-                        <TextBox x:Name="cNotesTextBox" Width="240" VerticalAlignment="Center" Text="{Binding cDesc, Mode=TwoWay, NotifyOnValidationError=true, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=true}" Grid.Row="3" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
+                        <Label VerticalAlignment="Center" Grid.Row="3" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Note:"/>
+                        <TextBox x:Name="cNotesTextBox" Width="240" VerticalAlignment="Center" Text="{Binding cNote, Mode=TwoWay, NotifyOnValidationError=true, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=true}" Grid.Row="3" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
+                        <Label VerticalAlignment="Center" Grid.Row="4" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Symbol:"/>
+                        <TextBox x:Name="cSymbolTextBox" Width="240" VerticalAlignment="Center" Text="{Binding cSymbol, Mode=TwoWay, NotifyOnValidationError=true, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=true}" Grid.Row="4" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
 
                     </Grid>
                 </Grid>

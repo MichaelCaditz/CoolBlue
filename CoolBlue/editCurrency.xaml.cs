@@ -45,41 +45,25 @@ namespace coolBlue
         private void ThemedWindow_Loaded(object sender, RoutedEventArgs e)
         {
 
-            coolBlue.tagDataSet TagDataSet = (coolBlue.tagDataSet)(this.FindResource("tagDataSet"));
+            coolBlue.currencyDataSet CurrencyDataSet = (coolBlue.currencyDataSet)(this.FindResource("currencyDataSet"));
             // TODO: Add code here to load data into the table USP_getOneCat.
             // This code could not be generated, because the categoriesDataSetUSP_getOneCatTableAdapter.Fill method is missing, or has unrecognized parameters.
-            coolBlue.tagDataSetTableAdapters.USP_getOneTagTableAdapter TagDataSetUSP_getOneTagTableAdapter = new coolBlue.tagDataSetTableAdapters.USP_getOneTagTableAdapter();
+            coolBlue.currencyDataSetTableAdapters.USP_getOneCurrencyTableAdapter CurrencyDataSetUSP_getOneCurrencyTableAdapter = new coolBlue.currencyDataSetTableAdapters.USP_getOneCurrencyTableAdapter();
 
 
-            TagDataSet.EnforceConstraints = false;
+            CurrencyDataSet.EnforceConstraints = false;
 
-            TagDataSetUSP_getOneTagTableAdapter.Fill(TagDataSet.USP_getOneTag, nCurrencyID);
+            CurrencyDataSetUSP_getOneCurrencyTableAdapter.Fill(CurrencyDataSet.USP_getOneCurrency, nCurrencyID);
 
-            TagDataSet.EnforceConstraints = true;
+            CurrencyDataSet.EnforceConstraints = true;
 
-            System.Windows.Data.CollectionViewSource uSP_getOneTagViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getOneTagViewSource")));
-            uSP_getOneTagViewSource.View.MoveCurrentToFirst();
+            System.Windows.Data.CollectionViewSource uSP_getOneCurrencyViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getOneCurrencyViewSource")));
+            uSP_getOneCurrencyViewSource.View.MoveCurrentToFirst();
         }
 
         private void BarButtonItem_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
-            System.Windows.Data.CollectionViewSource uSP_getAllTagsViewSource = (System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllTagsViewSource"));
-
-            DataRowView drv = (DataRowView)uSP_getAllTagsViewSource.View.CurrentItem;
-            int tagCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
-            editTag editTag1 = new editTag(tagCurrent);
-            editTag1.ShowDialog();
-
-            coolBlue.EditDataSet editDataSet = ((coolBlue.EditDataSet)(this.FindResource("editDataSet")));
-            coolBlue.EditDataSetTableAdapters.USP_getAllTagsTableAdapter editDataSetUSP_getAllTagsTableAdapter = new coolBlue.EditDataSetTableAdapters.USP_getAllTagsTableAdapter();
-
-
-            editDataSet.EnforceConstraints = false;
-            editDataSetUSP_getAllTagsTableAdapter.Fill(editDataSet.USP_getAllTags);
-            editDataSet.EnforceConstraints = true;
-
-
-            uSP_getAllTagsViewSource.View.MoveCurrentToFirst();
+            
         }
 
         private void BarButtonItem_ItemClick_1(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
