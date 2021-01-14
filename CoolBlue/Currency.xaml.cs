@@ -82,7 +82,7 @@ namespace coolBlue
         private void BarButtonItem_ItemClick_1(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
             int TransactID1 = 0;
-            System.Windows.Data.CollectionViewSource uSP_getAllTagsViewSource = (System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllTagsViewSource"));
+            System.Windows.Data.CollectionViewSource uSP_getAllCurrencyViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllCurrencyViewSource")));
 
             //coolBlue.RegisterDataSet registerDataSet = ((coolBlue.RegisterDataSet)(this.FindResource("registerDataSet")));
 
@@ -94,7 +94,7 @@ namespace coolBlue
             {
 
                 // MessageBox.Show("Warning: uSP_getLineViewSource is null", "CoolBlue");
-                string message = "Warning: uSP_getAllTagsViewSource is null";
+                string message = "Warning: uSP_getAllCurrencyViewSource is null";
                 string caption = "CoolBlue";
 
                 MessageBoxButton buttons = MessageBoxButton.OK;
@@ -136,7 +136,7 @@ namespace coolBlue
                 {
                     //cmd3.Transaction = trans1;
                     cmd3.Parameters.Clear();
-                    cmd3.CommandText = "dbo.USP_insertTag";
+                    cmd3.CommandText = "dbo.USP_insertCurrency";
                     //cmd3.Parameters.AddWithValue("@nAccount", accountCurrent);
 
                     SqlParameter retval = cmd3.Parameters.Add("@transactIdentity", SqlDbType.Int);
@@ -163,20 +163,20 @@ namespace coolBlue
                 if (conn.State == ConnectionState.Open) conn.Close();
 
 
-                int tagCurrent = TransactID1;
-                editTag editTag1 = new editTag(tagCurrent);
-                editTag1.ShowDialog();
+                int currencyCurrent = TransactID1;
+                editCurrency editCurrency1 = new editCurrency(currencyCurrent);
+                editCurrency1.ShowDialog();
 
                 coolBlue.EditDataSet editDataSet = ((coolBlue.EditDataSet)(this.FindResource("editDataSet")));
-                coolBlue.EditDataSetTableAdapters.USP_getAllTagsTableAdapter editDataSetUSP_getAllTagsTableAdapter = new coolBlue.EditDataSetTableAdapters.USP_getAllTagsTableAdapter();
 
+                coolBlue.EditDataSetTableAdapters.USP_getAllCurrencyTableAdapter editDataSetUSP_getAllCurrencyTableAdapter = new coolBlue.EditDataSetTableAdapters.USP_getAllCurrencyTableAdapter();
 
                 editDataSet.EnforceConstraints = false;
-                editDataSetUSP_getAllTagsTableAdapter.Fill(editDataSet.USP_getAllTags);
+                editDataSetUSP_getAllCurrencyTableAdapter.Fill(editDataSet.USP_getAllCurrency);
                 editDataSet.EnforceConstraints = true;
 
+                uSP_getAllCurrencyViewSource.View.MoveCurrentToFirst();
 
-                uSP_getAllTagsViewSource.View.MoveCurrentToFirst();
             }
         }
 

@@ -63,25 +63,24 @@ namespace coolBlue
 
         private void BarButtonItem_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
-            
-        }
+            //int TransactID1 = 0;
+            string cNote = "";
 
-        private void BarButtonItem_ItemClick_1(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
-        {
-            int TransactID1 = 0;
-            System.Windows.Data.CollectionViewSource uSP_getAllTagsViewSource = (System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllTagsViewSource"));
+            string cName = "";
+            string cSymbol = "";
+            System.Windows.Data.CollectionViewSource uSP_getOneCurrencyViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getOneCurrencyViewSource")));
 
-            //coolBlue.RegisterDataSet registerDataSet = ((coolBlue.RegisterDataSet)(this.FindResource("registerDataSet")));
+            coolBlue.currencyDataSet CurrencyDataSet = (coolBlue.currencyDataSet)(this.FindResource("currencyDataSet"));
 
 
-            // int accountCurrent = 0;
+            //int accountCurrent = 0;
             int wasnull = 0;
-            // wasnull = (uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View == null ? 1 : 0);
+            wasnull = (uSP_getOneCurrencyViewSource.View == null ? 1 : 0);
             if (wasnull == 1)
             {
 
                 // MessageBox.Show("Warning: uSP_getLineViewSource is null", "CoolBlue");
-                string message = "Warning: uSP_getAllTagsViewSource is null";
+                string message = "Warning:uSP_getOneCurrencyViewSource is null";
                 string caption = "CoolBlue";
 
                 MessageBoxButton buttons = MessageBoxButton.OK;
@@ -106,8 +105,14 @@ namespace coolBlue
             }
             else
             {
-                //DataRowView drv = (DataRowView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentItem;
+
+
+                DataRowView drv = (DataRowView)uSP_getOneCurrencyViewSource.View.CurrentItem;
                 //accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
+                cNote = (DBNull.Value.Equals(drv["cNote"]) == true ? "" : (string)drv["cNote"]);
+
+                cName = (DBNull.Value.Equals(drv["cName"]) == true ? "" : (string)drv["cName"]);
+                cSymbol= (DBNull.Value.Equals(drv["cSymbol"]) == true ? "" : (string)drv["cSymbol"]);
             }
 
 
@@ -123,14 +128,19 @@ namespace coolBlue
                 {
                     //cmd3.Transaction = trans1;
                     cmd3.Parameters.Clear();
-                    cmd3.CommandText = "dbo.USP_insertTag";
-                    //cmd3.Parameters.AddWithValue("@nAccount", accountCurrent);
+                    cmd3.CommandText = "dbo.USP_updateCurrency";
+                    cmd3.Parameters.AddWithValue("@ID", nCurrencyID);
+                    cmd3.Parameters.AddWithValue("@cName", cName);
 
-                    SqlParameter retval = cmd3.Parameters.Add("@transactIdentity", SqlDbType.Int);
-                    retval.Direction = ParameterDirection.Output;
+                    cmd3.Parameters.AddWithValue("@cNote", cNote);
+                    cmd3.Parameters.AddWithValue("@cSymbol", cSymbol);
+
+
+                    //SqlParameter retval = cmd3.Parameters.Add("@transactIdentity", SqlDbType.Int);
+                    //retval.Direction = ParameterDirection.Output;
                     conn.Open();
                     cmd3.ExecuteNonQuery();
-                    TransactID1 = (int)cmd3.Parameters["@transactIdentity"].Value;
+                    //TransactID1 = (int)cmd3.Parameters["@transactIdentity"].Value;
                 }
 
 
@@ -149,22 +159,26 @@ namespace coolBlue
             {
                 if (conn.State == ConnectionState.Open) conn.Close();
 
+                //VendorDataSet.EnforceConstraints = false;
 
-                int tagCurrent = TransactID1;
-                editTag editTag1 = new editTag(tagCurrent);
-                editTag1.ShowDialog();
-
-                coolBlue.EditDataSet editDataSet = ((coolBlue.EditDataSet)(this.FindResource("editDataSet")));
-                coolBlue.EditDataSetTableAdapters.USP_getAllTagsTableAdapter editDataSetUSP_getAllTagsTableAdapter = new coolBlue.EditDataSetTableAdapters.USP_getAllTagsTableAdapter();
+                //coolBlue.vendorDataSetTableAdapters.USP_getOneVendorTableAdapter vendorDataSetUSP_getOneVendorTableAdapter = new coolBlue.vendorDataSetTableAdapters.USP_getOneVendorTableAdapter();
 
 
-                editDataSet.EnforceConstraints = false;
-                editDataSetUSP_getAllTagsTableAdapter.Fill(editDataSet.USP_getAllTags);
-                editDataSet.EnforceConstraints = true;
+                //vendorDataSetUSP_getOneVendorTableAdapter.Fill(VendorDataSet.USP_getOneVendor, nVendorID);
 
+                //VendorDataSet.EnforceConstraints = true;
 
-                uSP_getAllTagsViewSource.View.MoveCurrentToFirst();
+                //uSP_getLineDataGrid.
+
+                //uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.MoveCurrentToPosition(0);
+
+                //resetButtons();
+                // LocateNewLine(TransactID1);
+                this.Close();
+
             }
         }
+
+        
     }
 }
