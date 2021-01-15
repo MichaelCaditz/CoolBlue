@@ -181,7 +181,7 @@
                             <dxb:BarButtonItem Content="Vendors" ItemClick="BarButtonItem_ItemClick_2" Glyph="{dx:DXImage Image=UserGroup_32x32.png}" LargeGlyph="{dx:DXImage Image=UserGroup_32x32.png}" />
                             <dxb:BarButtonItem Content="Categories" ItemClick="BarButtonItem_ItemClick_6" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=LineStyle_32x32.png}" />
                             <dxb:BarButtonItem Content="Tags" ItemClick="BarButtonItem_ItemClick_3" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=CheckBox_32x32.png}" />
-                            <dxb:BarButtonItem Content="Classes" AllowDrop="True" ItemClick="BarButtonItem_ItemClick_4" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=Cards_32x32.png}" />
+                            <dxb:BarButtonItem Name ="BarButtonItemClass" Content="Classes" AllowDrop="True" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=Cards_32x32.png}" ItemClick="BarButtonItemClass_ItemClick" />
                             <dxb:BarButtonItem Content="Currencies" AllowDrop="True" ItemClick="BarButtonItem_ItemClick_4" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=Currency2_32x32.png}" />
 
                         </dxr:RibbonPageGroup>

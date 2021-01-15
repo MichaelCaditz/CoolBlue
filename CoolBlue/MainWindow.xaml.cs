@@ -1441,5 +1441,11 @@ namespace coolBlue
             
           
         }
+
+        private void BarButtonItemClass_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+            Classes Classes1 = new Classes();
+            Classes1.ShowDialog();
+        }
     }
 }
