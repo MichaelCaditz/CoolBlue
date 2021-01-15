@@ -1340,20 +1340,37 @@ namespace coolBlue
 
             decimal crAmount = (uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_C") == null ? 0 : DBNull.Value.Equals(uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_C")) == true ? 0 : (decimal)uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_C"));
             decimal drAmount = (uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_D") == null ? 0 : DBNull.Value.Equals(uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_D")) == true ? 0 : (decimal)uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_D"));
-            if (crAmount==0)
-            { 
-                e.IsValid = false;
-                e.ErrorType = ErrorType.Critical;
-                e.ErrorContent = string.Format("Pleae specify credit amount");
-                return;
-            }
-            if (drAmount == 0)
+
+            //int curRowHandle = SplitsView.FocusedRowHandle;
+            int curRowHandle = e.RowHandle;
+
+            if (crAmount == 0 && drAmount == 0)
+
+
             {
                 e.IsValid = false;
                 e.ErrorType = ErrorType.Critical;
-                e.ErrorContent = string.Format("Pleae specify debit amount");
+                e.ErrorContent = string.Format("Pleae specify credit or debit amount");
                 return;
             }
+            if (crAmount == 0)
+            {
+                uSP_getSplitDataGrid.SetCellValue(curRowHandle, "nAmount_C", drAmount);
+            }
+
+            if (drAmount == 0)
+            {
+                uSP_getSplitDataGrid.SetCellValue(curRowHandle, "nAmount_D", crAmount);
+            }
+
+            
+            //if (drAmount == 0)
+            //{
+            //    e.IsValid = false;
+            //    e.ErrorType = ErrorType.Critical;
+            //    e.ErrorContent = string.Format("Pleae specify debit amount");
+            //    return;
+            //}
 
             //decimal drAmount = ((Task)e.Row).nAmount_D;
             //e.IsValid = crAmount > 0;
@@ -1404,6 +1421,25 @@ namespace coolBlue
             insertNewLine();
         }
 
-        
+        private void SplitsView_CellValueChanged(object sender, CellValueChangedEventArgs e)
+        {
+          //this doesn't work because editform won't refresh  --by design - - will Devepspress addt his functionality?
+            //if (e.Column.FieldName == "nAmount_D")
+
+
+            //{
+            //    int curRowHandle = SplitsView.FocusedRowHandle;
+
+            //    decimal curValue = (decimal) uSP_getSplitDataGrid. GetCellValue(curRowHandle, "nAmount_C");
+            //    if (  curValue == 0)
+            //        {
+
+            //        uSP_getSplitDataGrid.SetCellValue(curRowHandle, "nAmount_C", 20);
+            //        }
+               
+            //}
+            
+          
+        }
     }
 }
