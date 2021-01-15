@@ -177,12 +177,12 @@
                         <dxb:BarButtonItem x:Name="Exit1" Content="Exit" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=New_32x32.png}" ItemClick="Exit_ItemClick"/>
                     </dxr:RibbonPageGroup>-->
                         <dxr:RibbonPageGroup Caption="Configure">
-                            <dxb:BarButtonItem Content="Accounts" ItemClick="BarButtonItem_ItemClick_5" Glyph="{dx:DXImage Image=ColumnsThree_32x32.png}" LargeGlyph="{dx:DXImage Image=CalculateNow_32x32.png}" />
-                            <dxb:BarButtonItem Content="Vendors" ItemClick="BarButtonItem_ItemClick_2" Glyph="{dx:DXImage Image=UserGroup_32x32.png}" LargeGlyph="{dx:DXImage Image=UserGroup_32x32.png}" />
-                            <dxb:BarButtonItem Content="Categories" ItemClick="BarButtonItem_ItemClick_6" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=LineStyle_32x32.png}" />
-                            <dxb:BarButtonItem Content="Tags" ItemClick="BarButtonItem_ItemClick_3" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=CheckBox_32x32.png}" />
+                            <dxb:BarButtonItem Name="BarButtonItemAccount" Content="Accounts" Glyph="{dx:DXImage Image=ColumnsThree_32x32.png}" LargeGlyph="{dx:DXImage Image=CalculateNow_32x32.png}" ItemClick="BarButtonItemAccount_ItemClick" />
+                            <dxb:BarButtonItem Name ="BarButtonItemVendor" Content="Vendors" Glyph="{dx:DXImage Image=UserGroup_32x32.png}" LargeGlyph="{dx:DXImage Image=UserGroup_32x32.png}" ItemClick="BarButtonItemVendor_ItemClick" />
+                            <dxb:BarButtonItem Name ="BarButtonItemCategory" Content= "Categories" ItemClick="BarButtonItemCategory_ItemClick" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=LineStyle_32x32.png}" />
+                            <dxb:BarButtonItem Name ="BarButtonItemTag" Content="Tags" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=CheckBox_32x32.png}" ItemClick="BarButtonItemTag_ItemClick" />
                             <dxb:BarButtonItem Name ="BarButtonItemClass" Content="Classes" AllowDrop="True" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=Cards_32x32.png}" ItemClick="BarButtonItemClass_ItemClick" />
-                            <dxb:BarButtonItem Content="Currencies" AllowDrop="True" ItemClick="BarButtonItem_ItemClick_4" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=Currency2_32x32.png}" />
+                            <dxb:BarButtonItem Name ="BarButtonItemCurrency" Content="Currencies" AllowDrop="True" ItemClick="BarButtonItemCurrency_ItemClick" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=Currency2_32x32.png}" />
 
                         </dxr:RibbonPageGroup>
 

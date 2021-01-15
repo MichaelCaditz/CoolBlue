@@ -920,112 +920,11 @@ namespace coolBlue
             //Mouse.OverrideCursor = null;
         }
 
-        private void BarButtonItem_ItemClick_2(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
-        {
-            Vendors Vendors1 = new Vendors();
+        
 
-
-            //coolBlue.reports.REPORT_Transaction rpt = new coolBlue.reports.REPORT_Transaction();
-            //Mouse.OverrideCursor = Cursors.Wait;
-            //PrintHelper.ShowPrintPreview(this, rpt);
-           // reportViewer1.documentPreview1.DocumentSource = rpt;
-
-            //rpt.Parameters["@accountID"].Value = 1;
-
-
-            Vendors1.ShowDialog();
-            coolBlue.RegisterDataSet registerDataSet = ((coolBlue.RegisterDataSet)(this.FindResource("registerDataSet")));
-
-            coolBlue.RegisterDataSetTableAdapters.USP_getAllVendorsTableAdapter registerDataSetUSP_getAllVendorsTableAdapter = new coolBlue.RegisterDataSetTableAdapters.USP_getAllVendorsTableAdapter();
-            System.Windows.Data.CollectionViewSource uSP_getAllVendorsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllVendorsViewSource")));
-            registerDataSetUSP_getAllVendorsTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-            registerDataSetUSP_getAllVendorsTableAdapter.Fill(registerDataSet.USP_getAllVendors);
-
-        }
-
-        private void BarButtonItem_ItemClick_3(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
-        {
-            Tags Tags1 = new Tags();
-            Tags1.ShowDialog();
-           
-
-
-        }
-
-        private void BarButtonItem_ItemClick_4(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
-        {
-            Currency Currency1 = new Currency();
-            Currency1.ShowDialog();
-
-        }
-
-        private void BarButtonItem_ItemClick_5(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
-        {
-            Accounts Accounts1 = new Accounts();
-            Accounts1.ShowDialog();
-
-
-           
-
-            coolBlue.AccountsDataSet accountsDataSet = ((coolBlue.AccountsDataSet)(this.FindResource("accountsDataSet")));
-            coolBlue.RegisterDataSet registerDataSet = ((coolBlue.RegisterDataSet)(this.FindResource("registerDataSet")));
-
-
-            //coolBlue.AccountsDataSetTableAdapters.USP_getAllAccountTypesTableAdapter accountsDataSetUSP_getAllAccountTypesTableAdapter = new coolBlue.AccountsDataSetTableAdapters.USP_getAllAccountTypesTableAdapter();
-            //System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesViewSource")));
-
-            coolBlue.AccountsDataSetTableAdapters.USP_getAllAccountsTableAdapter accountsDataSetUSP_getAllAccountsTableAdapter = new coolBlue.AccountsDataSetTableAdapters.USP_getAllAccountsTableAdapter();
-            System.Windows.Data.CollectionViewSource uSP_getAllAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountsViewSource")));
-
-
-            coolBlue.RegisterDataSetTableAdapters.USP_getAllAccountsForSplitTableAdapter registerDataSetUSP_getAllAccountsForSplitTableAdapter = new coolBlue.RegisterDataSetTableAdapters.USP_getAllAccountsForSplitTableAdapter();
-            System.Windows.Data.CollectionViewSource uSP_getAllAccountsForSplitViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountsForSplitViewSource")));
-
-
-            System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesUSP_getAllAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesUSP_getAllAccountsViewSource")));
-            System.Windows.Data.CollectionViewSource uSP_getLineViewSource1 = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getLineViewSource1")));
-
-
-            int uSP_getAllAccountTypesUSP_getAllAccountsViewSourceCurPos = uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentPosition;
-            int uSP_getLineViewSource1CurPos = uSP_getLineViewSource1.View.CurrentPosition;
-
-            accountsDataSet.EnforceConstraints = false;
-            // accountsDataSetUSP_getAllAccountTypesTableAdapter.Fill(accountsDataSet.USP_getAllAccountTypes);
-            accountsDataSetUSP_getAllAccountsTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-            accountsDataSetUSP_getAllAccountsTableAdapter.Fill(accountsDataSet.USP_getAllAccounts);
-            accountsDataSet.EnforceConstraints = true;
-
-            //registerDataSet.EnforceConstraints = false;
-            registerDataSetUSP_getAllAccountsForSplitTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-            registerDataSetUSP_getAllAccountsForSplitTableAdapter.Fill(registerDataSet.USP_getAllAccountsForSplit);
-            //registerDataSet.EnforceConstraints = true; //throws error
-
-
-            //uSP_getAllAccountTypesViewSource.View.MoveCurrentToFirst();
-
-
-            // uSP_getAllAccountsViewSource.View.MoveCurrentToFirst();
-            uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.MoveCurrentToPosition(uSP_getAllAccountTypesUSP_getAllAccountsViewSourceCurPos);
-            uSP_getLineViewSource1.View.MoveCurrentToPosition(uSP_getLineViewSource1CurPos);
-
-
-            //System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesUSP_getAllAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesUSP_getAllAccountsViewSource")));
-
-
-        }
-
-        private void BarButtonItem_ItemClick_6(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
-        {
-            categories categories1 = new categories();
-            categories1.ShowDialog();
-
-            coolBlue.RegisterDataSet registerDataSet = ((coolBlue.RegisterDataSet)(this.FindResource("registerDataSet")));
-
-            coolBlue.RegisterDataSetTableAdapters.USP_getSubCatsTableAdapter registerDataSetUSP_getSubCatsTableAdapter = new coolBlue.RegisterDataSetTableAdapters.USP_getSubCatsTableAdapter();
-            System.Windows.Data.CollectionViewSource uSP_getSubCatsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getSubCatsViewSource")));
-            registerDataSetUSP_getSubCatsTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-            registerDataSetUSP_getSubCatsTableAdapter.Fill(registerDataSet.USP_getSubCats);
-        }
+        
+        
+        
 
         private void DatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -1446,6 +1345,107 @@ namespace coolBlue
         {
             Classes Classes1 = new Classes();
             Classes1.ShowDialog();
+        }
+
+        private void BarButtonItemCategory_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+            categories categories1 = new categories();
+            categories1.ShowDialog();
+
+            coolBlue.RegisterDataSet registerDataSet = ((coolBlue.RegisterDataSet)(this.FindResource("registerDataSet")));
+
+            coolBlue.RegisterDataSetTableAdapters.USP_getSubCatsTableAdapter registerDataSetUSP_getSubCatsTableAdapter = new coolBlue.RegisterDataSetTableAdapters.USP_getSubCatsTableAdapter();
+            System.Windows.Data.CollectionViewSource uSP_getSubCatsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getSubCatsViewSource")));
+            registerDataSetUSP_getSubCatsTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
+            registerDataSetUSP_getSubCatsTableAdapter.Fill(registerDataSet.USP_getSubCats);
+        }
+
+        private void BarButtonItemVendor_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+            Vendors Vendors1 = new Vendors();
+
+
+            //coolBlue.reports.REPORT_Transaction rpt = new coolBlue.reports.REPORT_Transaction();
+            //Mouse.OverrideCursor = Cursors.Wait;
+            //PrintHelper.ShowPrintPreview(this, rpt);
+            // reportViewer1.documentPreview1.DocumentSource = rpt;
+
+            //rpt.Parameters["@accountID"].Value = 1;
+
+
+            Vendors1.ShowDialog();
+            coolBlue.RegisterDataSet registerDataSet = ((coolBlue.RegisterDataSet)(this.FindResource("registerDataSet")));
+
+            coolBlue.RegisterDataSetTableAdapters.USP_getAllVendorsTableAdapter registerDataSetUSP_getAllVendorsTableAdapter = new coolBlue.RegisterDataSetTableAdapters.USP_getAllVendorsTableAdapter();
+            System.Windows.Data.CollectionViewSource uSP_getAllVendorsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllVendorsViewSource")));
+            registerDataSetUSP_getAllVendorsTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
+            registerDataSetUSP_getAllVendorsTableAdapter.Fill(registerDataSet.USP_getAllVendors);
+        }
+
+        private void BarButtonItemAccount_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+            Accounts Accounts1 = new Accounts();
+            Accounts1.ShowDialog();
+
+
+
+
+            coolBlue.AccountsDataSet accountsDataSet = ((coolBlue.AccountsDataSet)(this.FindResource("accountsDataSet")));
+            coolBlue.RegisterDataSet registerDataSet = ((coolBlue.RegisterDataSet)(this.FindResource("registerDataSet")));
+
+
+            //coolBlue.AccountsDataSetTableAdapters.USP_getAllAccountTypesTableAdapter accountsDataSetUSP_getAllAccountTypesTableAdapter = new coolBlue.AccountsDataSetTableAdapters.USP_getAllAccountTypesTableAdapter();
+            //System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesViewSource")));
+
+            coolBlue.AccountsDataSetTableAdapters.USP_getAllAccountsTableAdapter accountsDataSetUSP_getAllAccountsTableAdapter = new coolBlue.AccountsDataSetTableAdapters.USP_getAllAccountsTableAdapter();
+            System.Windows.Data.CollectionViewSource uSP_getAllAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountsViewSource")));
+
+
+            coolBlue.RegisterDataSetTableAdapters.USP_getAllAccountsForSplitTableAdapter registerDataSetUSP_getAllAccountsForSplitTableAdapter = new coolBlue.RegisterDataSetTableAdapters.USP_getAllAccountsForSplitTableAdapter();
+            System.Windows.Data.CollectionViewSource uSP_getAllAccountsForSplitViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountsForSplitViewSource")));
+
+
+            System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesUSP_getAllAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesUSP_getAllAccountsViewSource")));
+            System.Windows.Data.CollectionViewSource uSP_getLineViewSource1 = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getLineViewSource1")));
+
+
+            int uSP_getAllAccountTypesUSP_getAllAccountsViewSourceCurPos = uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentPosition;
+            int uSP_getLineViewSource1CurPos = uSP_getLineViewSource1.View.CurrentPosition;
+
+            accountsDataSet.EnforceConstraints = false;
+            // accountsDataSetUSP_getAllAccountTypesTableAdapter.Fill(accountsDataSet.USP_getAllAccountTypes);
+            accountsDataSetUSP_getAllAccountsTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
+            accountsDataSetUSP_getAllAccountsTableAdapter.Fill(accountsDataSet.USP_getAllAccounts);
+            accountsDataSet.EnforceConstraints = true;
+
+            //registerDataSet.EnforceConstraints = false;
+            registerDataSetUSP_getAllAccountsForSplitTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
+            registerDataSetUSP_getAllAccountsForSplitTableAdapter.Fill(registerDataSet.USP_getAllAccountsForSplit);
+            //registerDataSet.EnforceConstraints = true; //throws error
+
+
+            //uSP_getAllAccountTypesViewSource.View.MoveCurrentToFirst();
+
+
+            // uSP_getAllAccountsViewSource.View.MoveCurrentToFirst();
+            uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.MoveCurrentToPosition(uSP_getAllAccountTypesUSP_getAllAccountsViewSourceCurPos);
+            uSP_getLineViewSource1.View.MoveCurrentToPosition(uSP_getLineViewSource1CurPos);
+
+
+            //System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesUSP_getAllAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesUSP_getAllAccountsViewSource")));
+
+        }
+
+        private void BarButtonItemTag_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+            Tags Tags1 = new Tags();
+            Tags1.ShowDialog();
+        }
+
+        private void BarButtonItemCurrency_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+            Currency Currency1 = new Currency();
+            Currency1.ShowDialog();
         }
     }
 }
