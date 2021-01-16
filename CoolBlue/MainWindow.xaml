@@ -414,9 +414,9 @@
 
 
 
-                <dxg:GridColumn FieldName="totalDr" Header="Dr" Width="80" ReadOnly="True" AllowFocus="False" AllowSorting="True" />
+                <dxg:GridColumn FieldName="totalDr" Header="DR" Width="80" ReadOnly="True" AllowFocus="False" AllowSorting="True" />
 
-                <dxg:GridColumn FieldName="totalCr" Header="Cr" Width="80" ReadOnly="True" AllowFocus="False" AllowSorting="True" />
+                <dxg:GridColumn FieldName="totalCr" Header="CR" Width="80" ReadOnly="True" AllowFocus="False" AllowSorting="True" />
                 <dxg:GridColumn FieldName="cNote" Header="Note" Width="80" ReadOnly="False" AllowFocus="True" AllowSorting="True" />
 
 
