@@ -34,9 +34,12 @@
     [pin_Encrypted2]        VARBINARY (128) NULL,
     [expiry_Encrypted2]     VARBINARY (128) NULL,
     [CV_Encrypted2]         VARBINARY (128) NULL,
+    [bIsAll]                BIT             NULL,
     CONSTRAINT [PK_account] PRIMARY KEY CLUSTERED ([ID] ASC),
     CONSTRAINT [FK_account_accountType] FOREIGN KEY ([nAccountTypeID]) REFERENCES [dbo].[accountType] ([ID])
 );
+
+
 
 
 

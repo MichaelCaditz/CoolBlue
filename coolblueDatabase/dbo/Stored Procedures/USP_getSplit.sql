@@ -28,10 +28,10 @@ BEGIN
 	 FROM split a  WITH (NOLOCK)
 	 
 	 right join dbo.line b on a.nLineID = b.ID
-	 
+	 left join account c on c.ID = @accountID
 	
 
-	 where (a.nAccountID_C = @accountID or a.nAccountID_D = @accountID) and b.nAccountingPeriodID=@accountingPeriod
+	 where (c.bIsAll = 1 or (a.nAccountID_C = @accountID or a.nAccountID_D = @accountID) )and b.nAccountingPeriodID=@accountingPeriod
 	 
 	 --b.nAccountID = @accountID 
 	 

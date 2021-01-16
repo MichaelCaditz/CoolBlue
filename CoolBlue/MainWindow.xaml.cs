@@ -174,71 +174,12 @@ namespace coolBlue
             registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent,accountingPeriod);
             //registerDataSet.EnforceConstraints = true;
 
-            decimal sumDr = 0;
-            foreach (DataRow dr in registerDataSet.USP_getLine.Rows)
-            {
-
-                sumDr += (decimal)dr["totalDr"];
-
-            }
-
-            decimal sumCr = 0;
-            foreach (DataRow dr in registerDataSet.USP_getLine.Rows)
-            {
-
-                sumCr += (decimal)dr["totalCr"];
-
-            }
-
-            decimal sumTotal = sumDr - sumCr;
-
-            TextEditTotalDr.EditValue = sumDr;
-            TextEditTotalCr.EditValue = sumCr;
-            TextEditBalance.EditValue = sumTotal;
+            getTotals();
             return true;
 
         }
 
-        private void SimpleButton_Click(object sender, RoutedEventArgs e)
-        {
-            System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesUSP_getAllAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesUSP_getAllAccountsViewSource")));
 
-            coolBlue.RegisterDataSet registerDataSet = ((coolBlue.RegisterDataSet)(this.FindResource("registerDataSet")));
-            DataRowView drv = (DataRowView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentItem;
-            int accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
-            int accountingPeriod = 1000;  // this will be changed so value comes from settings
-
-
-            registerDataSet.EnforceConstraints = false;
-            registerDataSetUSP_getSplitTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-            registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent,accountingPeriod);
-            registerDataSetUSP_getLineTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-            registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent,accountingPeriod);
-           // registerDataSet.EnforceConstraints = true;
-
-            decimal sumDr = 0;
-            foreach (DataRow dr in registerDataSet.USP_getLine.Rows)
-            {
-
-                sumDr += (decimal)dr["totalDr"];
-
-            }
-
-            decimal sumCr = 0;
-            foreach (DataRow dr in registerDataSet.USP_getLine.Rows)
-            {
-
-                sumCr += (decimal)dr["totalCr"];
-
-            }
-
-            decimal sumTotal = sumDr - sumCr;
-
-            TextEditTotalDr.EditValue = sumDr;
-            TextEditTotalCr.EditValue = sumCr;
-            TextEditBalance.EditValue = sumTotal;
-
-        }
 
         private void uSP_getAllAccountsDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -257,27 +198,7 @@ namespace coolBlue
             registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent,accountingPeriod);
             //registerDataSet.EnforceConstraints = true;
 
-            decimal sumDr = 0;
-            foreach (DataRow dr in registerDataSet.USP_getLine.Rows)
-            {
-
-                sumDr += (decimal)dr["totalDr"];
-
-            }
-
-            decimal sumCr = 0;
-            foreach (DataRow dr in registerDataSet.USP_getLine.Rows)
-            {
-
-                sumCr += (decimal)dr["totalCr"];
-
-            }
-
-            decimal sumTotal = sumDr - sumCr;
-
-            TextEditTotalDr.EditValue = sumDr;
-            TextEditTotalCr.EditValue = sumCr;
-            TextEditBalance.EditValue = sumTotal;
+            getTotals();
         }
 
         private void insertNewLine()
@@ -809,27 +730,7 @@ namespace coolBlue
             registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent,accountingPeriod);
             //registerDataSet.EnforceConstraints = true;
 
-            decimal sumDr = 0;
-            foreach (DataRow dr in registerDataSet.USP_getLine.Rows)
-            {
-
-                sumDr += (decimal)dr["totalDr"];
-
-            }
-
-            decimal sumCr = 0;
-            foreach (DataRow dr in registerDataSet.USP_getLine.Rows)
-            {
-
-                sumCr += (decimal)dr["totalCr"];
-
-            }
-
-            decimal sumTotal = sumDr - sumCr;
-
-            TextEditTotalDr.EditValue = sumDr;
-            TextEditTotalCr.EditValue = sumCr;
-            TextEditBalance.EditValue = sumTotal;
+            getTotals();
 
             //LineView.Focus();
             // Vendor.Focus();
@@ -1089,7 +990,7 @@ namespace coolBlue
         private void GridControl_CurrentItemChanged(object sender, CurrentItemChangedEventArgs e)
         {
             System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesUSP_getAllAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesUSP_getAllAccountsViewSource")));
-            System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesViewSource")));
+            //System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesViewSource")));
 
             coolBlue.RegisterDataSet registerDataSet = ((coolBlue.RegisterDataSet)(this.FindResource("registerDataSet")));
 
@@ -1101,8 +1002,8 @@ namespace coolBlue
             int accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
             int accountingPeriod = 1000;  // this will be changed so value comes from settings
 
-            DataRowView drv1 = (DataRowView)uSP_getAllAccountTypesViewSource.View.CurrentItem;
-            int nAccountingTypeID = (drv1 == null ? 0 : DBNull.Value.Equals(drv1["nAccountingTypeID"]) == true ? 0 : (int)drv1["nAccountingTypeID"]);
+            //DataRowView drv1 = (DataRowView)uSP_getAllAccountTypesViewSource.View.CurrentItem;
+            //int nAccountingTypeID = (drv1 == null ? 0 : DBNull.Value.Equals(drv1["nAccountingTypeID"]) == true ? 0 : (int)drv1["nAccountingTypeID"]);
             
 
             registerDataSet.EnforceConstraints = false;
@@ -1111,6 +1012,16 @@ namespace coolBlue
             registerDataSetUSP_getLineTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
             registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent,accountingPeriod);
             //registerDataSet.EnforceConstraints = true;
+
+            getTotals();
+        }
+
+        private void getTotals()
+        {
+            coolBlue.RegisterDataSet registerDataSet = ((coolBlue.RegisterDataSet)(this.FindResource("registerDataSet")));
+            System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesViewSource")));
+            DataRowView drv1 = (DataRowView)uSP_getAllAccountTypesViewSource.View.CurrentItem;
+            int nAccountingTypeID = (drv1 == null ? 0 : DBNull.Value.Equals(drv1["nAccountingTypeID"]) == true ? 0 : (int)drv1["nAccountingTypeID"]);
 
             decimal sumDr = 0;
             foreach (DataRow dr in registerDataSet.USP_getLine.Rows)
@@ -1132,7 +1043,7 @@ namespace coolBlue
             {
                 case 1000://current asset
 
-                     sumTotal = sumDr - sumCr;
+                    sumTotal = sumDr - sumCr;
                     break;
 
                 case 1001://curent liability
@@ -1146,19 +1057,22 @@ namespace coolBlue
                     break;
 
                 default:
-                     sumTotal = sumDr - sumCr;
+                    sumTotal = sumDr - sumCr;
                     break;
             }
-            
-            
 
-            
-            
-            
-            
+
+
+
+
+
+
             TextEditTotalDr.EditValue = sumDr;
             TextEditTotalCr.EditValue = sumCr;
             TextEditBalance.EditValue = sumTotal;
+
+
+
         }
 
         private void TableView_RowDoubleClick(object sender, RowDoubleClickEventArgs e)

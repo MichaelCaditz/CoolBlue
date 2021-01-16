@@ -40,12 +40,12 @@ BEGIN
 	 FROM line a  WITH (NOLOCK)
 	 
 	 left join split b on  b.nLineID = a.ID
-	 
+	 left join account c on c.ID = @accountID
 	
 
 	 where 
 
-	( b.nAccountID_C = @accountID or b.nAccountID_D = @accountID or a.nAccountID = @accountID)
+	(c.bIsAll = 1 or ( b.nAccountID_C = @accountID or b.nAccountID_D = @accountID) or a.nAccountID = @accountID)
 	  
 	 and ((a.bDeleted is null or a.bDeleted=0) and (b.bDeleted is null or b.bDeleted=0))
 

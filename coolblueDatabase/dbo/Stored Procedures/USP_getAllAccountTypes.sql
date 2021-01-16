@@ -29,7 +29,7 @@ BEGIN
 
 	 where  a.bDeleted is null or a.bDeleted=0
 		
-	order by a.cName
+	order by a.bIsAll, a.cName
 
 	
 	

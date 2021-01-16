@@ -6,9 +6,12 @@
     [bDeleted]          BIT            NULL,
     [dtDateDeleted]     DATETIME2 (7)  NULL,
     [nAccountingTypeID] INT            NULL,
+    [bIsAll]            BIT            NULL,
     CONSTRAINT [PK_accountType] PRIMARY KEY CLUSTERED ([ID] ASC),
     CONSTRAINT [FK_accountType_accountType] FOREIGN KEY ([ID]) REFERENCES [dbo].[accountType] ([ID])
 );
+
+
 
 
 
