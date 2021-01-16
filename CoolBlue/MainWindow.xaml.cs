@@ -1089,6 +1089,7 @@ namespace coolBlue
         private void GridControl_CurrentItemChanged(object sender, CurrentItemChangedEventArgs e)
         {
             System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesUSP_getAllAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesUSP_getAllAccountsViewSource")));
+            System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesViewSource")));
 
             coolBlue.RegisterDataSet registerDataSet = ((coolBlue.RegisterDataSet)(this.FindResource("registerDataSet")));
 
@@ -1100,7 +1101,9 @@ namespace coolBlue
             int accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
             int accountingPeriod = 1000;  // this will be changed so value comes from settings
 
-
+            DataRowView drv1 = (DataRowView)uSP_getAllAccountTypesViewSource.View.CurrentItem;
+            int nAccountingTypeID = (drv1 == null ? 0 : DBNull.Value.Equals(drv1["nAccountingTypeID"]) == true ? 0 : (int)drv1["nAccountingTypeID"]);
+            
 
             registerDataSet.EnforceConstraints = false;
             registerDataSetUSP_getSplitTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
@@ -1124,9 +1127,35 @@ namespace coolBlue
                 sumCr += (decimal)dr["totalCr"];
 
             }
+            decimal sumTotal = 0;
+            switch (nAccountingTypeID)
+            {
+                case 1000://current asset
 
-            decimal sumTotal = sumDr - sumCr;
+                     sumTotal = sumDr - sumCr;
+                    break;
 
+                case 1001://curent liability
+
+                    sumTotal = sumCr - sumDr;
+                    break;
+
+                case 1003://expense
+
+                    sumTotal = sumDr - sumCr;
+                    break;
+
+                default:
+                     sumTotal = sumDr - sumCr;
+                    break;
+            }
+            
+            
+
+            
+            
+            
+            
             TextEditTotalDr.EditValue = sumDr;
             TextEditTotalCr.EditValue = sumCr;
             TextEditBalance.EditValue = sumTotal;
