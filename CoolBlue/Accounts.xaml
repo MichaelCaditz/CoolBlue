@@ -59,7 +59,7 @@
                         <dxb:BarButtonItem Content="Account Details" Glyph="{dx:DXImage Image=EditName_32x32.png}" LargeGlyph="{dx:DXImage Image=EditName_32x32.png}" ItemClick="BarButtonItem_ItemClick"/>
                     </dxr:RibbonPageGroup>
                     <dxr:RibbonPageGroup Caption="">
-                        <dxb:BarButtonItem Content="New Account" Glyph="{dx:DXImage Image=Insert_32x32.png}" LargeGlyph="{dx:DXImage Image=Insert_32x32.png}" ItemClick="BarButtonItem_ItemClick_1"/>
+                        <dxb:BarButtonItem Name="BarButtonitemNewAccount" Content="New Account" Glyph="{dx:DXImage Image=Insert_32x32.png}" LargeGlyph="{dx:DXImage Image=Insert_32x32.png}" ItemClick="BarButtonitemNewAccount_ItemClick"/>
                     </dxr:RibbonPageGroup>
                 </dxr:RibbonPage>
             </dxr:RibbonDefaultPageCategory>

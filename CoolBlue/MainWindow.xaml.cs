@@ -1345,6 +1345,20 @@ namespace coolBlue
         {
             Classes Classes1 = new Classes();
             Classes1.ShowDialog();
+
+            coolBlue.RegisterDataSet registerDataSet = ((coolBlue.RegisterDataSet)(this.FindResource("registerDataSet")));
+
+            coolBlue.RegisterDataSetTableAdapters.USP_getAllClassTableAdapter registerDataSetUSP_getAllClassTableAdapter = new coolBlue.RegisterDataSetTableAdapters.USP_getAllClassTableAdapter();
+            System.Windows.Data.CollectionViewSource uSP_getAllClassViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllClassViewSource")));
+
+            registerDataSetUSP_getAllClassTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
+            registerDataSetUSP_getAllClassTableAdapter.Fill(registerDataSet.USP_getAllClass);
+
+
+
+
+
+
         }
 
         private void BarButtonItemCategory_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
@@ -1440,12 +1454,31 @@ namespace coolBlue
         {
             Tags Tags1 = new Tags();
             Tags1.ShowDialog();
+
+            coolBlue.RegisterDataSet registerDataSet = ((coolBlue.RegisterDataSet)(this.FindResource("registerDataSet")));
+            coolBlue.RegisterDataSetTableAdapters.USP_getAllTagsTableAdapter registerDataSetUSP_getAllTagsTableAdapter = new coolBlue.RegisterDataSetTableAdapters.USP_getAllTagsTableAdapter();
+            System.Windows.Data.CollectionViewSource uSP_getAllTagsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllTagsViewSource")));
+            registerDataSetUSP_getAllTagsTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
+            registerDataSetUSP_getAllTagsTableAdapter.Fill(registerDataSet.USP_getAllTags);
+
+
         }
 
         private void BarButtonItemCurrency_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
             Currency Currency1 = new Currency();
             Currency1.ShowDialog();
+
+            coolBlue.RegisterDataSet registerDataSet = ((coolBlue.RegisterDataSet)(this.FindResource("registerDataSet")));
+
+            coolBlue.RegisterDataSetTableAdapters.USP_getAllCurrencyTableAdapter registerDataSetUSP_getAllCurrencyTableAdapter = new coolBlue.RegisterDataSetTableAdapters.USP_getAllCurrencyTableAdapter();
+            System.Windows.Data.CollectionViewSource uSP_getAllCurrencyViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllCurrencyViewSource")));
+            registerDataSetUSP_getAllCurrencyTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
+            registerDataSetUSP_getAllCurrencyTableAdapter.Fill(registerDataSet.USP_getAllCurrency);
+
+
+
+
         }
     }
 }

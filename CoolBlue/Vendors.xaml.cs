@@ -89,7 +89,14 @@ namespace coolBlue
         }
 
 
-        private void BarButtonItem_ItemClick_1(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        
+
+        private void TableView_RowDoubleClick(object sender, RowDoubleClickEventArgs e)
+        {
+            goDetails();
+        }
+
+        private void BarButtonitemnewVendor_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
             int TransactID1 = 0;
             System.Windows.Data.CollectionViewSource uSP_getAllVendorsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllVendorsViewSource")));
@@ -196,11 +203,6 @@ namespace coolBlue
 
                 uSP_getAllVendorsViewSource.View.MoveCurrentToFirst();
             }
-        }
-
-        private void TableView_RowDoubleClick(object sender, RowDoubleClickEventArgs e)
-        {
-            goDetails();
         }
     }
 }

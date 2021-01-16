@@ -24,7 +24,7 @@
                         <dxb:BarButtonItem Content="Vendor Details" ItemClick="BarButtonItem_ItemClick" Glyph="{dx:DXImage Image=EditName_32x32.png}" LargeGlyph="{dx:DXImage Image=EditName_32x32.png}"/>
                     </dxr:RibbonPageGroup>
                     <dxr:RibbonPageGroup Caption="">
-                        <dxb:BarButtonItem Content="New Vendor" ItemClick="BarButtonItem_ItemClick_1" Glyph="{dx:DXImage Image=Insert_32x32.png}" LargeGlyph="{dx:DXImage Image=Insert_32x32.png}"/>
+                        <dxb:BarButtonItem Name="BarButtonitemnewVendor" Content="New Vendor" ItemClick="BarButtonitemnewVendor_ItemClick" Glyph="{dx:DXImage Image=Insert_32x32.png}" LargeGlyph="{dx:DXImage Image=Insert_32x32.png}"/>
                     </dxr:RibbonPageGroup>
                 </dxr:RibbonPage>
             </dxr:RibbonDefaultPageCategory>

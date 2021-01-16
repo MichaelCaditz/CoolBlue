@@ -23,7 +23,7 @@
                         <dxb:BarButtonItem Content="Class Details" ItemClick="BarButtonItem_ItemClick" Glyph="{dx:DXImage Image=EditName_32x32.png}" LargeGlyph="{dx:DXImage Image=EditName_32x32.png}"/>
                     </dxr:RibbonPageGroup>
                     <dxr:RibbonPageGroup Caption="">
-                        <dxb:BarButtonItem Content="New Class" ItemClick="BarButtonItem_ItemClick_1" Glyph="{dx:DXImage Image=Insert_32x32.png}" LargeGlyph="{dx:DXImage Image=Insert_32x32.png}"/>
+                        <dxb:BarButtonItem Name="BarButtomItemNewClass" Content="New Class" Glyph="{dx:DXImage Image=Insert_32x32.png}" LargeGlyph="{dx:DXImage Image=Insert_32x32.png}" ItemClick="BarButtomItemNewClass_ItemClick"/>
                     </dxr:RibbonPageGroup>
                 </dxr:RibbonPage>
             </dxr:RibbonDefaultPageCategory>

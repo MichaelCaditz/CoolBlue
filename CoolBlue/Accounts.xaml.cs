@@ -142,7 +142,19 @@ namespace coolBlue
         }
 
 
-        private void BarButtonItem_ItemClick_1(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        
+
+        private void TableView_RowDoubleClick(object sender, RowDoubleClickEventArgs e)
+        {
+            goDetails();
+        }
+
+        private void Properties_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+            goDetails();
+        }
+
+        private void BarButtonitemNewAccount_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
             int TransactID1 = 0;
             //int nAccountTypeID = 0;
@@ -174,7 +186,7 @@ namespace coolBlue
             if (nID == 0)
             {
 
-                
+
                 string message = "Account Type Required";
                 string caption = "CoolBlue";
 
@@ -182,14 +194,14 @@ namespace coolBlue
                 MessageBoxImage icon = MessageBoxImage.Information;
                 MessageBoxResult defaultResult = MessageBoxResult.OK;
                 MessageBoxOptions options = MessageBoxOptions.RtlReading;
-                
+
                 MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
 
                 if (result == MessageBoxResult.OK)
                 {
 
                 }
-               // return;
+                // return;
             }
             else
             {
@@ -263,11 +275,11 @@ namespace coolBlue
                 //System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesViewSource")));
                 //System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesUSP_getAllAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesUSP_getAllAccountsViewSource")));
                 //System.Windows.Data.CollectionViewSource uSP_getAllAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountsViewSource")));
-               // System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesUSP_getAllAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesUSP_getAllAccountsViewSource")));
+                // System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesUSP_getAllAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesUSP_getAllAccountsViewSource")));
 
 
 
-               // coolBlue.EditDataSetTableAdapters.USP_getAllAccountTypesTableAdapter editDataSetUSP_getAllAccountTypesTableAdapter = new coolBlue.EditDataSetTableAdapters.USP_getAllAccountTypesTableAdapter();
+                // coolBlue.EditDataSetTableAdapters.USP_getAllAccountTypesTableAdapter editDataSetUSP_getAllAccountTypesTableAdapter = new coolBlue.EditDataSetTableAdapters.USP_getAllAccountTypesTableAdapter();
                 coolBlue.EditDataSetTableAdapters.USP_getAllAccountsTableAdapter editDataSetUSP_getAllAccountsTableAdapter = new coolBlue.EditDataSetTableAdapters.USP_getAllAccountsTableAdapter();
                 editDataSet.EnforceConstraints = false;
                 //editDataSetUSP_getAllAccountTypesTableAdapter.Fill(editDataSet.USP_getAllAccountTypes);
@@ -279,16 +291,6 @@ namespace coolBlue
 
 
             }
-        }
-
-        private void TableView_RowDoubleClick(object sender, RowDoubleClickEventArgs e)
-        {
-            goDetails();
-        }
-
-        private void Properties_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
-        {
-            goDetails();
         }
     }
 }
