@@ -36,7 +36,11 @@ namespace coolBlue {
         
         private USP_getAllCurrencyDataTable tableUSP_getAllCurrency;
         
+        private USP_getAllAccountTypesforAccountsDataTable tableUSP_getAllAccountTypesforAccounts;
+        
         private global::System.Data.DataRelation relationFK_USP_getAllAccountTypes_USP_getAllAccounts;
+        
+        private global::System.Data.DataRelation relationUSP_getAllAccountTypesforAccounts_USP_getAllAccounts;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -83,6 +87,9 @@ namespace coolBlue {
                 }
                 if ((ds.Tables["USP_getAllCurrency"] != null)) {
                     base.Tables.Add(new USP_getAllCurrencyDataTable(ds.Tables["USP_getAllCurrency"]));
+                }
+                if ((ds.Tables["USP_getAllAccountTypesforAccounts"] != null)) {
+                    base.Tables.Add(new USP_getAllAccountTypesforAccountsDataTable(ds.Tables["USP_getAllAccountTypesforAccounts"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -159,6 +166,16 @@ namespace coolBlue {
         public USP_getAllCurrencyDataTable USP_getAllCurrency {
             get {
                 return this.tableUSP_getAllCurrency;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public USP_getAllAccountTypesforAccountsDataTable USP_getAllAccountTypesforAccounts {
+            get {
+                return this.tableUSP_getAllAccountTypesforAccounts;
             }
         }
         
@@ -247,6 +264,9 @@ namespace coolBlue {
                 if ((ds.Tables["USP_getAllCurrency"] != null)) {
                     base.Tables.Add(new USP_getAllCurrencyDataTable(ds.Tables["USP_getAllCurrency"]));
                 }
+                if ((ds.Tables["USP_getAllAccountTypesforAccounts"] != null)) {
+                    base.Tables.Add(new USP_getAllAccountTypesforAccountsDataTable(ds.Tables["USP_getAllAccountTypesforAccounts"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -316,7 +336,14 @@ namespace coolBlue {
                     this.tableUSP_getAllCurrency.InitVars();
                 }
             }
+            this.tableUSP_getAllAccountTypesforAccounts = ((USP_getAllAccountTypesforAccountsDataTable)(base.Tables["USP_getAllAccountTypesforAccounts"]));
+            if ((initTable == true)) {
+                if ((this.tableUSP_getAllAccountTypesforAccounts != null)) {
+                    this.tableUSP_getAllAccountTypesforAccounts.InitVars();
+                }
+            }
             this.relationFK_USP_getAllAccountTypes_USP_getAllAccounts = this.Relations["FK_USP_getAllAccountTypes_USP_getAllAccounts"];
+            this.relationUSP_getAllAccountTypesforAccounts_USP_getAllAccounts = this.Relations["USP_getAllAccountTypesforAccounts_USP_getAllAccounts"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -339,18 +366,16 @@ namespace coolBlue {
             base.Tables.Add(this.tableUSP_getAllAccounts);
             this.tableUSP_getAllCurrency = new USP_getAllCurrencyDataTable();
             base.Tables.Add(this.tableUSP_getAllCurrency);
-            global::System.Data.ForeignKeyConstraint fkc;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_USP_getAllAccountTypes_USP_getAllAccounts", new global::System.Data.DataColumn[] {
-                        this.tableUSP_getAllAccountTypes.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableUSP_getAllAccounts.nAccountTypeIDColumn});
-            this.tableUSP_getAllAccounts.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.Cascade;
-            fkc.UpdateRule = global::System.Data.Rule.Cascade;
+            this.tableUSP_getAllAccountTypesforAccounts = new USP_getAllAccountTypesforAccountsDataTable();
+            base.Tables.Add(this.tableUSP_getAllAccountTypesforAccounts);
             this.relationFK_USP_getAllAccountTypes_USP_getAllAccounts = new global::System.Data.DataRelation("FK_USP_getAllAccountTypes_USP_getAllAccounts", new global::System.Data.DataColumn[] {
                         this.tableUSP_getAllAccountTypes.IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableUSP_getAllAccounts.nAccountTypeIDColumn}, false);
             this.Relations.Add(this.relationFK_USP_getAllAccountTypes_USP_getAllAccounts);
+            this.relationUSP_getAllAccountTypesforAccounts_USP_getAllAccounts = new global::System.Data.DataRelation("USP_getAllAccountTypesforAccounts_USP_getAllAccounts", new global::System.Data.DataColumn[] {
+                        this.tableUSP_getAllAccountTypesforAccounts.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableUSP_getAllAccounts.nAccountTypeIDColumn}, false);
+            this.Relations.Add(this.relationUSP_getAllAccountTypesforAccounts_USP_getAllAccounts);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -386,6 +411,12 @@ namespace coolBlue {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private bool ShouldSerializeUSP_getAllCurrency() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private bool ShouldSerializeUSP_getAllAccountTypesforAccounts() {
             return false;
         }
         
@@ -461,6 +492,9 @@ namespace coolBlue {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void USP_getAllCurrencyRowChangeEventHandler(object sender, USP_getAllCurrencyRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public delegate void USP_getAllAccountTypesforAccountsRowChangeEventHandler(object sender, USP_getAllAccountTypesforAccountsRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -2481,6 +2515,312 @@ namespace coolBlue {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class USP_getAllAccountTypesforAccountsDataTable : global::System.Data.TypedTableBase<USP_getAllAccountTypesforAccountsRow> {
+            
+            private global::System.Data.DataColumn columnID;
+            
+            private global::System.Data.DataColumn columncName;
+            
+            private global::System.Data.DataColumn columncNote;
+            
+            private global::System.Data.DataColumn columndtCreateDate;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public USP_getAllAccountTypesforAccountsDataTable() {
+                this.TableName = "USP_getAllAccountTypesforAccounts";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal USP_getAllAccountTypesforAccountsDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected USP_getAllAccountTypesforAccountsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn IDColumn {
+                get {
+                    return this.columnID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn cNameColumn {
+                get {
+                    return this.columncName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn cNoteColumn {
+                get {
+                    return this.columncNote;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn dtCreateDateColumn {
+                get {
+                    return this.columndtCreateDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public USP_getAllAccountTypesforAccountsRow this[int index] {
+                get {
+                    return ((USP_getAllAccountTypesforAccountsRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event USP_getAllAccountTypesforAccountsRowChangeEventHandler USP_getAllAccountTypesforAccountsRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event USP_getAllAccountTypesforAccountsRowChangeEventHandler USP_getAllAccountTypesforAccountsRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event USP_getAllAccountTypesforAccountsRowChangeEventHandler USP_getAllAccountTypesforAccountsRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event USP_getAllAccountTypesforAccountsRowChangeEventHandler USP_getAllAccountTypesforAccountsRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void AddUSP_getAllAccountTypesforAccountsRow(USP_getAllAccountTypesforAccountsRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public USP_getAllAccountTypesforAccountsRow AddUSP_getAllAccountTypesforAccountsRow(string cName, string cNote, System.DateTime dtCreateDate) {
+                USP_getAllAccountTypesforAccountsRow rowUSP_getAllAccountTypesforAccountsRow = ((USP_getAllAccountTypesforAccountsRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        cName,
+                        cNote,
+                        dtCreateDate};
+                rowUSP_getAllAccountTypesforAccountsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowUSP_getAllAccountTypesforAccountsRow);
+                return rowUSP_getAllAccountTypesforAccountsRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public USP_getAllAccountTypesforAccountsRow FindByID(int ID) {
+                return ((USP_getAllAccountTypesforAccountsRow)(this.Rows.Find(new object[] {
+                            ID})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                USP_getAllAccountTypesforAccountsDataTable cln = ((USP_getAllAccountTypesforAccountsDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new USP_getAllAccountTypesforAccountsDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal void InitVars() {
+                this.columnID = base.Columns["ID"];
+                this.columncName = base.Columns["cName"];
+                this.columncNote = base.Columns["cNote"];
+                this.columndtCreateDate = base.Columns["dtCreateDate"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitClass() {
+                this.columnID = new global::System.Data.DataColumn("ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID);
+                this.columncName = new global::System.Data.DataColumn("cName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncName);
+                this.columncNote = new global::System.Data.DataColumn("cNote", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncNote);
+                this.columndtCreateDate = new global::System.Data.DataColumn("dtCreateDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndtCreateDate);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnID}, true));
+                this.columnID.AutoIncrement = true;
+                this.columnID.AutoIncrementSeed = -1;
+                this.columnID.AutoIncrementStep = -1;
+                this.columnID.AllowDBNull = false;
+                this.columnID.ReadOnly = true;
+                this.columnID.Unique = true;
+                this.columncName.MaxLength = 50;
+                this.columncNote.MaxLength = 2147483647;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public USP_getAllAccountTypesforAccountsRow NewUSP_getAllAccountTypesforAccountsRow() {
+                return ((USP_getAllAccountTypesforAccountsRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new USP_getAllAccountTypesforAccountsRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(USP_getAllAccountTypesforAccountsRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.USP_getAllAccountTypesforAccountsRowChanged != null)) {
+                    this.USP_getAllAccountTypesforAccountsRowChanged(this, new USP_getAllAccountTypesforAccountsRowChangeEvent(((USP_getAllAccountTypesforAccountsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.USP_getAllAccountTypesforAccountsRowChanging != null)) {
+                    this.USP_getAllAccountTypesforAccountsRowChanging(this, new USP_getAllAccountTypesforAccountsRowChangeEvent(((USP_getAllAccountTypesforAccountsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.USP_getAllAccountTypesforAccountsRowDeleted != null)) {
+                    this.USP_getAllAccountTypesforAccountsRowDeleted(this, new USP_getAllAccountTypesforAccountsRowChangeEvent(((USP_getAllAccountTypesforAccountsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.USP_getAllAccountTypesforAccountsRowDeleting != null)) {
+                    this.USP_getAllAccountTypesforAccountsRowDeleting(this, new USP_getAllAccountTypesforAccountsRowChangeEvent(((USP_getAllAccountTypesforAccountsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void RemoveUSP_getAllAccountTypesforAccountsRow(USP_getAllAccountTypesforAccountsRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                EditDataSet ds = new EditDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "USP_getAllAccountTypesforAccountsDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class USP_getAllVendorsRow : global::System.Data.DataRow {
@@ -3305,6 +3645,17 @@ namespace coolBlue {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public USP_getAllAccountTypesforAccountsRow USP_getAllAccountTypesforAccountsRow {
+                get {
+                    return ((USP_getAllAccountTypesforAccountsRow)(this.GetParentRow(this.Table.ParentRelations["USP_getAllAccountTypesforAccounts_USP_getAllAccounts"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["USP_getAllAccountTypesforAccounts_USP_getAllAccounts"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsdtCreateDateNull() {
                 return this.IsNull(this.tableUSP_getAllAccounts.dtCreateDateColumn);
             }
@@ -3499,6 +3850,130 @@ namespace coolBlue {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class USP_getAllAccountTypesforAccountsRow : global::System.Data.DataRow {
+            
+            private USP_getAllAccountTypesforAccountsDataTable tableUSP_getAllAccountTypesforAccounts;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal USP_getAllAccountTypesforAccountsRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableUSP_getAllAccountTypesforAccounts = ((USP_getAllAccountTypesforAccountsDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int ID {
+                get {
+                    return ((int)(this[this.tableUSP_getAllAccountTypesforAccounts.IDColumn]));
+                }
+                set {
+                    this[this.tableUSP_getAllAccountTypesforAccounts.IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string cName {
+                get {
+                    try {
+                        return ((string)(this[this.tableUSP_getAllAccountTypesforAccounts.cNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'cName\' in table \'USP_getAllAccountTypesforAccounts\' is DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tableUSP_getAllAccountTypesforAccounts.cNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string cNote {
+                get {
+                    try {
+                        return ((string)(this[this.tableUSP_getAllAccountTypesforAccounts.cNoteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'cNote\' in table \'USP_getAllAccountTypesforAccounts\' is DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tableUSP_getAllAccountTypesforAccounts.cNoteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime dtCreateDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableUSP_getAllAccountTypesforAccounts.dtCreateDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'dtCreateDate\' in table \'USP_getAllAccountTypesforAccounts\' " +
+                                "is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUSP_getAllAccountTypesforAccounts.dtCreateDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IscNameNull() {
+                return this.IsNull(this.tableUSP_getAllAccountTypesforAccounts.cNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetcNameNull() {
+                this[this.tableUSP_getAllAccountTypesforAccounts.cNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IscNoteNull() {
+                return this.IsNull(this.tableUSP_getAllAccountTypesforAccounts.cNoteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetcNoteNull() {
+                this[this.tableUSP_getAllAccountTypesforAccounts.cNoteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsdtCreateDateNull() {
+                return this.IsNull(this.tableUSP_getAllAccountTypesforAccounts.dtCreateDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetdtCreateDateNull() {
+                this[this.tableUSP_getAllAccountTypesforAccounts.dtCreateDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public USP_getAllAccountsRow[] GetUSP_getAllAccountsRows() {
+                if ((this.Table.ChildRelations["USP_getAllAccountTypesforAccounts_USP_getAllAccounts"] == null)) {
+                    return new USP_getAllAccountsRow[0];
+                }
+                else {
+                    return ((USP_getAllAccountsRow[])(base.GetChildRows(this.Table.ChildRelations["USP_getAllAccountTypesforAccounts_USP_getAllAccounts"])));
+                }
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -3688,6 +4163,40 @@ namespace coolBlue {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public USP_getAllCurrencyRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public class USP_getAllAccountTypesforAccountsRowChangeEvent : global::System.EventArgs {
+            
+            private USP_getAllAccountTypesforAccountsRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public USP_getAllAccountTypesforAccountsRowChangeEvent(USP_getAllAccountTypesforAccountsRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public USP_getAllAccountTypesforAccountsRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -4499,7 +5008,7 @@ namespace coolBlue.EditDataSetTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "dbo.USP_getAllAccounts";
+            this._commandCollection[0].CommandText = "USP_getAllAccountsforAccounts";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -4684,6 +5193,177 @@ namespace coolBlue.EditDataSetTableAdapters {
         public virtual EditDataSet.USP_getAllCurrencyDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             EditDataSet.USP_getAllCurrencyDataTable dataTable = new EditDataSet.USP_getAllCurrencyDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class USP_getAllAccountTypesforAccountsTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public USP_getAllAccountTypesforAccountsTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "USP_getAllAccountTypesforAccounts";
+            tableMapping.ColumnMappings.Add("ID", "ID");
+            tableMapping.ColumnMappings.Add("cName", "cName");
+            tableMapping.ColumnMappings.Add("cNote", "cNote");
+            tableMapping.ColumnMappings.Add("dtCreateDate", "dtCreateDate");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::coolBlue.Properties.Settings.Default.coolblueConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "dbo.USP_getAllAccountTypesforAccounts";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(EditDataSet.USP_getAllAccountTypesforAccountsDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual EditDataSet.USP_getAllAccountTypesforAccountsDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            EditDataSet.USP_getAllAccountTypesforAccountsDataTable dataTable = new EditDataSet.USP_getAllAccountTypesforAccountsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

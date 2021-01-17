@@ -45,30 +45,39 @@ namespace coolBlue
 
             coolBlue.EditDataSet editDataSet = ((coolBlue.EditDataSet)(this.FindResource("editDataSet")));
 
-            System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesViewSource")));
+            System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesforAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesforAccountsViewSource")));
             //System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesUSP_getAllAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesUSP_getAllAccountsViewSource")));
             //System.Windows.Data.CollectionViewSource uSP_getAllAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountsViewSource")));
-            System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesUSP_getAllAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesUSP_getAllAccountsViewSource")));
+            System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesforAccountsUSP_getAllAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesforAccountsUSP_getAllAccountsViewSource")));
 
 
 
-            coolBlue.EditDataSetTableAdapters.USP_getAllAccountTypesTableAdapter editDataSetUSP_getAllAccountTypesTableAdapter = new coolBlue.EditDataSetTableAdapters.USP_getAllAccountTypesTableAdapter();
+            coolBlue.EditDataSetTableAdapters.USP_getAllAccountTypesforAccountsTableAdapter editDataSetUSP_getAllAccountTypesforAccountsTableAdapter = new coolBlue.EditDataSetTableAdapters.USP_getAllAccountTypesforAccountsTableAdapter();
             coolBlue.EditDataSetTableAdapters.USP_getAllAccountsTableAdapter editDataSetUSP_getAllAccountsTableAdapter = new coolBlue.EditDataSetTableAdapters.USP_getAllAccountsTableAdapter();
 
-            editDataSetUSP_getAllAccountTypesTableAdapter.Fill(editDataSet.USP_getAllAccountTypes);
+
+            //editDataSet.EnforceConstraints = false;
+
+            editDataSetUSP_getAllAccountTypesforAccountsTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
+            editDataSetUSP_getAllAccountsTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
+
+            editDataSetUSP_getAllAccountTypesforAccountsTableAdapter.Fill(editDataSet.USP_getAllAccountTypesforAccounts);
             editDataSetUSP_getAllAccountsTableAdapter.Fill(editDataSet.USP_getAllAccounts);
+            
+            //editDataSet.EnforceConstraints = true;
 
 
 
-            uSP_getAllAccountTypesViewSource.View.MoveCurrentToFirst();
+            uSP_getAllAccountTypesforAccountsViewSource.View.MoveCurrentToFirst();
 
             //uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.MoveCurrentToFirst();
 
-            
+
             //uSP_getAllAccountsViewSource.View.MoveCurrentToFirst();
+
+           // uSP_getAllAccountTypesDataGrid.FilterString = "[Note] = 'haha'"; //doesn't work
         }
-
-
+        
         private void TableView_OnCustomCellAppearance(object sender, CustomCellAppearanceEventArgs e)
         {
             if (e.RowSelectionState != SelectionState.None)
@@ -92,9 +101,9 @@ namespace coolBlue
         private void goDetails()
         {
 
-            System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesUSP_getAllAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesUSP_getAllAccountsViewSource")));
+            System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesforAccountsUSP_getAllAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesforAccountsUSP_getAllAccountsViewSource")));
 
-            DataRowView drv = (DataRowView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentItem;
+            DataRowView drv = (DataRowView)uSP_getAllAccountTypesforAccountsUSP_getAllAccountsViewSource.View.CurrentItem;
             int accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
             if (accountCurrent == 0)
             {
@@ -119,14 +128,14 @@ namespace coolBlue
 
             coolBlue.EditDataSet editDataSet = ((coolBlue.EditDataSet)(this.FindResource("editDataSet")));
 
-            System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesViewSource")));
+            System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesforAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesforAccountsViewSource")));
             //System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesUSP_getAllAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesUSP_getAllAccountsViewSource")));
             //System.Windows.Data.CollectionViewSource uSP_getAllAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountsViewSource")));
             //System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesUSP_getAllAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesUSP_getAllAccountsViewSource")));
 
 
 
-            //coolBlue.EditDataSetTableAdapters.USP_getAllAccountTypesTableAdapter editDataSetUSP_getAllAccountTypesTableAdapter = new coolBlue.EditDataSetTableAdapters.USP_getAllAccountTypesTableAdapter();
+            //coolBlue.EditDataSetTableAdapters.USP_getAllAccountTypesTableAdapter editDataSetUSP_getAllAccountTypesforAccountsTableAdapter = new coolBlue.EditDataSetTableAdapters.USP_getAllAccountTypesforAccountsTableAdapter();
             coolBlue.EditDataSetTableAdapters.USP_getAllAccountsTableAdapter editDataSetUSP_getAllAccountsTableAdapter = new coolBlue.EditDataSetTableAdapters.USP_getAllAccountsTableAdapter();
             editDataSet.EnforceConstraints = false;
 
@@ -160,17 +169,17 @@ namespace coolBlue
             //int nAccountTypeID = 0;
             //int nCatID = 0;
             //int nCurrencyID = 0;
-            System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesUSP_getAllAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesUSP_getAllAccountsViewSource")));
+            System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesforAccountsUSP_getAllAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesforAccountsUSP_getAllAccountsViewSource")));
 
             //coolBlue.RegisterDataSet registerDataSet = ((coolBlue.RegisterDataSet)(this.FindResource("registerDataSet")));
-            DataRowView drv = (DataRowView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentItem;
+            DataRowView drv = (DataRowView)uSP_getAllAccountTypesforAccountsUSP_getAllAccountsViewSource.View.CurrentItem;
             int accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
             int nAccountTypeID = (drv == null ? 0 : DBNull.Value.Equals(drv["nAccountTypeID"]) == true ? 0 : (int)drv["nAccountTypeID"]);
             int nCatID = (drv == null ? 0 : DBNull.Value.Equals(drv["nCatID"]) == true ? 0 : (int)drv["nCatID"]);
             int nCurrencyID = (drv == null ? 0 : DBNull.Value.Equals(drv["nCurrencyID"]) == true ? 0 : (int)drv["nCurrencyID"]);
 
-            System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesViewSource")));
-            DataRowView drv1 = (DataRowView)uSP_getAllAccountTypesViewSource.View.CurrentItem;
+            System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesforAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesforAccountsViewSource")));
+            DataRowView drv1 = (DataRowView)uSP_getAllAccountTypesforAccountsViewSource.View.CurrentItem;
             int nID = (drv1 == null ? 0 : DBNull.Value.Equals(drv1["ID"]) == true ? 0 : (int)drv1["ID"]);
 
 

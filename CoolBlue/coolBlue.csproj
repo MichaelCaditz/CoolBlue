@@ -146,6 +146,9 @@
     <Compile Include="editCurrency.xaml.cs">
       <DependentUpon>editCurrency.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EditDataSet.cs">
+      <DependentUpon>EditDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="EditDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

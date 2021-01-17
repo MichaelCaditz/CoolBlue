@@ -18,8 +18,11 @@
     >
     <dx:ThemedWindow.Resources>
         <local:EditDataSet x:Key="editDataSet"/>
-        <CollectionViewSource x:Key="uSP_getAllAccountTypesViewSource" Source="{Binding USP_getAllAccountTypes, Source={StaticResource editDataSet}}"/>
-        <CollectionViewSource x:Key="uSP_getAllAccountTypesUSP_getAllAccountsViewSource" Source="{Binding FK_USP_getAllAccountTypes_USP_getAllAccounts, Source={StaticResource uSP_getAllAccountTypesViewSource}}"/>
+        <!--<CollectionViewSource x:Key="uSP_getAllAccountTypesViewSource" Source="{Binding USP_getAllAccountTypes, Source={StaticResource editDataSet}}"/>-->
+        <CollectionViewSource x:Key="uSP_getAllAccountTypesforAccountsViewSource" Source="{Binding USP_getAllAccountTypesforAccounts, Source={StaticResource editDataSet}}"/>
+
+        <!--<CollectionViewSource x:Key="uSP_getAllAccountTypesUSP_getAllAccountsViewSource" Source="{Binding FK_USP_getAllAccountTypes_USP_getAllAccounts, Source={StaticResource uSP_getAllAccountTypesViewSource}}"/>-->
+        <CollectionViewSource x:Key="uSP_getAllAccountTypesforAccountsUSP_getAllAccountsViewSource" Source="{Binding USP_getAllAccountTypesforAccounts_USP_getAllAccounts, Source={StaticResource uSP_getAllAccountTypesforAccountsViewSource}}"/>
     </dx:ThemedWindow.Resources>
 
     <dxlc:ScrollBox HorizontalAlignment="Left"  Grid.Row="0" Grid.RowSpan="11" Grid.ColumnSpan="7" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="0" Padding="0" DragScrolling="False" Background="{x:Null}" >
@@ -72,8 +75,8 @@
             </dxr:RibbonStatusBarControl>
 
             <dxg:GridControl Name="uSP_getAllAccountTypesDataGrid" AutoGenerateColumns="None"  EnableSmartColumnsGeneration="False" 
-                         ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesViewSource}}" 
-                         Margin="3,0,0,0" Grid.Row="2" Grid.ColumnSpan="6" SelectionMode="Row" HorizontalAlignment="Left" VerticalAlignment="Top">
+                         ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesforAccountsViewSource}}" 
+                         Margin="3,0,0,0" Grid.Row="2" Grid.ColumnSpan="6" SelectionMode="Row" HorizontalAlignment="Left" VerticalAlignment="Top" AllowColumnMRUFilterList="True">
                 <dxg:GridControl.View>
                     <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" 
                                ShowColumnHeaders ="True"  Grid.ColumnSpan="1" Margin="0,0,0,0"  
@@ -82,7 +85,7 @@
                                ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" 
                                ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" 
                                ShowValidationAttributeErrors="False" ShowVerticalLines="False"
-                               CustomCellAppearance="TableView_OnCustomCellAppearance">
+                               CustomCellAppearance="TableView_OnCustomCellAppearance" AllowFilterEditor="True" ShowFilterPanelMode="Default">
 
                         <dxg:TableView.FormatConditions>
                             <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id">
@@ -128,12 +131,14 @@
                 </dxg:GridColumn>
 
 
-                <dxg:GridColumn Binding="{Binding cNote}"  FieldName="Note" Header="Note" Width="160"/>
+                <dxg:GridColumn Name="cNote"  FieldName="Note" Header="Note" Width="160" AllowColumnFiltering="True" FilterPopupMode="CheckedList"/>
+                <dxg:GridColumn Name ="bIsAll"   FieldName="bIsAll" Visible="True" Header="bIsAll" Width="160"/>
+
 
 
             </dxg:GridControl>
             <dxg:GridControl Name="uSP_getAllAccountsDataGrid" AutoGenerateColumns="None"  EnableSmartColumnsGeneration="False" 
-                         ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesUSP_getAllAccountsViewSource}}" 
+                         ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesforAccountsUSP_getAllAccountsViewSource}}" 
                          Margin="3,12,0,0" Grid.Row="3" Grid.RowSpan="3" Grid.ColumnSpan="8" SelectionMode="Row" HorizontalAlignment="Left" VerticalAlignment="Top">
             <dxg:GridControl.View>
                 <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" 

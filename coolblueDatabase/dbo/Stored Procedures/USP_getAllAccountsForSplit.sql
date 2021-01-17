@@ -29,7 +29,7 @@ BEGIN
 	  left join dbo.cat c on a.nCatID = c.ID
 	  left join dbo.accountType d on 
 	   a.nAccountTypeID = d.ID
-	 where (a.bDeleted is null or a.bDeleted=0)
+	 where (a.bDeleted is null or a.bDeleted=0) and (a.bIsAll is null or a.bIsAll=0)
 		
 	--order by a.nAccountTypeID
 

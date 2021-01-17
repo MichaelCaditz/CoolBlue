@@ -3,7 +3,7 @@
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE [dbo].[USP_getAllAccountTypes]
+create PROCEDURE [dbo].[USP_getAllAccountTypesforAccounts]
 	
 	--@InventoryNumber nVarchar(255),
 	--@Title nVarchar(255)
@@ -20,23 +20,19 @@ BEGIN
 
 	--a.cNameFirst,a.cNameLast,
 	
-	 SELECT a.ID,a.cName,a.cNote,a.dtCreateDate,a.nAccountingTypeID,b.cName as accountingTypeName,b.cSymbol as accountingTypeSymbol,
-	a.bIsAll
+	 SELECT a.ID,a.cName,a.cNote,a.dtCreateDate,a.nAccountingTypeID,b.cName as accountingTypeName,b.cSymbol as accountingTypeSymbol
 
 
 	 FROM accountType a WITH (NOLOCK)
 
 	 left join accountingType b on a.nAccountingTypeID = b.ID
 
-	 where  a.bDeleted is null or a.bDeleted=0
+	 where  (a.bDeleted is null or a.bDeleted=0) and (a.bIsAll is null or a.bIsAll=0)
 		
-	order by a.bIsAll, a.cName
+	order by a.cName
 
 	
 	
 		
                    				 
 end
-
-
-
