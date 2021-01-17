@@ -152,6 +152,9 @@ namespace coolBlue
             //coolBlue.RegisterDataSetTableAdapters.USP_getAllAccountsForSplitTableAdapter registerDataSetUSP_getAllAccountsForSplitTableAdapter = new coolBlue.RegisterDataSetTableAdapters.USP_getAllAccountsForSplitTableAdapter();
             //System.Windows.Data.CollectionViewSource uSP_getAllAccountsForSplitViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountsForSplitViewSource")));
 
+
+
+            TextEditBalance.DisplayFormatString = "#,##0.00;<#,##0.00>";
         }
 
 
