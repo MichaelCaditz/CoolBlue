@@ -698,9 +698,9 @@
 
 
 
-                <dxg:GridColumn Name="nAmount_D" FieldName="nAmount_D" Header="Dr Amount" Width="100" AllowSorting="True" AllowEditing="True" EditFormVisibleIndex="1" SortOrder="Ascending" SortIndex="0">
+                <dxg:GridColumn Name="nAmount_D" FieldName="nAmount_D" Header="Dr Amount" Width="100" AllowSorting="True" AllowEditing="True" EditFormVisibleIndex="1">
                     <dxg:GridColumn.EditSettings>
-                        <dxe:TextEditSettings DisplayFormat="###########.00" MaskUseAsDisplayFormat="True"  MaskType="Numeric" Mask="f2" />
+                        <dxe:CalcEditSettings DisplayFormat="###########.00" MaskUseAsDisplayFormat="True"  MaskType="Numeric" Mask="f2" />
                     </dxg:GridColumn.EditSettings>
                 </dxg:GridColumn>
 
@@ -752,9 +752,9 @@
                 </dxg:GridColumn>
 
 
-                <dxg:GridColumn Name="nAmount_C" FieldName="nAmount_C" Header="Cr Amount" Width="100" AllowSorting="True" AllowEditing="True" EditFormVisibleIndex="4">
+                <dxg:GridColumn Name="nAmount_C" FieldName="nAmount_C" Header="Cr Amount" Width="100" AllowSorting="True" AllowEditing="True" EditFormVisibleIndex="4" SortOrder="Ascending" SortIndex="0">
                     <dxg:GridColumn.EditSettings>
-                        <dxe:TextEditSettings DisplayFormat="###########.00" MaskUseAsDisplayFormat="True" MaskType="Numeric" Mask="f2" />
+                        <dxe:CalcEditSettings DisplayFormat="###########.00" MaskUseAsDisplayFormat="True" MaskType="Numeric" Mask="f2" />
                     </dxg:GridColumn.EditSettings>
                 </dxg:GridColumn>
 
@@ -853,7 +853,9 @@
                 <dxg:GridColumn FieldName="cMemo" Header="Memo" Width="130" AllowSorting="True" EditFormVisibleIndex="8" />
                 <dxg:GridColumn FieldName="nOriginalAmount" Header="Original Amnt." AllowSorting="True" Width="100" EditFormVisibleIndex="10">
                     <dxg:GridColumn.EditSettings>
-                        <dxe:TextEditSettings MaskUseAsDisplayFormat="True" MaskType="Numeric" Mask="f2" />
+                        <!--<dxe:TextEditSettings MaskUseAsDisplayFormat="True" MaskType="Numeric" Mask="f2" />-->
+                        <dxe:CalcEditSettings MaskUseAsDisplayFormat="True" MaskType="Numeric" Mask="f2" />
+
                     </dxg:GridColumn.EditSettings>
                 </dxg:GridColumn>
 
@@ -913,6 +915,7 @@
             <dxe:TextEdit x:Name="TextEditTotalDr" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="170,10,0,0" Grid.Row="10" VerticalAlignment="Top" Width="80" Mask="F" MaskType="Numeric" IsReadOnly="True" />
             <dxe:TextEdit x:Name="TextEditTotalCr" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="252,10,0,0" Grid.Row="10" VerticalAlignment="Top" Width="80" Mask="F" MaskType="Numeric" IsReadOnly="True" />
             <dxe:TextEdit x:Name="TextEditBalance" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="336,10,0,0" Grid.Row="10" VerticalAlignment="Top" Width="100" Mask="F"  MaskType="Numeric" FontWeight="Normal" Padding="0,0,5,0" Background="Black" Foreground="White" IsReadOnly="True" />
+            <dxe:Calculator Grid.Column="8" HorizontalAlignment="Left" Height="0" Margin="0,16,0,0" Grid.Row="3" VerticalAlignment="Top" Width="1"/>
 
             <!--</dxlc:ScrollBox>-->
 
