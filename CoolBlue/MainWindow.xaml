@@ -364,11 +364,14 @@
 
             <dxg:GridControl Name="uSP_getLineDataGrid" AutoGenerateColumns="None" EnableSmartColumnsGeneration="False" ItemsSource="{Binding Source={StaticResource uSP_getLineViewSource1}}" Margin="0,0,4,0" Grid.Column="5" Grid.Row="3" Grid.RowSpan="7" SelectionMode="Row">
                 <dxg:GridControl.View>
-                    <dxg:TableView Name="LineView" AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" ShowColumnHeaders="True" Grid.ColumnSpan="1" Margin="0,0,0,0" ShowBandsPanel="False" ShowBandsInCustomizationForm="False" ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" ShowValidationAttributeErrors="False" ShowVerticalLines="False" CustomCellAppearance="TableView_OnCustomCellAppearance" FocusedRowChanged="TableView_FocusedRowChanged" ValidateRow="TableView_ValidateRow">
+                    <dxg:TableView Name="LineView" AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" ShowColumnHeaders="True" Grid.ColumnSpan="1" Margin="0,0,0,0" ShowBandsPanel="False" ShowBandsInCustomizationForm="False" ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" ShowValidationAttributeErrors="False" ShowVerticalLines="False" CustomCellAppearance="TableView_OnCustomCellAppearance" FocusedRowChanged="TableView_FocusedRowChanged" ValidateRow="TableView_ValidateRow" AllowConditionalFormattingManager="False">
 
                         <dxg:TableView.FormatConditions>
-                            <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id">
+                            <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id" IsEnabled="False">
                                 <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold" />
+                            </dxg:FormatCondition>
+                            <dxg:FormatCondition ApplyToRow="True" Expression="[bIsAll] = 'True' And [totalDr] &lt;&gt; [totalCr]" FieldName="ID">
+                                <dx:Format Background="#FF932320" Foreground="Yellow" FontWeight="Bold" TextDecorations="{x:Null}"/>
                             </dxg:FormatCondition>
                         </dxg:TableView.FormatConditions>
                         <dxg:TableView.RowStyle>
@@ -411,6 +414,7 @@
 
                 <dxg:GridColumn Binding="{Binding ID}" FieldName="ID" Header="ID" Width="50" ReadOnly="True" AllowFocus="False" AllowSorting="True" />
                 <dxg:GridColumn FieldName="dtTransDate" Header="Date" ReadOnly="False" AllowFocus="True" AllowSorting="True" SortOrder="Descending" />
+                <dxg:GridColumn  FieldName="bIsAll" Header="bIsAll" Width="50" ReadOnly="True" AllowFocus="False" AllowSorting="True" Visible="False" />
 
 
 
@@ -560,9 +564,15 @@
                     <dxg:TableView Name="SplitsView" AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" ShowColumnHeaders="True" Grid.ColumnSpan="1" Margin="0,0,0,0" NavigationStyle="Cell" ShowBandsPanel="False" ShowBandsInCustomizationForm="False" ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnEnterKey="True" ShowEditFormOnF2Key="True" ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" ShowValidationAttributeErrors="False" ShowVerticalLines="False" CustomCellAppearance="TableView_OnCustomCellAppearance" NewItemRowPosition="Bottom" ValidateRow="SplitsView_ValidateRow" EnableImmediatePosting="True" EditFormPostMode="Immediate" EditFormShowMode="Inline" EditorButtonShowMode="ShowForFocusedCell" EditFormColumnCount="4" InvalidRowException="SplitsView_InvalidRowException" ValidateCell="SplitsView_ValidateCell" CellValueChanged="SplitsView_CellValueChanged">
 
                         <dxg:TableView.FormatConditions>
-                            <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id">
+                            <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id" IsEnabled="False">
                                 <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold" />
                             </dxg:FormatCondition>
+                            <dxg:FormatCondition ApplyToRow="True" Expression="[nAmount_D] &lt;&gt; [nAmount_C]" FieldName="nAmount_D" IsEnabled="False">
+                                <dx:Format Background="#FF932320" Foreground="White" TextDecorations="{x:Null}"/>
+                            </dxg:FormatCondition>
+                            <dxg:ColorScaleFormatCondition FieldName="nAmount_D" MaxValue="6000" MinValue="100" IsEnabled="False">
+                                <dx:ColorScaleFormat ColorMin="#FFF8696B" ColorMax="#FF63BE7B"/>
+                            </dxg:ColorScaleFormatCondition>
                         </dxg:TableView.FormatConditions>
                         <dxg:TableView.RowStyle>
                             <Style TargetType="{x:Type dxg:RowControl}">

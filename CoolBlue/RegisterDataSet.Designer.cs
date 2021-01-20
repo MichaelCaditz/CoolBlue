@@ -555,6 +555,8 @@ namespace coolBlue {
             
             private global::System.Data.DataColumn columntotalCr;
             
+            private global::System.Data.DataColumn columnbIsAll;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public USP_getLineDataTable() {
@@ -654,6 +656,14 @@ namespace coolBlue {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn bIsAllColumn {
+                get {
+                    return this.columnbIsAll;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -689,7 +699,7 @@ namespace coolBlue {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public USP_getLineRow AddUSP_getLineRow(System.DateTime dtCreateDate, int nAccountID, System.DateTime dtTransDate, string cNote, decimal totalSplit, decimal totalDr, decimal totalCr) {
+            public USP_getLineRow AddUSP_getLineRow(System.DateTime dtCreateDate, int nAccountID, System.DateTime dtTransDate, string cNote, decimal totalSplit, decimal totalDr, decimal totalCr, bool bIsAll) {
                 USP_getLineRow rowUSP_getLineRow = ((USP_getLineRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -699,7 +709,8 @@ namespace coolBlue {
                         cNote,
                         totalSplit,
                         totalDr,
-                        totalCr};
+                        totalCr,
+                        bIsAll};
                 rowUSP_getLineRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowUSP_getLineRow);
                 return rowUSP_getLineRow;
@@ -737,6 +748,7 @@ namespace coolBlue {
                 this.columntotalSplit = base.Columns["totalSplit"];
                 this.columntotalDr = base.Columns["totalDr"];
                 this.columntotalCr = base.Columns["totalCr"];
+                this.columnbIsAll = base.Columns["bIsAll"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -758,6 +770,8 @@ namespace coolBlue {
                 base.Columns.Add(this.columntotalDr);
                 this.columntotalCr = new global::System.Data.DataColumn("totalCr", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntotalCr);
+                this.columnbIsAll = new global::System.Data.DataColumn("bIsAll", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnbIsAll);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AutoIncrement = true;
@@ -3565,6 +3579,22 @@ namespace coolBlue {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool bIsAll {
+                get {
+                    try {
+                        return ((bool)(this[this.tableUSP_getLine.bIsAllColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'bIsAll\' in table \'USP_getLine\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUSP_getLine.bIsAllColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsdtCreateDateNull() {
                 return this.IsNull(this.tableUSP_getLine.dtCreateDateColumn);
             }
@@ -3645,6 +3675,18 @@ namespace coolBlue {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SettotalCrNull() {
                 this[this.tableUSP_getLine.totalCrColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsbIsAllNull() {
+                return this.IsNull(this.tableUSP_getLine.bIsAllColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetbIsAllNull() {
+                this[this.tableUSP_getLine.bIsAllColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5578,6 +5620,7 @@ namespace coolBlue.RegisterDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("totalSplit", "totalSplit");
             tableMapping.ColumnMappings.Add("totalDr", "totalDr");
             tableMapping.ColumnMappings.Add("totalCr", "totalCr");
+            tableMapping.ColumnMappings.Add("bIsAll", "bIsAll");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
