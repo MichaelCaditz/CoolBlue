@@ -11,7 +11,7 @@
     <Shape ID="DesignTable:USP_getAllClass" ZOrder="7" X="640" Y="50" Height="153" Width="237" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="102" />
     <Shape ID="DesignTable:USP_getAllAccountTypes" ZOrder="4" X="364" Y="237" Height="153" Width="289" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="102" />
     <Shape ID="DesignTable:USP_getAllAccounts" ZOrder="6" X="749" Y="245" Height="229" Width="261" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="178" />
-    <Shape ID="DesignTable:USP_getAllCurrency" ZOrder="5" X="54" Y="500" Height="153" Width="260" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="102" />
+    <Shape ID="DesignTable:USP_getAllCurrency" ZOrder="5" X="54" Y="500" Height="172" Width="260" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="121" />
     <Shape ID="DesignTable:USP_getAllAccountTypesforAccounts" ZOrder="3" X="378" Y="510" Height="153" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="102" />
   </Shapes>
   <Connectors>

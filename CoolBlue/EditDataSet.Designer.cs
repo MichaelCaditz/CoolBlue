@@ -2223,6 +2223,8 @@ namespace coolBlue {
             
             private global::System.Data.DataColumn columndtCreateDate;
             
+            private global::System.Data.DataColumn columncSymbol;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public USP_getAllCurrencyDataTable() {
@@ -2290,6 +2292,14 @@ namespace coolBlue {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn cSymbolColumn {
+                get {
+                    return this.columncSymbol;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2325,13 +2335,14 @@ namespace coolBlue {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public USP_getAllCurrencyRow AddUSP_getAllCurrencyRow(string cName, string cNote, System.DateTime dtCreateDate) {
+            public USP_getAllCurrencyRow AddUSP_getAllCurrencyRow(string cName, string cNote, System.DateTime dtCreateDate, string cSymbol) {
                 USP_getAllCurrencyRow rowUSP_getAllCurrencyRow = ((USP_getAllCurrencyRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         cName,
                         cNote,
-                        dtCreateDate};
+                        dtCreateDate,
+                        cSymbol};
                 rowUSP_getAllCurrencyRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowUSP_getAllCurrencyRow);
                 return rowUSP_getAllCurrencyRow;
@@ -2365,6 +2376,7 @@ namespace coolBlue {
                 this.columncName = base.Columns["cName"];
                 this.columncNote = base.Columns["cNote"];
                 this.columndtCreateDate = base.Columns["dtCreateDate"];
+                this.columncSymbol = base.Columns["cSymbol"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2378,6 +2390,8 @@ namespace coolBlue {
                 base.Columns.Add(this.columncNote);
                 this.columndtCreateDate = new global::System.Data.DataColumn("dtCreateDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndtCreateDate);
+                this.columncSymbol = new global::System.Data.DataColumn("cSymbol", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncSymbol);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AutoIncrement = true;
@@ -3814,6 +3828,22 @@ namespace coolBlue {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string cSymbol {
+                get {
+                    try {
+                        return ((string)(this[this.tableUSP_getAllCurrency.cSymbolColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'cSymbol\' in table \'USP_getAllCurrency\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUSP_getAllCurrency.cSymbolColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IscNameNull() {
                 return this.IsNull(this.tableUSP_getAllCurrency.cNameColumn);
             }
@@ -3846,6 +3876,18 @@ namespace coolBlue {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetdtCreateDateNull() {
                 this[this.tableUSP_getAllCurrency.dtCreateDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IscSymbolNull() {
+                return this.IsNull(this.tableUSP_getAllCurrency.cSymbolColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetcSymbolNull() {
+                this[this.tableUSP_getAllCurrency.cSymbolColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -5152,6 +5194,7 @@ namespace coolBlue.EditDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("cName", "cName");
             tableMapping.ColumnMappings.Add("cNote", "cNote");
             tableMapping.ColumnMappings.Add("dtCreateDate", "dtCreateDate");
+            tableMapping.ColumnMappings.Add("cSymbol", "cSymbol");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

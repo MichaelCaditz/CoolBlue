@@ -159,15 +159,15 @@
 
                         <Label VerticalAlignment="Center" Grid.Row="10" Margin="0,4" HorizontalAlignment="Left" Grid.Column="0" Content="Category:" Height="22" Width="51"/>
 
-                        <dxg:LookUpEdit x:Name="LookupEditCat" PopupHeight="600" PopupWidth="300" PopupMinHeight="100" PopupMinWidth="100" DisplayMember="cName" 
+                        <dxg:LookUpEdit x:Name="LookupEditCat" PopupHeight="600" PopupWidth="220" PopupMinHeight="100" PopupMinWidth="100" DisplayMember="cName" 
                 ValueMember="ID" AutoPopulateColumns="false" AutoComplete="True" IncrementalFiltering="True" ImmediatePopup="True" 
-                IsPopupAutoWidth="False" Width="230" Grid.Column="1" TabIndex="0" FontSize="11"
-                FontFamily="/LDAddonModules;component/Fonts/Merriweather-Regular.ttf#Merriweather" Margin="3,3,0,3" ItemsSource="{Binding Source={StaticResource uSP_getAllCatsViewSource}}" IsSynchronizedWithCurrentItem="True" Grid.Row="10" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5">
+                IsPopupAutoWidth="False" Width="220" Grid.Column="1" TabIndex="0" FontSize="11"
+                FontFamily="/LDAddonModules;component/Fonts/Merriweather-Regular.ttf#Merriweather" Margin="3,4,0,4" ItemsSource="{Binding Source={StaticResource uSP_getAllCatsViewSource}}" IsSynchronizedWithCurrentItem="True" Grid.Row="10" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5" Height="22">
                             <dxg:LookUpEdit.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform/>
                                     <SkewTransform/>
-                                    <RotateTransform Angle="-0.000"/>
+                                    <RotateTransform Angle="-0.154"/>
                                     <TranslateTransform/>
                                 </TransformGroup>
                             </dxg:LookUpEdit.RenderTransform>
@@ -176,10 +176,12 @@
                             </dxg:LookUpEdit.StyleSettings>
                             <dxg:LookUpEdit.PopupContentTemplate>
                                 <ControlTemplate>
-                                    <dxg:GridControl x:Name="PART_GridControl" AutoExpandAllGroups="True">
+                                    <dxg:GridControl x:Name="PART_GridControl" AutoExpandAllGroups="True" Width="200">
                                         <dxg:GridControl.View>
-                                            <dxg:TableView AutoWidth="True" ShowGroupPanel="False" ShowTotalSummary="False" AllowEditing="False" NavigationStyle="Row" 
-                                                    AllowFixedColumnMenu="True" ShowCheckBoxSelectorInGroupRow="False" ShowHorizontalLines="False" ShowVerticalLines="False" AllowBestFit="True" ShowCheckBoxSelectorColumn="False" ShowColumnHeaders="False" ShowAutoFilterRow="True" ShowGroupedColumns="True" RowMinHeight="26" />
+                                            <dxg:TableView AutoWidth="false" ShowGroupPanel="False" ShowTotalSummary="False" AllowEditing="False" NavigationStyle="Row" Width="200"
+                                                    AllowFixedColumnMenu="True" AllowBestFit="False" ShowAutoFilterRow="True" ShowGroupedColumns="False" RowMinHeight="26" ShowColumnHeaders="False" 
+                                                    ShowHorizontalLines="False" ShowIndicator="False" ShowVerticalLines="False" ShowSearchPanelMode="Default"
+                                                    ShowSearchPanelFindButton="True" ShowSearchPanelMRUButton="True" ShowSearchPanelNavigationButtons="False" ShowDataNavigator="True" />
                                         </dxg:GridControl.View>
                                         <dxg:GridColumn FieldName="cName" Header="Category"  AllowMoving="False"/>
                                         <dxg:GridColumn FieldName="cNotes" Header="Note" AllowMoving="False"/>
@@ -193,7 +195,7 @@
 
                         <Label VerticalAlignment="Top" Grid.Row="2" Margin="3,4,0,0" HorizontalAlignment="Left" Grid.Column="0" Content="Currency:" Height="22" Width="50"/>
 
-                        <dxg:LookUpEdit x:Name="LookupEditCurrency"  PopupHeight="300" PopupWidth="300" PopupMinHeight="100" PopupMinWidth="100" DisplayMember="cName" 
+                        <dxg:LookUpEdit x:Name="LookupEditCurrency"  PopupHeight="300" PopupWidth="220" PopupMinHeight="100" PopupMinWidth="100" DisplayMember="cName" 
                 ValueMember="ID" AutoPopulateColumns="false" AutoComplete="True" IncrementalFiltering="True" ImmediatePopup="True" 
                 IsPopupAutoWidth="False" Width="230" Grid.Column="1" TabIndex="0" FontSize="11"
                 FontFamily="/LDAddonModules;component/Fonts/Merriweather-Regular.ttf#Merriweather" Margin="3,4,0,2" ItemsSource="{Binding Source={StaticResource uSP_getAllCurrencyViewSource}}" IsSynchronizedWithCurrentItem="True" Grid.Row="2" HorizontalAlignment="Left" >
@@ -205,9 +207,12 @@
                                     <dxg:GridControl x:Name="PART_GridControl" AutoExpandAllGroups="True">
                                         <dxg:GridControl.View>
                                             <dxg:TableView AutoWidth="false" ShowGroupPanel="False" ShowTotalSummary="False" AllowEditing="False" NavigationStyle="Row" Width="200"
-                                                    AllowFixedColumnMenu="True" AllowBestFit="False" ShowAutoFilterRow="True" ShowGroupedColumns="False" RowMinHeight="26" ShowColumnHeaders="False" ShowHorizontalLines="False" ShowIndicator="False" ShowVerticalLines="False" />
+                                                    AllowFixedColumnMenu="True" AllowBestFit="False" ShowAutoFilterRow="True" ShowGroupedColumns="False" RowMinHeight="26" ShowColumnHeaders="False" 
+                                                    ShowHorizontalLines="False" ShowIndicator="False" ShowVerticalLines="False" ShowSearchPanelMode="Default"
+                                                    ShowSearchPanelFindButton="True" ShowSearchPanelMRUButton="True" ShowSearchPanelNavigationButtons="False" ShowDataNavigator="True" />
                                         </dxg:GridControl.View>
-                                        <dxg:GridColumn FieldName="cName" AllowMoving="False"/>
+                                        <dxg:GridColumn FieldName="cSymbol" AllowMoving="False" Width="40"/>
+                                        <dxg:GridColumn FieldName="cName" AllowMoving="False" Width="60"/>
                                         <dxg:GridColumn FieldName="cNotes" AllowMoving="False" Width="50"/>
                                     </dxg:GridControl>
                                 </ControlTemplate>
