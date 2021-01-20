@@ -3,7 +3,7 @@
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-creATE PROCEDURE [dbo].[USP_getAllCurrency]
+CREATE PROCEDURE [dbo].[USP_getAllCurrency]
 	--@InventoryNumber nVarchar(255),
 	--@Title nVarchar(255)
 	--@accountID int
@@ -19,7 +19,7 @@ BEGIN
 
 	--a.cNameFirst,a.cNameLast,
 	
-	 SELECT a.ID, a.cName,a.cNote,a.dtCreateDate
+	 SELECT a.ID, a.cName,a.cNote,a.dtCreateDate,a.cSymbol
 
 
 	 FROM dbo.currency a  WITH (NOLOCK)

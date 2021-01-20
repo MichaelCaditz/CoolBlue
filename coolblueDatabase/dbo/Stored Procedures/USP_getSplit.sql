@@ -22,7 +22,8 @@ BEGIN
 	--a.cNameFirst,a.cNameLast,
 	
 	 SELECT a.ID,a.dtCreateDate,b.nAccountID,b.dtTransDate,a.cMemo,a.nSubCatID,a.nAmount,a.nClassID,a.nOriginalAmount,
-	 a.nCurrencyID,a.nTagID,a.nVendorsID,a.nLineID ,a.bXfer,a.nXferAccountID,a.nAccountID_C,a.nAccountID_D,a.nAmount_C,a.nAmount_D
+	 a.nCurrencyID,a.nTagID,a.nVendorsID,a.nLineID ,a.bXfer,a.nXferAccountID,a.nAccountID_C,a.nAccountID_D,a.nAmount_C,a.nAmount_D,
+	 a.nEntryCurrencyID,a.nAmount_C_Native,a.nAmount_D_Native
 
 
 	 FROM split a  WITH (NOLOCK)

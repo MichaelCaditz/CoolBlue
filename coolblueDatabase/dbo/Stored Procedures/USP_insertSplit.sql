@@ -25,6 +25,10 @@ CREATE PROCEDURE [dbo].[USP_insertSplit]
 	@nAccountID_D int = 0,
 	@nAmount_C decimal (20,4)= 0,
 	@nAmount_D decimal (20,4)= 0,
+	@nEntryCurrencyID int = 0,
+	@nAmount_C_Native decimal (20,4)= 0,
+	@nAmount_D_Native decimal (20,4)= 0,
+	
 
 	@transactIdentity int output
 	
@@ -59,7 +63,10 @@ BEGIN
 	nAccountID_C,
 	nAccountID_D ,
 	nAmount_C ,
-	nAmount_D 
+	nAmount_D ,
+	nEntryCurrencyID,
+	nAmount_C_Native,
+	nAmount_D_Native 
 	)
 	
 	
@@ -82,7 +89,10 @@ BEGIN
 	@nAccountID_C,
 	@nAccountID_D ,
 	@nAmount_C ,
-	@nAmount_D 
+	@nAmount_D ,
+	@nEntryCurrencyID ,
+	@nAmount_C_Native,
+	@nAmount_D_Native
 	
 
 	)

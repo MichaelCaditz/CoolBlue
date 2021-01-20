@@ -216,6 +216,7 @@ namespace coolBlue
             int accountCurrent = 0;
             int accountingPeriod = 0;
             int accountingTypeCurrent = 0;
+            int nCurrencyID = 0;
             int wasnull = 0;
             wasnull = (uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View == null ? 1 : 0);
             if (wasnull == 1)
@@ -249,7 +250,7 @@ namespace coolBlue
             {
                 DataRowView drv = (DataRowView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentItem;
                 accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
-
+                nCurrencyID = (drv == null ? 0 : DBNull.Value.Equals(drv["nCurrencyID"]) == true ? 0 : (int)drv["nCurrencyID"]);
                 accountingPeriod = 1000;  // this will be changed so value comes from settings
 
 
@@ -349,18 +350,21 @@ namespace coolBlue
                     case 1000:
 
                         uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nAccountID_C", accountCurrent);
+                        uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nEntryCurrencyID", nCurrencyID);
 
                         break;
 
                     case 1001:
 
                         uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nAccountID_C", accountCurrent);
+                        uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nEntryCurrencyID", nCurrencyID);
 
                         break;
 
                     case 1003:
 
                         uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nAccountID_D", accountCurrent);
+                        uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nEntryCurrencyID", nCurrencyID);
 
                         break;
 
@@ -368,6 +372,8 @@ namespace coolBlue
 
                 uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nAmount_C", 0);
                 uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nAmount_D", 0);
+                uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nAmount_C_Native", 0);
+                uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nAmount_D_Native", 0);
 
 
                 SplitsView.Focus();
