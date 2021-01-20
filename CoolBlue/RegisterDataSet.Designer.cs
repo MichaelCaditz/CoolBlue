@@ -950,6 +950,12 @@ namespace coolBlue {
             
             private global::System.Data.DataColumn columnnAmount_D;
             
+            private global::System.Data.DataColumn columnnEntryCurrencyID;
+            
+            private global::System.Data.DataColumn columnnAmount_C_Native;
+            
+            private global::System.Data.DataColumn columnnAmount_D_Native;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public USP_getSplitDataTable() {
@@ -1137,6 +1143,30 @@ namespace coolBlue {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn nEntryCurrencyIDColumn {
+                get {
+                    return this.columnnEntryCurrencyID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn nAmount_C_NativeColumn {
+                get {
+                    return this.columnnAmount_C_Native;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn nAmount_D_NativeColumn {
+                get {
+                    return this.columnnAmount_D_Native;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1190,7 +1220,10 @@ namespace coolBlue {
                         int nAccountID_C, 
                         int nAccountID_D, 
                         decimal nAmount_C, 
-                        decimal nAmount_D) {
+                        decimal nAmount_D, 
+                        int nEntryCurrencyID, 
+                        decimal nAmount_C_Native, 
+                        decimal nAmount_D_Native) {
                 USP_getSplitRow rowUSP_getSplitRow = ((USP_getSplitRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1211,7 +1244,10 @@ namespace coolBlue {
                         nAccountID_C,
                         nAccountID_D,
                         nAmount_C,
-                        nAmount_D};
+                        nAmount_D,
+                        nEntryCurrencyID,
+                        nAmount_C_Native,
+                        nAmount_D_Native};
                 if ((parentUSP_getLineRowByFK_USP_getLine_USP_getSplit != null)) {
                     columnValuesArray[12] = parentUSP_getLineRowByFK_USP_getLine_USP_getSplit[0];
                 }
@@ -1263,6 +1299,9 @@ namespace coolBlue {
                 this.columnnAccountID_D = base.Columns["nAccountID_D"];
                 this.columnnAmount_C = base.Columns["nAmount_C"];
                 this.columnnAmount_D = base.Columns["nAmount_D"];
+                this.columnnEntryCurrencyID = base.Columns["nEntryCurrencyID"];
+                this.columnnAmount_C_Native = base.Columns["nAmount_C_Native"];
+                this.columnnAmount_D_Native = base.Columns["nAmount_D_Native"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1306,6 +1345,12 @@ namespace coolBlue {
                 base.Columns.Add(this.columnnAmount_C);
                 this.columnnAmount_D = new global::System.Data.DataColumn("nAmount_D", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnAmount_D);
+                this.columnnEntryCurrencyID = new global::System.Data.DataColumn("nEntryCurrencyID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnEntryCurrencyID);
+                this.columnnAmount_C_Native = new global::System.Data.DataColumn("nAmount_C_Native", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnAmount_C_Native);
+                this.columnnAmount_D_Native = new global::System.Data.DataColumn("nAmount_D_Native", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnAmount_D_Native);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AutoIncrement = true;
@@ -4016,6 +4061,54 @@ namespace coolBlue {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int nEntryCurrencyID {
+                get {
+                    try {
+                        return ((int)(this[this.tableUSP_getSplit.nEntryCurrencyIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nEntryCurrencyID\' in table \'USP_getSplit\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUSP_getSplit.nEntryCurrencyIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal nAmount_C_Native {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableUSP_getSplit.nAmount_C_NativeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nAmount_C_Native\' in table \'USP_getSplit\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUSP_getSplit.nAmount_C_NativeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal nAmount_D_Native {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableUSP_getSplit.nAmount_D_NativeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nAmount_D_Native\' in table \'USP_getSplit\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUSP_getSplit.nAmount_D_NativeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public USP_getLineRow USP_getLineRow {
                 get {
                     return ((USP_getLineRow)(this.GetParentRow(this.Table.ParentRelations["FK_USP_getLine_USP_getSplit"])));
@@ -4239,6 +4332,42 @@ namespace coolBlue {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetnAmount_DNull() {
                 this[this.tableUSP_getSplit.nAmount_DColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsnEntryCurrencyIDNull() {
+                return this.IsNull(this.tableUSP_getSplit.nEntryCurrencyIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetnEntryCurrencyIDNull() {
+                this[this.tableUSP_getSplit.nEntryCurrencyIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsnAmount_C_NativeNull() {
+                return this.IsNull(this.tableUSP_getSplit.nAmount_C_NativeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetnAmount_C_NativeNull() {
+                this[this.tableUSP_getSplit.nAmount_C_NativeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsnAmount_D_NativeNull() {
+                return this.IsNull(this.tableUSP_getSplit.nAmount_D_NativeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetnAmount_D_NativeNull() {
+                this[this.tableUSP_getSplit.nAmount_D_NativeColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -5833,6 +5962,9 @@ namespace coolBlue.RegisterDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("nAmount_C", "nAmount_C");
             tableMapping.ColumnMappings.Add("nAccountID_D", "nAccountID_D");
             tableMapping.ColumnMappings.Add("nAccountID_C", "nAccountID_C");
+            tableMapping.ColumnMappings.Add("nEntryCurrencyID", "nEntryCurrencyID");
+            tableMapping.ColumnMappings.Add("nAmount_C_Native", "nAmount_C_Native");
+            tableMapping.ColumnMappings.Add("nAmount_D_Native", "nAmount_D_Native");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

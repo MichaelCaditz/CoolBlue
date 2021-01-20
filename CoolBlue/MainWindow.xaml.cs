@@ -377,7 +377,8 @@ namespace coolBlue
                 //SplitsView.FocusedRowHandle = 0;
                 Dispatcher.BeginInvoke(new Action(() =>
                 {
-                    SplitsView.ShowInlineEditForm();
+                    //SplitsView.ShowInlineEditForm();
+                    SplitsView.ShowEditForm();
                 }), DispatcherPriority.Render);
                 //Dispatcher.BeginInvoke((Action)SplitsView.ShowEditor, DispatcherPriority.Render);
 
@@ -644,6 +645,14 @@ namespace coolBlue
                     int nAccountID_D = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nAccountID_D"]) == true ? 0 : (int)drv3["nAccountID_D"]);
                     decimal nAmount_C = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nAmount_C"]) == true ? 0 : (decimal)drv3["nAmount_C"]);
                     decimal nAmount_D = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nAmount_D"]) == true ? 0 : (decimal)drv3["nAmount_D"]);
+
+                    int nEntryCurrencyID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nEntryCurrencyID"]) == true ? 0 : (int)drv3["nEntryCurrencyID"]);
+                    decimal nAmount_C_Native = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nAmount_C_Native"]) == true ? 0 : (decimal)drv3["nAmount_C_Native"]);
+                    decimal nAmount_D_Native = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nAmount_D_Native"]) == true ? 0 : (decimal)drv3["nAmount_D_Native"]);
+
+
+
+
                     /////write new record to dbo.split
 
                     //SqlConnection conn1 = new SqlConnection() { ConnectionString = ProgramSettings.coolblueconnectionString };
@@ -671,6 +680,9 @@ namespace coolBlue
                             cmd3.Parameters.AddWithValue("@nAccountID_D", nAccountID_D);
                             cmd3.Parameters.AddWithValue("@nAmount_C", nAmount_C);
                             cmd3.Parameters.AddWithValue("@nAmount_D", nAmount_D);
+                            cmd3.Parameters.AddWithValue("@nEntryCurrencyID", nEntryCurrencyID);
+                            cmd3.Parameters.AddWithValue("@nAmount_C_Native", nAmount_C_Native);
+                            cmd3.Parameters.AddWithValue("@nAmount_D_Native", nAmount_D_Native);
 
 
 

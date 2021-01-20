@@ -70,6 +70,9 @@
               <Mapping SourceColumn="nAmount_C" DataSetColumn="nAmount_C" />
               <Mapping SourceColumn="nAccountID_D" DataSetColumn="nAccountID_D" />
               <Mapping SourceColumn="nAccountID_C" DataSetColumn="nAccountID_C" />
+              <Mapping SourceColumn="nEntryCurrencyID" DataSetColumn="nEntryCurrencyID" />
+              <Mapping SourceColumn="nAmount_C_Native" DataSetColumn="nAmount_C_Native" />
+              <Mapping SourceColumn="nAmount_D_Native" DataSetColumn="nAmount_D_Native" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -218,7 +221,7 @@
   <xs:element name="RegisterDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="RegisterDataSet" msprop:Generator_UserDSName="RegisterDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="USP_getLine" msprop:Generator_TableClassName="USP_getLineDataTable" msprop:Generator_TableVarName="tableUSP_getLine" msprop:Generator_TablePropName="USP_getLine" msprop:Generator_RowDeletingName="USP_getLineRowDeleting" msprop:Generator_RowChangingName="USP_getLineRowChanging" msprop:Generator_RowEvHandlerName="USP_getLineRowChangeEventHandler" msprop:Generator_RowDeletedName="USP_getLineRowDeleted" msprop:Generator_UserTableName="USP_getLine" msprop:Generator_RowChangedName="USP_getLineRowChanged" msprop:Generator_RowEvArgName="USP_getLineRowChangeEvent" msprop:Generator_RowClassName="USP_getLineRow">
+        <xs:element name="USP_getLine" msprop:Generator_TableClassName="USP_getLineDataTable" msprop:Generator_TableVarName="tableUSP_getLine" msprop:Generator_RowChangedName="USP_getLineRowChanged" msprop:Generator_TablePropName="USP_getLine" msprop:Generator_RowDeletingName="USP_getLineRowDeleting" msprop:Generator_RowChangingName="USP_getLineRowChanging" msprop:Generator_RowEvHandlerName="USP_getLineRowChangeEventHandler" msprop:Generator_RowDeletedName="USP_getLineRowDeleted" msprop:Generator_RowClassName="USP_getLineRow" msprop:Generator_UserTableName="USP_getLine" msprop:Generator_RowEvArgName="USP_getLineRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -239,7 +242,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="USP_getSplit" msprop:Generator_TableClassName="USP_getSplitDataTable" msprop:Generator_TableVarName="tableUSP_getSplit" msprop:Generator_TablePropName="USP_getSplit" msprop:Generator_RowDeletingName="USP_getSplitRowDeleting" msprop:Generator_RowChangingName="USP_getSplitRowChanging" msprop:Generator_RowEvHandlerName="USP_getSplitRowChangeEventHandler" msprop:Generator_RowDeletedName="USP_getSplitRowDeleted" msprop:Generator_UserTableName="USP_getSplit" msprop:Generator_RowChangedName="USP_getSplitRowChanged" msprop:Generator_RowEvArgName="USP_getSplitRowChangeEvent" msprop:Generator_RowClassName="USP_getSplitRow">
+        <xs:element name="USP_getSplit" msprop:Generator_TableClassName="USP_getSplitDataTable" msprop:Generator_TableVarName="tableUSP_getSplit" msprop:Generator_RowChangedName="USP_getSplitRowChanged" msprop:Generator_TablePropName="USP_getSplit" msprop:Generator_RowDeletingName="USP_getSplitRowDeleting" msprop:Generator_RowChangingName="USP_getSplitRowChanging" msprop:Generator_RowEvHandlerName="USP_getSplitRowChangeEventHandler" msprop:Generator_RowDeletedName="USP_getSplitRowDeleted" msprop:Generator_RowClassName="USP_getSplitRow" msprop:Generator_UserTableName="USP_getSplit" msprop:Generator_RowEvArgName="USP_getSplitRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -267,10 +270,13 @@
               <xs:element name="nAccountID_D" msprop:Generator_ColumnVarNameInTable="columnnAccountID_D" msprop:Generator_ColumnPropNameInRow="nAccountID_D" msprop:Generator_ColumnPropNameInTable="nAccountID_DColumn" msprop:Generator_UserColumnName="nAccountID_D" type="xs:int" minOccurs="0" />
               <xs:element name="nAmount_C" msprop:Generator_ColumnVarNameInTable="columnnAmount_C" msprop:Generator_ColumnPropNameInRow="nAmount_C" msprop:Generator_ColumnPropNameInTable="nAmount_CColumn" msprop:Generator_UserColumnName="nAmount_C" type="xs:decimal" minOccurs="0" />
               <xs:element name="nAmount_D" msprop:Generator_ColumnVarNameInTable="columnnAmount_D" msprop:Generator_ColumnPropNameInRow="nAmount_D" msprop:Generator_ColumnPropNameInTable="nAmount_DColumn" msprop:Generator_UserColumnName="nAmount_D" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nEntryCurrencyID" msprop:Generator_ColumnVarNameInTable="columnnEntryCurrencyID" msprop:Generator_ColumnPropNameInRow="nEntryCurrencyID" msprop:Generator_ColumnPropNameInTable="nEntryCurrencyIDColumn" msprop:Generator_UserColumnName="nEntryCurrencyID" type="xs:int" minOccurs="0" />
+              <xs:element name="nAmount_C_Native" msprop:Generator_ColumnVarNameInTable="columnnAmount_C_Native" msprop:Generator_ColumnPropNameInRow="nAmount_C_Native" msprop:Generator_ColumnPropNameInTable="nAmount_C_NativeColumn" msprop:Generator_UserColumnName="nAmount_C_Native" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nAmount_D_Native" msprop:Generator_ColumnVarNameInTable="columnnAmount_D_Native" msprop:Generator_ColumnPropNameInRow="nAmount_D_Native" msprop:Generator_ColumnPropNameInTable="nAmount_D_NativeColumn" msprop:Generator_UserColumnName="nAmount_D_Native" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="USP_getSubCats" msprop:Generator_TableClassName="USP_getSubCatsDataTable" msprop:Generator_TableVarName="tableUSP_getSubCats" msprop:Generator_RowChangedName="USP_getSubCatsRowChanged" msprop:Generator_TablePropName="USP_getSubCats" msprop:Generator_RowDeletingName="USP_getSubCatsRowDeleting" msprop:Generator_RowChangingName="USP_getSubCatsRowChanging" msprop:Generator_RowEvHandlerName="USP_getSubCatsRowChangeEventHandler" msprop:Generator_RowDeletedName="USP_getSubCatsRowDeleted" msprop:Generator_RowClassName="USP_getSubCatsRow" msprop:Generator_UserTableName="USP_getSubCats" msprop:Generator_RowEvArgName="USP_getSubCatsRowChangeEvent">
+        <xs:element name="USP_getSubCats" msprop:Generator_TableClassName="USP_getSubCatsDataTable" msprop:Generator_TableVarName="tableUSP_getSubCats" msprop:Generator_TablePropName="USP_getSubCats" msprop:Generator_RowDeletingName="USP_getSubCatsRowDeleting" msprop:Generator_RowChangingName="USP_getSubCatsRowChanging" msprop:Generator_RowEvHandlerName="USP_getSubCatsRowChangeEventHandler" msprop:Generator_RowDeletedName="USP_getSubCatsRowDeleted" msprop:Generator_UserTableName="USP_getSubCats" msprop:Generator_RowChangedName="USP_getSubCatsRowChanged" msprop:Generator_RowEvArgName="USP_getSubCatsRowChangeEvent" msprop:Generator_RowClassName="USP_getSubCatsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Column1" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnColumn1" msprop:Generator_ColumnPropNameInRow="Column1" msprop:Generator_ColumnPropNameInTable="Column1Column" msprop:Generator_UserColumnName="Column1" minOccurs="0">
@@ -284,7 +290,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="USP_getAllVendors" msprop:Generator_TableClassName="USP_getAllVendorsDataTable" msprop:Generator_TableVarName="tableUSP_getAllVendors" msprop:Generator_TablePropName="USP_getAllVendors" msprop:Generator_RowDeletingName="USP_getAllVendorsRowDeleting" msprop:Generator_RowChangingName="USP_getAllVendorsRowChanging" msprop:Generator_RowEvHandlerName="USP_getAllVendorsRowChangeEventHandler" msprop:Generator_RowDeletedName="USP_getAllVendorsRowDeleted" msprop:Generator_UserTableName="USP_getAllVendors" msprop:Generator_RowChangedName="USP_getAllVendorsRowChanged" msprop:Generator_RowEvArgName="USP_getAllVendorsRowChangeEvent" msprop:Generator_RowClassName="USP_getAllVendorsRow">
+        <xs:element name="USP_getAllVendors" msprop:Generator_TableClassName="USP_getAllVendorsDataTable" msprop:Generator_TableVarName="tableUSP_getAllVendors" msprop:Generator_RowChangedName="USP_getAllVendorsRowChanged" msprop:Generator_TablePropName="USP_getAllVendors" msprop:Generator_RowDeletingName="USP_getAllVendorsRowDeleting" msprop:Generator_RowChangingName="USP_getAllVendorsRowChanging" msprop:Generator_RowEvHandlerName="USP_getAllVendorsRowChangeEventHandler" msprop:Generator_RowDeletedName="USP_getAllVendorsRowDeleted" msprop:Generator_RowClassName="USP_getAllVendorsRow" msprop:Generator_UserTableName="USP_getAllVendors" msprop:Generator_RowEvArgName="USP_getAllVendorsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="vendors_id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnvendors_id" msprop:Generator_ColumnPropNameInRow="vendors_id" msprop:Generator_ColumnPropNameInTable="vendors_idColumn" msprop:Generator_UserColumnName="vendors_id" type="xs:int" />
@@ -362,7 +368,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="USP_getAllTags" msprop:Generator_TableClassName="USP_getAllTagsDataTable" msprop:Generator_TableVarName="tableUSP_getAllTags" msprop:Generator_RowChangedName="USP_getAllTagsRowChanged" msprop:Generator_TablePropName="USP_getAllTags" msprop:Generator_RowDeletingName="USP_getAllTagsRowDeleting" msprop:Generator_RowChangingName="USP_getAllTagsRowChanging" msprop:Generator_RowEvHandlerName="USP_getAllTagsRowChangeEventHandler" msprop:Generator_RowDeletedName="USP_getAllTagsRowDeleted" msprop:Generator_RowClassName="USP_getAllTagsRow" msprop:Generator_UserTableName="USP_getAllTags" msprop:Generator_RowEvArgName="USP_getAllTagsRowChangeEvent">
+        <xs:element name="USP_getAllTags" msprop:Generator_TableClassName="USP_getAllTagsDataTable" msprop:Generator_TableVarName="tableUSP_getAllTags" msprop:Generator_TablePropName="USP_getAllTags" msprop:Generator_RowDeletingName="USP_getAllTagsRowDeleting" msprop:Generator_RowChangingName="USP_getAllTagsRowChanging" msprop:Generator_RowEvHandlerName="USP_getAllTagsRowChangeEventHandler" msprop:Generator_RowDeletedName="USP_getAllTagsRowDeleted" msprop:Generator_UserTableName="USP_getAllTags" msprop:Generator_RowChangedName="USP_getAllTagsRowChanged" msprop:Generator_RowEvArgName="USP_getAllTagsRowChangeEvent" msprop:Generator_RowClassName="USP_getAllTagsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -384,7 +390,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="USP_getAllClass" msprop:Generator_TableClassName="USP_getAllClassDataTable" msprop:Generator_TableVarName="tableUSP_getAllClass" msprop:Generator_RowChangedName="USP_getAllClassRowChanged" msprop:Generator_TablePropName="USP_getAllClass" msprop:Generator_RowDeletingName="USP_getAllClassRowDeleting" msprop:Generator_RowChangingName="USP_getAllClassRowChanging" msprop:Generator_RowEvHandlerName="USP_getAllClassRowChangeEventHandler" msprop:Generator_RowDeletedName="USP_getAllClassRowDeleted" msprop:Generator_RowClassName="USP_getAllClassRow" msprop:Generator_UserTableName="USP_getAllClass" msprop:Generator_RowEvArgName="USP_getAllClassRowChangeEvent">
+        <xs:element name="USP_getAllClass" msprop:Generator_TableClassName="USP_getAllClassDataTable" msprop:Generator_TableVarName="tableUSP_getAllClass" msprop:Generator_TablePropName="USP_getAllClass" msprop:Generator_RowDeletingName="USP_getAllClassRowDeleting" msprop:Generator_RowChangingName="USP_getAllClassRowChanging" msprop:Generator_RowEvHandlerName="USP_getAllClassRowChangeEventHandler" msprop:Generator_RowDeletedName="USP_getAllClassRowDeleted" msprop:Generator_UserTableName="USP_getAllClass" msprop:Generator_RowChangedName="USP_getAllClassRowChanged" msprop:Generator_RowEvArgName="USP_getAllClassRowChangeEvent" msprop:Generator_RowClassName="USP_getAllClassRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -406,7 +412,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="USP_getAllCurrency" msprop:Generator_TableClassName="USP_getAllCurrencyDataTable" msprop:Generator_TableVarName="tableUSP_getAllCurrency" msprop:Generator_TablePropName="USP_getAllCurrency" msprop:Generator_RowDeletingName="USP_getAllCurrencyRowDeleting" msprop:Generator_RowChangingName="USP_getAllCurrencyRowChanging" msprop:Generator_RowEvHandlerName="USP_getAllCurrencyRowChangeEventHandler" msprop:Generator_RowDeletedName="USP_getAllCurrencyRowDeleted" msprop:Generator_UserTableName="USP_getAllCurrency" msprop:Generator_RowChangedName="USP_getAllCurrencyRowChanged" msprop:Generator_RowEvArgName="USP_getAllCurrencyRowChangeEvent" msprop:Generator_RowClassName="USP_getAllCurrencyRow">
+        <xs:element name="USP_getAllCurrency" msprop:Generator_TableClassName="USP_getAllCurrencyDataTable" msprop:Generator_TableVarName="tableUSP_getAllCurrency" msprop:Generator_RowChangedName="USP_getAllCurrencyRowChanged" msprop:Generator_TablePropName="USP_getAllCurrency" msprop:Generator_RowDeletingName="USP_getAllCurrencyRowDeleting" msprop:Generator_RowChangingName="USP_getAllCurrencyRowChanging" msprop:Generator_RowEvHandlerName="USP_getAllCurrencyRowChangeEventHandler" msprop:Generator_RowDeletedName="USP_getAllCurrencyRowDeleted" msprop:Generator_RowClassName="USP_getAllCurrencyRow" msprop:Generator_UserTableName="USP_getAllCurrency" msprop:Generator_RowEvArgName="USP_getAllCurrencyRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -428,7 +434,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="USP_getAllAccountsForSplit" msprop:Generator_TableClassName="USP_getAllAccountsForSplitDataTable" msprop:Generator_TableVarName="tableUSP_getAllAccountsForSplit" msprop:Generator_RowChangedName="USP_getAllAccountsForSplitRowChanged" msprop:Generator_TablePropName="USP_getAllAccountsForSplit" msprop:Generator_RowDeletingName="USP_getAllAccountsForSplitRowDeleting" msprop:Generator_RowChangingName="USP_getAllAccountsForSplitRowChanging" msprop:Generator_RowEvHandlerName="USP_getAllAccountsForSplitRowChangeEventHandler" msprop:Generator_RowDeletedName="USP_getAllAccountsForSplitRowDeleted" msprop:Generator_RowClassName="USP_getAllAccountsForSplitRow" msprop:Generator_UserTableName="USP_getAllAccountsForSplit" msprop:Generator_RowEvArgName="USP_getAllAccountsForSplitRowChangeEvent">
+        <xs:element name="USP_getAllAccountsForSplit" msprop:Generator_TableClassName="USP_getAllAccountsForSplitDataTable" msprop:Generator_TableVarName="tableUSP_getAllAccountsForSplit" msprop:Generator_TablePropName="USP_getAllAccountsForSplit" msprop:Generator_RowDeletingName="USP_getAllAccountsForSplitRowDeleting" msprop:Generator_RowChangingName="USP_getAllAccountsForSplitRowChanging" msprop:Generator_RowEvHandlerName="USP_getAllAccountsForSplitRowChangeEventHandler" msprop:Generator_RowDeletedName="USP_getAllAccountsForSplitRowDeleted" msprop:Generator_UserTableName="USP_getAllAccountsForSplit" msprop:Generator_RowChangedName="USP_getAllAccountsForSplitRowChanged" msprop:Generator_RowEvArgName="USP_getAllAccountsForSplitRowChangeEvent" msprop:Generator_RowClassName="USP_getAllAccountsForSplitRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -501,7 +507,7 @@
       <xs:selector xpath=".//mstns:USP_getAllAccountsForSplit" />
       <xs:field xpath="mstns:ID" />
     </xs:unique>
-    <xs:keyref name="FK_USP_getLine_USP_getSplit" refer="Constraint1" msprop:rel_Generator_UserChildTable="USP_getSplit" msprop:rel_Generator_ChildPropName="GetUSP_getSplitRows" msprop:rel_Generator_UserRelationName="FK_USP_getLine_USP_getSplit" msprop:rel_Generator_RelationVarName="relationFK_USP_getLine_USP_getSplit" msprop:rel_Generator_UserParentTable="USP_getLine" msprop:rel_Generator_ParentPropName="USP_getLineRow">
+    <xs:keyref name="FK_USP_getLine_USP_getSplit" refer="Constraint1" msprop:rel_Generator_UserChildTable="USP_getSplit" msprop:rel_Generator_ChildPropName="GetUSP_getSplitRows" msprop:rel_Generator_UserRelationName="FK_USP_getLine_USP_getSplit" msprop:rel_Generator_ParentPropName="USP_getLineRow" msprop:rel_Generator_RelationVarName="relationFK_USP_getLine_USP_getSplit" msprop:rel_Generator_UserParentTable="USP_getLine">
       <xs:selector xpath=".//mstns:USP_getSplit" />
       <xs:field xpath="mstns:nLineID" />
     </xs:keyref>

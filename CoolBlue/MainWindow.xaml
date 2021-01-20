@@ -561,7 +561,12 @@
 
             <dxg:GridControl Name="uSP_getSplitDataGrid" AutoGenerateColumns="None" EnableSmartColumnsGeneration="False" ItemsSource="{Binding Source={StaticResource uSP_getLineUSP_getSplitViewSource}}" Margin="0,0,0,0" Grid.Column="6" Grid.RowSpan="7" Grid.Row="3" Grid.ColumnSpan="5" SelectionMode="Row">
                 <dxg:GridControl.View>
-                    <dxg:TableView Name="SplitsView" AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" ShowColumnHeaders="True" Grid.ColumnSpan="1" Margin="0,0,0,0" NavigationStyle="Cell" ShowBandsPanel="False" ShowBandsInCustomizationForm="False" ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnEnterKey="True" ShowEditFormOnF2Key="True" ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" ShowValidationAttributeErrors="False" ShowVerticalLines="False" CustomCellAppearance="TableView_OnCustomCellAppearance" NewItemRowPosition="Bottom" ValidateRow="SplitsView_ValidateRow" EnableImmediatePosting="True" EditFormPostMode="Immediate" EditFormShowMode="Inline" EditorButtonShowMode="ShowForFocusedCell" EditFormColumnCount="4" InvalidRowException="SplitsView_InvalidRowException" ValidateCell="SplitsView_ValidateCell" CellValueChanged="SplitsView_CellValueChanged">
+                    <dxg:TableView Name="SplitsView" AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" ShowColumnHeaders="True" Grid.ColumnSpan="1"
+                                   Margin="0,0,0,0" NavigationStyle="Cell" ShowBandsPanel="False" ShowBandsInCustomizationForm="False" ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False"
+                                   ShowEditFormOnEnterKey="True" ShowEditFormOnF2Key="True" ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False"
+                                   ShowSearchPanelCloseButton="False" ShowValidationAttributeErrors="False" ShowVerticalLines="False" CustomCellAppearance="TableView_OnCustomCellAppearance"
+                                   NewItemRowPosition="Bottom" ValidateRow="SplitsView_ValidateRow" EnableImmediatePosting="True" EditFormPostMode="Immediate" EditFormShowMode="Dialog"
+                                   EditorButtonShowMode="ShowForFocusedCell" EditFormColumnCount="3" InvalidRowException="SplitsView_InvalidRowException" ValidateCell="SplitsView_ValidateCell" CellValueChanged="SplitsView_CellValueChanged">
 
                         <dxg:TableView.FormatConditions>
                             <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id" IsEnabled="False">
@@ -611,7 +616,7 @@
                 </dxg:GridControl.View>
 
 
-                <dxg:GridColumn Name="Vendor" FieldName="nVendorsID" Header="Vendor" Width="180" AllowSorting="True" AllowEditing="True" EditFormStartNewRow="True" EditFormVisibleIndex="5">
+                <dxg:GridColumn Name="Vendor" FieldName="nVendorsID" Header="Vendor" Width="180" AllowSorting="True" AllowEditing="True" EditFormStartNewRow="True" EditFormVisibleIndex="6">
                     <dxg:GridColumn.EditSettings>
                         <dxg:LookUpEditSettings ItemsSource="{Binding Source={StaticResource uSP_getAllVendorsViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="vendors_id" DisplayMember="cmpDisplay">
                             <dxg:LookUpEditSettings.PopupContentTemplate>
@@ -656,10 +661,58 @@
                     </dxg:GridColumn.EditSettings>
                 </dxg:GridColumn>
 
+                <dxg:GridColumn Name="nAccountID_C" FieldName="nAccountID_C" Header="CR Account" Width="150" AllowSorting="True" AllowEditing="True" EditFormStartNewRow="True">
+                    <dxg:GridColumn.EditSettings>
+                        <dxg:LookUpEditSettings ItemsSource="{Binding Source={StaticResource uSP_getAllAccountsForSplitViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="ID" DisplayMember="cName">
+                            <dxg:LookUpEditSettings.PopupContentTemplate>
+                                <ControlTemplate TargetType="ContentControl">
+                                    <dxg:GridControl x:Name="PART_GridControl" ShowBorder="True">
+                                        <dxg:GridControl.View>
+                                            <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" ShowColumnHeaders="True" Grid.ColumnSpan="1" Margin="0,0,0,0" ShowBandsPanel="False" ShowBandsInCustomizationForm="False" ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" ShowValidationAttributeErrors="False" ShowVerticalLines="False" CustomCellAppearance="TableView_OnCustomCellAppearance">
+                                                <dxg:TableView.FormatConditions>
+                                                    <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id">
+                                                        <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold" />
+                                                    </dxg:FormatCondition>
+                                                </dxg:TableView.FormatConditions>
+                                                <dxg:TableView.RowStyle>
+                                                    <Style TargetType="{x:Type dxg:RowControl}">
+                                                        <Style.Triggers>
+                                                            <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
+                                                                <Setter Property="Background" Value="Green" />
+                                                                <Setter Property="Foreground" Value="White" />
+                                                            </Trigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </dxg:TableView.RowStyle>
+                                                <dxg:TableView.CellStyle>
+                                                    <Style TargetType="{x:Type dxg:LightweightCellEditor }">
+                                                        <Style.Triggers>
+                                                            <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
+                                                                <Setter Property="Background" Value="Green" />
+                                                                <Setter Property="Foreground" Value="White" />
+                                                            </Trigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </dxg:TableView.CellStyle>
+                                            </dxg:TableView>
+                                        </dxg:GridControl.View>
+                                        <dxg:GridControl.Columns>
+                                            <dxg:GridColumn FieldName="cName" Width="200" />
+                                            <dxg:GridColumn FieldName="cAccountTypeName" />
+                                        </dxg:GridControl.Columns>
+                                    </dxg:GridControl>
+                                </ControlTemplate>
+                            </dxg:LookUpEditSettings.PopupContentTemplate>
+                        </dxg:LookUpEditSettings>
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn Name="nAmount_C" FieldName="nAmount_C" Header="CR Amnt" Width="100" AllowSorting="True" AllowEditing="True" EditFormStartNewRow="True" EditFormVisibleIndex="2">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:CalcEditSettings DisplayFormat="###########.00" MaskUseAsDisplayFormat="True" MaskType="Numeric" Mask="f2" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
 
-
-
-                <dxg:GridColumn Name="DrAccount" FieldName="nAccountID_D" Header="Dr Account" Width="150" AllowSorting="True" AllowEditing="True" ShowValidationAttributeErrors="True" EditFormVisibleIndex="1">
+                <dxg:GridColumn Name="DrAccount" FieldName="nAccountID_D" Header="DR Account" Width="150" AllowSorting="True" AllowEditing="True" ShowValidationAttributeErrors="True" EditFormVisibleIndex="1">
                     <dxg:GridColumn.EditSettings>
                         <dxg:LookUpEditSettings ItemsSource="{Binding Source={StaticResource uSP_getAllAccountsForSplitViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="ID" DisplayMember="cName">
                             <dxg:LookUpEditSettings.PopupContentTemplate>
@@ -708,16 +761,15 @@
 
 
 
-                <dxg:GridColumn Name="nAmount_D" FieldName="nAmount_D" Header="Dr Amount" Width="100" AllowSorting="True" AllowEditing="True" EditFormVisibleIndex="1">
+                <dxg:GridColumn Name="nAmount_D" FieldName="nAmount_D" Header="DR Amnt" Width="100" AllowSorting="True" AllowEditing="True" EditFormVisibleIndex="3">
                     <dxg:GridColumn.EditSettings>
                         <dxe:CalcEditSettings DisplayFormat="###########.00" MaskUseAsDisplayFormat="True"  MaskType="Numeric" Mask="f2" />
                     </dxg:GridColumn.EditSettings>
                 </dxg:GridColumn>
 
-
-                <dxg:GridColumn Name="nAccountID_C" FieldName="nAccountID_C" Header="Cr Account" Width="150" AllowSorting="True" AllowEditing="True" EditFormVisibleIndex="3">
+                <dxg:GridColumn FieldName="nEntryCurrencyID" Header="Entry Currency" Width="110" AllowSorting="True" AllowEditing="True" EditFormStartNewRow="True" EditFormVisibleIndex="11">
                     <dxg:GridColumn.EditSettings>
-                        <dxg:LookUpEditSettings ItemsSource="{Binding Source={StaticResource uSP_getAllAccountsForSplitViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="ID" DisplayMember="cName">
+                        <dxg:LookUpEditSettings ItemsSource="{Binding Source={StaticResource uSP_getAllCurrencyViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="ID" DisplayMember="cName">
                             <dxg:LookUpEditSettings.PopupContentTemplate>
                                 <ControlTemplate TargetType="ContentControl">
                                     <dxg:GridControl x:Name="PART_GridControl" ShowBorder="True">
@@ -751,8 +803,7 @@
                                             </dxg:TableView>
                                         </dxg:GridControl.View>
                                         <dxg:GridControl.Columns>
-                                            <dxg:GridColumn FieldName="cName" Width="200" />
-                                            <dxg:GridColumn FieldName="cAccountTypeName" />
+                                            <dxg:GridColumn FieldName="cName" />
                                         </dxg:GridControl.Columns>
                                     </dxg:GridControl>
                                 </ControlTemplate>
@@ -761,15 +812,26 @@
                     </dxg:GridColumn.EditSettings>
                 </dxg:GridColumn>
 
-
-                <dxg:GridColumn Name="nAmount_C" FieldName="nAmount_C" Header="Cr Amount" Width="100" AllowSorting="True" AllowEditing="True" EditFormVisibleIndex="4" SortOrder="Ascending" SortIndex="0">
+                <dxg:GridColumn Name="nAmount_C_Native" FieldName="nAmount_C_Native" Header="CR Amnt Native" Width="100" AllowSorting="True" AllowEditing="True" EditFormVisibleIndex="4" EditFormStartNewRow="True">
                     <dxg:GridColumn.EditSettings>
                         <dxe:CalcEditSettings DisplayFormat="###########.00" MaskUseAsDisplayFormat="True" MaskType="Numeric" Mask="f2" />
                     </dxg:GridColumn.EditSettings>
                 </dxg:GridColumn>
 
+                <dxg:GridColumn Name="nAmount_D_Native" FieldName="nAmount_D_Native" Header="DR Amnt Native" Width="100" AllowSorting="True" AllowEditing="True" EditFormVisibleIndex="5">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:CalcEditSettings DisplayFormat="###########.00" MaskUseAsDisplayFormat="True"  MaskType="Numeric" Mask="f2" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
 
-                <dxg:GridColumn FieldName="nTagID" Header="Tag" Width="100" AllowSorting="True" AllowEditing="True" EditFormVisibleIndex="6">
+
+
+
+                <dxg:GridColumn FieldName="cMemo" Header="Memo" Width="130" AllowSorting="True" EditFormVisibleIndex="7" MergeWithPreviousGroup="True" EditFormVisible="True" />
+
+
+
+                <dxg:GridColumn FieldName="nTagID" Header="Tag" Width="100" AllowSorting="True" AllowEditing="True" EditFormVisibleIndex="8" EditFormStartNewRow="True" EditFormVisible="True">
                     <dxg:GridColumn.EditSettings>
                         <dxg:LookUpEditSettings ItemsSource="{Binding Source={StaticResource uSP_getAllTagsViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="ID" DisplayMember="cName">
                             <dxg:LookUpEditSettings.PopupContentTemplate>
@@ -815,7 +877,7 @@
                 </dxg:GridColumn>
 
 
-                <dxg:GridColumn FieldName="nClassID" Header="Class" Width="100" AllowSorting="True" AllowEditing="True" EditFormVisibleIndex="7">
+                <dxg:GridColumn FieldName="nClassID" Header="Class" Width="100" AllowSorting="True" AllowEditing="True" EditFormVisibleIndex="9" EditFormVisible="True">
                     <dxg:GridColumn.EditSettings>
                         <dxg:LookUpEditSettings ItemsSource="{Binding Source={StaticResource uSP_getAllClassViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="ID" DisplayMember="cName">
                             <dxg:LookUpEditSettings.PopupContentTemplate>
@@ -860,19 +922,10 @@
                     </dxg:GridColumn.EditSettings>
                 </dxg:GridColumn>
 
-                <dxg:GridColumn FieldName="cMemo" Header="Memo" Width="130" AllowSorting="True" EditFormVisibleIndex="8" />
-                <dxg:GridColumn FieldName="nOriginalAmount" Header="Original Amnt." AllowSorting="True" Width="100" EditFormVisibleIndex="10">
-                    <dxg:GridColumn.EditSettings>
-                        <!--<dxe:TextEditSettings MaskUseAsDisplayFormat="True" MaskType="Numeric" Mask="f2" />-->
-                        <dxe:CalcEditSettings MaskUseAsDisplayFormat="True" MaskType="Numeric" Mask="f2" />
-
-                    </dxg:GridColumn.EditSettings>
-                </dxg:GridColumn>
+                
 
 
-
-
-                <dxg:GridColumn FieldName="nCurrencyID" Header="Original Currency" Width="110" AllowSorting="True" AllowEditing="True" EditFormStartNewRow="True" EditFormVisibleIndex="9">
+                <dxg:GridColumn FieldName="nCurrencyID" Header="Original Currency" Width="110" AllowSorting="True" AllowEditing="True" EditFormStartNewRow="True" EditFormVisibleIndex="10" SortOrder="Descending" SortIndex="0" MergeWithPreviousGroup="True">
                     <dxg:GridColumn.EditSettings>
                         <dxg:LookUpEditSettings ItemsSource="{Binding Source={StaticResource uSP_getAllCurrencyViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="ID" DisplayMember="cName">
                             <dxg:LookUpEditSettings.PopupContentTemplate>
@@ -916,6 +969,18 @@
                         </dxg:LookUpEditSettings>
                     </dxg:GridColumn.EditSettings>
                 </dxg:GridColumn>
+
+                <dxg:GridColumn FieldName="nOriginalAmount" Header="Original Amnt." AllowSorting="True" Width="100" EditFormVisibleIndex="11">
+                    <dxg:GridColumn.EditSettings>
+                        <!--<dxe:TextEditSettings MaskUseAsDisplayFormat="True" MaskType="Numeric" Mask="f2" />-->
+                        <dxe:CalcEditSettings MaskUseAsDisplayFormat="True" MaskType="Numeric" Mask="f2" />
+
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+
+
+
+                
 
 
             </dxg:GridControl>
