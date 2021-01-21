@@ -342,6 +342,7 @@
                     </dxg:TableView>
 
                 </dxg:GridControl.View>
+                
                 <dxg:GridColumn Binding="{Binding currencySymbol}" FieldName="Symbol" IsEnabled="False" AllowFocus="False" Header="" Width="26">
                     <dxg:GridColumn.DisplayTemplate>
                         <ControlTemplate>
@@ -358,6 +359,8 @@
 
                 <dxg:GridColumn Binding="{Binding cNote}" FieldName="Note" IsEnabled="False" Header="Note" AllowFocus="False" Width="160" />
                 <dxg:GridColumn Binding="{Binding cDesc}" FieldName="Description" Header="Description" AllowFocus="False" Width="200" />
+                <dxg:GridColumn Binding="{Binding nCurrencyID}" FieldName="nCurrencyID" Header="nCurrencyID" IsEnabled="False" AllowFocus="False" Width="200" Visible="False" />
+                <dxg:GridColumn  FieldName="ID" Header="" AllowFocus="False" Width="200" Visible="False" />
 
             </dxg:GridControl>
 
@@ -661,12 +664,12 @@
                     </dxg:GridColumn.EditSettings>
                 </dxg:GridColumn>
 
-                <dxg:GridColumn Name="nAccountID_C" FieldName="nAccountID_C" Header="CR Account" Width="150" AllowSorting="True" AllowEditing="True" EditFormStartNewRow="True" Validate="nAccountID_C_Validate">
+                <dxg:GridColumn Name="nAccountID_C" FieldName="nAccountID_C" Header="CR Account" Width="150" AllowSorting="True" AllowEditing="True" EditFormStartNewRow="True" SortOrder="Descending" SortIndex="0">
                     <dxg:GridColumn.EditSettings>
-                        <dxg:LookUpEditSettings ItemsSource="{Binding Source={StaticResource uSP_getAllAccountsForSplitViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="ID" DisplayMember="cName">
+                        <dxg:LookUpEditSettings Name="LookupEdit_nAccountID_C" ItemsSource="{Binding Source={StaticResource uSP_getAllAccountsForSplitViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="ID" DisplayMember="cName" Tag="{Binding nCurrencyID, Source={StaticResource uSP_getAllAccountsForSplitViewSource}}">
                             <dxg:LookUpEditSettings.PopupContentTemplate>
                                 <ControlTemplate TargetType="ContentControl">
-                                    <dxg:GridControl x:Name="PART_GridControl" ShowBorder="True">
+                                    <dxg:GridControl x:Name="PART_GridControl"  ShowBorder="True">
                                         <dxg:GridControl.View>
                                             <dxg:TableView Name="TableViewGridAccountID_C" AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" ShowColumnHeaders="True" Grid.ColumnSpan="1" Margin="0,0,0,0" ShowBandsPanel="False" ShowBandsInCustomizationForm="False" ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" ShowValidationAttributeErrors="False" ShowVerticalLines="False" CustomCellAppearance="TableView_OnCustomCellAppearance">
                                                 <dxg:TableView.FormatConditions>
@@ -714,7 +717,7 @@
                     </dxg:GridColumn.EditSettings>
                 </dxg:GridColumn>
 
-                <dxg:GridColumn Name="DrAccount" FieldName="nAccountID_D" Header="DR Account" Width="150" AllowSorting="True" AllowEditing="True" ShowValidationAttributeErrors="True" EditFormVisibleIndex="1" SortOrder="Descending" SortIndex="0">
+                <dxg:GridColumn Name="DrAccount" FieldName="nAccountID_D" Header="DR Account" Width="150" AllowSorting="True" AllowEditing="True" ShowValidationAttributeErrors="True" EditFormVisibleIndex="1">
                     <dxg:GridColumn.EditSettings>
                         <dxg:LookUpEditSettings ItemsSource="{Binding Source={StaticResource uSP_getAllAccountsForSplitViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="ID" DisplayMember="cName">
                             <dxg:LookUpEditSettings.PopupContentTemplate>
@@ -983,8 +986,8 @@
                 </dxg:GridColumn>
 
 
-                <dxg:GridColumn Name="nDrCurrencyID" FieldName="nDrCurrencyID" Header="Memo" Width="130" AllowSorting="True" EditFormVisibleIndex="7" MergeWithPreviousGroup="True" Visible="False" EditFormVisible="False" />
-                <dxg:GridColumn Name="nCrCurrencyID" FieldName="nCrCurrencyID" Header="Memo" Width="130" AllowSorting="True" EditFormVisibleIndex="7" MergeWithPreviousGroup="True" Visible="False" EditFormVisible="False" />
+                <dxg:GridColumn Name="nDrCurrencyID" FieldName="nDrCurrencyID" Header="Memo" Width="130" AllowSorting="True" EditFormVisibleIndex="7" MergeWithPreviousGroup="True" Visible="False" EditFormVisible="False" UnboundType="Integer" />
+                <dxg:GridColumn Name="nCrCurrencyID"  FieldName="nCrCurrencyID" Header="Memo" Width="130" AllowSorting="True" EditFormVisibleIndex="7" MergeWithPreviousGroup="True" Visible="False" EditFormVisible="False" UnboundType="Integer"  />
 
 
 

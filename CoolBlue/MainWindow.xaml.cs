@@ -58,9 +58,9 @@ namespace coolBlue
 
         private void DXRibbonWindow_Loaded(object sender, RoutedEventArgs e)
         {
-         
+
             coolBlue.AccountsDataSet accountsDataSet = ((coolBlue.AccountsDataSet)(this.FindResource("accountsDataSet")));
-            
+
 
             coolBlue.AccountsDataSetTableAdapters.USP_getAllAccountTypesTableAdapter accountsDataSetUSP_getAllAccountTypesTableAdapter = new coolBlue.AccountsDataSetTableAdapters.USP_getAllAccountTypesTableAdapter();
             System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesViewSource")));
@@ -74,7 +74,7 @@ namespace coolBlue
             accountsDataSetUSP_getAllAccountsTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
             accountsDataSetUSP_getAllAccountsTableAdapter.Fill(accountsDataSet.USP_getAllAccounts);
 
-            
+
 
             uSP_getAllAccountTypesViewSource.View.MoveCurrentToFirst();
             //uSP_getAllAccountsViewSource.View.MoveCurrentToFirst();
@@ -159,7 +159,7 @@ namespace coolBlue
 
 
 
-        public   bool _uSP_getAllAccountTypesUSP_getAllAccountsViewSource_CurentChanged()
+        public bool _uSP_getAllAccountTypesUSP_getAllAccountsViewSource_CurentChanged()
         {
             //I cannot make this work yet
             System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesUSP_getAllAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesUSP_getAllAccountsViewSource")));
@@ -172,9 +172,9 @@ namespace coolBlue
 
             registerDataSet.EnforceConstraints = false;
             registerDataSetUSP_getSplitTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-            registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent,accountingPeriod);
+            registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent, accountingPeriod);
             registerDataSetUSP_getLineTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-            registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent,accountingPeriod);
+            registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent, accountingPeriod);
             //registerDataSet.EnforceConstraints = true;
 
             getTotals();
@@ -196,9 +196,9 @@ namespace coolBlue
 
             registerDataSet.EnforceConstraints = false;
             registerDataSetUSP_getSplitTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-            registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent,accountingPeriod);
+            registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent, accountingPeriod);
             registerDataSetUSP_getLineTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-            registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent,accountingPeriod);
+            registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent, accountingPeriod);
             //registerDataSet.EnforceConstraints = true;
 
             getTotals();
@@ -295,7 +295,7 @@ namespace coolBlue
                     cmd3.Parameters.AddWithValue("@nAccount", accountCurrent);
                     cmd3.Parameters.AddWithValue("@nAccountingPeriod", accountingPeriod);
 
-                    
+
 
                     SqlParameter retval = cmd3.Parameters.Add("@transactIdentity", SqlDbType.Int);
                     retval.Direction = ParameterDirection.Output;
@@ -304,8 +304,8 @@ namespace coolBlue
                     TransactID1 = (int)cmd3.Parameters["@transactIdentity"].Value;
                 }
 
-                
-                
+
+
 
             }
 
@@ -324,7 +324,7 @@ namespace coolBlue
                 registerDataSetUSP_getSplitTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
                 registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent, accountingPeriod);
                 registerDataSetUSP_getLineTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-                registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent,accountingPeriod);
+                registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent, accountingPeriod);
                 // registerDataSet.EnforceConstraints = true;
 
                 //uSP_getLineDataGrid.
@@ -340,7 +340,7 @@ namespace coolBlue
                 DataRow foundRow = dt.Rows.Find(TransactID1);
                 int rowHandle = dt.Rows.IndexOf(foundRow);
                 uSP_getLineDataGrid.View.FocusedRowHandle = rowHandle;
-           
+
                 SplitsView.AddNewRow();
                 int newRowHandle = DataControlBase.NewItemRowHandle;
 
@@ -393,42 +393,42 @@ namespace coolBlue
             }
 
             //System.Windows.Data.CollectionViewSource uSP_getLineUSP_getSplitViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getLineUSP_getSplitViewSource")));
-            
+
 
             //DataRowView drv3;
             // uSP_getLineUSP_getSplitViewSource.View.SourceCollection.
 
-           // registerDataSet.USP_getSplit.Rows.Add();
-           // SplitsView.ShowEditor();
+            // registerDataSet.USP_getSplit.Rows.Add();
+            // SplitsView.ShowEditor();
 
             //DataRowView drv3 = (DataRowView)uSP_getLineUSP_getSplitViewSource.View.CurrentItem;
             //uSP_getLineUSP_getSplitViewSource.View.
 
 
-           
-            
-            
-           
-            
-            
-            
-            
+
+
+
+
+
+
+
+
             //SplitsView.DataControl.RefreshData();
             ////SplitsView.FocusedRowHandle = 99;
             //SplitsView.MoveFirstRow();
             //SplitsView.ShowEditor();
-           
+
             //SplitsView.DataControl.RefreshData();
 
-            
-            
-            
-            
-            
-            
-            
-            
-            
+
+
+
+
+
+
+
+
+
             // uSP_getSplitDataGrid.SetCellValue(uSP_getSplitDataGrid.View.FocusedRowHandle, uSP_getSplitDataGrid.Columns["nAmount_C"], 44);
 
         }
@@ -441,17 +441,17 @@ namespace coolBlue
         public void LocateNewLine(int IDToFind)
         {
             //int IDToFind = Convert.ToInt32(txt_IdUnique.Text);
-           
+
 
             //if (IDToFind > -1 )
-   {
+            {
                 //foreach (DataRowView drv in (BindingListCollectionView)uSP_getLineDataGrid.ItemsSource)
                 //    if ((int)drv["ID"] == IDToFind)
                 //    {
                 //        // This is the data row view record you want...
                 //        uSP_getLineDataGrid.SelectedItem = drv;
-                       
-                       
+
+
                 //        break;
                 //    }
 
@@ -748,7 +748,7 @@ namespace coolBlue
             registerDataSetUSP_getSplitTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
             registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent, accountingPeriod);
             registerDataSetUSP_getLineTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-            registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent,accountingPeriod);
+            registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent, accountingPeriod);
             //registerDataSet.EnforceConstraints = true;
 
             getTotals();
@@ -768,7 +768,7 @@ namespace coolBlue
 
         }
 
-       
+
 
         private DataRowView rowBeingEdited = null;
 
@@ -786,7 +786,7 @@ namespace coolBlue
             }
         }
 
-       
+
 
         private void BarButtonItem_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
@@ -842,11 +842,11 @@ namespace coolBlue
             //Mouse.OverrideCursor = null;
         }
 
-        
 
-        
-        
-        
+
+
+
+
 
         private void DatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -857,14 +857,14 @@ namespace coolBlue
             //MessageBoxImage icon = MessageBoxImage.Information;
             //MessageBoxResult defaultResult = MessageBoxResult.OK;
             //MessageBoxOptions options = MessageBoxOptions.RtlReading;
-           
+
             //MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
         }
         private void SimpleButton_Click_2(object sender, RoutedEventArgs e)
         {
             updateLine();
         }
-          private void updateLine()
+        private void updateLine()
         {
             //string message = "Date Changed";
             //string caption = "CoolBlue";
@@ -881,7 +881,7 @@ namespace coolBlue
             int nCatID = 0;
             string name = "";
             int lineID = 0;
-           
+
             Nullable<DateTime> TransDate = null;
             System.Windows.Data.CollectionViewSource uSP_getLineViewSource1 = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getLineViewSource1")));
 
@@ -927,8 +927,8 @@ namespace coolBlue
                 notes = (DBNull.Value.Equals(drv["cNote"]) == true ? "" : (string)drv["cNote"]);
 
                 // name = (DBNull.Value.Equals(drv["cName"]) == true ? "" : (string)drv["cName"]);
-               // notes = "";
-                 lineID = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
+                // notes = "";
+                lineID = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
 
                 // nCatID = (int)LookupEditCat.EditValue;
                 TransDate = (drv == null ? (Nullable<DateTime>)null : DBNull.Value.Equals(drv["dtTransDate"]) == true ? (Nullable<DateTime>)null :
@@ -994,7 +994,7 @@ namespace coolBlue
 
                 //resetButtons();
                 // LocateNewLine(TransactID1);
-               // this.Close();
+                // this.Close();
 
             }
         }
@@ -1025,13 +1025,13 @@ namespace coolBlue
 
             //DataRowView drv1 = (DataRowView)uSP_getAllAccountTypesViewSource.View.CurrentItem;
             //int nAccountingTypeID = (drv1 == null ? 0 : DBNull.Value.Equals(drv1["nAccountingTypeID"]) == true ? 0 : (int)drv1["nAccountingTypeID"]);
-            
+
 
             registerDataSet.EnforceConstraints = false;
             registerDataSetUSP_getSplitTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-            registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent,accountingPeriod);
+            registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent, accountingPeriod);
             registerDataSetUSP_getLineTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-            registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent,accountingPeriod);
+            registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent, accountingPeriod);
             //registerDataSet.EnforceConstraints = true;
 
             getTotals();
@@ -1110,7 +1110,7 @@ namespace coolBlue
             int accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
 
 
-           
+
 
 
             BindingListCollectionView dv = (BindingListCollectionView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View;
@@ -1118,7 +1118,7 @@ namespace coolBlue
 
 
             editAccount editAccoun1 = new editAccount(accountCurrent);
-           
+
             editAccoun1.bNameChanged = false;
             editAccoun1.ShowDialog();
             if (editAccoun1.bNameChanged == true)
@@ -1146,10 +1146,10 @@ namespace coolBlue
 
 
 
-            
 
 
-           
+
+
             // uSP_getAllAccountTypesViewSource.View.MoveCurrentToFirst();
 
 
@@ -1160,7 +1160,7 @@ namespace coolBlue
             goDetails();
         }
 
-        
+
         private void TableView_FocusedRowChanged(object sender, FocusedRowChangedEventArgs e)
         {
             //updateLine();
@@ -1177,7 +1177,7 @@ namespace coolBlue
 
             // (TableView)SplitsView.
 
-           
+
             New.Focus(); //needed in case user was still typing in splitsview so validate runs
 
             if (((TableView)SplitsView).HasValidationError)
@@ -1192,25 +1192,60 @@ namespace coolBlue
         {
             e.Cancel = false;
         }
-       
 
 
-            private void SplitsView_ValidateRow(object sender, GridRowValidationEventArgs e)
+
+        private void SplitsView_ValidateRow(object sender, GridRowValidationEventArgs e)
         {
+            //TROUBLE getting nCurrencyID of CR and Dr accounts/////////////////////////////
+            int curRowHandle = e.RowHandle;
+            int CrCurrencyID = 0;
+            int DrCurrencyID = 0;
 
-            //decimal crAmount = (decimal) uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_D");
 
+            int nAccountID_C = (uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAccountID_C") == null ? 0 : DBNull.Value.Equals(uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAccountID_C")) == true ? 0 : (int)uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAccountID_C"));
+            string cAccountID = nAccountID_C.ToString();
+
+            int nAccountID_D = (uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAccountID_D") == null ? 0 : DBNull.Value.Equals(uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAccountID_D")) == true ? 0 : (int)uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAccountID_D"));
+            string dAccountID = nAccountID_D.ToString();
+
+            coolBlue.AccountsDataSet accountsDataSet = ((coolBlue.AccountsDataSet)(this.FindResource("accountsDataSet")));
+            //coolBlue.AccountsDataSetTableAdapters.USP_getAllAccountsTableAdapter accountsDataSetUSP_getAllAccountsTableAdapter = new coolBlue.AccountsDataSetTableAdapters.USP_getAllAccountsTableAdapter();
+            //accountsDataSetUSP_getAllAccountsTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
+            //accountsDataSetUSP_getAllAccountsTableAdapter.Fill(accountsDataSet.USP_getAllAccounts);
+
+
+
+            DataRow[] foundRowC = accountsDataSet.USP_getAllAccounts.Select("ID = " + cAccountID);
+            if (foundRowC.Count() > 0)
+            {
+                CrCurrencyID = (int)foundRowC[0]["nCurrencyID"];
+
+
+            }
+
+            DataRow[] foundRowD = accountsDataSet.USP_getAllAccounts.Select("ID = " + dAccountID);
+            if (foundRowD.Count() > 0)
+            {
+                DrCurrencyID = (int)foundRowD[0]["nCurrencyID"];
+
+
+            }
+
+
+            ///NEED THIS://////////////////////////////////////////////////////////////////////////////////////////
+            uSP_getSplitDataGrid.SetCellValue(e.RowHandle, "nCrCurrencyID", CrCurrencyID);
+            uSP_getSplitDataGrid.SetCellValue(e.RowHandle, "nDrCurrencyID", DrCurrencyID);
+            ///////////////////////////////////////////////////////////////////////////////////////////////////
 
             decimal crAmount = (uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_C") == null ? 0 : DBNull.Value.Equals(uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_C")) == true ? 0 : (decimal)uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_C"));
             decimal drAmount = (uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_D") == null ? 0 : DBNull.Value.Equals(uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_D")) == true ? 0 : (decimal)uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_D"));
             int nEntryCurrencyID = (uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nEntryCurrencyID") == null ? 0 : DBNull.Value.Equals(uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nEntryCurrencyID")) == true ? 0 : (int)uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nEntryCurrencyID"));
 
-            int nDrCurrencyID = (uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nDrCurrencyID") == null ? 0 : DBNull.Value.Equals(uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nDrCurrencyID")) == true ? 0 : (int)uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nDrCurrencyID"));
-            int nCrCurrencyID = (uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nCrCurrencyID") == null ? 0 : DBNull.Value.Equals(uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nCrCurrencyID")) == true ? 0 : (int)uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nCrCurrencyID"));
+           // int nDrCurrencyID = (uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nDrCurrencyID") == null ? 0 : DBNull.Value.Equals(uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nDrCurrencyID")) == true ? 0 : (int)uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nDrCurrencyID"));
+            //int nCrCurrencyID = (uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nCrCurrencyID") == null ? 0 : DBNull.Value.Equals(uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nCrCurrencyID")) == true ? 0 : (int)uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nCrCurrencyID"));
 
-
-            //int curRowHandle = SplitsView.FocusedRowHandle;
-            int curRowHandle = e.RowHandle;
+            
 
             if (crAmount == 0 && drAmount == 0)
 
@@ -1231,11 +1266,44 @@ namespace coolBlue
                 uSP_getSplitDataGrid.SetCellValue(curRowHandle, "nAmount_D", crAmount);
             }
 
+
+
+
+
+
+
             crAmount = (uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_C") == null ? 0 : DBNull.Value.Equals(uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_C")) == true ? 0 : (decimal)uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_C"));
             drAmount = (uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_D") == null ? 0 : DBNull.Value.Equals(uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_D")) == true ? 0 : (decimal)uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_D"));
 
-            uSP_getSplitDataGrid.SetCellValue(curRowHandle, "nAmount_C_Native", crAmount);
-            uSP_getSplitDataGrid.SetCellValue(curRowHandle, "nAmount_D_Native", drAmount);
+
+            if (CrCurrencyID == nEntryCurrencyID)
+
+            {
+
+                uSP_getSplitDataGrid.SetCellValue(curRowHandle, "nAmount_C_Native", crAmount);
+
+            }
+            else
+
+            { 
+                uSP_getSplitDataGrid.SetCellValue(curRowHandle, "nAmount_C_Native", 8989);
+
+
+            }
+
+            if (DrCurrencyID == nEntryCurrencyID)
+
+            {
+
+                uSP_getSplitDataGrid.SetCellValue(curRowHandle, "nAmount_DC_Native", drAmount);
+
+            }
+            else
+            { 
+                uSP_getSplitDataGrid.SetCellValue(curRowHandle, "nAmount_D_Native", 2222);
+
+
+            }
 
             //if (drAmount == 0)
             //{
@@ -1254,14 +1322,14 @@ namespace coolBlue
         private void SplitsView_InvalidRowException(object sender, InvalidRowExceptionEventArgs e)
         {
             // e.ExceptionMode = ExceptionMode.NoAction;
-           e.WindowCaption = "CoolBlue";
-           // e.ErrorText = "Would you like to make a correction?";
-           
+            e.WindowCaption = "CoolBlue";
+            // e.ErrorText = "Would you like to make a correction?";
+
         }
 
         private void SplitsView_ValidateCell(object sender, GridCellValidationEventArgs e)
         {
-           //decimal crAmount = ((sender) sender.).nAmount_D;
+            //decimal crAmount = ((sender) sender.).nAmount_D;
         }
 
 
@@ -1285,7 +1353,7 @@ namespace coolBlue
 
             if (((TableView)SplitsView).HasValidationError)
             {
-                e.Cancel=true;
+                e.Cancel = true;
             }
         }
 
@@ -1296,7 +1364,7 @@ namespace coolBlue
 
         private void SplitsView_CellValueChanged(object sender, CellValueChangedEventArgs e)
         {
-          //this doesn't work because editform won't refresh  --by design - - will Devepspress addt his functionality?
+            //this doesn't work because editform won't refresh  --by design - - will Devepspress addt his functionality?
             //if (e.Column.FieldName == "nAmount_D")
 
 
@@ -1309,10 +1377,10 @@ namespace coolBlue
 
             //        uSP_getSplitDataGrid.SetCellValue(curRowHandle, "nAmount_C", 20);
             //        }
-               
+
             //}
-            
-          
+
+
         }
 
         private void BarButtonItemClass_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
@@ -1452,12 +1520,6 @@ namespace coolBlue
 
 
 
-
-        }
-
-        private void nAccountID_C_Validate(object sender, GridCellValidationEventArgs e)
-        {
-            //int nDrCurrencyID = e.Cell GridAccountID_C.GetCellValue(e.RowHandle, "nDrCurrencyID") == null ? 0 : DBNull.Value.Equals(uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nDrCurrencyID")) == true ? 0 : (int)uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nDrCurrencyID"));
 
         }
 

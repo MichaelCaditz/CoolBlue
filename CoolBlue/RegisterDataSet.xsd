@@ -273,6 +273,8 @@
               <xs:element name="nEntryCurrencyID" msprop:Generator_ColumnVarNameInTable="columnnEntryCurrencyID" msprop:Generator_ColumnPropNameInRow="nEntryCurrencyID" msprop:Generator_ColumnPropNameInTable="nEntryCurrencyIDColumn" msprop:Generator_UserColumnName="nEntryCurrencyID" type="xs:int" minOccurs="0" />
               <xs:element name="nAmount_C_Native" msprop:Generator_ColumnVarNameInTable="columnnAmount_C_Native" msprop:Generator_ColumnPropNameInRow="nAmount_C_Native" msprop:Generator_ColumnPropNameInTable="nAmount_C_NativeColumn" msprop:Generator_UserColumnName="nAmount_C_Native" type="xs:decimal" minOccurs="0" />
               <xs:element name="nAmount_D_Native" msprop:Generator_ColumnVarNameInTable="columnnAmount_D_Native" msprop:Generator_ColumnPropNameInRow="nAmount_D_Native" msprop:Generator_ColumnPropNameInTable="nAmount_D_NativeColumn" msprop:Generator_UserColumnName="nAmount_D_Native" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nCrCurrencyID" msprop:Generator_ColumnVarNameInTable="columnnCrCurrencyID" msprop:Generator_ColumnPropNameInRow="nCrCurrencyID" msprop:Generator_ColumnPropNameInTable="nCrCurrencyIDColumn" msprop:Generator_UserColumnName="nCrCurrencyID" type="xs:int" minOccurs="0" />
+              <xs:element name="nDrCurrencyID" msprop:Generator_ColumnVarNameInTable="columnnDrCurrencyID" msprop:Generator_ColumnPropNameInRow="nDrCurrencyID" msprop:Generator_ColumnPropNameInTable="nDrCurrencyIDColumn" msprop:Generator_UserColumnName="nDrCurrencyID" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
