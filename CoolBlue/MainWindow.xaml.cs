@@ -1203,6 +1203,11 @@ namespace coolBlue
 
             decimal crAmount = (uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_C") == null ? 0 : DBNull.Value.Equals(uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_C")) == true ? 0 : (decimal)uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_C"));
             decimal drAmount = (uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_D") == null ? 0 : DBNull.Value.Equals(uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_D")) == true ? 0 : (decimal)uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_D"));
+            int nEntryCurrencyID = (uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nEntryCurrencyID") == null ? 0 : DBNull.Value.Equals(uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nEntryCurrencyID")) == true ? 0 : (int)uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nEntryCurrencyID"));
+
+            int nDrCurrencyID = (uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nDrCurrencyID") == null ? 0 : DBNull.Value.Equals(uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nDrCurrencyID")) == true ? 0 : (int)uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nDrCurrencyID"));
+            int nCrCurrencyID = (uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nCrCurrencyID") == null ? 0 : DBNull.Value.Equals(uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nCrCurrencyID")) == true ? 0 : (int)uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nCrCurrencyID"));
+
 
             //int curRowHandle = SplitsView.FocusedRowHandle;
             int curRowHandle = e.RowHandle;
@@ -1449,5 +1454,13 @@ namespace coolBlue
 
 
         }
+
+        private void nAccountID_C_Validate(object sender, GridCellValidationEventArgs e)
+        {
+            //int nDrCurrencyID = e.Cell GridAccountID_C.GetCellValue(e.RowHandle, "nDrCurrencyID") == null ? 0 : DBNull.Value.Equals(uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nDrCurrencyID")) == true ? 0 : (int)uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nDrCurrencyID"));
+
+        }
+
+       
     }
 }
