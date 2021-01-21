@@ -1226,7 +1226,12 @@ namespace coolBlue
                 uSP_getSplitDataGrid.SetCellValue(curRowHandle, "nAmount_D", crAmount);
             }
 
-            
+            crAmount = (uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_C") == null ? 0 : DBNull.Value.Equals(uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_C")) == true ? 0 : (decimal)uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_C"));
+            drAmount = (uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_D") == null ? 0 : DBNull.Value.Equals(uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_D")) == true ? 0 : (decimal)uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_D"));
+
+            uSP_getSplitDataGrid.SetCellValue(curRowHandle, "nAmount_C_Native", crAmount);
+            uSP_getSplitDataGrid.SetCellValue(curRowHandle, "nAmount_D_Native", drAmount);
+
             //if (drAmount == 0)
             //{
             //    e.IsValid = false;

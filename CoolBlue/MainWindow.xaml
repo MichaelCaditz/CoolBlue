@@ -416,11 +416,11 @@
                 <dxg:GridColumn FieldName="dtTransDate" Header="Date" ReadOnly="False" AllowFocus="True" AllowSorting="True" SortOrder="Descending" />
                 <dxg:GridColumn  FieldName="bIsAll" Header="bIsAll" Width="50" ReadOnly="True" AllowFocus="False" AllowSorting="True" Visible="False" />
 
+                <dxg:GridColumn FieldName="totalCr" Header="CR" Width="80" ReadOnly="True" AllowFocus="False" AllowSorting="True" />
 
 
                 <dxg:GridColumn FieldName="totalDr" Header="DR" Width="80" ReadOnly="True" AllowFocus="False" AllowSorting="True" />
 
-                <dxg:GridColumn FieldName="totalCr" Header="CR" Width="80" ReadOnly="True" AllowFocus="False" AllowSorting="True" />
                 <dxg:GridColumn FieldName="cNote" Header="Note" Width="80" ReadOnly="False" AllowFocus="True" AllowSorting="True" />
 
 
@@ -987,8 +987,8 @@
 
             <ComboBox Grid.Column="5" Margin="0,36,10,0" Grid.Row="2" IsSynchronizedWithCurrentItem="True" SelectedItem="" DisplayMemberPath="cLabel" ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesUSP_getAllAccountsViewSource}}" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" />
             <dx:SimpleButton Name="New" Content="New Transaction" Grid.Column="5" HorizontalAlignment="Left" Height="27" Margin="1,6,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120" Click="SimpleButton_Click_1" RenderTransformOrigin="-1.733,0.444" />
-            <dxe:TextEdit x:Name="TextEditTotalDr" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="170,10,0,0" Grid.Row="10" VerticalAlignment="Top" Width="80" Mask="F" MaskType="Numeric" IsReadOnly="True" />
-            <dxe:TextEdit x:Name="TextEditTotalCr" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="252,10,0,0" Grid.Row="10" VerticalAlignment="Top" Width="80" Mask="F" MaskType="Numeric" IsReadOnly="True" />
+            <dxe:TextEdit x:Name="TextEditTotalCr" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="170,10,0,0" Grid.Row="10" VerticalAlignment="Top" Width="80" Mask="F" MaskType="Numeric" IsReadOnly="True" />
+            <dxe:TextEdit x:Name="TextEditTotalDr" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="252,10,0,0" Grid.Row="10" VerticalAlignment="Top" Width="80" Mask="F" MaskType="Numeric" IsReadOnly="True" />
             <dxe:TextEdit x:Name="TextEditBalance" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="336,10,0,0" Grid.Row="10" VerticalAlignment="Top" Width="100" Mask="F"  MaskType="Numeric" FontWeight="Normal" Padding="0,0,5,0" Background="Black" Foreground="White" IsReadOnly="True" />
             <dxe:Calculator Grid.Column="8" HorizontalAlignment="Left" Height="0" Margin="0,16,0,0" Grid.Row="3" VerticalAlignment="Top" Width="1"/>
 
