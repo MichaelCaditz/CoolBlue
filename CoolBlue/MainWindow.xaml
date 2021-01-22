@@ -104,7 +104,7 @@
                 <ColumnDefinition Width="21" />
                 <ColumnDefinition Width="82" />
                 <ColumnDefinition Width="15" />
-                <ColumnDefinition Width="446" />
+                <ColumnDefinition Width="462" />
                 <ColumnDefinition Width="297" />
                 <ColumnDefinition Width="57" />
                 <ColumnDefinition Width="240" />
@@ -418,15 +418,15 @@
                 </dxg:GridControl.View>
 
                 <dxg:GridColumn Binding="{Binding ID}" FieldName="ID" Header="ID" Width="50" ReadOnly="True" AllowFocus="False" AllowSorting="True" />
-                <dxg:GridColumn FieldName="dtTransDate" Header="Date" ReadOnly="False" AllowFocus="True" AllowSorting="True" SortOrder="Descending" />
+                <dxg:GridColumn FieldName="dtTransDate" Header="Date" Width="80" ReadOnly="False" AllowFocus="True" AllowSorting="True" SortOrder="Descending" />
                 <dxg:GridColumn  FieldName="bIsAll" Header="bIsAll" Width="50" ReadOnly="True" AllowFocus="False" AllowSorting="True" Visible="False" />
 
-                <dxg:GridColumn FieldName="totalCr" Header="CR" Width="80" ReadOnly="True" AllowFocus="False" AllowSorting="True" />
+                <dxg:GridColumn FieldName="totalCr" Header="CR" Width="78" ReadOnly="True" AllowFocus="False" AllowSorting="True" />
+                <dxg:GridColumn FieldName="totalDr" Header="DR" Width="78" ReadOnly="True" AllowFocus="False" AllowSorting="True" />
+                <dxg:GridColumn FieldName="totalCrNative" Header="CR Adj" Width="78" ReadOnly="True" AllowFocus="False" AllowSorting="True" />
+                <dxg:GridColumn FieldName="totalDrNative" Header="DR Adj" Width="78" ReadOnly="True" AllowFocus="False" AllowSorting="True" />
 
-
-                <dxg:GridColumn FieldName="totalDr" Header="DR" Width="80" ReadOnly="True" AllowFocus="False" AllowSorting="True" />
-
-                <dxg:GridColumn FieldName="cNote" Header="Note" Width="80" ReadOnly="False" AllowFocus="True" AllowSorting="True" />
+                <dxg:GridColumn FieldName="cNote" Header="Note" Width="80" ReadOnly="False" AllowFocus="True" AllowSorting="True" Visible="False" />
 
 
 

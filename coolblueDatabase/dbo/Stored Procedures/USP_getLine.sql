@@ -21,24 +21,30 @@ BEGIN
 	
 	 SELECT distinct a.ID,a.dtCreateDate,a.nAccountID,a.dtTransDate,a.cNote,c.bIsAll,
 	 
-	 (select isnull(sum(s.nAmount),0) as "totalSplit" from dbo.split s where s.nLineID = a.ID
-	 and (c.bIsAll = 1 or(s.nAccountID_C = @accountID or s.nAccountID_D = @accountID))
-	 and (s.bDeleted is null or s.bDeleted=0) ) as "totalsplit",
+	 --(select isnull(sum(s.nAmount),0) as "totalSplit" from dbo.split s where s.nLineID = a.ID
+	 --and (c.bIsAll = 1 or(s.nAccountID_C = @accountID or s.nAccountID_D = @accountID))
+	 --and (s.bDeleted is null or s.bDeleted=0) ) as "totalsplit",
 
 
 
 
-	  (select isnull(sum(s.nAmount_D),0) as "totalDr" from dbo.split s where s.nLineID = a.ID
+	  (select isnull(sum(s.nAmount_D),0) from dbo.split s where s.nLineID = a.ID
 	   and (c.bIsAll = 1 or (s.nAccountID_D = @accountID))
 	 and (s.bDeleted is null or s.bDeleted=0) ) as "totalDr",
 
+	  (select isnull(sum(s.nAmount_D_Native),0)  from dbo.split s where s.nLineID = a.ID
+	   and (c.bIsAll = 1 or (s.nAccountID_D = @accountID))
+	 and (s.bDeleted is null or s.bDeleted=0) ) as "totalDrNative",
 
 
 
-
-	  (select isnull(sum(s.nAmount_C),0) as "totalCr" from dbo.split s where s.nLineID = a.ID
+	  (select isnull(sum(s.nAmount_C),0)  from dbo.split s where s.nLineID = a.ID
 	   and (c.bIsAll = 1 or(s.nAccountID_C = @accountID ))
-	 and (s.bDeleted is null or s.bDeleted=0) ) as "totalCr"
+	 and (s.bDeleted is null or s.bDeleted=0) ) as "totalCr",
+
+	 (select isnull(sum(s.nAmount_C_Native),0)  from dbo.split s where s.nLineID = a.ID
+	   and (c.bIsAll = 1 or(s.nAccountID_C = @accountID ))
+	 and (s.bDeleted is null or s.bDeleted=0) ) as "totalCrNative"
 
 
 

@@ -549,13 +549,15 @@ namespace coolBlue {
             
             private global::System.Data.DataColumn columncNote;
             
-            private global::System.Data.DataColumn columntotalSplit;
-            
             private global::System.Data.DataColumn columntotalDr;
             
             private global::System.Data.DataColumn columntotalCr;
             
             private global::System.Data.DataColumn columnbIsAll;
+            
+            private global::System.Data.DataColumn columntotalCrNative;
+            
+            private global::System.Data.DataColumn columntotalDrNative;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -632,14 +634,6 @@ namespace coolBlue {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn totalSplitColumn {
-                get {
-                    return this.columntotalSplit;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn totalDrColumn {
                 get {
                     return this.columntotalDr;
@@ -659,6 +653,22 @@ namespace coolBlue {
             public global::System.Data.DataColumn bIsAllColumn {
                 get {
                     return this.columnbIsAll;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn totalCrNativeColumn {
+                get {
+                    return this.columntotalCrNative;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn totalDrNativeColumn {
+                get {
+                    return this.columntotalDrNative;
                 }
             }
             
@@ -699,7 +709,7 @@ namespace coolBlue {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public USP_getLineRow AddUSP_getLineRow(System.DateTime dtCreateDate, int nAccountID, System.DateTime dtTransDate, string cNote, decimal totalSplit, decimal totalDr, decimal totalCr, bool bIsAll) {
+            public USP_getLineRow AddUSP_getLineRow(System.DateTime dtCreateDate, int nAccountID, System.DateTime dtTransDate, string cNote, decimal totalDr, decimal totalCr, bool bIsAll, decimal totalCrNative, decimal totalDrNative) {
                 USP_getLineRow rowUSP_getLineRow = ((USP_getLineRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -707,10 +717,11 @@ namespace coolBlue {
                         nAccountID,
                         dtTransDate,
                         cNote,
-                        totalSplit,
                         totalDr,
                         totalCr,
-                        bIsAll};
+                        bIsAll,
+                        totalCrNative,
+                        totalDrNative};
                 rowUSP_getLineRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowUSP_getLineRow);
                 return rowUSP_getLineRow;
@@ -745,10 +756,11 @@ namespace coolBlue {
                 this.columnnAccountID = base.Columns["nAccountID"];
                 this.columndtTransDate = base.Columns["dtTransDate"];
                 this.columncNote = base.Columns["cNote"];
-                this.columntotalSplit = base.Columns["totalSplit"];
                 this.columntotalDr = base.Columns["totalDr"];
                 this.columntotalCr = base.Columns["totalCr"];
                 this.columnbIsAll = base.Columns["bIsAll"];
+                this.columntotalCrNative = base.Columns["totalCrNative"];
+                this.columntotalDrNative = base.Columns["totalDrNative"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -764,14 +776,16 @@ namespace coolBlue {
                 base.Columns.Add(this.columndtTransDate);
                 this.columncNote = new global::System.Data.DataColumn("cNote", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncNote);
-                this.columntotalSplit = new global::System.Data.DataColumn("totalSplit", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntotalSplit);
                 this.columntotalDr = new global::System.Data.DataColumn("totalDr", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntotalDr);
                 this.columntotalCr = new global::System.Data.DataColumn("totalCr", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntotalCr);
                 this.columnbIsAll = new global::System.Data.DataColumn("bIsAll", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnbIsAll);
+                this.columntotalCrNative = new global::System.Data.DataColumn("totalCrNative", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntotalCrNative);
+                this.columntotalDrNative = new global::System.Data.DataColumn("totalDrNative", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntotalDrNative);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AutoIncrement = true;
@@ -3606,22 +3620,6 @@ namespace coolBlue {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal totalSplit {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableUSP_getLine.totalSplitColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'totalSplit\' in table \'USP_getLine\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableUSP_getLine.totalSplitColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public decimal totalDr {
                 get {
                     try {
@@ -3665,6 +3663,38 @@ namespace coolBlue {
                 }
                 set {
                     this[this.tableUSP_getLine.bIsAllColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal totalCrNative {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableUSP_getLine.totalCrNativeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'totalCrNative\' in table \'USP_getLine\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUSP_getLine.totalCrNativeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal totalDrNative {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableUSP_getLine.totalDrNativeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'totalDrNative\' in table \'USP_getLine\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUSP_getLine.totalDrNativeColumn] = value;
                 }
             }
             
@@ -3718,18 +3748,6 @@ namespace coolBlue {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IstotalSplitNull() {
-                return this.IsNull(this.tableUSP_getLine.totalSplitColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SettotalSplitNull() {
-                this[this.tableUSP_getLine.totalSplitColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IstotalDrNull() {
                 return this.IsNull(this.tableUSP_getLine.totalDrColumn);
             }
@@ -3762,6 +3780,30 @@ namespace coolBlue {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetbIsAllNull() {
                 this[this.tableUSP_getLine.bIsAllColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IstotalCrNativeNull() {
+                return this.IsNull(this.tableUSP_getLine.totalCrNativeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SettotalCrNativeNull() {
+                this[this.tableUSP_getLine.totalCrNativeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IstotalDrNativeNull() {
+                return this.IsNull(this.tableUSP_getLine.totalDrNativeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SettotalDrNativeNull() {
+                this[this.tableUSP_getLine.totalDrNativeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5832,10 +5874,11 @@ namespace coolBlue.RegisterDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("nAccountID", "nAccountID");
             tableMapping.ColumnMappings.Add("dtTransDate", "dtTransDate");
             tableMapping.ColumnMappings.Add("cNote", "cNote");
-            tableMapping.ColumnMappings.Add("totalSplit", "totalSplit");
             tableMapping.ColumnMappings.Add("totalDr", "totalDr");
             tableMapping.ColumnMappings.Add("totalCr", "totalCr");
             tableMapping.ColumnMappings.Add("bIsAll", "bIsAll");
+            tableMapping.ColumnMappings.Add("totalCrNative", "totalCrNative");
+            tableMapping.ColumnMappings.Add("totalDrNative", "totalDrNative");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
