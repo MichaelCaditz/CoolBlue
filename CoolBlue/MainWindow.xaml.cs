@@ -86,6 +86,7 @@ namespace coolBlue
 
             coolBlue.RegisterDataSet registerDataSet = ((coolBlue.RegisterDataSet)(this.FindResource("registerDataSet")));
 
+            coolBlue.currencyConversion currencyConversion = ((coolBlue.currencyConversion)(this.FindResource("currencyConversion")));
 
             //coolBlue.RegisterDataSetTableAdapters.USP_getLineTableAdapter registerDataSetUSP_getLineTableAdapter = new coolBlue.RegisterDataSetTableAdapters.USP_getLineTableAdapter();
             System.Windows.Data.CollectionViewSource uSP_getLineViewSource1 = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getLineViewSource1")));
@@ -107,6 +108,8 @@ namespace coolBlue
             System.Windows.Data.CollectionViewSource uSP_getAllClassViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllClassViewSource")));
             coolBlue.RegisterDataSetTableAdapters.USP_getAllCurrencyTableAdapter registerDataSetUSP_getAllCurrencyTableAdapter = new coolBlue.RegisterDataSetTableAdapters.USP_getAllCurrencyTableAdapter();
             System.Windows.Data.CollectionViewSource uSP_getAllCurrencyViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllCurrencyViewSource")));
+            coolBlue.currencyConversionTableAdapters.USP_getAllCurrencyConversionTableAdapter currencyConversionUSP_getAllCurrencyConversionTableAdapter = new coolBlue.currencyConversionTableAdapters.USP_getAllCurrencyConversionTableAdapter();
+            System.Windows.Data.CollectionViewSource uSP_getAllCurrencyConversionViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllCurrencyConversionViewSource")));
 
             //I cannot make this work yet
             //System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesUSP_getAllAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesUSP_getAllAccountsViewSource")));
@@ -124,6 +127,8 @@ namespace coolBlue
             registerDataSetUSP_getAllCurrencyTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
             registerDataSetUSP_getAllCurrencyTableAdapter.Fill(registerDataSet.USP_getAllCurrency);
 
+            currencyConversionUSP_getAllCurrencyConversionTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
+            currencyConversionUSP_getAllCurrencyConversionTableAdapter.Fill(currencyConversion.USP_getAllCurrencyConversion);
 
             //DataRowView drv = (DataRowView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentItem;
 
@@ -147,15 +152,13 @@ namespace coolBlue
             uSP_getAllCurrencyViewSource.View.MoveCurrentToFirst();
             uSP_getAllAccountsForSplitViewSource.View.MoveCurrentToFirst();
             uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.MoveCurrentToFirst();
-            // TODO: Add code here to load data into the table USP_getAllAccountsForSplit.
-            // This code could not be generated, because the registerDataSetUSP_getAllAccountsForSplitTableAdapter.Fill method is missing, or has unrecognized parameters.
-            //coolBlue.RegisterDataSetTableAdapters.USP_getAllAccountsForSplitTableAdapter registerDataSetUSP_getAllAccountsForSplitTableAdapter = new coolBlue.RegisterDataSetTableAdapters.USP_getAllAccountsForSplitTableAdapter();
-            //System.Windows.Data.CollectionViewSource uSP_getAllAccountsForSplitViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountsForSplitViewSource")));
+            uSP_getAllCurrencyConversionViewSource.View.MoveCurrentToFirst();
 
+           
 
 
             TextEditBalance.DisplayFormatString = "#,##0.00;<#,##0.00>";
-        }
+                  }
 
 
 
@@ -1285,8 +1288,9 @@ namespace coolBlue
             }
             else
 
-            { 
-                uSP_getSplitDataGrid.SetCellValue(curRowHandle, "nAmount_C_Native", 8989);
+            {
+                crAmount = getAdjustedCurrency(crAmount, nEntryCurrencyID, CrCurrencyID);
+                uSP_getSplitDataGrid.SetCellValue(curRowHandle, "nAmount_C_Native", crAmount);
 
 
             }
@@ -1299,8 +1303,10 @@ namespace coolBlue
 
             }
             else
-            { 
-                uSP_getSplitDataGrid.SetCellValue(curRowHandle, "nAmount_D_Native", 2222);
+            {
+                drAmount = getAdjustedCurrency(drAmount, nEntryCurrencyID, DrCurrencyID);
+
+                uSP_getSplitDataGrid.SetCellValue(curRowHandle, "nAmount_D_Native", drAmount);
 
 
             }
@@ -1317,6 +1323,25 @@ namespace coolBlue
             //e.IsValid = crAmount > 0;
             ////decimal crAmount = e.n
             saveConfig();
+        }
+
+
+        private decimal getAdjustedCurrency(decimal nAmount, int nFromCurrencyID, int nToCurrencyID)
+        {
+            decimal newAmount = 999999;
+            string cFromCurrencyID = nFromCurrencyID.ToString();
+            string cToCurrencyID = "n"+nToCurrencyID.ToString();
+            coolBlue.currencyConversion currencyConversion = ((coolBlue.currencyConversion)(this.FindResource("currencyConversion")));
+            DataRow[] foundRowC = currencyConversion.USP_getAllCurrencyConversion.Select("nFrom = " + cFromCurrencyID);
+            if (foundRowC.Count() > 0)
+            {
+                newAmount = (decimal)foundRowC[0][cToCurrencyID]*nAmount;
+
+
+            }
+
+
+            return newAmount;
         }
 
         private void SplitsView_InvalidRowException(object sender, InvalidRowExceptionEventArgs e)

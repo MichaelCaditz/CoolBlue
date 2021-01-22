@@ -90,9 +90,11 @@
             </dx:DesignDataManager.DesignData>
         </dx:TypedSimpleSource>
         <CollectionViewSource x:Key="uSP_getAllAccountsForSplitViewSource" Source="{Binding USP_getAllAccountsForSplit, Source={StaticResource registerDataSet}}" />
+        <local:currencyConversion x:Key="currencyConversion"/>
+        <CollectionViewSource x:Key="uSP_getAllCurrencyConversionViewSource" Source="{Binding USP_getAllCurrencyConversion, Source={StaticResource currencyConversion}}"/>
     </Window.Resources>
 
-    <dxlc:ScrollBox HorizontalAlignment="Left" Grid.Row="0" Grid.RowSpan="11" Grid.ColumnSpan="7" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="0" Padding="0" DragScrolling="False" Background="{x:Null}">
+    <dxlc:ScrollBox HorizontalAlignment="Left" Grid.Row="0" Grid.RowSpan="11" Grid.ColumnSpan="7" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="0" Padding="0" DragScrolling="False" Background="{x:Null}" DataContext="{StaticResource uSP_getAllCurrencyConversionViewSource}">
         <!--<ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="0" HorizontalAlignment="Left" VerticalAlignment="Top" >-->
 
         <Grid DataContext="{StaticResource uSP_getLineViewSource}" IsEnabled="True" Margin="0,0" Width="1920" Height="1080" Background="#FF093472">
@@ -342,7 +344,7 @@
                     </dxg:TableView>
 
                 </dxg:GridControl.View>
-                
+
                 <dxg:GridColumn Binding="{Binding currencySymbol}" FieldName="Symbol" IsEnabled="False" AllowFocus="False" Header="" Width="26">
                     <dxg:GridColumn.DisplayTemplate>
                         <ControlTemplate>
