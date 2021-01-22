@@ -158,7 +158,8 @@ namespace coolBlue
 
 
             TextEditBalance.DisplayFormatString = "#,##0.00;<#,##0.00>";
-                  }
+            TextEditBalanceNative.DisplayFormatString = "#,##0.00;<#,##0.00>";
+        }
 
 
 
@@ -1048,52 +1049,61 @@ namespace coolBlue
             int nAccountingTypeID = (drv1 == null ? 0 : DBNull.Value.Equals(drv1["nAccountingTypeID"]) == true ? 0 : (int)drv1["nAccountingTypeID"]);
 
             decimal sumDr = 0;
+            decimal sumDrNative = 0;
             foreach (DataRow dr in registerDataSet.USP_getLine.Rows)
             {
 
                 sumDr += (decimal)dr["totalDr"];
+                sumDrNative += (decimal)dr["totalDrNative"];
 
             }
 
             decimal sumCr = 0;
+            decimal sumCrNative = 0;
             foreach (DataRow dr in registerDataSet.USP_getLine.Rows)
             {
 
                 sumCr += (decimal)dr["totalCr"];
+                sumCrNative += (decimal)dr["totalCrNative"];
 
             }
             decimal sumTotal = 0;
+            decimal sumTotalNative = 0;
             switch (nAccountingTypeID)
             {
                 case 1000://current asset
 
                     sumTotal = sumDr - sumCr;
+                    sumTotalNative = sumDrNative - sumCrNative;
                     break;
 
                 case 1001://curent liability
 
                     sumTotal = sumCr - sumDr;
+                    sumTotalNative = sumCrNative - sumDrNative;
                     break;
 
                 case 1003://expense
 
                     sumTotal = sumDr - sumCr;
+                    sumTotalNative = sumDrNative - sumCrNative;
                     break;
 
                 default:
                     sumTotal = sumDr - sumCr;
+                    sumTotalNative = sumDrNative - sumCrNative;
                     break;
             }
-
-
-
-
 
 
 
             TextEditTotalDr.EditValue = sumDr;
             TextEditTotalCr.EditValue = sumCr;
             TextEditBalance.EditValue = sumTotal;
+
+            TextEditTotalDrNative.EditValue = sumDrNative;
+            TextEditTotalCrNative.EditValue = sumCrNative;
+            TextEditBalanceNative.EditValue = sumTotalNative;
 
 
 
