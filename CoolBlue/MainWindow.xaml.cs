@@ -1309,7 +1309,7 @@ namespace coolBlue
 
             {
 
-                uSP_getSplitDataGrid.SetCellValue(curRowHandle, "nAmount_DC_Native", drAmount);
+                uSP_getSplitDataGrid.SetCellValue(curRowHandle, "nAmount_D_Native", drAmount);
 
             }
             else
