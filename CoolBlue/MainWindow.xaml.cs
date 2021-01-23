@@ -1281,45 +1281,49 @@ namespace coolBlue
 
 
 
-
-
+            decimal nOldCNative = (decimal)uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_C_Native");
+            decimal nOldDNative = (decimal)uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_D_Native");
 
 
             crAmount = (uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_C") == null ? 0 : DBNull.Value.Equals(uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_C")) == true ? 0 : (decimal)uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_C"));
             drAmount = (uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_D") == null ? 0 : DBNull.Value.Equals(uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_D")) == true ? 0 : (decimal)uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_D"));
 
 
-            if (CrCurrencyID == nEntryCurrencyID)
-
+            if  (nOldCNative == 0m)
             {
+                if (CrCurrencyID == nEntryCurrencyID)
 
-                uSP_getSplitDataGrid.SetCellValue(curRowHandle, "nAmount_C_Native", crAmount);
+                {
+
+                    uSP_getSplitDataGrid.SetCellValue(curRowHandle, "nAmount_C_Native", crAmount);
+
+                }
+                else
+                {
+                    crAmount = getAdjustedCurrency(crAmount, nEntryCurrencyID, CrCurrencyID);
+
+                    uSP_getSplitDataGrid.SetCellValue(curRowHandle, "nAmount_C_Native", crAmount);
+                }
 
             }
-            else
 
-            {
-                crAmount = getAdjustedCurrency(crAmount, nEntryCurrencyID, CrCurrencyID);
-                uSP_getSplitDataGrid.SetCellValue(curRowHandle, "nAmount_C_Native", crAmount);
+            if  (nOldDNative == 0m)
+                { 
+                    if (DrCurrencyID == nEntryCurrencyID)
 
+                {
 
-            }
+                    uSP_getSplitDataGrid.SetCellValue(curRowHandle, "nAmount_D_Native", drAmount);
 
-            if (DrCurrencyID == nEntryCurrencyID)
+                     }
+                     else
+                     {
+                    drAmount = getAdjustedCurrency(drAmount, nEntryCurrencyID, DrCurrencyID);
 
-            {
+                    uSP_getSplitDataGrid.SetCellValue(curRowHandle, "nAmount_D_Native", drAmount);
+                        }
 
-                uSP_getSplitDataGrid.SetCellValue(curRowHandle, "nAmount_D_Native", drAmount);
-
-            }
-            else
-            {
-                drAmount = getAdjustedCurrency(drAmount, nEntryCurrencyID, DrCurrencyID);
-
-                uSP_getSplitDataGrid.SetCellValue(curRowHandle, "nAmount_D_Native", drAmount);
-
-
-            }
+                 }
 
             //if (drAmount == 0)
             //{
