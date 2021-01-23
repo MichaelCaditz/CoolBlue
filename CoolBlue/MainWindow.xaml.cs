@@ -1306,9 +1306,8 @@ namespace coolBlue
             }
 
 
-
-            decimal nOldCNative = (decimal)uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_C_Native");
-            decimal nOldDNative = (decimal)uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_D_Native");
+            decimal nOldCNative = (uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_C_Native") == null ? 0 : DBNull.Value.Equals(uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_C_Native")) == true ? 0 : (decimal)uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_C_Native"));
+            decimal nOldDNative = (uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_D_Native") == null ? 0 : DBNull.Value.Equals(uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_D_Native")) == true ? 0 : (decimal)uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_D_Native"));
 
 
             crAmount = (uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_C") == null ? 0 : DBNull.Value.Equals(uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_C")) == true ? 0 : (decimal)uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_C"));
@@ -1606,6 +1605,28 @@ namespace coolBlue
         }
         private void deleteTrans()
         {
+            System.Windows.Data.CollectionViewSource uSP_getLineViewSource1 = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getLineViewSource1")));
+            DataRowView drv1 = (DataRowView)uSP_getLineViewSource1.View.CurrentItem;
+            int lineCurrent = (drv1 == null ? 0 : DBNull.Value.Equals(drv1["ID"]) == true ? 0 : (int)drv1["ID"]);
+            if (lineCurrent == 0)
+            {
+                string message5 = "Please select a transaction";
+                string caption5 = "CoolBlue";
+
+                MessageBoxButton buttons5 = MessageBoxButton.OK;
+                MessageBoxImage icon5 = MessageBoxImage.Warning;
+                MessageBoxResult defaultResult5 = MessageBoxResult.OK;
+                MessageBoxOptions options5 = MessageBoxOptions.None;
+                // Show message box
+                // MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+
+                // Displays the MessageBox.
+                MessageBoxResult result5 = MessageBox.Show(message5, caption5, buttons5, icon5, defaultResult5, options5);
+                return;
+            }
+
+
+
             string message = "Do you want to delete this entire transaction?";
             string caption = "CoolBlue";
 
@@ -1619,7 +1640,7 @@ namespace coolBlue
             // Displays the MessageBox.
             MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
 
-            if (result == MessageBoxResult.Yes)
+            if (result == MessageBoxResult.No)
             {
 
                 // Closes the parent form.
@@ -1631,10 +1652,149 @@ namespace coolBlue
 
             else
             {
+                coolBlue.RegisterDataSet registerDataSet = ((coolBlue.RegisterDataSet)(this.FindResource("registerDataSet")));
+
+                int TransactID1 = 0;
+                //System.Windows.Data.CollectionViewSource uSP_getLineViewSource1 = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getLineViewSource1")));
+                System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesUSP_getAllAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesUSP_getAllAccountsViewSource")));
+                System.Windows.Data.CollectionViewSource uSP_getLineUSP_getSplitViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getLineUSP_getSplitViewSource")));
 
 
+
+                DataRowView drv = (DataRowView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentItem;
+                int accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
+                int accountingPeriod = 1000;  // this will be changed so value comes from settings
+
+                //int lineCurrent = 0;
+                int wasnull = 0;
+                wasnull = (uSP_getLineViewSource1.View == null ? 1 : 0);
+                if (wasnull == 1)
+                {
+
+                    // MessageBox.Show("Warning: uSP_getLineViewSource is null", "CoolBlue");
+                    string message1 = "Warning: uSP_getLineViewSource1 is null";
+                    string caption1 = "CoolBlue";
+
+                    MessageBoxButton buttons1 = MessageBoxButton.OK;
+                    MessageBoxImage icon1 = MessageBoxImage.Information;
+                    MessageBoxResult defaultResult1 = MessageBoxResult.OK;
+                    MessageBoxOptions options1 = MessageBoxOptions.RtlReading;
+                    // Show message box
+                    // MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+
+                    // Displays the MessageBox.
+                    MessageBoxResult result1 = MessageBox.Show(message1, caption1, buttons1, icon1, defaultResult1, options1);
+
+                    if (result1 == MessageBoxResult.OK)
+                    {
+
+                        // Closes the parent form.
+
+                        //this.Close();
+
+                    }
+                    return;
+                }
+                else
+                {
+                    //DataRowView drv1 = (DataRowView)uSP_getLineViewSource1.View.CurrentItem;
+                    //lineCurrent = (drv1 == null ? 0 : DBNull.Value.Equals(drv1["ID"]) == true ? 0 : (int)drv1["ID"]);
+                }
+
+
+
+
+
+                SqlConnection conn = new SqlConnection() { ConnectionString = ProgramSettings.coolblueconnectionString };
+                try
+                {
+
+                    using (SqlCommand cmd3 = new SqlCommand() { Connection = conn, CommandType = CommandType.StoredProcedure })
+                    {
+                        //cmd3.Transaction = trans1;
+                        cmd3.Parameters.Clear();
+                        cmd3.CommandText = "dbo.USP_deleteSplit";
+                        cmd3.Parameters.AddWithValue("@nLine", lineCurrent);
+
+                        //SqlParameter retval = cmd3.Parameters.Add("@transactIdentity", SqlDbType.Int);
+                        //retval.Direction = ParameterDirection.Output;
+                        conn.Open();
+                        cmd3.ExecuteNonQuery();
+                        //TransactID1 = (int)cmd3.Parameters["@transactIdentity"].Value;
+                    }
+
+                }
+
+
+                catch (Exception ex)
+                {
+                    //utilities.errorLog(System.Reflection.MethodInfo.GetCurrentMethod().Name, ex);
+                    System.ArgumentException argEx = new System.ArgumentException("New Line", "", ex);
+                    throw argEx;
+                }
+                finally
+                {
+                    if (conn.State == ConnectionState.Open) conn.Close();
+
+
+
+                    //uSP_getLineDataGrid.
+
+                    //uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.MoveCurrentToPosition(0);
+
+                    //resetButtons();
+                    //LocateNewLine(TransactID1);
+                }
+
+                SqlConnection conn1 = new SqlConnection() { ConnectionString = ProgramSettings.coolblueconnectionString };
+                try
+                {
+
+                    using (SqlCommand cmd3 = new SqlCommand() { Connection = conn1, CommandType = CommandType.StoredProcedure })
+                    {
+                        //cmd3.Transaction = trans1;
+                        cmd3.Parameters.Clear();
+                        cmd3.CommandText = "dbo.USP_deleteLine";
+                        cmd3.Parameters.AddWithValue("@nLine", lineCurrent);
+
+                        //SqlParameter retval = cmd3.Parameters.Add("@transactIdentity", SqlDbType.Int);
+                        //retval.Direction = ParameterDirection.Output;
+                        conn1.Open();
+                        cmd3.ExecuteNonQuery();
+                        //TransactID1 = (int)cmd3.Parameters["@transactIdentity"].Value;
+                    }
+
+                }
+
+
+                catch (Exception ex)
+                {
+                    //utilities.errorLog(System.Reflection.MethodInfo.GetCurrentMethod().Name, ex);
+                    System.ArgumentException argEx = new System.ArgumentException("New Line", "", ex);
+                    throw argEx;
+                }
+                finally
+                {
+                    if (conn1.State == ConnectionState.Open) conn1.Close();
+
+
+
+                    registerDataSet.EnforceConstraints = false;
+                    registerDataSetUSP_getSplitTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
+                    registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent, accountingPeriod);
+                    registerDataSetUSP_getLineTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
+                    registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent, accountingPeriod);
+                    //registerDataSet.EnforceConstraints = true;
+
+                    getTotals();
+                }
             }
 
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            deleteTrans();
         }
     }
 }
