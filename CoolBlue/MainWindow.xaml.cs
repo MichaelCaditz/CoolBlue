@@ -154,7 +154,7 @@ namespace coolBlue
             uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.MoveCurrentToFirst();
             uSP_getAllCurrencyConversionViewSource.View.MoveCurrentToFirst();
 
-           
+
 
 
             TextEditBalance.DisplayFormatString = "#,##0.00;<#,##0.00>";
@@ -1262,8 +1262,8 @@ namespace coolBlue
                 e.IsValid = false;
                 e.ErrorType = ErrorType.Critical;
                 e.ErrorContent = string.Format("Pleae specify DR account");
-                return;            
-             }
+                return;
+            }
 
             if (nAccountID_C == 0)
             {
@@ -1273,25 +1273,17 @@ namespace coolBlue
                 return;
             }
 
-            if (crAmount == 0 )
+            if (crAmount == 0 && drAmount == 0)
 
 
             {
                 e.IsValid = false;
                 e.ErrorType = ErrorType.Critical;
-                e.ErrorContent = string.Format("Pleae specify CR amount");
+                e.ErrorContent = string.Format("Pleae specify Dr or CR amount");
                 return;
             }
 
-            if (drAmount == 0)
 
-
-            {
-                e.IsValid = false;
-                e.ErrorType = ErrorType.Critical;
-                e.ErrorContent = string.Format("Pleae specify DR amount");
-                return;
-            }
 
 
             if (nEntryCurrencyID == 0)
@@ -1313,7 +1305,7 @@ namespace coolBlue
                 uSP_getSplitDataGrid.SetCellValue(curRowHandle, "nAmount_D", crAmount);
             }
 
-            
+
 
             decimal nOldCNative = (decimal)uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_C_Native");
             decimal nOldDNative = (decimal)uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_D_Native");
@@ -1323,7 +1315,7 @@ namespace coolBlue
             drAmount = (uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_D") == null ? 0 : DBNull.Value.Equals(uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_D")) == true ? 0 : (decimal)uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_D"));
 
 
-            if  (nOldCNative == 0m)
+            if (nOldCNative == 0m)
             {
                 if (CrCurrencyID == nEntryCurrencyID)
 
@@ -1341,23 +1333,23 @@ namespace coolBlue
 
             }
 
-            if  (nOldDNative == 0m)
-                { 
-                    if (DrCurrencyID == nEntryCurrencyID)
+            if (nOldDNative == 0m)
+            {
+                if (DrCurrencyID == nEntryCurrencyID)
 
                 {
 
                     uSP_getSplitDataGrid.SetCellValue(curRowHandle, "nAmount_D_Native", drAmount);
 
-                     }
-                     else
-                     {
+                }
+                else
+                {
                     drAmount = getAdjustedCurrency(drAmount, nEntryCurrencyID, DrCurrencyID);
 
                     uSP_getSplitDataGrid.SetCellValue(curRowHandle, "nAmount_D_Native", drAmount);
-                        }
+                }
 
-                 }
+            }
 
             //if (drAmount == 0)
             //{
@@ -1378,12 +1370,12 @@ namespace coolBlue
         {
             decimal newAmount = 999999;
             string cFromCurrencyID = nFromCurrencyID.ToString();
-            string cToCurrencyID = "n"+nToCurrencyID.ToString();
+            string cToCurrencyID = "n" + nToCurrencyID.ToString();
             coolBlue.currencyConversion currencyConversion = ((coolBlue.currencyConversion)(this.FindResource("currencyConversion")));
             DataRow[] foundRowC = currencyConversion.USP_getAllCurrencyConversion.Select("nFrom = " + cFromCurrencyID);
             if (foundRowC.Count() > 0)
             {
-                newAmount = (decimal)foundRowC[0][cToCurrencyID]*nAmount;
+                newAmount = (decimal)foundRowC[0][cToCurrencyID] * nAmount;
 
 
             }
@@ -1596,7 +1588,7 @@ namespace coolBlue
 
         }
 
-        
+
 
         private void SplitsView_InitNewRow(object sender, InitNewRowEventArgs e)
         {
@@ -1604,6 +1596,45 @@ namespace coolBlue
             uSP_getSplitDataGrid.SetCellValue(e.RowHandle, "nAmount_D", 0);
             uSP_getSplitDataGrid.SetCellValue(e.RowHandle, "nAmount_C_Native", 0);
             uSP_getSplitDataGrid.SetCellValue(e.RowHandle, "nAmount_D_Native", 0);
+        }
+
+        private void DeleteLine_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+
+            deleteTrans();
+
+        }
+        private void deleteTrans()
+        {
+            string message = "Do you want to delete this entire transaction?";
+            string caption = "CoolBlue";
+
+            MessageBoxButton buttons = MessageBoxButton.YesNo;
+            MessageBoxImage icon = MessageBoxImage.Warning;
+            MessageBoxResult defaultResult = MessageBoxResult.No;
+            MessageBoxOptions options = MessageBoxOptions.None;
+            // Show message box
+            // MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+
+            // Displays the MessageBox.
+            MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+
+            if (result == MessageBoxResult.Yes)
+            {
+
+                // Closes the parent form.
+
+                //this.Close();
+                return;
+            }
+
+
+            else
+            {
+
+
+            }
+
         }
     }
 }

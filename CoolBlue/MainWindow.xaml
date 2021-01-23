@@ -399,7 +399,10 @@
                                    ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False"
                                    ShowSearchPanelCloseButton="False" ShowValidationAttributeErrors="False" ShowVerticalLines="False" CustomCellAppearance="TableView_OnCustomCellAppearance" FocusedRowChanged="TableView_FocusedRowChanged" ValidateRow="TableView_ValidateRow"
                                    AllowConditionalFormattingManager="False">
+                        <dxg:TableView.RowCellMenuCustomizations>
+                            <dxb:BarButtonItem Name="DeleteLine" Content="Delete" ItemClick="DeleteLine_ItemClick" />
 
+                        </dxg:TableView.RowCellMenuCustomizations>
                         <dxg:TableView.FormatConditions>
 
                             <dxg:FormatCondition Expression="[dtTransDate] &gt; #1800-01-01#" FieldName="dtTransDate">
