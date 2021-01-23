@@ -1255,20 +1255,44 @@ namespace coolBlue
             decimal drAmount = (uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_D") == null ? 0 : DBNull.Value.Equals(uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_D")) == true ? 0 : (decimal)uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_D"));
             int nEntryCurrencyID = (uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nEntryCurrencyID") == null ? 0 : DBNull.Value.Equals(uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nEntryCurrencyID")) == true ? 0 : (int)uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nEntryCurrencyID"));
 
-           // int nDrCurrencyID = (uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nDrCurrencyID") == null ? 0 : DBNull.Value.Equals(uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nDrCurrencyID")) == true ? 0 : (int)uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nDrCurrencyID"));
+            // int nDrCurrencyID = (uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nDrCurrencyID") == null ? 0 : DBNull.Value.Equals(uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nDrCurrencyID")) == true ? 0 : (int)uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nDrCurrencyID"));
             //int nCrCurrencyID = (uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nCrCurrencyID") == null ? 0 : DBNull.Value.Equals(uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nCrCurrencyID")) == true ? 0 : (int)uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nCrCurrencyID"));
+            if (nAccountID_D == 0)
+            {
+                e.IsValid = false;
+                e.ErrorType = ErrorType.Critical;
+                e.ErrorContent = string.Format("Pleae specify DR account");
+                return;            
+             }
 
-            
+            if (nAccountID_C == 0)
+            {
+                e.IsValid = false;
+                e.ErrorType = ErrorType.Critical;
+                e.ErrorContent = string.Format("Pleae specify CR account");
+                return;
+            }
 
-            if (crAmount == 0 && drAmount == 0)
+            if (crAmount == 0 )
 
 
             {
                 e.IsValid = false;
                 e.ErrorType = ErrorType.Critical;
-                e.ErrorContent = string.Format("Pleae specify credit or debit amount");
+                e.ErrorContent = string.Format("Pleae specify CR amount");
                 return;
             }
+
+            if (drAmount == 0)
+
+
+            {
+                e.IsValid = false;
+                e.ErrorType = ErrorType.Critical;
+                e.ErrorContent = string.Format("Pleae specify DR amount");
+                return;
+            }
+
 
             if (nEntryCurrencyID == 0)
 
@@ -1289,7 +1313,7 @@ namespace coolBlue
                 uSP_getSplitDataGrid.SetCellValue(curRowHandle, "nAmount_D", crAmount);
             }
 
-
+            
 
             decimal nOldCNative = (decimal)uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_C_Native");
             decimal nOldDNative = (decimal)uSP_getSplitDataGrid.GetCellValue(e.RowHandle, "nAmount_D_Native");
