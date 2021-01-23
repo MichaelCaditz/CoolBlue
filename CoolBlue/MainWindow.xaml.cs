@@ -373,11 +373,11 @@ namespace coolBlue
                         break;
 
                 }
-
-                uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nAmount_C", 0);
-                uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nAmount_D", 0);
-                uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nAmount_C_Native", 0);
-                uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nAmount_D_Native", 0);
+                //these are done in SplitsView_InitNewRow:
+                //uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nAmount_C", 0);
+                //uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nAmount_D", 0);
+                //uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nAmount_C_Native", 0);
+                //uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nAmount_D_Native", 0);
 
 
                 SplitsView.Focus();
@@ -1269,6 +1269,16 @@ namespace coolBlue
                 e.ErrorContent = string.Format("Pleae specify credit or debit amount");
                 return;
             }
+
+            if (nEntryCurrencyID == 0)
+
+
+            {
+                e.IsValid = false;
+                e.ErrorType = ErrorType.Critical;
+                e.ErrorContent = string.Format("Pleae specify transaction currency");
+                return;
+            }
             if (crAmount == 0)
             {
                 uSP_getSplitDataGrid.SetCellValue(curRowHandle, "nAmount_C", drAmount);
@@ -1562,6 +1572,18 @@ namespace coolBlue
 
         }
 
-       
+        private void SplitsView_AddingNewRow(object sender, AddingNewEventArgs e)
+        {
+            
+            
+        }
+
+        private void SplitsView_InitNewRow(object sender, InitNewRowEventArgs e)
+        {
+            uSP_getSplitDataGrid.SetCellValue(e.RowHandle, "nAmount_C", 0);
+            uSP_getSplitDataGrid.SetCellValue(e.RowHandle, "nAmount_D", 0);
+            uSP_getSplitDataGrid.SetCellValue(e.RowHandle, "nAmount_C_Native", 0);
+            uSP_getSplitDataGrid.SetCellValue(e.RowHandle, "nAmount_D_Native", 0);
+        }
     }
 }

@@ -594,7 +594,7 @@
                                    ShowEditFormOnEnterKey="True" ShowEditFormOnF2Key="True" ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False"
                                    ShowSearchPanelCloseButton="False" ShowValidationAttributeErrors="False" ShowVerticalLines="False" CustomCellAppearance="TableView_OnCustomCellAppearance"
                                    NewItemRowPosition="Bottom" ValidateRow="SplitsView_ValidateRow" EnableImmediatePosting="True" EditFormPostMode="Immediate" EditFormShowMode="Dialog"
-                                   EditorButtonShowMode="ShowForFocusedCell" EditFormColumnCount="3" InvalidRowException="SplitsView_InvalidRowException" ValidateCell="SplitsView_ValidateCell" CellValueChanged="SplitsView_CellValueChanged">
+                                   EditorButtonShowMode="ShowForFocusedCell" EditFormColumnCount="3" InvalidRowException="SplitsView_InvalidRowException" ValidateCell="SplitsView_ValidateCell" CellValueChanged="SplitsView_CellValueChanged" InitNewRow="SplitsView_InitNewRow">
 
                         <dxg:TableView.FormatConditions>
                             <dxg:FormatCondition Expression="[nAmount_D] &gt; -1000000.0m" FieldName="nAmount_D">
