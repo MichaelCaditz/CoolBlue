@@ -32,7 +32,7 @@ BEGIN
 	 left join account c on c.ID = @accountID
 	
 
-	 where (c.bIsAll = 1 or (a.nAccountID_C = @accountID or a.nAccountID_D = @accountID) )and b.nAccountingPeriodID=@accountingPeriod
+	 where (c.bIsAll = 1 or (a.nAccountID_C = @accountID or a.nAccountID_D = @accountID) or a.nLineID=b.ID )and b.nAccountingPeriodID=@accountingPeriod
 	 
 	 --b.nAccountID = @accountID 
 	 

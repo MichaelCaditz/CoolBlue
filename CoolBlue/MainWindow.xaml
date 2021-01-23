@@ -369,7 +369,10 @@
 
             <dxg:GridControl Name="uSP_getLineDataGrid" AutoGenerateColumns="None" EnableSmartColumnsGeneration="False" ItemsSource="{Binding Source={StaticResource uSP_getLineViewSource1}}" Margin="0,0,4,0" Grid.Column="5" Grid.Row="3" Grid.RowSpan="7" SelectionMode="Row">
                 <dxg:GridControl.View>
-                    <dxg:TableView Name="LineView" AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" ShowColumnHeaders="True" Grid.ColumnSpan="1" Margin="0,0,0,0" ShowBandsPanel="False" ShowBandsInCustomizationForm="False" ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" ShowValidationAttributeErrors="False" ShowVerticalLines="False" CustomCellAppearance="TableView_OnCustomCellAppearance" FocusedRowChanged="TableView_FocusedRowChanged" ValidateRow="TableView_ValidateRow" AllowConditionalFormattingManager="False">
+                    <dxg:TableView Name="LineView" AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" ShowColumnHeaders="True" Grid.ColumnSpan="1" Margin="0,0,0,0" ShowBandsPanel="False" ShowBandsInCustomizationForm="False" ShowCheckBoxSelectorInGroupRow="False"
+                                   ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False"
+                                   ShowSearchPanelCloseButton="False" ShowValidationAttributeErrors="False" ShowVerticalLines="False" CustomCellAppearance="TableView_OnCustomCellAppearance" FocusedRowChanged="TableView_FocusedRowChanged" ValidateRow="TableView_ValidateRow"
+                                   AllowConditionalFormattingManager="False">
 
                         <dxg:TableView.FormatConditions>
 
@@ -383,10 +386,10 @@
                                 <dx:Format Foreground="#FFEAF50A" TextDecorations="{x:Null}"/>
                             </dxg:FormatCondition>
                             <dxg:FormatCondition Expression="[totalDrNative] &gt; -1000000.0m" FieldName="totalDrNative">
-                                <dx:Format Foreground="#FFA9F50A" TextDecorations="{x:Null}" Background="#FF646161"/>
+                                <dx:Format Foreground="#FFA9F50A" FontWeight="Regular" TextDecorations="{x:Null}"/>
                             </dxg:FormatCondition>
                             <dxg:FormatCondition Expression="[totalCrNative] &gt; -1000000.0m" FieldName="totalCrNative">
-                                <dx:Format Foreground="#FFEAF50A" TextDecorations="{x:Null}" Background="#FF646161"/>
+                                <dx:Format Foreground="#FFEAF50A" FontWeight="Regular" TextDecorations="{x:Null}"/>
                             </dxg:FormatCondition>
                             <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id" IsEnabled="False">
                                 <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold" />
@@ -594,15 +597,19 @@
                                    EditorButtonShowMode="ShowForFocusedCell" EditFormColumnCount="3" InvalidRowException="SplitsView_InvalidRowException" ValidateCell="SplitsView_ValidateCell" CellValueChanged="SplitsView_CellValueChanged">
 
                         <dxg:TableView.FormatConditions>
-                            <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id" IsEnabled="False">
-                                <dx:Format Foreground="Red" Background="Yellow" FontWeight="Bold" />
+                            <dxg:FormatCondition Expression="[nAmount_D] &gt; -1000000.0m" FieldName="nAmount_D">
+                                <dx:Format Foreground="#FFA9F50A" TextDecorations="{x:Null}"/>
                             </dxg:FormatCondition>
-                            <dxg:FormatCondition ApplyToRow="True" Expression="[nAmount_D] &lt;&gt; [nAmount_C]" FieldName="nAmount_D" IsEnabled="False">
-                                <dx:Format Background="#FF932320" Foreground="White" TextDecorations="{x:Null}"/>
+                            <dxg:FormatCondition Expression="[nAmount_C] &gt; -1000000.0m" FieldName="nAmount_C">
+                                <dx:Format Foreground="#FFEAF50A" TextDecorations="{x:Null}"/>
                             </dxg:FormatCondition>
-                            <dxg:ColorScaleFormatCondition FieldName="nAmount_D" MaxValue="6000" MinValue="100" IsEnabled="False">
-                                <dx:ColorScaleFormat ColorMin="#FFF8696B" ColorMax="#FF63BE7B"/>
-                            </dxg:ColorScaleFormatCondition>
+                            <dxg:FormatCondition Expression="[nAmount_D_Native] &gt; -1000000.0m" FieldName="nAmount_D_Native">
+                                <dx:Format Foreground="#FFA9F50A" TextDecorations="{x:Null}"/>
+                            </dxg:FormatCondition>
+                            <dxg:FormatCondition Expression="[nAmount_C_Native] &gt; -1000000.0m" FieldName="nAmount_C_Native">
+                                <dx:Format Foreground="#FFEAF50A" TextDecorations="{x:Null}" />
+                            </dxg:FormatCondition>
+
                         </dxg:TableView.FormatConditions>
                         <dxg:TableView.RowStyle>
                             <Style TargetType="{x:Type dxg:RowControl}">
@@ -626,11 +633,11 @@
 
 
                                     <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="True">
-                                        <Setter Property="Background" Value="#FF16574E" />
+                                        <Setter Property="Background" Value="#FF76706E" />
                                         <Setter Property="Foreground" Value="White" />
                                     </Trigger>
                                     <Trigger Property="dxg:GridViewBase.IsFocusedCell" Value="True">
-                                        <Setter Property="Background" Value="LightCyan" />
+                                        <Setter Property="Background" Value="#FF76706E" />
                                         <Setter Property="Foreground" Value="Black" />
                                     </Trigger>
 
@@ -1020,7 +1027,7 @@
             </dxg:GridControl>
 
             <ComboBox Grid.Column="5" Margin="0,36,10,0" Grid.Row="2" IsSynchronizedWithCurrentItem="True" SelectedItem="" DisplayMemberPath="cLabel" ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesUSP_getAllAccountsViewSource}}" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Height="25" />
-            <dx:SimpleButton Name="New" Content="New Transaction" Grid.Column="5" HorizontalAlignment="Left" Height="27" Margin="1,6,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120" Click="SimpleButton_Click_1" RenderTransformOrigin="-1.733,0.444" />
+            <dx:SimpleButton Name="New" Content="New Transaction" Grid.Column="5" HorizontalAlignment="Left" Height="27" Margin="1,6,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120" Click="SimpleButton_Click_1" RenderTransformOrigin="-1.733,0.444" Foreground="#FFEFF56F" Background="Black" />
 
             <dxe:TextEdit x:Name="TextEditTotalDr" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="147,4,0,0" Grid.Row="10" VerticalAlignment="Top" Width="70" Mask="F" MaskType="Numeric" IsReadOnly="True" Height="22" Foreground="#FFA9F50A" />
             <dxe:TextEdit x:Name="TextEditTotalCr" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="220,4,0,0" Grid.Row="10" VerticalAlignment="Top" Width="70" Mask="F" MaskType="Numeric" IsReadOnly="True" Height="22" Foreground="#FFEAF50A" />
