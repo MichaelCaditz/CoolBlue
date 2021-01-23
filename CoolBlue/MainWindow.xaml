@@ -267,13 +267,26 @@
 
                 </dxg:GridControl.View>
 
-                <dxg:GridColumn Binding="{Binding accountingTypeSymbol}" FieldName="Symbol" IsEnabled="False" AllowFocus="False" Header="" Width="30">
+                <dxg:GridColumn Binding="{Binding accountingTypeSymbol}" FieldName="Symbol" IsEnabled="False" AllowFocus="False" Header="" Width="30" CellToolTipBinding="{Binding}">
                     <dxg:GridColumn.DisplayTemplate>
                         <ControlTemplate>
                             <TextBlock x:Name="PART_Editor" FontWeight="Bold" Foreground="#FFD9EE10" FontSize="10" />
                         </ControlTemplate>
                     </dxg:GridColumn.DisplayTemplate>
-
+                    <dxg:GridColumn.CellToolTipTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontWeight="Bold" Text="Type: " />
+                                    <TextBlock Text="{Binding accountingTypeName}" />
+                                </StackPanel>
+                                <!--<StackPanel Orientation="Horizontal">
+                                    <TextBlock FontStyle="Italic" FontWeight="Bold" Text="Age: "/>
+                                    <TextBlock Text="{Binding Age}" />
+                                </StackPanel>-->
+                            </StackPanel>
+                        </DataTemplate>
+                    </dxg:GridColumn.CellToolTipTemplate>
 
                 </dxg:GridColumn>
 
@@ -345,13 +358,26 @@
 
                 </dxg:GridControl.View>
 
-                <dxg:GridColumn Binding="{Binding currencySymbol}" FieldName="Symbol" IsEnabled="False" AllowFocus="False" Header="" Width="26">
+                <dxg:GridColumn  FieldName="currencySymbol" IsEnabled="False" AllowFocus="False" Header="" Width="26" CellToolTipBinding="{Binding}" >
                     <dxg:GridColumn.DisplayTemplate>
                         <ControlTemplate>
                             <TextBlock x:Name="PART_Editor" FontWeight="Normal" Foreground="#FFD9EE10" FontSize="9" />
                         </ControlTemplate>
                     </dxg:GridColumn.DisplayTemplate>
-
+                    <dxg:GridColumn.CellToolTipTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontWeight="Bold" Text="Currency: " />
+                                    <TextBlock Text="{Binding currencyName}" />
+                                </StackPanel>
+                                <!--<StackPanel Orientation="Horizontal">
+                                    <TextBlock FontStyle="Italic" FontWeight="Bold" Text="Age: "/>
+                                    <TextBlock Text="{Binding Age}" />
+                                </StackPanel>-->
+                            </StackPanel>
+                        </DataTemplate>
+                    </dxg:GridColumn.CellToolTipTemplate>
 
                 </dxg:GridColumn>
 

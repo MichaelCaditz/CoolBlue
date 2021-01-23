@@ -1596,11 +1596,7 @@ namespace coolBlue
 
         }
 
-        private void SplitsView_AddingNewRow(object sender, AddingNewEventArgs e)
-        {
-            
-            
-        }
+        
 
         private void SplitsView_InitNewRow(object sender, InitNewRowEventArgs e)
         {
