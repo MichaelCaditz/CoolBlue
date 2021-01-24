@@ -475,16 +475,48 @@
                 <dxg:GridColumn FieldName="dtTransDate" Header="Date" Width="80" ReadOnly="False" AllowFocus="True" AllowSorting="True" SortOrder="Descending" />
                 <dxg:GridColumn  FieldName="bIsAll" Header="bIsAll" Width="50" ReadOnly="True" AllowFocus="False" AllowSorting="True" Visible="False" />
 
-                <dxg:GridColumn FieldName="totalDr" Header="DR" Width="80" ReadOnly="True" AllowFocus="False" AllowSorting="True" />
-                <dxg:GridColumn FieldName="totalCr" Header="CR" Width="80" ReadOnly="True" AllowFocus="False" AllowSorting="True" />
+                <dxg:GridColumn FieldName="totalDr" Header="DR" Width="80" ReadOnly="True" AllowFocus="False" AllowSorting="True" CellToolTipBinding="{Binding}">
+                <dxg:GridColumn.CellToolTipTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontWeight="Bold" Text="Currency: " />
+                                <TextBlock Text="{Binding currencyNameAdjusted}" />
+                            </StackPanel>
+                            <!--<StackPanel Orientation="Horizontal">
+                                    <TextBlock FontStyle="Italic" FontWeight="Bold" Text="Age: "/>
+                                    <TextBlock Text="{Binding Age}" />
+                                </StackPanel>-->
+                        </StackPanel>
+                    </DataTemplate>
+                </dxg:GridColumn.CellToolTipTemplate>
+                </dxg:GridColumn>
 
-                <dxg:GridColumn FieldName="totalDrNative" Header="DR Adj" Width="80" ReadOnly="True" AllowFocus="False" AllowSorting="True" CellToolTipBinding="{Binding}">
+
+                <dxg:GridColumn FieldName="totalCr" Header="CR" Width="80" ReadOnly="True" AllowFocus="False" AllowSorting="True" CellToolTipBinding="{Binding}">
+                <dxg:GridColumn.CellToolTipTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontWeight="Bold" Text="Currency: " />
+                                    <TextBlock Text="{Binding currencyNameAdjusted}" />
+                            </StackPanel>
+                            <!--<StackPanel Orientation="Horizontal">
+                                    <TextBlock FontStyle="Italic" FontWeight="Bold" Text="Age: "/>
+                                    <TextBlock Text="{Binding Age}" />
+                                </StackPanel>-->
+                        </StackPanel>
+                    </DataTemplate>
+                </dxg:GridColumn.CellToolTipTemplate>
+                    </dxg:GridColumn>
+
+                    <dxg:GridColumn FieldName="totalDrNative" Header="DR Adj" Width="80" ReadOnly="True" AllowFocus="False" AllowSorting="True" CellToolTipBinding="{Binding}">
                     <dxg:GridColumn.CellToolTipTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Vertical">
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock FontWeight="Bold" Text="Currency: " />
-                                    <TextBlock Text="{Binding currencyName}" />
+                                    <TextBlock Text="{Binding currencyNameAdjusted}" />
                                 </StackPanel>
                                 <!--<StackPanel Orientation="Horizontal">
                                     <TextBlock FontStyle="Italic" FontWeight="Bold" Text="Age: "/>
@@ -502,7 +534,7 @@
                         <StackPanel Orientation="Vertical">
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock FontWeight="Bold" Text="Currency: " />
-                                <TextBlock Text="{Binding currencyName}" />
+                                    <TextBlock Text="{Binding currencyNameAdjusted}" />
                             </StackPanel>
                             <!--<StackPanel Orientation="Horizontal">
                                     <TextBlock FontStyle="Italic" FontWeight="Bold" Text="Age: "/>

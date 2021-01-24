@@ -33,7 +33,7 @@
               <Mapping SourceColumn="bIsAll" DataSetColumn="bIsAll" />
               <Mapping SourceColumn="totalCrNative" DataSetColumn="totalCrNative" />
               <Mapping SourceColumn="totalDrNative" DataSetColumn="totalDrNative" />
-              <Mapping SourceColumn="currencyName" DataSetColumn="currencyName" />
+              <Mapping SourceColumn="currencyNameAdjusted" DataSetColumn="currencyNameAdjusted" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -242,7 +242,7 @@
               <xs:element name="bIsAll" msprop:Generator_ColumnVarNameInTable="columnbIsAll" msprop:Generator_ColumnPropNameInRow="bIsAll" msprop:Generator_ColumnPropNameInTable="bIsAllColumn" msprop:Generator_UserColumnName="bIsAll" type="xs:boolean" minOccurs="0" />
               <xs:element name="totalCrNative" msprop:Generator_ColumnVarNameInTable="columntotalCrNative" msprop:Generator_ColumnPropNameInRow="totalCrNative" msprop:Generator_ColumnPropNameInTable="totalCrNativeColumn" msprop:Generator_UserColumnName="totalCrNative" type="xs:decimal" minOccurs="0" />
               <xs:element name="totalDrNative" msprop:Generator_ColumnVarNameInTable="columntotalDrNative" msprop:Generator_ColumnPropNameInRow="totalDrNative" msprop:Generator_ColumnPropNameInTable="totalDrNativeColumn" msprop:Generator_UserColumnName="totalDrNative" type="xs:decimal" minOccurs="0" />
-              <xs:element name="currencyName" msprop:Generator_ColumnVarNameInTable="columncurrencyName" msprop:Generator_ColumnPropNameInRow="currencyName" msprop:Generator_ColumnPropNameInTable="currencyNameColumn" msprop:Generator_UserColumnName="currencyName" type="xs:string" minOccurs="0" />
+              <xs:element name="currencyNameAdjusted" msprop:Generator_ColumnVarNameInTable="columncurrencyNameAdjusted" msprop:Generator_ColumnPropNameInRow="currencyNameAdjusted" msprop:Generator_ColumnPropNameInTable="currencyNameAdjustedColumn" msprop:Generator_UserColumnName="currencyNameAdjusted" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

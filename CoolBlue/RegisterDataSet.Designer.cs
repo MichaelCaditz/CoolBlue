@@ -559,7 +559,7 @@ namespace coolBlue {
             
             private global::System.Data.DataColumn columntotalDrNative;
             
-            private global::System.Data.DataColumn columncurrencyName;
+            private global::System.Data.DataColumn columncurrencyNameAdjusted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -676,9 +676,9 @@ namespace coolBlue {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn currencyNameColumn {
+            public global::System.Data.DataColumn currencyNameAdjustedColumn {
                 get {
-                    return this.columncurrencyName;
+                    return this.columncurrencyNameAdjusted;
                 }
             }
             
@@ -719,7 +719,7 @@ namespace coolBlue {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public USP_getLineRow AddUSP_getLineRow(System.DateTime dtCreateDate, int nAccountID, System.DateTime dtTransDate, string cNote, decimal totalDr, decimal totalCr, bool bIsAll, decimal totalCrNative, decimal totalDrNative, string currencyName) {
+            public USP_getLineRow AddUSP_getLineRow(System.DateTime dtCreateDate, int nAccountID, System.DateTime dtTransDate, string cNote, decimal totalDr, decimal totalCr, bool bIsAll, decimal totalCrNative, decimal totalDrNative, string currencyNameAdjusted) {
                 USP_getLineRow rowUSP_getLineRow = ((USP_getLineRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -732,7 +732,7 @@ namespace coolBlue {
                         bIsAll,
                         totalCrNative,
                         totalDrNative,
-                        currencyName};
+                        currencyNameAdjusted};
                 rowUSP_getLineRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowUSP_getLineRow);
                 return rowUSP_getLineRow;
@@ -772,7 +772,7 @@ namespace coolBlue {
                 this.columnbIsAll = base.Columns["bIsAll"];
                 this.columntotalCrNative = base.Columns["totalCrNative"];
                 this.columntotalDrNative = base.Columns["totalDrNative"];
-                this.columncurrencyName = base.Columns["currencyName"];
+                this.columncurrencyNameAdjusted = base.Columns["currencyNameAdjusted"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -798,8 +798,8 @@ namespace coolBlue {
                 base.Columns.Add(this.columntotalCrNative);
                 this.columntotalDrNative = new global::System.Data.DataColumn("totalDrNative", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntotalDrNative);
-                this.columncurrencyName = new global::System.Data.DataColumn("currencyName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncurrencyName);
+                this.columncurrencyNameAdjusted = new global::System.Data.DataColumn("currencyNameAdjusted", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncurrencyNameAdjusted);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AutoIncrement = true;
@@ -3714,17 +3714,17 @@ namespace coolBlue {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string currencyName {
+            public string currencyNameAdjusted {
                 get {
                     try {
-                        return ((string)(this[this.tableUSP_getLine.currencyNameColumn]));
+                        return ((string)(this[this.tableUSP_getLine.currencyNameAdjustedColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'currencyName\' in table \'USP_getLine\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'currencyNameAdjusted\' in table \'USP_getLine\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableUSP_getLine.currencyNameColumn] = value;
+                    this[this.tableUSP_getLine.currencyNameAdjustedColumn] = value;
                 }
             }
             
@@ -3838,14 +3838,14 @@ namespace coolBlue {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IscurrencyNameNull() {
-                return this.IsNull(this.tableUSP_getLine.currencyNameColumn);
+            public bool IscurrencyNameAdjustedNull() {
+                return this.IsNull(this.tableUSP_getLine.currencyNameAdjustedColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetcurrencyNameNull() {
-                this[this.tableUSP_getLine.currencyNameColumn] = global::System.Convert.DBNull;
+            public void SetcurrencyNameAdjustedNull() {
+                this[this.tableUSP_getLine.currencyNameAdjustedColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5921,7 +5921,7 @@ namespace coolBlue.RegisterDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("bIsAll", "bIsAll");
             tableMapping.ColumnMappings.Add("totalCrNative", "totalCrNative");
             tableMapping.ColumnMappings.Add("totalDrNative", "totalDrNative");
-            tableMapping.ColumnMappings.Add("currencyName", "currencyName");
+            tableMapping.ColumnMappings.Add("currencyNameAdjusted", "currencyNameAdjusted");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
