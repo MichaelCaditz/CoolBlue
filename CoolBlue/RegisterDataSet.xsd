@@ -34,6 +34,7 @@
               <Mapping SourceColumn="totalCrNative" DataSetColumn="totalCrNative" />
               <Mapping SourceColumn="totalDrNative" DataSetColumn="totalDrNative" />
               <Mapping SourceColumn="currencyNameAdjusted" DataSetColumn="currencyNameAdjusted" />
+              <Mapping SourceColumn="currencyNameEntry" DataSetColumn="currencyNameEntry" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -243,6 +244,7 @@
               <xs:element name="totalCrNative" msprop:Generator_ColumnVarNameInTable="columntotalCrNative" msprop:Generator_ColumnPropNameInRow="totalCrNative" msprop:Generator_ColumnPropNameInTable="totalCrNativeColumn" msprop:Generator_UserColumnName="totalCrNative" type="xs:decimal" minOccurs="0" />
               <xs:element name="totalDrNative" msprop:Generator_ColumnVarNameInTable="columntotalDrNative" msprop:Generator_ColumnPropNameInRow="totalDrNative" msprop:Generator_ColumnPropNameInTable="totalDrNativeColumn" msprop:Generator_UserColumnName="totalDrNative" type="xs:decimal" minOccurs="0" />
               <xs:element name="currencyNameAdjusted" msprop:Generator_ColumnVarNameInTable="columncurrencyNameAdjusted" msprop:Generator_ColumnPropNameInRow="currencyNameAdjusted" msprop:Generator_ColumnPropNameInTable="currencyNameAdjustedColumn" msprop:Generator_UserColumnName="currencyNameAdjusted" type="xs:string" minOccurs="0" />
+              <xs:element name="currencyNameEntry" msprop:Generator_ColumnVarNameInTable="columncurrencyNameEntry" msprop:Generator_ColumnPropNameInRow="currencyNameEntry" msprop:Generator_ColumnPropNameInTable="currencyNameEntryColumn" msprop:Generator_UserColumnName="currencyNameEntry" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

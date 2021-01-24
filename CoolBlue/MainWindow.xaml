@@ -481,7 +481,7 @@
                         <StackPanel Orientation="Vertical">
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock FontWeight="Bold" Text="Currency: " />
-                                <TextBlock Text="{Binding currencyNameAdjusted}" />
+                                <TextBlock Text="{Binding currencyNameEntry}" />
                             </StackPanel>
                             <!--<StackPanel Orientation="Horizontal">
                                     <TextBlock FontStyle="Italic" FontWeight="Bold" Text="Age: "/>
@@ -499,7 +499,7 @@
                         <StackPanel Orientation="Vertical">
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock FontWeight="Bold" Text="Currency: " />
-                                    <TextBlock Text="{Binding currencyNameAdjusted}" />
+                                    <TextBlock Text="{Binding currencyNameEntry}" />
                             </StackPanel>
                             <!--<StackPanel Orientation="Horizontal">
                                     <TextBlock FontStyle="Italic" FontWeight="Bold" Text="Age: "/>
