@@ -312,9 +312,12 @@
 
 
 
-            <dxg:GridControl Name="grdAccounts" AutoGenerateColumns="None" EnableSmartColumnsGeneration="False" ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesUSP_getAllAccountsViewSource}}" Margin="5,0,10,0" Grid.Row="7" Grid.RowSpan="3" Grid.ColumnSpan="5" CurrentItemChanged="GridControl_CurrentItemChanged">
+            <dxg:GridControl Name="grdAccounts" AutoGenerateColumns="None" EnableSmartColumnsGeneration="False" ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesUSP_getAllAccountsViewSource}}" Margin="5,0,10,0" Grid.Row="7" Grid.RowSpan="3"
+                             Grid.ColumnSpan="5" CurrentItemChanged="GridControl_CurrentItemChanged">
                 <dxg:GridControl.View>
-                    <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" ShowColumnHeaders="False" Grid.ColumnSpan="1" Margin="2,0,0,0" Width="223" ShowBandsPanel="False" ShowBandsInCustomizationForm="False" ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" ShowValidationAttributeErrors="False" ShowVerticalLines="False" RowDoubleClick="TableView_RowDoubleClick">
+                    <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" ShowColumnHeaders="False" Grid.ColumnSpan="1" Margin="2,0,0,0" Width="223" ShowBandsPanel="False" ShowBandsInCustomizationForm="False"
+                                   ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False"
+                                   ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" ShowValidationAttributeErrors="False" ShowVerticalLines="False" RowDoubleClick="TableView_RowDoubleClick">
 
                         <dxg:TableView.FormatConditions>
                             <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id">
@@ -475,8 +478,40 @@
                 <dxg:GridColumn FieldName="totalDr" Header="DR" Width="80" ReadOnly="True" AllowFocus="False" AllowSorting="True" />
                 <dxg:GridColumn FieldName="totalCr" Header="CR" Width="80" ReadOnly="True" AllowFocus="False" AllowSorting="True" />
 
-                <dxg:GridColumn FieldName="totalDrNative" Header="DR Adj" Width="80" ReadOnly="True" AllowFocus="False" AllowSorting="True" />
-                <dxg:GridColumn FieldName="totalCrNative" Header="CR Adj" Width="80" ReadOnly="True" AllowFocus="False" AllowSorting="True" />
+                <dxg:GridColumn FieldName="totalDrNative" Header="DR Adj" Width="80" ReadOnly="True" AllowFocus="False" AllowSorting="True" CellToolTipBinding="{Binding}">
+                    <dxg:GridColumn.CellToolTipTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontWeight="Bold" Text="Currency: " />
+                                    <TextBlock Text="{Binding currencyName}" />
+                                </StackPanel>
+                                <!--<StackPanel Orientation="Horizontal">
+                                    <TextBlock FontStyle="Italic" FontWeight="Bold" Text="Age: "/>
+                                    <TextBlock Text="{Binding Age}" />
+                                </StackPanel>-->
+                            </StackPanel>
+                        </DataTemplate>
+                    </dxg:GridColumn.CellToolTipTemplate>
+
+                </dxg:GridColumn>
+
+                <dxg:GridColumn FieldName="totalCrNative" Header="CR Adj" Width="80" ReadOnly="True" AllowFocus="False" AllowSorting="True" CellToolTipBinding="{Binding}">
+                <dxg:GridColumn.CellToolTipTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontWeight="Bold" Text="Currency: " />
+                                <TextBlock Text="{Binding currencyName}" />
+                            </StackPanel>
+                            <!--<StackPanel Orientation="Horizontal">
+                                    <TextBlock FontStyle="Italic" FontWeight="Bold" Text="Age: "/>
+                                    <TextBlock Text="{Binding Age}" />
+                                </StackPanel>-->
+                        </StackPanel>
+                    </DataTemplate>
+                </dxg:GridColumn.CellToolTipTemplate>
+                </dxg:GridColumn>
 
                 <dxg:GridColumn FieldName="cNote" Header="Note" Width="80" ReadOnly="False" AllowFocus="True" AllowSorting="True" Visible="False" />
 
@@ -835,7 +870,7 @@
 
 
 
-                <dxg:GridColumn FieldName="nEntryCurrencyID" Header="Entry Currency" Width="110" AllowSorting="True" AllowEditing="True" EditFormStartNewRow="True" EditFormVisibleIndex="11">
+                <dxg:GridColumn FieldName="nEntryCurrencyID" Header="Entry Currency" Width="110" AllowSorting="True" AllowEditing="False" EditFormStartNewRow="True" EditFormVisibleIndex="11">
                     <dxg:GridColumn.EditSettings>
                         <dxg:LookUpEditSettings ItemsSource="{Binding Source={StaticResource uSP_getAllCurrencyViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="ID" DisplayMember="cName">
                             <dxg:LookUpEditSettings.PopupContentTemplate>
@@ -1059,13 +1094,13 @@
             <dx:SimpleButton Name="New" Content="New Transaction" Grid.Column="5" HorizontalAlignment="Left" Height="27" Margin="1,6,0,0" Grid.Row="2" VerticalAlignment="Top" Width="141" Click="SimpleButton_Click_1" RenderTransformOrigin="-1.733,0.444" Foreground="#FFEFF56F" Glyph="add-icon32.png" />
             <dx:SimpleButton Name="Delete" Content="Delete Transaction" Grid.Column="5" HorizontalAlignment="Right" Height="27" Margin="0,6,0,0" Grid.Row="2" VerticalAlignment="Top" Width="153" RenderTransformOrigin="-1.733,0.444" Foreground="#FFEFF56F" Background="Black" Click="Delete_Click" Glyph="trashcan3_32.png" />
 
-            <dxe:TextEdit x:Name="TextEditTotalDr" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="147,4,0,0" Grid.Row="10" VerticalAlignment="Top" Width="70" Mask="F" MaskType="Numeric" IsReadOnly="True" Height="22" Foreground="#FFA9F50A" />
-            <dxe:TextEdit x:Name="TextEditTotalCr" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="220,4,0,0" Grid.Row="10" VerticalAlignment="Top" Width="70" Mask="F" MaskType="Numeric" IsReadOnly="True" Height="22" Foreground="#FFEAF50A" />
-            <dxe:TextEdit x:Name="TextEditBalance" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="220,24,0,0" Grid.Row="10" VerticalAlignment="Top" Width="70" Mask="F"  MaskType="Numeric" FontWeight="Normal" Padding="0,0,00,0" Background="Black" Foreground="White" IsReadOnly="True" Height="22" />
+            <dxe:TextEdit x:Name="TextEditTotalDr" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="147,4,0,0" Grid.Row="10" VerticalAlignment="Top" Width="70" Mask="F" MaskType="Numeric" IsReadOnly="True" Height="22" Foreground="#FFA9F50A" FontWeight="Bold" />
+            <dxe:TextEdit x:Name="TextEditTotalCr" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="220,4,0,0" Grid.Row="10" VerticalAlignment="Top" Width="70" Mask="F" MaskType="Numeric" IsReadOnly="True" Height="22" Foreground="#FFEAF50A" FontWeight="Bold"/>
+            <dxe:TextEdit x:Name="TextEditBalance" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="220,24,0,0" Grid.Row="10" VerticalAlignment="Top" Width="70" Mask="F"  MaskType="Numeric" FontWeight="Bold" Padding="0,0,00,0" Background="Black" Foreground="White" IsReadOnly="True" Height="22" />
 
-            <dxe:TextEdit x:Name="TextEditTotalDrNative" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="307,4,0,0" Grid.Row="10" VerticalAlignment="Top" Width="70" Mask="F" MaskType="Numeric" IsReadOnly="True" Height="22"  Foreground="#FFA9F50A" Background="#FF646161" />
-            <dxe:TextEdit x:Name="TextEditTotalCrNative" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="380,4,0,0" Grid.Row="10" VerticalAlignment="Top" Width="70" Mask="F" MaskType="Numeric" IsReadOnly="True" Height="22" Foreground="#FFEAF50A" Background="#FF646161" />
-            <dxe:TextEdit x:Name="TextEditBalanceNative" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="380,24,0,0" Grid.Row="10" VerticalAlignment="Top" Width="70" Mask="F"  MaskType="Numeric" FontWeight="Normal" Padding="0,0,00,0" Background="Black" Foreground="White" IsReadOnly="True" Height="22" />
+            <dxe:TextEdit x:Name="TextEditTotalDrNative" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="307,4,0,0" Grid.Row="10" VerticalAlignment="Top" Width="70" Mask="F" MaskType="Numeric" IsReadOnly="True" Height="22"  Foreground="#FFA9F50A" Background="#FF646161" FontWeight="Bold" />
+            <dxe:TextEdit x:Name="TextEditTotalCrNative" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="380,4,0,0" Grid.Row="10" VerticalAlignment="Top" Width="70" Mask="F" MaskType="Numeric" IsReadOnly="True" Height="22" Foreground="#FFEAF50A" Background="#FF646161" FontWeight="Bold"/>
+            <dxe:TextEdit x:Name="TextEditBalanceNative" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="380,24,0,0" Grid.Row="10" VerticalAlignment="Top" Width="70" Mask="F"  MaskType="Numeric" FontWeight="Bold" Padding="0,0,00,0" Background="Black" Foreground="White" IsReadOnly="True" Height="22" />
 
             <!--<dxe:Calculator Grid.Column="2" HorizontalAlignment="Left" Height="200" Margin="0,0,0,0" Grid.Row="3" VerticalAlignment="Top" Width="100"/>-->
 

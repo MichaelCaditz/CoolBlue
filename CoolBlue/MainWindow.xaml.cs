@@ -354,21 +354,21 @@ namespace coolBlue
                     case 1000:
 
                         uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nAccountID_C", accountCurrent);
-                        uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nEntryCurrencyID", nCurrencyID);
+                        //uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nEntryCurrencyID", nCurrencyID);
 
                         break;
 
                     case 1001:
 
                         uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nAccountID_C", accountCurrent);
-                        uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nEntryCurrencyID", nCurrencyID);
+                        //uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nEntryCurrencyID", nCurrencyID);
 
                         break;
 
                     case 1003:
 
                         uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nAccountID_D", accountCurrent);
-                        uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nEntryCurrencyID", nCurrencyID);
+                        //uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nEntryCurrencyID", nCurrencyID);
 
                         break;
 
@@ -1591,6 +1591,23 @@ namespace coolBlue
 
         private void SplitsView_InitNewRow(object sender, InitNewRowEventArgs e)
         {
+            System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesUSP_getAllAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesUSP_getAllAccountsViewSource")));
+            System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesViewSource")));
+
+            coolBlue.RegisterDataSet registerDataSet = ((coolBlue.RegisterDataSet)(this.FindResource("registerDataSet")));
+
+
+            DataRowView drv = (DataRowView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentItem;
+            int accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
+            int nCurrencyID = (drv == null ? 0 : DBNull.Value.Equals(drv["nCurrencyID"]) == true ? 0 : (int)drv["nCurrencyID"]);
+            int accountingPeriod = 1000;  // this will be changed so value comes from settings
+
+
+            DataRowView drv1 = (DataRowView)uSP_getAllAccountTypesViewSource.View.CurrentItem;
+            int accountingTypeCurrent = (drv1 == null ? 0 : DBNull.Value.Equals(drv1["nAccountingTypeID"]) == true ? 0 : (int)drv1["nAccountingTypeID"]);
+
+            uSP_getSplitDataGrid.SetCellValue(e.RowHandle, "nEntryCurrencyID", nCurrencyID);
+
             uSP_getSplitDataGrid.SetCellValue(e.RowHandle, "nAmount_C", 0);
             uSP_getSplitDataGrid.SetCellValue(e.RowHandle, "nAmount_D", 0);
             uSP_getSplitDataGrid.SetCellValue(e.RowHandle, "nAmount_C_Native", 0);

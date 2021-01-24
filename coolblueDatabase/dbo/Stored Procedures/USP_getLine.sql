@@ -44,7 +44,8 @@ BEGIN
 
 	 (select isnull(sum(s.nAmount_C_Native),0)  from dbo.split s where s.nLineID = a.ID
 	   and (c.bIsAll = 1 or(s.nAccountID_C = @accountID ))
-	 and (s.bDeleted is null or s.bDeleted=0) ) as "totalCrNative"
+	 and (s.bDeleted is null or s.bDeleted=0) ) as "totalCrNative",
+	 d.cName as currencyName
 
 
 
@@ -52,6 +53,7 @@ BEGIN
 	 
 	 left join split b on  b.nLineID = a.ID
 	 left join account c on c.ID = @accountID
+	 left join currency d on c.nCurrencyID = d.ID
 	
 
 	 where 
