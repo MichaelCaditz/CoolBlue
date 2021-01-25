@@ -192,5 +192,23 @@ namespace coolBlue
         {
             goDetails();
         }
+
+        private void printTags_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+            reportViewer reportViewer1 = new reportViewer();
+
+
+            coolBlue.reports.REPORT_tags rpt = new coolBlue.reports.REPORT_tags();
+            //Mouse.OverrideCursor = Cursors.Wait;
+            //PrintHelper.ShowPrintPreview(this, rpt);
+            reportViewer1.documentPreview1.DocumentSource = rpt;
+
+            //rpt.Parameters["@accountID"].Value = 1;
+
+
+            reportViewer1.Show();
+            rpt.CreateDocument();
+
+        }
     }
 }

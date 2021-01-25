@@ -176,6 +176,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RegisterDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="reports\REPORT_tags.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\REPORT_tags.Designer.cs">
+      <DependentUpon>REPORT_tags.cs</DependentUpon>
+    </Compile>
     <Compile Include="reports\REPORT_Transaction.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -309,6 +315,9 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\REPORT_tags.resx">
+      <DependentUpon>REPORT_tags.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="reports\REPORT_Transaction.resx">
       <DependentUpon>REPORT_Transaction.cs</DependentUpon>

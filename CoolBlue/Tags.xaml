@@ -28,7 +28,11 @@
                 </dxr:RibbonPage>
             </dxr:RibbonDefaultPageCategory>
         </dxr:RibbonControl>
-        <dxr:RibbonStatusBarControl DockPanel.Dock="Bottom"/>
+        <dxr:RibbonStatusBarControl DockPanel.Dock="Bottom">
+        <dxr:RibbonStatusBarControl.RightItems>
+            <dxb:BarButtonItem x:Name="printTags" Content="Print" Glyph="{dx:DXImage Image=Print_16x16.png}" ItemClick="printTags_ItemClick" />
+        </dxr:RibbonStatusBarControl.RightItems>
+        </dxr:RibbonStatusBarControl>
         <dxg:GridControl Name="uSP_getAllTagsDataGridd" AutoGenerateColumns="None"  EnableSmartColumnsGeneration="False" 
                          ItemsSource="{Binding Source={StaticResource uSP_getAllTagsViewSource}}" 
                          Margin="0"  SelectionMode="Row">
