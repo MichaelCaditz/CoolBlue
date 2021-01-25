@@ -35,8 +35,12 @@
             DevExpress.DataAccess.Sql.QueryParameter queryParameter3 = new DevExpress.DataAccess.Sql.QueryParameter();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter4 = new DevExpress.DataAccess.Sql.QueryParameter();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter5 = new DevExpress.DataAccess.Sql.QueryParameter();
+            DevExpress.DataAccess.Sql.StoredProcQuery storedProcQuery2 = new DevExpress.DataAccess.Sql.StoredProcQuery();
+            DevExpress.DataAccess.Sql.StoredProcQuery storedProcQuery3 = new DevExpress.DataAccess.Sql.StoredProcQuery();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(REPORT_TransactionbyTag));
             DevExpress.XtraReports.UI.XRSummary xrSummary1 = new DevExpress.XtraReports.UI.XRSummary();
+            DevExpress.XtraReports.Parameters.DynamicListLookUpSettings dynamicListLookUpSettings1 = new DevExpress.XtraReports.Parameters.DynamicListLookUpSettings();
+            DevExpress.XtraReports.Parameters.DynamicListLookUpSettings dynamicListLookUpSettings2 = new DevExpress.XtraReports.Parameters.DynamicListLookUpSettings();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.xrTable2 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow2 = new DevExpress.XtraReports.UI.XRTableRow();
@@ -79,8 +83,17 @@
             this.endDate = new DevExpress.XtraReports.Parameters.Parameter();
             this.tagID = new DevExpress.XtraReports.Parameters.Parameter();
             this.reportCurrencyID = new DevExpress.XtraReports.Parameters.Parameter();
+            this.tagDataSet1 = new coolBlue.tagDataSet();
+            this.editDataSet1 = new coolBlue.EditDataSet();
+            this.editDataSetUSP_getAllTagsTableAdapter = new coolBlue.EditDataSetTableAdapters.USP_getAllTagsTableAdapter();
+            this.currencyDataSet1 = new coolBlue.currencyDataSet();
+            this.editDataSet2 = new coolBlue.EditDataSet();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tagDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.currencyDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -168,7 +181,6 @@
             // 
             // TopMargin
             // 
-            this.TopMargin.HeightF = 100F;
             this.TopMargin.Name = "TopMargin";
             this.TopMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.TopMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
@@ -178,7 +190,6 @@
             this.BottomMargin.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrPageInfo1,
             this.xrPageInfo2});
-            this.BottomMargin.HeightF = 100F;
             this.BottomMargin.Name = "BottomMargin";
             this.BottomMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.BottomMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
@@ -228,8 +239,14 @@
             storedProcQuery1.Parameters.Add(queryParameter4);
             storedProcQuery1.Parameters.Add(queryParameter5);
             storedProcQuery1.StoredProcName = "REPORT_TransactionbyTag";
+            storedProcQuery2.Name = "USP_getAllTags";
+            storedProcQuery2.StoredProcName = "USP_getAllTags";
+            storedProcQuery3.Name = "USP_getAllCurrency";
+            storedProcQuery3.StoredProcName = "USP_getAllCurrency";
             this.sqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
-            storedProcQuery1});
+            storedProcQuery1,
+            storedProcQuery2,
+            storedProcQuery3});
             this.sqlDataSource1.ResultSchemaSerializable = resources.GetString("sqlDataSource1.ResultSchemaSerializable");
             // 
             // reportHeaderBand1
@@ -475,17 +492,53 @@
             // 
             // tagID
             // 
-            this.tagID.Description = "tagID";
+            this.tagID.Description = "Tag";
+            dynamicListLookUpSettings1.DataAdapter = null;
+            dynamicListLookUpSettings1.DataMember = "USP_getAllTags";
+            dynamicListLookUpSettings1.DataSource = this.sqlDataSource1;
+            dynamicListLookUpSettings1.DisplayMember = "cName";
+            dynamicListLookUpSettings1.ValueMember = "ID";
+            this.tagID.LookUpSettings = dynamicListLookUpSettings1;
             this.tagID.Name = "tagID";
             this.tagID.Type = typeof(int);
             this.tagID.ValueInfo = "0";
             // 
             // reportCurrencyID
             // 
-            this.reportCurrencyID.Description = "reportCurrencyID";
+            this.reportCurrencyID.Description = "Currency";
+            dynamicListLookUpSettings2.DataAdapter = null;
+            dynamicListLookUpSettings2.DataMember = "USP_getAllCurrency";
+            dynamicListLookUpSettings2.DataSource = this.sqlDataSource1;
+            dynamicListLookUpSettings2.DisplayMember = "cName";
+            dynamicListLookUpSettings2.ValueMember = "ID";
+            this.reportCurrencyID.LookUpSettings = dynamicListLookUpSettings2;
             this.reportCurrencyID.Name = "reportCurrencyID";
             this.reportCurrencyID.Type = typeof(int);
             this.reportCurrencyID.ValueInfo = "0";
+            // 
+            // tagDataSet1
+            // 
+            this.tagDataSet1.DataSetName = "tagDataSet";
+            this.tagDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // editDataSet1
+            // 
+            this.editDataSet1.DataSetName = "EditDataSet";
+            this.editDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // editDataSetUSP_getAllTagsTableAdapter
+            // 
+            this.editDataSetUSP_getAllTagsTableAdapter.ClearBeforeFill = true;
+            // 
+            // currencyDataSet1
+            // 
+            this.currencyDataSet1.DataSetName = "currencyDataSet";
+            this.currencyDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // editDataSet2
+            // 
+            this.editDataSet2.DataSetName = "EditDataSet";
+            this.editDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // REPORT_TransactionbyTag
             // 
@@ -497,7 +550,11 @@
             this.groupHeaderBand1,
             this.reportFooterBand1});
             this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
-            this.sqlDataSource1});
+            this.editDataSet1,
+            this.sqlDataSource1,
+            this.tagDataSet1,
+            this.currencyDataSet1,
+            this.editDataSet2});
             this.DataMember = "REPORT_TransactionbyTag";
             this.DataSource = this.sqlDataSource1;
             this.Landscape = true;
@@ -519,9 +576,13 @@
             this.GrandTotalData3,
             this.GrandTotalBackground3,
             this.PageInfo});
-            this.Version = "17.2";
+            this.Version = "18.1";
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tagDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.currencyDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
 		}
@@ -571,6 +632,10 @@
         private DevExpress.XtraReports.Parameters.Parameter tagID;
         
         private DevExpress.XtraReports.Parameters.Parameter reportCurrencyID;
-       
+        private EditDataSet editDataSet1;
+        private EditDataSetTableAdapters.USP_getAllTagsTableAdapter editDataSetUSP_getAllTagsTableAdapter;
+        private tagDataSet tagDataSet1;
+        private EditDataSet editDataSet2;
+        private currencyDataSet currencyDataSet1;
     }
 }

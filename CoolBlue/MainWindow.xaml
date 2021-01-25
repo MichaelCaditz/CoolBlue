@@ -188,23 +188,11 @@
 
                         </dxr:RibbonPageGroup>
 
-
-
-
-
                         <dxr:RibbonPageGroup Caption="">
                         </dxr:RibbonPageGroup>
 
-
-
-
                     </dxr:RibbonPage>
-                    <dxr:RibbonPage Caption="Budgets">
-                        <dxr:RibbonPageGroup Caption="Transactions">
-                            <dxb:BarButtonItem Content="By Tag" ItemClick="BarButtonItem_ItemClick" />
-                            <dxb:BarButtonItem Content="All" ItemClick="BarButtonItem_ItemClick_1" />
-                        </dxr:RibbonPageGroup>
-                    </dxr:RibbonPage>
+
                     <dxr:RibbonPage Caption="Reports">
                         <dxr:RibbonPageGroup Caption="Transactions">
                             <dxb:BarButtonItem Content="By Tag" ItemClick="BarButtonItem_ItemClick" />
@@ -212,8 +200,14 @@
                         </dxr:RibbonPageGroup>
                     </dxr:RibbonPage>
 
+                    <dxr:RibbonPage Caption="Budgets">
+                        <dxr:RibbonPageGroup Caption="Transactions">
+                            <dxb:BarButtonItem Content="By Tag" ItemClick="BarButtonItem_ItemClick" />
+                            <dxb:BarButtonItem Content="All" ItemClick="BarButtonItem_ItemClick_1" />
+                        </dxr:RibbonPageGroup>
+                    </dxr:RibbonPage>
 
-
+                    
 
                 </dxr:RibbonDefaultPageCategory>
             </dxr:RibbonControl>

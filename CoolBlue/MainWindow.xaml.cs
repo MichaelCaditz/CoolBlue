@@ -794,6 +794,14 @@ namespace coolBlue
 
         private void BarButtonItem_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
+
+           
+
+
+
+
+
+
             reportViewer reportViewer1 = new reportViewer();
 
 
