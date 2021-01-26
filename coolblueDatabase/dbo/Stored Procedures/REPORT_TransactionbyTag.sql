@@ -64,6 +64,8 @@ BEGIN
 
 	 nAmount_D as 'nAmount_D',
 	  nAmount_C as 'nAmount_C',
+	  nAmount_D_Native as 'nAmount_D_Native',
+	  nAmount_C_Native as 'nAmount_C_native',
 
 
 
@@ -81,14 +83,19 @@ BEGIN
 
 
 	 a.nClassID,a.nOriginalAmount,
-	 a.nCurrencyID,a.nTagID,a.nVendorsID,a.nLineID,ISNULL(b.cNote,'') as cLineNote,
+	 a.nCurrencyID,a.nTagID,
+	 a.nVendorsID,a.nLineID,
+	 ISNULL(b.cNote,'') as cLineNote,
 	 ISNULL(c.name,'') as cVendorName,
-	 ISNULL(d.cName,'') as cTagName,ISNULL(e.cName,'') as cClassName,
+	 ISNULL(d.cName,'') as cTagName,
+	 ISNULL(e.cName,'') as cClassName,
 	 ISNULL(l.cName+': '+ k.cName,'') as cCategory,
 	 ISNULL(i.cName+': '+ h.cName,'') as cAccount,
-	 ISNULL(j.cName,'') as cCurrencyName,h.nCurrencyID as nAccountCurrencyID,
+	 ISNULL(j.cName,'') as cCurrencyName,
+	 h.nCurrencyID as nAccountCurrencyID,
 	 isnull(l.cName + ': ','') + isnull(k.cName,'') as cAccount_D,
-	 isnull(n.cName + ': ','') + isnull(m.cName,'') as cAccount_C
+	 isnull(n.cName + ': ','') + isnull(m.cName,'') as cAccount_C,
+	 isnull(o.cName,'') as cEntryCurrency
 	 
 
 	 FROM split a  WITH (NOLOCK)
@@ -106,6 +113,7 @@ BEGIN
 	 left join dbo.cat l on k.nCatID = l.ID
 	 left join dbo.account m on a.nAccountID_C = m.ID
 	 left join dbo.cat n on m.nCatID = n.ID
+	  left join dbo.currency o on a.nEntryCurrencyID = o.ID
 	
 
 	 where
