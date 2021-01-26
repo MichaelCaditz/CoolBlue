@@ -43,17 +43,15 @@ BEGIN
 		
 		 else
 		 case
-		 when @currencyID
-
-		 = 1001 and (select w.cName from dbo.account x  inner join  dbo.accountType w on w.ID = x.nAccountTypeID where a.nAccountID_D = x.ID) not in ('Chequing')
+		 when @currencyID = 1001 and (select w.cName from dbo.account x  inner join  dbo.accountType w on w.ID = x.nAccountTypeID where a.nAccountID_D = x.ID) not in ('Chequing')
 		-- (select EVAL(@fieldname) from dbo.currencyConversion aa where aa.[from] = h.nCurrencyID) * a.nAmount
 		 then (select aa.n1001 from dbo.currencyConversion aa where aa.[nFrom] = h.nCurrencyID) * a.nAmount_C
 		 --set @cmd = 'dhdfh'
 		  -- exec('(select aa.['+Cast(@currencyID AS Varchar(10))+'] from dbo.currencyConversion aa where aa.[from] = '+Cast(h.nCurrencyID AS Varchar(10))+') * a.nAmount'
 	 --(select aa.nRate from currencyConversion aa where aa.nTo = @currencyID and aa.nFrom = h.nCurrencyID)* a.nAmount
-	 when @currencyID
-
-		 = 1001 and (select w.cName from dbo.account x  inner join  dbo.accountType w on w.ID = x.nAccountTypeID where a.nAccountID_D = x.ID) in ('Chequing')
+		
+		
+		when @currencyID = 1001 and (select w.cName from dbo.account x  inner join  dbo.accountType w on w.ID = x.nAccountTypeID where a.nAccountID_D = x.ID) in ('Chequing')
 		-- (select EVAL(@fieldname) from dbo.currencyConversion aa where aa.[from] = h.nCurrencyID) * a.nAmount
 		 then -(select aa.n1001 from dbo.currencyConversion aa where aa.[nFrom] = h.nCurrencyID) * a.nAmount_C
 	 else
@@ -61,7 +59,11 @@ BEGIN
 	 end
 	 
 	 end
-	 as 'nAmount',
+	 as 'nAmount_C_adj',
+
+
+	 nAmount_D as 'nAmount_D',
+	  nAmount_C as 'nAmount_C',
 
 
 
@@ -79,10 +81,15 @@ BEGIN
 
 
 	 a.nClassID,a.nOriginalAmount,
-	 a.nCurrencyID,a.nTagID,a.nVendorsID,a.nLineID,ISNULL(b.cNote,'') as cLineNote,ISNULL(c.name,'') as cVendorName,
-	 ISNULL(d.cName,'') as cTagName,ISNULL(e.cName,'') as cClassName, ISNULL(l.cName+': '+ k.cName,'') as cCategory,
-	 ISNULL(i.cName+': '+ h.cName,'') as cAccount,ISNULL(j.cName,'') as cCurrencyName,h.nCurrencyID as nAccountCurrencyID
-
+	 a.nCurrencyID,a.nTagID,a.nVendorsID,a.nLineID,ISNULL(b.cNote,'') as cLineNote,
+	 ISNULL(c.name,'') as cVendorName,
+	 ISNULL(d.cName,'') as cTagName,ISNULL(e.cName,'') as cClassName,
+	 ISNULL(l.cName+': '+ k.cName,'') as cCategory,
+	 ISNULL(i.cName+': '+ h.cName,'') as cAccount,
+	 ISNULL(j.cName,'') as cCurrencyName,h.nCurrencyID as nAccountCurrencyID,
+	 isnull(l.cName + ': ','') + isnull(k.cName,'') as cAccount_D,
+	 isnull(n.cName + ': ','') + isnull(m.cName,'') as cAccount_C
+	 
 
 	 FROM split a  WITH (NOLOCK)
 	 
@@ -97,6 +104,8 @@ BEGIN
 	 left join dbo.currency j on a.nCurrencyID = j.ID
 	 left join dbo.account k on a.nAccountID_D = k.ID
 	 left join dbo.cat l on k.nCatID = l.ID
+	 left join dbo.account m on a.nAccountID_C = m.ID
+	 left join dbo.cat n on m.nCatID = n.ID
 	
 
 	 where

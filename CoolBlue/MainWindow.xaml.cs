@@ -795,28 +795,23 @@ namespace coolBlue
         private void BarButtonItem_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
 
+
+          
+
+            PrintHelper.ShowPrintPreviewDialog(this, new coolBlue.reports.REPORT_TransactionbyTag());
+
+
+
+            //reportViewer reportViewer1 = new reportViewer();
            
+            //coolBlue.reports.REPORT_TransactionbyTag rpt = new coolBlue.reports.REPORT_TransactionbyTag();
+           
+            //reportViewer1.documentPreview1.DocumentSource = rpt;
 
+            //reportViewer1.Show();
+            //rpt.CreateDocument();
 
-
-
-
-
-            reportViewer reportViewer1 = new reportViewer();
-
-
-            coolBlue.reports.REPORT_TransactionbyTag rpt = new coolBlue.reports.REPORT_TransactionbyTag();
-            //Mouse.OverrideCursor = Cursors.Wait;
-            //PrintHelper.ShowPrintPreview(this, rpt);
-            reportViewer1.documentPreview1.DocumentSource = rpt;
-
-            //rpt.Parameters["@accountID"].Value = 1;
-
-
-            reportViewer1.Show();
-            rpt.CreateDocument();
-
-
+            //////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
             //coolBlue.reports.REPORT_Transaction rpt = new coolBlue.reports.REPORT_Transaction();

@@ -13,5 +13,11 @@ namespace coolBlue.reports
 			InitializeComponent();
 		}
 
-	}
+        private void REPORT_TransactionbyTag_ParametersRequestBeforeShow(object sender, DevExpress.XtraReports.Parameters.ParametersRequestEventArgs e)
+        {
+			Parameters["endDate"].Value = DateTime.Today;
+			Parameters["startDate"].Value = DateTime.Today.AddYears(-1);
+
+		}
+    }
 }
