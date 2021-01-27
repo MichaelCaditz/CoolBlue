@@ -455,8 +455,8 @@ namespace coolBlue.reports
             // 
             this.xrLabel3.CanGrow = false;
             this.xrLabel3.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[nAmount_D_Native]")});
-            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(537.5127F, 20.87498F);
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumSum(([nAmount_D_Native]))")});
+            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(537.5127F, 9.999974F);
             this.xrLabel3.Name = "xrLabel3";
             this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel3.SizeF = new System.Drawing.SizeF(106.4874F, 16F);
@@ -640,9 +640,11 @@ namespace coolBlue.reports
             // 
             // GroupFooter1
             // 
+            this.GroupFooter1.BackColor = System.Drawing.Color.Gray;
             this.GroupFooter1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrLabel3});
             this.GroupFooter1.Name = "GroupFooter1";
+            this.GroupFooter1.StylePriority.UseBackColor = false;
             // 
             // GroupHeader1
             // 
