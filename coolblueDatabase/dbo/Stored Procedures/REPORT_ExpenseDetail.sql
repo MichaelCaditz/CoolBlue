@@ -3,7 +3,7 @@
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE [dbo].[REPORT_TransactionbyTag]
+CREATE PROCEDURE [dbo].[REPORT_ExpenseDetail]
 		--@InventoryNumber nVarchar(255),
 	--@Title nVarchar(255)
 	@accountID int,
@@ -122,5 +122,5 @@ BEGIN
 	 (a.bDeleted is null or a.bDeleted=0) and (b.bDeleted is null or b.bDeleted=0)
 	AND b.dtTransDate BETWEEN DATEADD(dd, 0, DATEDIFF(dd, 0, @startDate  )) AND DATEADD(dd,1, DATEDIFF(dd, 0, @endDate  ))
 	
-	order by b.dtTransDate
+	order by cAccount_D
 END
