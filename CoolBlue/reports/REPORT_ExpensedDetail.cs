@@ -17,6 +17,7 @@ namespace coolBlue.reports
         {
             Parameters["endDate"].Value = DateTime.Today;
             Parameters["startDate"].Value = DateTime.Today.AddYears(-1);
+            Parameters["accountingPeriod"].Value = 1000;
         }
     }
 }

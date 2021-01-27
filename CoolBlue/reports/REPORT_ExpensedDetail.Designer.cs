@@ -30,17 +30,15 @@ namespace coolBlue.reports
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraReports.UI.XRSummary xrSummary1 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.DataAccess.Sql.StoredProcQuery storedProcQuery1 = new DevExpress.DataAccess.Sql.StoredProcQuery();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter1 = new DevExpress.DataAccess.Sql.QueryParameter();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter2 = new DevExpress.DataAccess.Sql.QueryParameter();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter3 = new DevExpress.DataAccess.Sql.QueryParameter();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter4 = new DevExpress.DataAccess.Sql.QueryParameter();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter5 = new DevExpress.DataAccess.Sql.QueryParameter();
-            DevExpress.DataAccess.Sql.StoredProcQuery storedProcQuery2 = new DevExpress.DataAccess.Sql.StoredProcQuery();
-            DevExpress.DataAccess.Sql.StoredProcQuery storedProcQuery3 = new DevExpress.DataAccess.Sql.StoredProcQuery();
+            DevExpress.DataAccess.Sql.QueryParameter queryParameter6 = new DevExpress.DataAccess.Sql.QueryParameter();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(REPORT_ExpensedDetail));
-            DevExpress.XtraReports.UI.XRSummary xrSummary1 = new DevExpress.XtraReports.UI.XRSummary();
-            this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.xrTable2 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow2 = new DevExpress.XtraReports.UI.XRTableRow();
@@ -84,50 +82,16 @@ namespace coolBlue.reports
             this.GrandTotalData3 = new DevExpress.XtraReports.UI.XRControlStyle();
             this.GrandTotalBackground3 = new DevExpress.XtraReports.UI.XRControlStyle();
             this.PageInfo = new DevExpress.XtraReports.UI.XRControlStyle();
+            this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.accountID = new DevExpress.XtraReports.Parameters.Parameter();
             this.startDate = new DevExpress.XtraReports.Parameters.Parameter();
             this.endDate = new DevExpress.XtraReports.Parameters.Parameter();
             this.tagID = new DevExpress.XtraReports.Parameters.Parameter();
             this.currencyID = new DevExpress.XtraReports.Parameters.Parameter();
+            this.accountingPeriod = new DevExpress.XtraReports.Parameters.Parameter();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
-            // 
-            // sqlDataSource1
-            // 
-            this.sqlDataSource1.ConnectionName = "coolBlue.Properties.Settings.coolblueConnectionString";
-            this.sqlDataSource1.Name = "sqlDataSource1";
-            storedProcQuery1.Name = "REPORT_ExpenseDetail";
-            queryParameter1.Name = "@accountID";
-            queryParameter1.Type = typeof(DevExpress.DataAccess.Expression);
-            queryParameter1.Value = new DevExpress.DataAccess.Expression("[Parameters.accountID]", typeof(int));
-            queryParameter2.Name = "@startDate";
-            queryParameter2.Type = typeof(DevExpress.DataAccess.Expression);
-            queryParameter2.Value = new DevExpress.DataAccess.Expression("[Parameters.startDate]", typeof(System.DateTime));
-            queryParameter3.Name = "@endDate";
-            queryParameter3.Type = typeof(DevExpress.DataAccess.Expression);
-            queryParameter3.Value = new DevExpress.DataAccess.Expression("[Parameters.endDate]", typeof(System.DateTime));
-            queryParameter4.Name = "@tagID";
-            queryParameter4.Type = typeof(DevExpress.DataAccess.Expression);
-            queryParameter4.Value = new DevExpress.DataAccess.Expression("[Parameters.tagID]", typeof(int));
-            queryParameter5.Name = "@currencyID";
-            queryParameter5.Type = typeof(DevExpress.DataAccess.Expression);
-            queryParameter5.Value = new DevExpress.DataAccess.Expression("[Parameters.reportCurrencyID]", typeof(int));
-            storedProcQuery1.Parameters.Add(queryParameter1);
-            storedProcQuery1.Parameters.Add(queryParameter2);
-            storedProcQuery1.Parameters.Add(queryParameter3);
-            storedProcQuery1.Parameters.Add(queryParameter4);
-            storedProcQuery1.Parameters.Add(queryParameter5);
-            storedProcQuery1.StoredProcName = "REPORT_ExpenseDetail";
-            storedProcQuery2.Name = "USP_getAllTags";
-            storedProcQuery2.StoredProcName = "USP_getAllTags";
-            storedProcQuery3.Name = "USP_getAllCurrency";
-            storedProcQuery3.StoredProcName = "USP_getAllCurrency";
-            this.sqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
-            storedProcQuery1,
-            storedProcQuery2,
-            storedProcQuery3});
-            this.sqlDataSource1.ResultSchemaSerializable = resources.GetString("sqlDataSource1.ResultSchemaSerializable");
             // 
             // Detail
             // 
@@ -590,38 +554,83 @@ namespace coolBlue.reports
             this.PageInfo.Name = "PageInfo";
             this.PageInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             // 
+            // sqlDataSource1
+            // 
+            this.sqlDataSource1.ConnectionName = "coolBlue.Properties.Settings.coolblueConnectionString";
+            this.sqlDataSource1.Name = "sqlDataSource1";
+            storedProcQuery1.Name = "REPORT_ExpenseDetail";
+            queryParameter1.Name = "@accountID";
+            queryParameter1.Type = typeof(DevExpress.DataAccess.Expression);
+            queryParameter1.Value = new DevExpress.DataAccess.Expression("[Parameters.accountID]", typeof(int));
+            queryParameter2.Name = "@startDate";
+            queryParameter2.Type = typeof(DevExpress.DataAccess.Expression);
+            queryParameter2.Value = new DevExpress.DataAccess.Expression("[Parameters.startDate]", typeof(System.DateTime));
+            queryParameter3.Name = "@endDate";
+            queryParameter3.Type = typeof(DevExpress.DataAccess.Expression);
+            queryParameter3.Value = new DevExpress.DataAccess.Expression("[Parameters.endDate]", typeof(System.DateTime));
+            queryParameter4.Name = "@tagID";
+            queryParameter4.Type = typeof(DevExpress.DataAccess.Expression);
+            queryParameter4.Value = new DevExpress.DataAccess.Expression("[Parameters.tagID]", typeof(int));
+            queryParameter5.Name = "@currencyID";
+            queryParameter5.Type = typeof(DevExpress.DataAccess.Expression);
+            queryParameter5.Value = new DevExpress.DataAccess.Expression("[Parameters.currencyID]", typeof(int));
+            queryParameter6.Name = "@accountingPeriod";
+            queryParameter6.Type = typeof(DevExpress.DataAccess.Expression);
+            queryParameter6.Value = new DevExpress.DataAccess.Expression("[Parameters.accountingPeriod]", typeof(int));
+            storedProcQuery1.Parameters.Add(queryParameter1);
+            storedProcQuery1.Parameters.Add(queryParameter2);
+            storedProcQuery1.Parameters.Add(queryParameter3);
+            storedProcQuery1.Parameters.Add(queryParameter4);
+            storedProcQuery1.Parameters.Add(queryParameter5);
+            storedProcQuery1.Parameters.Add(queryParameter6);
+            storedProcQuery1.StoredProcName = "REPORT_ExpenseDetail";
+            this.sqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
+            storedProcQuery1});
+            this.sqlDataSource1.ResultSchemaSerializable = resources.GetString("sqlDataSource1.ResultSchemaSerializable");
+            // 
             // accountID
             // 
-            this.accountID.Description = "Parameter1";
             this.accountID.Name = "accountID";
             this.accountID.Type = typeof(int);
             this.accountID.ValueInfo = "0";
+            this.accountID.Visible = false;
             // 
             // startDate
             // 
-            this.startDate.Description = "Parameter1";
+            this.startDate.Description = "Start Date";
             this.startDate.Name = "startDate";
             this.startDate.Type = typeof(System.DateTime);
+            this.startDate.ValueInfo = "1753-01-01";
             // 
             // endDate
             // 
-            this.endDate.Description = "Parameter1";
+            this.endDate.Description = "End Date";
             this.endDate.Name = "endDate";
             this.endDate.Type = typeof(System.DateTime);
+            this.endDate.ValueInfo = "1753-01-01";
             // 
             // tagID
             // 
-            this.tagID.Description = "Parameter1";
+            this.tagID.Description = "Tag";
             this.tagID.Name = "tagID";
             this.tagID.Type = typeof(int);
             this.tagID.ValueInfo = "0";
+            this.tagID.Visible = false;
             // 
             // currencyID
             // 
-            this.currencyID.Description = "Parameter1";
+            this.currencyID.Description = "Currency";
             this.currencyID.Name = "currencyID";
             this.currencyID.Type = typeof(int);
             this.currencyID.ValueInfo = "0";
+            this.currencyID.Visible = false;
+            // 
+            // accountingPeriod
+            // 
+            this.accountingPeriod.Description = "Accounting Period";
+            this.accountingPeriod.Name = "accountingPeriod";
+            this.accountingPeriod.Type = typeof(int);
+            this.accountingPeriod.ValueInfo = "0";
             // 
             // REPORT_ExpensedDetail
             // 
@@ -645,7 +654,8 @@ namespace coolBlue.reports
             this.startDate,
             this.endDate,
             this.tagID,
-            this.currencyID});
+            this.currencyID,
+            this.accountingPeriod});
             this.StyleSheet.AddRange(new DevExpress.XtraReports.UI.XRControlStyle[] {
             this.Title,
             this.DetailCaption3,
@@ -699,7 +709,6 @@ namespace coolBlue.reports
         private DevExpress.XtraReports.UI.XRPanel xrPanel2;
         private DevExpress.XtraReports.UI.XRLabel xrLabel2;
         private DevExpress.XtraReports.UI.XRLabel xrLabel3;
-        private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource1;
         private DevExpress.XtraReports.UI.XRControlStyle Title;
         private DevExpress.XtraReports.UI.XRControlStyle DetailCaption3;
         private DevExpress.XtraReports.UI.XRControlStyle DetailData3;
@@ -710,10 +719,12 @@ namespace coolBlue.reports
         private DevExpress.XtraReports.UI.XRControlStyle GrandTotalBackground3;
         private DevExpress.XtraReports.UI.XRControlStyle PageInfo;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell3;
+        private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource1;
         private DevExpress.XtraReports.Parameters.Parameter accountID;
         private DevExpress.XtraReports.Parameters.Parameter startDate;
         private DevExpress.XtraReports.Parameters.Parameter endDate;
         private DevExpress.XtraReports.Parameters.Parameter tagID;
         private DevExpress.XtraReports.Parameters.Parameter currencyID;
+        private DevExpress.XtraReports.Parameters.Parameter accountingPeriod;
     }
 }
