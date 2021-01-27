@@ -1791,5 +1791,12 @@ namespace coolBlue
         {
             deleteTrans();
         }
+
+        private void REPORT_ExpenseDetail_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+            PrintHelper.ShowPrintPreviewDialog(this, new coolBlue.reports.REPORT_ExpensedDetail());
+
+
+        }
     }
 }

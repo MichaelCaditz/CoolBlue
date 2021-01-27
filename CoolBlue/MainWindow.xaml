@@ -199,7 +199,7 @@
                         </dxr:RibbonPageGroup>
 
                         <dxr:RibbonPageGroup Caption="Expense">
-                            <dxb:BarButtonItem Content="Detail" ItemClick="BarButtonItem_ItemClick" Glyph="{dx:DXImage Image=Currency_16x16.png}" LargeGlyph="{dx:DXImage Image=Currency_32x32.png}" />
+                            <dxb:BarButtonItem Name="REPORT_ExpenseDetail" Content="Detail" Glyph="{dx:DXImage Image=Currency_16x16.png}" LargeGlyph="{dx:DXImage Image=Currency_32x32.png}" ItemClick="REPORT_ExpenseDetail_ItemClick" />
                         </dxr:RibbonPageGroup>
 
                         <dxr:RibbonPageGroup Caption="Register">
