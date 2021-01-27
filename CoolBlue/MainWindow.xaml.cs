@@ -822,32 +822,7 @@ namespace coolBlue
             //Mouse.OverrideCursor = null;
         }
 
-        private void BarButtonItem_ItemClick_1(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
-        {
-            reportViewer reportViewer1 = new reportViewer();
-
-
-            coolBlue.reports.REPORT_Transaction rpt = new coolBlue.reports.REPORT_Transaction();
-            //Mouse.OverrideCursor = Cursors.Wait;
-            //PrintHelper.ShowPrintPreview(this, rpt);
-            reportViewer1.documentPreview1.DocumentSource = rpt;
-
-            //rpt.Parameters["@accountID"].Value = 1;
-
-
-            reportViewer1.Show();
-            rpt.CreateDocument();
-
-
-
-
-            //coolBlue.reports.REPORT_Transaction rpt = new coolBlue.reports.REPORT_Transaction();
-            //Mouse.OverrideCursor = Cursors.Wait;
-            //PrintHelper.ShowPrintPreview(this, rpt);
-
-            //rpt.BringToFront();
-            //Mouse.OverrideCursor = null;
-        }
+       
 
 
 

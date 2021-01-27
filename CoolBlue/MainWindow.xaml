@@ -195,15 +195,23 @@
 
                     <dxr:RibbonPage Caption="Reports">
                         <dxr:RibbonPageGroup Caption="Transactions">
-                            <dxb:BarButtonItem Content="By Tag" ItemClick="BarButtonItem_ItemClick" />
-                            <dxb:BarButtonItem Content="All" ItemClick="BarButtonItem_ItemClick_1" />
+                            <dxb:BarButtonItem Content="Detail" ItemClick="BarButtonItem_ItemClick" Glyph="{dx:DXImage Image=GroupHeader_16x16.png}" LargeGlyph="{dx:DXImage Image=GroupHeader_32x32.png}" />
                         </dxr:RibbonPageGroup>
+
+                        <dxr:RibbonPageGroup Caption="Expenses">
+                            <dxb:BarButtonItem Content="Detail" ItemClick="BarButtonItem_ItemClick" Glyph="{dx:DXImage Image=GroupHeader_16x16.png}" LargeGlyph="{dx:DXImage Image=GroupHeader_32x32.png}" />
+                        </dxr:RibbonPageGroup>
+
+                        <dxr:RibbonPageGroup Caption="Registers">
+                            <dxb:BarButtonItem Content="Detail" ItemClick="BarButtonItem_ItemClick" Glyph="{dx:DXImage Image=GroupHeader_16x16.png}" LargeGlyph="{dx:DXImage Image=GroupHeader_32x32.png}" />
+                        </dxr:RibbonPageGroup>
+                        
                     </dxr:RibbonPage>
 
                     <dxr:RibbonPage Caption="Budgets">
                         <dxr:RibbonPageGroup Caption="Transactions">
                             <dxb:BarButtonItem Content="By Tag" ItemClick="BarButtonItem_ItemClick" />
-                            <dxb:BarButtonItem Content="All" ItemClick="BarButtonItem_ItemClick_1" />
+                            
                         </dxr:RibbonPageGroup>
                     </dxr:RibbonPage>
 
