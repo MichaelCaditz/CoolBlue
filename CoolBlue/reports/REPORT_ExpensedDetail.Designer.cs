@@ -41,6 +41,7 @@ namespace coolBlue.reports
             DevExpress.DataAccess.Sql.StoredProcQuery storedProcQuery2 = new DevExpress.DataAccess.Sql.StoredProcQuery();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(REPORT_ExpensedDetail));
             DevExpress.XtraReports.Parameters.DynamicListLookUpSettings dynamicListLookUpSettings1 = new DevExpress.XtraReports.Parameters.DynamicListLookUpSettings();
+            DevExpress.XtraReports.UI.XRSummary xrSummary2 = new DevExpress.XtraReports.UI.XRSummary();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.xrTable2 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow2 = new DevExpress.XtraReports.UI.XRTableRow();
@@ -58,7 +59,7 @@ namespace coolBlue.reports
             this.xrPageInfo2 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.reportHeaderBand1 = new DevExpress.XtraReports.UI.ReportHeaderBand();
             this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
-            this.groupHeaderBand1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
+            this.groupHeaderCategory = new DevExpress.XtraReports.UI.GroupHeaderBand();
             this.xrPanel1 = new DevExpress.XtraReports.UI.XRPanel();
             this.xrTable1 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow1 = new DevExpress.XtraReports.UI.XRTableRow();
@@ -90,11 +91,14 @@ namespace coolBlue.reports
             this.tagID = new DevExpress.XtraReports.Parameters.Parameter();
             this.currencyID = new DevExpress.XtraReports.Parameters.Parameter();
             this.accountingPeriod = new DevExpress.XtraReports.Parameters.Parameter();
-            this.GroupFooter1 = new DevExpress.XtraReports.UI.GroupFooterBand();
-            this.GroupHeader1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
+            this.GroupFooterAccount = new DevExpress.XtraReports.UI.GroupFooterBand();
+            this.GroupHeaderAccount = new DevExpress.XtraReports.UI.GroupHeaderBand();
             this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel6 = new DevExpress.XtraReports.UI.XRLabel();
+            this.GroupFooterCategory = new DevExpress.XtraReports.UI.GroupFooterBand();
+            this.xrLabel7 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLine1 = new DevExpress.XtraReports.UI.XRLine();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -295,16 +299,16 @@ namespace coolBlue.reports
             this.xrLabel1.Text = "Expenses";
             this.xrLabel1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
-            // groupHeaderBand1
+            // groupHeaderCategory
             // 
-            this.groupHeaderBand1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.groupHeaderCategory.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrPanel1});
-            this.groupHeaderBand1.GroupFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
+            this.groupHeaderCategory.GroupFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
             new DevExpress.XtraReports.UI.GroupField("cCategoryOnly_D", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
-            this.groupHeaderBand1.GroupUnion = DevExpress.XtraReports.UI.GroupUnion.WithFirstDetail;
-            this.groupHeaderBand1.HeightF = 48F;
-            this.groupHeaderBand1.Level = 1;
-            this.groupHeaderBand1.Name = "groupHeaderBand1";
+            this.groupHeaderCategory.GroupUnion = DevExpress.XtraReports.UI.GroupUnion.WithFirstDetail;
+            this.groupHeaderCategory.HeightF = 48F;
+            this.groupHeaderCategory.Level = 1;
+            this.groupHeaderCategory.Name = "groupHeaderCategory";
             // 
             // xrPanel1
             // 
@@ -638,19 +642,20 @@ namespace coolBlue.reports
             this.accountingPeriod.Type = typeof(int);
             this.accountingPeriod.ValueInfo = "0";
             // 
-            // GroupFooter1
+            // GroupFooterAccount
             // 
-            this.GroupFooter1.BackColor = System.Drawing.Color.Gray;
-            this.GroupFooter1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.GroupFooterAccount.BackColor = System.Drawing.Color.Gray;
+            this.GroupFooterAccount.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrLabel3});
-            this.GroupFooter1.Name = "GroupFooter1";
-            this.GroupFooter1.StylePriority.UseBackColor = false;
+            this.GroupFooterAccount.HeightF = 40.625F;
+            this.GroupFooterAccount.Name = "GroupFooterAccount";
+            this.GroupFooterAccount.StylePriority.UseBackColor = false;
             // 
-            // GroupHeader1
+            // GroupHeaderAccount
             // 
-            this.GroupHeader1.GroupFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
+            this.GroupHeaderAccount.GroupFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
             new DevExpress.XtraReports.UI.GroupField("cAccountOnly_D", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
-            this.GroupHeader1.Name = "GroupHeader1";
+            this.GroupHeaderAccount.Name = "GroupHeaderAccount";
             // 
             // xrLabel4
             // 
@@ -697,6 +702,41 @@ namespace coolBlue.reports
             this.xrLabel6.Text = "to";
             this.xrLabel6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
+            // GroupFooterCategory
+            // 
+            this.GroupFooterCategory.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLine1,
+            this.xrLabel7});
+            this.GroupFooterCategory.HeightF = 78.125F;
+            this.GroupFooterCategory.Level = 1;
+            this.GroupFooterCategory.Name = "GroupFooterCategory";
+            // 
+            // xrLabel7
+            // 
+            this.xrLabel7.BackColor = System.Drawing.Color.Gray;
+            this.xrLabel7.CanGrow = false;
+            this.xrLabel7.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumSum(([nAmount_D_Native]))")});
+            this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(537.5127F, 23.12495F);
+            this.xrLabel7.Name = "xrLabel7";
+            this.xrLabel7.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel7.SizeF = new System.Drawing.SizeF(106.4874F, 16F);
+            this.xrLabel7.StyleName = "GrandTotalData3";
+            this.xrLabel7.StylePriority.UseBackColor = false;
+            this.xrLabel7.StylePriority.UseTextAlignment = false;
+            xrSummary2.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
+            this.xrLabel7.Summary = xrSummary2;
+            this.xrLabel7.Text = "xrLabel3";
+            this.xrLabel7.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.xrLabel7.TextFormatString = "{0:c2}";
+            this.xrLabel7.WordWrap = false;
+            // 
+            // xrLine1
+            // 
+            this.xrLine1.LocationFloat = new DevExpress.Utils.PointFloat(6.00001F, 0F);
+            this.xrLine1.Name = "xrLine1";
+            this.xrLine1.SizeF = new System.Drawing.SizeF(894F, 23F);
+            // 
             // REPORT_ExpensedDetail
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -704,10 +744,11 @@ namespace coolBlue.reports
             this.TopMargin,
             this.BottomMargin,
             this.reportHeaderBand1,
-            this.groupHeaderBand1,
+            this.groupHeaderCategory,
             this.reportFooterBand1,
-            this.GroupFooter1,
-            this.GroupHeader1});
+            this.GroupFooterAccount,
+            this.GroupHeaderAccount,
+            this.GroupFooterCategory});
             this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
             this.sqlDataSource1});
             this.DataMember = "REPORT_ExpenseDetail";
@@ -760,7 +801,7 @@ namespace coolBlue.reports
         private DevExpress.XtraReports.UI.XRPageInfo xrPageInfo2;
         private DevExpress.XtraReports.UI.ReportHeaderBand reportHeaderBand1;
         private DevExpress.XtraReports.UI.XRLabel xrLabel1;
-        private DevExpress.XtraReports.UI.GroupHeaderBand groupHeaderBand1;
+        private DevExpress.XtraReports.UI.GroupHeaderBand groupHeaderCategory;
         private DevExpress.XtraReports.UI.XRPanel xrPanel1;
         private DevExpress.XtraReports.UI.XRTable xrTable1;
         private DevExpress.XtraReports.UI.XRTableRow xrTableRow1;
@@ -792,10 +833,13 @@ namespace coolBlue.reports
         private DevExpress.XtraReports.Parameters.Parameter tagID;
         private DevExpress.XtraReports.Parameters.Parameter currencyID;
         private DevExpress.XtraReports.Parameters.Parameter accountingPeriod;
-        private DevExpress.XtraReports.UI.GroupFooterBand GroupFooter1;
-        private DevExpress.XtraReports.UI.GroupHeaderBand GroupHeader1;
+        private DevExpress.XtraReports.UI.GroupFooterBand GroupFooterAccount;
+        private DevExpress.XtraReports.UI.GroupHeaderBand GroupHeaderAccount;
         private DevExpress.XtraReports.UI.XRLabel xrLabel5;
         private DevExpress.XtraReports.UI.XRLabel xrLabel4;
         private DevExpress.XtraReports.UI.XRLabel xrLabel6;
+        private DevExpress.XtraReports.UI.GroupFooterBand GroupFooterCategory;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel7;
+        private DevExpress.XtraReports.UI.XRLine xrLine1;
     }
 }
