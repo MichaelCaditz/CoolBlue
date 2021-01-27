@@ -10,7 +10,8 @@ CREATE PROCEDURE [dbo].[REPORT_ExpenseDetail]
 	@startDate datetime,
 	@endDate datetime,
 	@tagID int,
-	@currencyID int
+	@currencyID int,
+	@accountingPeriod int
 AS
 
 BEGIN
@@ -95,7 +96,10 @@ BEGIN
 	 h.nCurrencyID as nAccountCurrencyID,
 	 isnull(l.cName + ': ','') + isnull(k.cName,'') as cAccount_D,
 	 isnull(n.cName + ': ','') + isnull(m.cName,'') as cAccount_C,
-	 isnull(o.cName,'') as cEntryCurrency
+	 isnull(o.cName,'') as cEntryCurrency,
+	 r.ID as nCatID_D,
+	 p.ID as nAccountID_D
+
 	 
 
 	 FROM split a  WITH (NOLOCK)
@@ -114,13 +118,16 @@ BEGIN
 	 left join dbo.account m on a.nAccountID_C = m.ID
 	 left join dbo.cat n on m.nCatID = n.ID
 	  left join dbo.currency o on a.nEntryCurrencyID = o.ID
-	
-
+	   left join dbo.account p on a.nAccountID_D = p.ID
+	 left join dbo.accountType q on p.nAccountTypeID = q.ID
+	 left join dbo.cat r on p.nCatID = r.ID
 	 where
 	 --b.nAccountID = @accountID and
 	  --a.nTagID = @tagID and
 	 (a.bDeleted is null or a.bDeleted=0) and (b.bDeleted is null or b.bDeleted=0)
 	AND b.dtTransDate BETWEEN DATEADD(dd, 0, DATEDIFF(dd, 0, @startDate  )) AND DATEADD(dd,1, DATEDIFF(dd, 0, @endDate  ))
+	and q.nAccountingTypeID=1003
+	and b.nAccountingPeriodID=@accountingPeriod
 	
-	order by cAccount_D
+	order by  nCatID_D,nAccountID_D
 END
