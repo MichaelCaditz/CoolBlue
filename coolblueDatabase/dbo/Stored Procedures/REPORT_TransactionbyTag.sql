@@ -10,7 +10,8 @@ CREATE PROCEDURE [dbo].[REPORT_TransactionbyTag]
 	@startDate datetime,
 	@endDate datetime,
 	@tagID int,
-	@currencyID int
+	@currencyID int,
+	@accountingPeriod int
 AS
 
 BEGIN
@@ -121,6 +122,7 @@ BEGIN
 	  --a.nTagID = @tagID and
 	 (a.bDeleted is null or a.bDeleted=0) and (b.bDeleted is null or b.bDeleted=0)
 	AND b.dtTransDate BETWEEN DATEADD(dd, 0, DATEDIFF(dd, 0, @startDate  )) AND DATEADD(dd,1, DATEDIFF(dd, 0, @endDate  ))
+	and b.nAccountingPeriodID=@accountingPeriod
 	
 	order by b.dtTransDate
 END

@@ -35,12 +35,15 @@
             DevExpress.DataAccess.Sql.QueryParameter queryParameter3 = new DevExpress.DataAccess.Sql.QueryParameter();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter4 = new DevExpress.DataAccess.Sql.QueryParameter();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter5 = new DevExpress.DataAccess.Sql.QueryParameter();
+            DevExpress.DataAccess.Sql.QueryParameter queryParameter6 = new DevExpress.DataAccess.Sql.QueryParameter();
             DevExpress.DataAccess.Sql.StoredProcQuery storedProcQuery2 = new DevExpress.DataAccess.Sql.StoredProcQuery();
             DevExpress.DataAccess.Sql.StoredProcQuery storedProcQuery3 = new DevExpress.DataAccess.Sql.StoredProcQuery();
+            DevExpress.DataAccess.Sql.StoredProcQuery storedProcQuery4 = new DevExpress.DataAccess.Sql.StoredProcQuery();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(REPORT_TransactionbyTag));
             DevExpress.XtraReports.UI.XRSummary xrSummary1 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.Parameters.DynamicListLookUpSettings dynamicListLookUpSettings1 = new DevExpress.XtraReports.Parameters.DynamicListLookUpSettings();
             DevExpress.XtraReports.Parameters.DynamicListLookUpSettings dynamicListLookUpSettings2 = new DevExpress.XtraReports.Parameters.DynamicListLookUpSettings();
+            DevExpress.XtraReports.Parameters.DynamicListLookUpSettings dynamicListLookUpSettings3 = new DevExpress.XtraReports.Parameters.DynamicListLookUpSettings();
             this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.xrTable2 = new DevExpress.XtraReports.UI.XRTable();
@@ -103,6 +106,7 @@
             this.editDataSetUSP_getAllTagsTableAdapter = new coolBlue.EditDataSetTableAdapters.USP_getAllTagsTableAdapter();
             this.currencyDataSet1 = new coolBlue.currencyDataSet();
             this.editDataSet2 = new coolBlue.EditDataSet();
+            this.accountingPeriod = new DevExpress.XtraReports.Parameters.Parameter();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tagDataSet1)).BeginInit();
@@ -131,20 +135,27 @@
             queryParameter5.Name = "@currencyID";
             queryParameter5.Type = typeof(DevExpress.DataAccess.Expression);
             queryParameter5.Value = new DevExpress.DataAccess.Expression("[Parameters.reportCurrencyID]", typeof(int));
+            queryParameter6.Name = "@accountingPeriod";
+            queryParameter6.Type = typeof(DevExpress.DataAccess.Expression);
+            queryParameter6.Value = new DevExpress.DataAccess.Expression("[Parameters.accountingPeriod]", typeof(int));
             storedProcQuery1.Parameters.Add(queryParameter1);
             storedProcQuery1.Parameters.Add(queryParameter2);
             storedProcQuery1.Parameters.Add(queryParameter3);
             storedProcQuery1.Parameters.Add(queryParameter4);
             storedProcQuery1.Parameters.Add(queryParameter5);
-            storedProcQuery1.StoredProcName = "REPORT_TransactionbyTag";
+            storedProcQuery1.Parameters.Add(queryParameter6);
+            storedProcQuery1.StoredProcName = "REPORT_ExpenseDetail";
             storedProcQuery2.Name = "USP_getAllTags";
             storedProcQuery2.StoredProcName = "USP_getAllTags";
             storedProcQuery3.Name = "USP_getAllCurrency";
             storedProcQuery3.StoredProcName = "USP_getAllCurrency";
+            storedProcQuery4.Name = "USP_getAllAccountingPeriods";
+            storedProcQuery4.StoredProcName = "USP_getAllAccountingPeriods";
             this.sqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
             storedProcQuery1,
             storedProcQuery2,
-            storedProcQuery3});
+            storedProcQuery3,
+            storedProcQuery4});
             this.sqlDataSource1.ResultSchemaSerializable = resources.GetString("sqlDataSource1.ResultSchemaSerializable");
             // 
             // Detail
@@ -750,6 +761,7 @@
             this.tagID.Name = "tagID";
             this.tagID.Type = typeof(int);
             this.tagID.ValueInfo = "0";
+            this.tagID.Visible = false;
             // 
             // reportCurrencyID
             // 
@@ -789,6 +801,18 @@
             this.editDataSet2.DataSetName = "EditDataSet";
             this.editDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // accountingPeriod
+            // 
+            dynamicListLookUpSettings3.DataAdapter = null;
+            dynamicListLookUpSettings3.DataMember = "USP_getAllAccountingPeriods";
+            dynamicListLookUpSettings3.DataSource = this.sqlDataSource1;
+            dynamicListLookUpSettings3.DisplayMember = "cName";
+            dynamicListLookUpSettings3.ValueMember = "ID";
+            this.accountingPeriod.LookUpSettings = dynamicListLookUpSettings3;
+            this.accountingPeriod.Name = "accountingPeriod";
+            this.accountingPeriod.Type = typeof(int);
+            this.accountingPeriod.ValueInfo = "0";
+            // 
             // REPORT_TransactionbyTag
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -815,7 +839,8 @@
             this.startDate,
             this.endDate,
             this.tagID,
-            this.reportCurrencyID});
+            this.reportCurrencyID,
+            this.accountingPeriod});
             this.StyleSheet.AddRange(new DevExpress.XtraReports.UI.XRControlStyle[] {
             this.Title,
             this.DetailCaption3,
@@ -903,5 +928,6 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell22;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell25;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell24;
+        private DevExpress.XtraReports.Parameters.Parameter accountingPeriod;
     }
 }
