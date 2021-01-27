@@ -1,5 +1,5 @@
 ﻿<dx:ThemedWindow 
-    x:Class="coolBlue.MainWindow" Title="CoolBlue" Height="1138" Width="1920" 
+    x:Class="coolBlue.MainWindow" Title="CoolBlue" Height="1030" Width="1920" 
     Loaded="DXRibbonWindow_Loaded" WindowStartupLocation="CenterScreen" 
     Background="#FFB4B4BB" Closing="DXRibbonWindow_Closing" WindowState="Maximized" 
     ScrollViewer.VerticalScrollBarVisibility="Auto" HorizontalAlignment="Center" 
@@ -97,7 +97,7 @@
     <dxlc:ScrollBox HorizontalAlignment="Left" Grid.Row="0" Grid.RowSpan="11" Grid.ColumnSpan="7" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="0" Padding="0" DragScrolling="False" Background="{x:Null}" DataContext="{StaticResource uSP_getAllCurrencyConversionViewSource}">
         <!--<ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="0" HorizontalAlignment="Left" VerticalAlignment="Top" >-->
 
-        <Grid DataContext="{StaticResource uSP_getLineViewSource}" IsEnabled="True" Margin="0,0" Width="1920" Height="1080" Background="#FF093472">
+        <Grid DataContext="{StaticResource uSP_getLineViewSource}" IsEnabled="True" Margin="0,0" Width="1920" Height="984" Background="#FF093472">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="99" />
                 <ColumnDefinition Width="21" />
@@ -122,8 +122,8 @@
                 <RowDefinition Name="r6" Height="10" MinHeight="0" />
                 <RowDefinition Name="r7" Height="100" MinHeight="0" />
                 <RowDefinition Name="r8" Height="100" MinHeight="0" />
-                <RowDefinition Name="r9" Height="350" MinHeight="0" />
-                <RowDefinition Name="r10" Height="48" MinHeight="0" />
+                <RowDefinition Name="r9" Height="266" MinHeight="0" />
+                <RowDefinition Name="r10" Height="46" MinHeight="0" />
                 <RowDefinition Name="r11" Height="1" MinHeight="0" />
                 <RowDefinition Name="r12" Height="*" MinHeight="0" />
             </Grid.RowDefinitions>
@@ -168,9 +168,9 @@
 
                     <dxr:RibbonPage Caption="Home" Name="Home">
                         <dxr:RibbonPageGroup Caption="Program">
-                            <dxb:BarButtonItem Content="Exit" ItemClick="Exit_ItemClick" Glyph="{dx:DXImage Image=ColumnsThree_32x32.png}" LargeGlyph="{dx:DXImage Image=CalculateNow_32x32.png}" />
+                            <dxb:BarButtonItem Content="Exit" ItemClick="Exit_ItemClick" Glyph="{dx:DXImageOffice2013 Image=Close_16x16.png}" LargeGlyph="{dx:DXImageOffice2013 Image=Close_32x32.png}" />
 
-                            <dxb:BarButtonItem Content="Settings" ItemClick="BarButtonItem_ItemClick" Glyph="{dx:DXImage Image=ColumnsThree_32x32.png}" LargeGlyph="{dx:DXImage Image=CalculateNow_32x32.png}" />
+                            <dxb:BarButtonItem Content="Settings" ItemClick="BarButtonItem_ItemClick" Glyph="{dx:DXImage Image=Properties_16x16.png}" LargeGlyph="{dx:DXImage Image=Properties_32x32.png}" />
                         </dxr:RibbonPageGroup>
                         <dxr:RibbonPageGroup Caption="">
                         </dxr:RibbonPageGroup>
@@ -179,7 +179,7 @@
                         <dxb:BarButtonItem x:Name="Exit1" Content="Exit" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=New_32x32.png}" ItemClick="Exit_ItemClick"/>
                     </dxr:RibbonPageGroup>-->
                         <dxr:RibbonPageGroup Caption="Configure">
-                            <dxb:BarButtonItem Name="BarButtonItemAccount" Content="Accounts" Glyph="{dx:DXImage Image=ColumnsThree_32x32.png}" LargeGlyph="{dx:DXImage Image=CalculateNow_32x32.png}" ItemClick="BarButtonItemAccount_ItemClick" />
+                            <dxb:BarButtonItem Name="BarButtonItemAccount" Content="Accounts" Glyph="{dx:DXImage Image=Accounting_16x16.png}" LargeGlyph="{dx:DXImage Image=Accounting_32x32.png}" ItemClick="BarButtonItemAccount_ItemClick" />
                             <dxb:BarButtonItem Name ="BarButtonItemVendor" Content="Vendors" Glyph="{dx:DXImage Image=UserGroup_32x32.png}" LargeGlyph="{dx:DXImage Image=UserGroup_32x32.png}" ItemClick="BarButtonItemVendor_ItemClick" />
                             <dxb:BarButtonItem Name ="BarButtonItemCategory" Content= "Categories" ItemClick="BarButtonItemCategory_ItemClick" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=LineStyle_32x32.png}" />
                             <dxb:BarButtonItem Name ="BarButtonItemTag" Content="Tags" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=CheckBox_32x32.png}" ItemClick="BarButtonItemTag_ItemClick" />
@@ -194,16 +194,16 @@
                     </dxr:RibbonPage>
 
                     <dxr:RibbonPage Caption="Reports">
-                        <dxr:RibbonPageGroup Caption="Transactions">
+                        <dxr:RibbonPageGroup Caption="Transaction">
                             <dxb:BarButtonItem Content="Detail" ItemClick="BarButtonItem_ItemClick" Glyph="{dx:DXImage Image=GroupHeader_16x16.png}" LargeGlyph="{dx:DXImage Image=GroupHeader_32x32.png}" />
                         </dxr:RibbonPageGroup>
 
-                        <dxr:RibbonPageGroup Caption="Expenses">
-                            <dxb:BarButtonItem Content="Detail" ItemClick="BarButtonItem_ItemClick" Glyph="{dx:DXImage Image=GroupHeader_16x16.png}" LargeGlyph="{dx:DXImage Image=GroupHeader_32x32.png}" />
+                        <dxr:RibbonPageGroup Caption="Expense">
+                            <dxb:BarButtonItem Content="Detail" ItemClick="BarButtonItem_ItemClick" Glyph="{dx:DXImage Image=Currency_16x16.png}" LargeGlyph="{dx:DXImage Image=Currency_32x32.png}" />
                         </dxr:RibbonPageGroup>
 
-                        <dxr:RibbonPageGroup Caption="Registers">
-                            <dxb:BarButtonItem Content="Detail" ItemClick="BarButtonItem_ItemClick" Glyph="{dx:DXImage Image=GroupHeader_16x16.png}" LargeGlyph="{dx:DXImage Image=GroupHeader_32x32.png}" />
+                        <dxr:RibbonPageGroup Caption="Register">
+                            <dxb:BarButtonItem Content="Detail" ItemClick="BarButtonItem_ItemClick" Glyph="{dx:DXImage Image=SpreadsheetGroup_16x16.png}" LargeGlyph="{dx:DXImage Image=SpreadsheetGroup_32x32.png}" />
                         </dxr:RibbonPageGroup>
                         
                     </dxr:RibbonPage>
