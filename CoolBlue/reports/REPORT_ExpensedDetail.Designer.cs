@@ -99,6 +99,8 @@ namespace coolBlue.reports
             this.GroupFooterCategory = new DevExpress.XtraReports.UI.GroupFooterBand();
             this.xrLabel7 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLine1 = new DevExpress.XtraReports.UI.XRLine();
+            this.xrTableCell3 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell5 = new DevExpress.XtraReports.UI.XRTableCell();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -119,7 +121,7 @@ namespace coolBlue.reports
             this.xrTable2.OddStyleName = "DetailData3_Odd";
             this.xrTable2.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow2});
-            this.xrTable2.SizeF = new System.Drawing.SizeF(899.9999F, 25F);
+            this.xrTable2.SizeF = new System.Drawing.SizeF(900F, 25F);
             // 
             // xrTableRow2
             // 
@@ -127,6 +129,7 @@ namespace coolBlue.reports
             this.xrTableCell6,
             this.xrTableCell18,
             this.xrTableCell7,
+            this.xrTableCell5,
             this.xrTableCell16,
             this.xrTableCell12,
             this.xrTableCell23,
@@ -174,7 +177,7 @@ namespace coolBlue.reports
             // xrTableCell16
             // 
             this.xrTableCell16.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[cAccount_D]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[cAccount_C]")});
             this.xrTableCell16.Font = new System.Drawing.Font("Tahoma", 8F);
             this.xrTableCell16.Multiline = true;
             this.xrTableCell16.Name = "xrTableCell16";
@@ -183,8 +186,8 @@ namespace coolBlue.reports
             this.xrTableCell16.StylePriority.UsePadding = false;
             this.xrTableCell16.StylePriority.UseTextAlignment = false;
             this.xrTableCell16.Text = "xrTableCell16";
-            this.xrTableCell16.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            this.xrTableCell16.Weight = 0.74746730439057241D;
+            this.xrTableCell16.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xrTableCell16.Weight = 0.51114341487757042D;
             // 
             // xrTableCell12
             // 
@@ -200,7 +203,7 @@ namespace coolBlue.reports
             this.xrTableCell12.Text = "xrTableCell12";
             this.xrTableCell12.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell12.TextFormatString = "{0:n2}";
-            this.xrTableCell12.Weight = 0.25681815588210677D;
+            this.xrTableCell12.Weight = 0.30408276454211797D;
             // 
             // xrTableCell23
             // 
@@ -216,7 +219,7 @@ namespace coolBlue.reports
             this.xrTableCell23.Text = "xrTableCell23";
             this.xrTableCell23.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell23.TextFormatString = "{0:n2}";
-            this.xrTableCell23.Weight = 0.29290612773022262D;
+            this.xrTableCell23.Weight = 0.32441621301492007D;
             // 
             // xrTableCell9
             // 
@@ -226,7 +229,7 @@ namespace coolBlue.reports
             this.xrTableCell9.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrTableCell9.StyleName = "DetailData3";
             this.xrTableCell9.Text = "xrTableCell9";
-            this.xrTableCell9.Weight = 0.37398184972742704D;
+            this.xrTableCell9.Weight = 0.38973645003119051D;
             // 
             // xrTableCell25
             // 
@@ -241,7 +244,7 @@ namespace coolBlue.reports
             this.xrTableCell25.StylePriority.UseTextAlignment = false;
             this.xrTableCell25.Text = "xrTableCell25";
             this.xrTableCell25.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrTableCell25.Weight = 0.72541486322212867D;
+            this.xrTableCell25.Weight = 0.56786539840426176D;
             // 
             // TopMargin
             // 
@@ -325,7 +328,7 @@ namespace coolBlue.reports
             this.xrTable1.Name = "xrTable1";
             this.xrTable1.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow1});
-            this.xrTable1.SizeF = new System.Drawing.SizeF(899.9999F, 28F);
+            this.xrTable1.SizeF = new System.Drawing.SizeF(900F, 28F);
             // 
             // xrTableRow1
             // 
@@ -333,6 +336,7 @@ namespace coolBlue.reports
             this.xrTableCell1,
             this.xrTableCell17,
             this.xrTableCell2,
+            this.xrTableCell3,
             this.xrTableCell15,
             this.xrTableCell11,
             this.xrTableCell22,
@@ -379,9 +383,9 @@ namespace coolBlue.reports
             this.xrTableCell15.StylePriority.UseFont = false;
             this.xrTableCell15.StylePriority.UsePadding = false;
             this.xrTableCell15.StylePriority.UseTextAlignment = false;
-            this.xrTableCell15.Text = "DR Acct";
+            this.xrTableCell15.Text = "CR Acct";
             this.xrTableCell15.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrTableCell15.Weight = 0.72927023719118567D;
+            this.xrTableCell15.Weight = 0.498699412422291D;
             // 
             // xrTableCell11
             // 
@@ -394,7 +398,7 @@ namespace coolBlue.reports
             this.xrTableCell11.StylePriority.UseTextAlignment = false;
             this.xrTableCell11.Text = "DR";
             this.xrTableCell11.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            this.xrTableCell11.Weight = 0.25056593126183735D;
+            this.xrTableCell11.Weight = 0.29667988605984819D;
             // 
             // xrTableCell22
             // 
@@ -407,7 +411,7 @@ namespace coolBlue.reports
             this.xrTableCell22.StylePriority.UseTextAlignment = false;
             this.xrTableCell22.Text = "DR Adj";
             this.xrTableCell22.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            this.xrTableCell22.Weight = 0.28577510455863564D;
+            this.xrTableCell22.Weight = 0.31651830400787878D;
             // 
             // xrTableCell4
             // 
@@ -415,7 +419,7 @@ namespace coolBlue.reports
             this.xrTableCell4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrTableCell4.StyleName = "DetailCaption3";
             this.xrTableCell4.Text = "Tag";
-            this.xrTableCell4.Weight = 0.36487728373898004D;
+            this.xrTableCell4.Weight = 0.38024833931027363D;
             // 
             // xrTableCell24
             // 
@@ -428,7 +432,7 @@ namespace coolBlue.reports
             this.xrTableCell24.StylePriority.UseTextAlignment = false;
             this.xrTableCell24.Text = "Class";
             this.xrTableCell24.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrTableCell24.Weight = 0.70775464735025928D;
+            this.xrTableCell24.Weight = 0.55404071413390854D;
             // 
             // reportFooterBand1
             // 
@@ -661,11 +665,11 @@ namespace coolBlue.reports
             // 
             this.xrLabel4.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Parameters].[startDate]")});
-            this.xrLabel4.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(184.7501F, 10.00001F);
+            this.xrLabel4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(142.8876F, 10.00001F);
             this.xrLabel4.Name = "xrLabel4";
             this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel4.SizeF = new System.Drawing.SizeF(116.125F, 26F);
+            this.xrLabel4.SizeF = new System.Drawing.SizeF(84.87498F, 26F);
             this.xrLabel4.StyleName = "Title";
             this.xrLabel4.StylePriority.UseFont = false;
             this.xrLabel4.StylePriority.UseTextAlignment = false;
@@ -677,11 +681,11 @@ namespace coolBlue.reports
             // 
             this.xrLabel5.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Parameters].[endDate]")});
-            this.xrLabel5.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(374.75F, 10.00001F);
+            this.xrLabel5.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(246.5126F, 10.00001F);
             this.xrLabel5.Name = "xrLabel5";
             this.xrLabel5.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel5.SizeF = new System.Drawing.SizeF(116.125F, 26F);
+            this.xrLabel5.SizeF = new System.Drawing.SizeF(84.87F, 26F);
             this.xrLabel5.StyleName = "Title";
             this.xrLabel5.StylePriority.UseFont = false;
             this.xrLabel5.StylePriority.UseTextAlignment = false;
@@ -691,11 +695,11 @@ namespace coolBlue.reports
             // 
             // xrLabel6
             // 
-            this.xrLabel6.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(315.375F, 10.00001F);
+            this.xrLabel6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(227.7626F, 10.00001F);
             this.xrLabel6.Name = "xrLabel6";
             this.xrLabel6.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel6.SizeF = new System.Drawing.SizeF(43.75F, 26F);
+            this.xrLabel6.SizeF = new System.Drawing.SizeF(18.75F, 26F);
             this.xrLabel6.StyleName = "Title";
             this.xrLabel6.StylePriority.UseFont = false;
             this.xrLabel6.StylePriority.UseTextAlignment = false;
@@ -736,6 +740,34 @@ namespace coolBlue.reports
             this.xrLine1.LocationFloat = new DevExpress.Utils.PointFloat(6.00001F, 0F);
             this.xrLine1.Name = "xrLine1";
             this.xrLine1.SizeF = new System.Drawing.SizeF(894F, 23F);
+            // 
+            // xrTableCell3
+            // 
+            this.xrTableCell3.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.xrTableCell3.Multiline = true;
+            this.xrTableCell3.Name = "xrTableCell3";
+            this.xrTableCell3.Padding = new DevExpress.XtraPrinting.PaddingInfo(6, 6, 0, 0, 100F);
+            this.xrTableCell3.StylePriority.UseFont = false;
+            this.xrTableCell3.StylePriority.UsePadding = false;
+            this.xrTableCell3.StylePriority.UseTextAlignment = false;
+            this.xrTableCell3.Text = "DR Acct";
+            this.xrTableCell3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xrTableCell3.Weight = 1.0447443701257777D;
+            // 
+            // xrTableCell5
+            // 
+            this.xrTableCell5.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[cAccount_D]")});
+            this.xrTableCell5.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.xrTableCell5.Multiline = true;
+            this.xrTableCell5.Name = "xrTableCell5";
+            this.xrTableCell5.Padding = new DevExpress.XtraPrinting.PaddingInfo(6, 6, 0, 0, 100F);
+            this.xrTableCell5.StylePriority.UseFont = false;
+            this.xrTableCell5.StylePriority.UsePadding = false;
+            this.xrTableCell5.StylePriority.UseTextAlignment = false;
+            this.xrTableCell5.Text = "xrTableCell5";
+            this.xrTableCell5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xrTableCell5.Weight = 1.0708132347261006D;
             // 
             // REPORT_ExpensedDetail
             // 
@@ -841,5 +873,7 @@ namespace coolBlue.reports
         private DevExpress.XtraReports.UI.GroupFooterBand GroupFooterCategory;
         private DevExpress.XtraReports.UI.XRLabel xrLabel7;
         private DevExpress.XtraReports.UI.XRLine xrLine1;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell5;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell3;
     }
 }
