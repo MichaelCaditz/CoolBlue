@@ -98,7 +98,9 @@ BEGIN
 	 isnull(n.cName + ': ','') + isnull(m.cName,'') as cAccount_C,
 	 isnull(o.cName,'') as cEntryCurrency,
 	 r.ID as nCatID_D,
-	 p.ID as nAccountID_D
+	 p.ID as nAccountID_D,
+	 ISNULL(r.cName,'') as cCategoryOnly_D,
+	 ISNULL(p.cName,'') as cAccountOnly_D
 
 	 
 
@@ -129,5 +131,5 @@ BEGIN
 	and q.nAccountingTypeID=1003
 	and b.nAccountingPeriodID=@accountingPeriod
 	
-	order by  nCatID_D,nAccountID_D
+	order by  cCategoryOnly_D,  cAccountOnly_D,dtLineTransdate
 END
