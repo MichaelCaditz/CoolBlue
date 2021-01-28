@@ -1049,13 +1049,13 @@ namespace coolBlue
             decimal sumTotalNative = 0;
             switch (nAccountingTypeID)
             {
-                case 1000://current asset
+                case 1000://current asset - bank account
 
                     sumTotal = sumDr - sumCr;
                     sumTotalNative = sumDrNative - sumCrNative;
                     break;
 
-                case 1001://curent liability
+                case 1001://curent liability - credit card
 
                     sumTotal = sumCr - sumDr;
                     sumTotalNative = sumCrNative - sumDrNative;

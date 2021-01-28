@@ -99,8 +99,10 @@ BEGIN
 	 isnull(o.cName,'') as cEntryCurrency,
 	 r.ID as nCatID_D,
 	 p.ID as nAccountID_D,
+	  m.ID as nAccountID_C,
 	 ISNULL(r.cName,'') as cCategoryOnly_D,
-	 ISNULL(p.cName,'') as cAccountOnly_D
+	 ISNULL(p.cName,'') as cAccountOnly_D,
+	 t.nAccountingTypeID as nAccountingTypeID
 
 	 
 
@@ -123,6 +125,9 @@ BEGIN
 	   left join dbo.account p on a.nAccountID_D = p.ID
 	 left join dbo.accountType q on p.nAccountTypeID = q.ID
 	 left join dbo.cat r on p.nCatID = r.ID
+	 left join account s on s.ID = @accountID
+	 left join accountType t on t.ID = s.nAccountTypeID
+
 	 where
 	 (a.nAccountID_C = @accountID or nAccountID_D = @accountID) and
 	  --a.nTagID = @tagID and
@@ -131,5 +136,5 @@ BEGIN
 	--and q.nAccountingTypeID=1003
 	and b.nAccountingPeriodID=@accountingPeriod
 	
-	order by  cCategoryOnly_D,  cAccountOnly_D,dtLineTransdate
+	order by  dtLineTransdate asc
 END

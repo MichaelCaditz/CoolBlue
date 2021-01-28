@@ -16,7 +16,7 @@ namespace coolBlue.reports
         private void REPORT_Register_ParametersRequestBeforeShow(object sender, DevExpress.XtraReports.Parameters.ParametersRequestEventArgs e)
         {
             Parameters["endDate"].Value = DateTime.Today;
-            Parameters["startDate"].Value = DateTime.Today.AddYears(-1);
+            Parameters["startDate"].Value = DateTime.Today.AddYears(-100);
             Parameters["accountingPeriod"].Value = 1000;
         }
     }
