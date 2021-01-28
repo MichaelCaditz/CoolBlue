@@ -182,6 +182,12 @@
     <Compile Include="reports\REPORT_ExpensedDetail.Designer.cs">
       <DependentUpon>REPORT_ExpensedDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="reports\REPORT_Register.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\REPORT_Register.Designer.cs">
+      <DependentUpon>REPORT_Register.cs</DependentUpon>
+    </Compile>
     <Compile Include="reports\REPORT_tags.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -324,6 +330,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="reports\REPORT_ExpensedDetail.resx">
       <DependentUpon>REPORT_ExpensedDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\REPORT_Register.resx">
+      <DependentUpon>REPORT_Register.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="reports\REPORT_tags.resx">
       <DependentUpon>REPORT_tags.cs</DependentUpon>

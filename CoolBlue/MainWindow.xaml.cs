@@ -1798,5 +1798,11 @@ namespace coolBlue
 
 
         }
+
+        private void REPORT_Register_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+            PrintHelper.ShowPrintPreviewDialog(this, new coolBlue.reports.REPORT_Register());
+
+        }
     }
 }

@@ -203,7 +203,7 @@
                         </dxr:RibbonPageGroup>
 
                         <dxr:RibbonPageGroup Caption="Register">
-                            <dxb:BarButtonItem Content="Detail" ItemClick="BarButtonItem_ItemClick" Glyph="{dx:DXImage Image=SpreadsheetGroup_16x16.png}" LargeGlyph="{dx:DXImage Image=SpreadsheetGroup_32x32.png}" />
+                            <dxb:BarButtonItem Name="REPORT_Register" Content="Detail" ItemClick="REPORT_Register_ItemClick" Glyph="{dx:DXImage Image=SpreadsheetGroup_16x16.png}" LargeGlyph="{dx:DXImage Image=SpreadsheetGroup_32x32.png}" />
                         </dxr:RibbonPageGroup>
                         
                     </dxr:RibbonPage>
