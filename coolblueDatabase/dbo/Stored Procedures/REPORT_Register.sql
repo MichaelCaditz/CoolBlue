@@ -3,7 +3,7 @@
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-create PROCEDURE [dbo].[REPORT_Register]
+CREATE PROCEDURE [dbo].[REPORT_Register]
 		--@InventoryNumber nVarchar(255),
 	--@Title nVarchar(255)
 	@accountID int,
@@ -124,11 +124,11 @@ BEGIN
 	 left join dbo.accountType q on p.nAccountTypeID = q.ID
 	 left join dbo.cat r on p.nCatID = r.ID
 	 where
-	 --b.nAccountID = @accountID and
+	 (a.nAccountID_C = @accountID or nAccountID_D = @accountID) and
 	  --a.nTagID = @tagID and
 	 (a.bDeleted is null or a.bDeleted=0) and (b.bDeleted is null or b.bDeleted=0)
 	AND b.dtTransDate BETWEEN DATEADD(dd, 0, DATEDIFF(dd, 0, @startDate  )) AND DATEADD(dd,1, DATEDIFF(dd, 0, @endDate  ))
-	and q.nAccountingTypeID=1003
+	--and q.nAccountingTypeID=1003
 	and b.nAccountingPeriodID=@accountingPeriod
 	
 	order by  cCategoryOnly_D,  cAccountOnly_D,dtLineTransdate
