@@ -62,6 +62,7 @@ namespace coolBlue.reports
             this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.xrPageInfo2 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.reportHeaderBand1 = new DevExpress.XtraReports.UI.ReportHeaderBand();
+            this.xrLabelAccountName = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             this.groupHeaderBand1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
             this.xrPanel1 = new DevExpress.XtraReports.UI.XRPanel();
@@ -336,16 +337,26 @@ namespace coolBlue.reports
             // reportHeaderBand1
             // 
             this.reportHeaderBand1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLabelAccountName,
             this.xrLabel1});
             this.reportHeaderBand1.HeightF = 60F;
             this.reportHeaderBand1.Name = "reportHeaderBand1";
             // 
+            // xrLabelAccountName
+            // 
+            this.xrLabelAccountName.LocationFloat = new DevExpress.Utils.PointFloat(150.5287F, 7.000001F);
+            this.xrLabelAccountName.Name = "xrLabelAccountName";
+            this.xrLabelAccountName.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabelAccountName.SizeF = new System.Drawing.SizeF(154.7625F, 26F);
+            this.xrLabelAccountName.StyleName = "Title";
+            this.xrLabelAccountName.Text = "Register";
+            // 
             // xrLabel1
             // 
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(6F, 6F);
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(10.0001F, 7.000001F);
             this.xrLabel1.Name = "xrLabel1";
             this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel1.SizeF = new System.Drawing.SizeF(638F, 26F);
+            this.xrLabel1.SizeF = new System.Drawing.SizeF(117.2625F, 26F);
             this.xrLabel1.StyleName = "Title";
             this.xrLabel1.Text = "Register";
             // 
@@ -717,6 +728,7 @@ namespace coolBlue.reports
             this.PageInfo});
             this.Version = "18.1";
             this.ParametersRequestBeforeShow += new System.EventHandler<DevExpress.XtraReports.Parameters.ParametersRequestEventArgs>(this.REPORT_Register_ParametersRequestBeforeShow);
+            this.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.REPORT_Register_BeforePrint);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
@@ -777,5 +789,6 @@ namespace coolBlue.reports
         private DevExpress.XtraReports.Parameters.Parameter accountingPeriod;
         private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource1;
         private DevExpress.XtraReports.UI.CalculatedField Balance;
+        private DevExpress.XtraReports.UI.XRLabel xrLabelAccountName;
     }
 }
