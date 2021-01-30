@@ -102,14 +102,14 @@
                 <ColumnDefinition Width="99" />
                 <ColumnDefinition Width="21" />
                 <ColumnDefinition Width="21" />
-                <ColumnDefinition Width="82" />
-                <ColumnDefinition Width="15" />
-                <ColumnDefinition Width="460" />
+                <ColumnDefinition Width="86" />
+                <ColumnDefinition Width="2" />
+                <ColumnDefinition Width="536" />
                 <ColumnDefinition Width="299" />
                 <ColumnDefinition Width="57" />
                 <ColumnDefinition Width="240" />
                 <ColumnDefinition Width="240" />
-                <ColumnDefinition Width="400" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Name="r0" Height="100" MinHeight="0" />
@@ -205,17 +205,17 @@
                         <dxr:RibbonPageGroup Caption="Register">
                             <dxb:BarButtonItem Name="REPORT_Register" Content="Detail" ItemClick="REPORT_Register_ItemClick" Glyph="{dx:DXImage Image=SpreadsheetGroup_16x16.png}" LargeGlyph="{dx:DXImage Image=SpreadsheetGroup_32x32.png}" />
                         </dxr:RibbonPageGroup>
-                        
+
                     </dxr:RibbonPage>
 
                     <dxr:RibbonPage Caption="Budgets">
                         <dxr:RibbonPageGroup Caption="Transactions">
                             <dxb:BarButtonItem Content="By Tag" ItemClick="BarButtonItem_ItemClick" />
-                            
+
                         </dxr:RibbonPageGroup>
                     </dxr:RibbonPage>
 
-                    
+
 
                 </dxr:RibbonDefaultPageCategory>
             </dxr:RibbonControl>
@@ -228,7 +228,7 @@
             <!--<Grid HorizontalAlignment="Left" Height="100" Margin="527,5,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100" Grid.Column="3"/>-->
 
 
-            <dxg:GridControl Name="uSP_getAllAccountTypesDataGrid" AutoGenerateColumns="None" EnableSmartColumnsGeneration="False" ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesViewSource}}" Margin="5,6,10,0" Grid.Row="2" Grid.RowSpan="4" Grid.ColumnSpan="5" SelectionMode="Row" ScrollViewer.CanContentScroll="True">
+            <dxg:GridControl Name="uSP_getAllAccountTypesDataGrid" AutoGenerateColumns="None" EnableSmartColumnsGeneration="False" ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesViewSource}}" Margin="5,6,0,0" Grid.Row="2" Grid.RowSpan="4" Grid.ColumnSpan="5" SelectionMode="Row" ScrollViewer.CanContentScroll="True">
                 <dxg:GridControl.View>
                     <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" ShowColumnHeaders="False" Grid.ColumnSpan="1" Margin="2,6,0,0" Width="223" ShowBandsPanel="False" ShowBandsInCustomizationForm="False" ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" ShowValidationAttributeErrors="False" ShowVerticalLines="False" CustomCellAppearance="TableView_OnCustomCellAppearance" ScrollingMode="Smart">
 
@@ -314,8 +314,8 @@
 
 
 
-            <dxg:GridControl Name="grdAccounts" AutoGenerateColumns="None" EnableSmartColumnsGeneration="False" ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesUSP_getAllAccountsViewSource}}" Margin="5,0,10,0" Grid.Row="7" Grid.RowSpan="3"
-                             Grid.ColumnSpan="5" CurrentItemChanged="GridControl_CurrentItemChanged">
+            <dxg:GridControl Name="grdAccounts" AutoGenerateColumns="None" EnableSmartColumnsGeneration="False" ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesUSP_getAllAccountsViewSource}}" Margin="5,0,0,0" Grid.Row="7" Grid.RowSpan="3"
+                             Grid.ColumnSpan="5" CurrentItemChanged="GridControl_CurrentItemChanged" SelectedItemChanged="grdAccounts_SelectedItemChanged">
                 <dxg:GridControl.View>
                     <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" ShowColumnHeaders="False" Grid.ColumnSpan="1" Margin="2,0,0,0" Width="223" ShowBandsPanel="False" ShowBandsInCustomizationForm="False"
                                    ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False"
@@ -398,7 +398,9 @@
             </dxg:GridControl>
 
 
-            <dxg:GridControl Name="uSP_getLineDataGrid" AutoGenerateColumns="None" EnableSmartColumnsGeneration="False" ItemsSource="{Binding Source={StaticResource uSP_getLineViewSource1}}" Margin="0,0,4,0" Grid.Column="5" Grid.Row="3" Grid.RowSpan="7" SelectionMode="Row">
+            <dxg:GridControl Name="uSP_getLineDataGrid" AutoGenerateColumns="None" EnableSmartColumnsGeneration="False"
+                             ItemsSource="{Binding Source={StaticResource uSP_getLineViewSource1}}"
+                             Margin="0,0,4,0" Grid.Column="5" Grid.Row="3" Grid.RowSpan="7" SelectionMode="Row" CustomUnboundColumnData="grid_CustomUnboundColumnData">
                 <dxg:GridControl.View>
                     <dxg:TableView Name="LineView" AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" ShowColumnHeaders="True" Grid.ColumnSpan="1" Margin="0,0,0,0" ShowBandsPanel="False" ShowBandsInCustomizationForm="False" ShowCheckBoxSelectorInGroupRow="False"
                                    ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False"
@@ -474,45 +476,45 @@
                 </dxg:GridControl.View>
 
                 <dxg:GridColumn Binding="{Binding ID}" FieldName="ID" Header="ID" Width="50" ReadOnly="True" AllowFocus="False" AllowSorting="True" />
-                <dxg:GridColumn FieldName="dtTransDate" Header="Date" Width="80" ReadOnly="False" AllowFocus="True" AllowSorting="True" SortOrder="Descending" />
+                <dxg:GridColumn FieldName="dtTransDate" Header="Date" Width="80" ReadOnly="False" AllowFocus="True" AllowSorting="True" />
                 <dxg:GridColumn  FieldName="bIsAll" Header="bIsAll" Width="50" ReadOnly="True" AllowFocus="False" AllowSorting="True" Visible="False" />
 
-                <dxg:GridColumn FieldName="totalDr" Header="DR" Width="80" ReadOnly="True" AllowFocus="False" AllowSorting="True" CellToolTipBinding="{Binding}">
-                <dxg:GridColumn.CellToolTipTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Vertical">
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock FontWeight="Bold" Text="Currency: " />
-                                <TextBlock Text="{Binding currencyNameEntry}" />
-                            </StackPanel>
-                            <!--<StackPanel Orientation="Horizontal">
+                <dxg:GridColumn FieldName="totalDr" Header="DR" HorizontalHeaderContentAlignment="Right" Width="80" ReadOnly="True" AllowFocus="False" AllowSorting="True" CellToolTipBinding="{Binding}">
+                    <dxg:GridColumn.CellToolTipTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontWeight="Bold" Text="Currency: " />
+                                    <TextBlock Text="{Binding currencyNameEntry}" />
+                                </StackPanel>
+                                <!--<StackPanel Orientation="Horizontal">
                                     <TextBlock FontStyle="Italic" FontWeight="Bold" Text="Age: "/>
                                     <TextBlock Text="{Binding Age}" />
                                 </StackPanel>-->
-                        </StackPanel>
-                    </DataTemplate>
-                </dxg:GridColumn.CellToolTipTemplate>
+                            </StackPanel>
+                        </DataTemplate>
+                    </dxg:GridColumn.CellToolTipTemplate>
                 </dxg:GridColumn>
 
 
-                <dxg:GridColumn FieldName="totalCr" Header="CR" Width="80" ReadOnly="True" AllowFocus="False" AllowSorting="True" CellToolTipBinding="{Binding}">
-                <dxg:GridColumn.CellToolTipTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Vertical">
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock FontWeight="Bold" Text="Currency: " />
+                <dxg:GridColumn FieldName="totalCr" Header="CR" HorizontalHeaderContentAlignment="Right" Width="80" ReadOnly="True" AllowFocus="False" AllowSorting="True" CellToolTipBinding="{Binding}">
+                    <dxg:GridColumn.CellToolTipTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontWeight="Bold" Text="Currency: " />
                                     <TextBlock Text="{Binding currencyNameEntry}" />
-                            </StackPanel>
-                            <!--<StackPanel Orientation="Horizontal">
+                                </StackPanel>
+                                <!--<StackPanel Orientation="Horizontal">
                                     <TextBlock FontStyle="Italic" FontWeight="Bold" Text="Age: "/>
                                     <TextBlock Text="{Binding Age}" />
                                 </StackPanel>-->
-                        </StackPanel>
-                    </DataTemplate>
-                </dxg:GridColumn.CellToolTipTemplate>
-                    </dxg:GridColumn>
+                            </StackPanel>
+                        </DataTemplate>
+                    </dxg:GridColumn.CellToolTipTemplate>
+                </dxg:GridColumn>
 
-                    <dxg:GridColumn FieldName="totalDrNative" Header="DR Adj" Width="80" ReadOnly="True" AllowFocus="False" AllowSorting="True" CellToolTipBinding="{Binding}">
+                <dxg:GridColumn FieldName="totalDrNative" Header="DR Adj" HorizontalHeaderContentAlignment="Right" Width="80" ReadOnly="True" AllowFocus="False" AllowSorting="True" CellToolTipBinding="{Binding}" SortOrder="Ascending" SortIndex="0">
                     <dxg:GridColumn.CellToolTipTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Vertical">
@@ -530,13 +532,35 @@
 
                 </dxg:GridColumn>
 
-                <dxg:GridColumn FieldName="totalCrNative" Header="CR Adj" Width="80" ReadOnly="True" AllowFocus="False" AllowSorting="True" CellToolTipBinding="{Binding}">
-                <dxg:GridColumn.CellToolTipTemplate>
+                <dxg:GridColumn FieldName="totalCrNative" Header="CR Adj" HorizontalHeaderContentAlignment="Right" Width="80" ReadOnly="True" AllowFocus="False" AllowSorting="True" CellToolTipBinding="{Binding}">
+                    <dxg:GridColumn.CellToolTipTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontWeight="Bold" Text="Currency: " />
+                                    <TextBlock Text="{Binding currencyNameAdjusted}" />
+                                </StackPanel>
+                                <!--<StackPanel Orientation="Horizontal">
+                                    <TextBlock FontStyle="Italic" FontWeight="Bold" Text="Age: "/>
+                                    <TextBlock Text="{Binding Age}" />
+                                </StackPanel>-->
+                            </StackPanel>
+                        </DataTemplate>
+                    </dxg:GridColumn.CellToolTipTemplate>
+                </dxg:GridColumn>
+
+                <dxg:GridColumn FieldName="Running Totals" Header="Balance" Width="80" 
+                                HorizontalHeaderContentAlignment="Right" 
+                                UnboundType="Object" AllowFocus="False" AllowSorting="True" CellToolTipBinding="{Binding}">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings HorizontalContentAlignment="Right"/>
+                    </dxg:GridColumn.EditSettings>
+                    <dxg:GridColumn.CellToolTipTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Vertical">
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock FontWeight="Bold" Text="Currency: " />
-                                    <TextBlock Text="{Binding currencyNameAdjusted}" />
+                                <TextBlock Text="{Binding currencyNameAdjusted}" />
                             </StackPanel>
                             <!--<StackPanel Orientation="Horizontal">
                                     <TextBlock FontStyle="Italic" FontWeight="Bold" Text="Age: "/>
@@ -546,7 +570,8 @@
                     </DataTemplate>
                 </dxg:GridColumn.CellToolTipTemplate>
                 </dxg:GridColumn>
-
+                
+                <dxg:GridColumn FieldName="cNote" Header="Note" Width="80" ReadOnly="False" AllowFocus="True" AllowSorting="True" Visible="False" />
                 <dxg:GridColumn FieldName="cNote" Header="Note" Width="80" ReadOnly="False" AllowFocus="True" AllowSorting="True" Visible="False" />
 
 
@@ -1130,7 +1155,7 @@
             <ComboBox Grid.Column="5" Margin="0,36,0,0" Grid.Row="2" IsSynchronizedWithCurrentItem="True" SelectedItem="" DisplayMemberPath="cLabel" ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesUSP_getAllAccountsViewSource}}" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Height="25" />
             <dx:SimpleButton Name="New" Content="New" Grid.Column="5" HorizontalAlignment="Left" Height="27" Margin="1,6,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120" Click="SimpleButton_Click_1" RenderTransformOrigin="-1.733,0.444" Foreground="#FFEFF56F" Glyph="add-icon32.png" />
             <dx:SimpleButton Name="Delete" Content="Delete" Grid.Column="5" HorizontalAlignment="Right" Height="27" Margin="0,6,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-1.733,0.444" Foreground="#FFEFF56F" Background="Black" Click="Delete_Click" Glyph="trashcan3_32.png" />
-            <dx:SimpleButton Name="DeleteSplit" Content="Delete" Grid.Column="8" HorizontalAlignment="Left" Height="27" Margin="162,39,0,0" Grid.Row="2" VerticalAlignment="Bottom" Width="120" RenderTransformOrigin="-1.733,0.444" Foreground="#FFEFF56F" Background="Black" Click="DeleteSplit_Click" Glyph="trashcan3_32.png" />
+            <dx:SimpleButton Name="DeleteSplit" Content="Delete" Grid.Column="8" HorizontalAlignment="Left" Height="27" Margin="0,39,0,0" Grid.Row="2" VerticalAlignment="Bottom" Width="120" RenderTransformOrigin="-1.733,0.444" Foreground="#FFEFF56F" Background="Black" Click="DeleteSplit_Click" Glyph="trashcan3_32.png" />
             <dx:SimpleButton Name="NewSplit" Content="New" Grid.Column="6" HorizontalAlignment="Left" Height="27" Margin="1,6,0,0" Grid.Row="2" VerticalAlignment="Bottom" Width="120" RenderTransformOrigin="-1.733,0.444" Foreground="#FFEFF56F" Glyph="add-icon32.png" Click="NewSplit_Click" />
 
 

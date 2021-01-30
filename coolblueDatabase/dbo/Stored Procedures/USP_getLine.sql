@@ -19,7 +19,7 @@ BEGIN
 
 	--a.cNameFirst,a.cNameLast,
 	
-	 SELECT distinct a.ID,a.dtCreateDate,a.nAccountID,a.dtTransDate,a.cNote,c.bIsAll,
+	 SELECT distinct  a.ID, a.dtCreateDate,a.nAccountID,a.dtTransDate,a.cNote,c.bIsAll,
 	 
 	 --(select isnull(sum(s.nAmount),0) as "totalSplit" from dbo.split s where s.nLineID = a.ID
 	 --and (c.bIsAll = 1 or(s.nAccountID_C = @accountID or s.nAccountID_D = @accountID))
@@ -28,25 +28,26 @@ BEGIN
 
 
 
-	  (select isnull(sum(s.nAmount_D),0) from dbo.split s where s.nLineID = a.ID
+	  (select  isnull(sum(s.nAmount_D),0) from dbo.split s where s.nLineID = a.ID
 	   and (c.bIsAll = 1 or (s.nAccountID_D = @accountID))
 	 and (s.bDeleted is null or s.bDeleted=0) ) as "totalDr",
 
-	  (select isnull(sum(s.nAmount_D_Native),0)  from dbo.split s where s.nLineID = a.ID
+	  (select  isnull(sum(s.nAmount_D_Native),0)  from dbo.split s where s.nLineID = a.ID
 	   and (c.bIsAll = 1 or (s.nAccountID_D = @accountID))
 	 and (s.bDeleted is null or s.bDeleted=0) ) as "totalDrNative",
 
 
 
-	  (select isnull(sum(s.nAmount_C),0)  from dbo.split s where s.nLineID = a.ID
+	  (select  isnull(sum(s.nAmount_C),0)  from dbo.split s where s.nLineID = a.ID
 	   and (c.bIsAll = 1 or(s.nAccountID_C = @accountID ))
 	 and (s.bDeleted is null or s.bDeleted=0) ) as "totalCr",
 
-	 (select isnull(sum(s.nAmount_C_Native),0)  from dbo.split s where s.nLineID = a.ID
+	 (select  isnull(sum(s.nAmount_C_Native),0)  from dbo.split s where s.nLineID = a.ID
 	   and (c.bIsAll = 1 or(s.nAccountID_C = @accountID ))
 	 and (s.bDeleted is null or s.bDeleted=0) ) as "totalCrNative",
 	 d.cName as currencyNameAdjusted,
-	 e.cName as currencyNameEntry
+	 e.cName as currencyNameEntry,
+	 f.nAccountingTypeID as nAccountingTypeID
 	  
 
 
@@ -57,7 +58,7 @@ BEGIN
 	 left join account c on c.ID = @accountID
 	 left join currency d on c.nCurrencyID = d.ID
 	 left join currency e on  b.nEntryCurrencyID = e.ID
-	
+	left join accountType f on c.nAccountTypeID = f.ID
 
 	 where 
 
@@ -67,7 +68,7 @@ BEGIN
 
 	 and @accountID>0 and a.nAccountingPeriodID=@accountingPeriod
 		
-	order by a.dtTransDate desc
+	order by a.dtTransDate asc
 
 	
 	

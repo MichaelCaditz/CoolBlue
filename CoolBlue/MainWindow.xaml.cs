@@ -159,6 +159,13 @@ namespace coolBlue
 
             TextEditBalance.DisplayFormatString = "#,##0.00;<#,##0.00>";
             TextEditBalanceNative.DisplayFormatString = "#,##0.00;<#,##0.00>";
+
+            //DataTable dt = registerDataSet.USP_getLine;
+            //DataRow foundRow = dt.Rows.Find(TransactID1);
+            //int rowHandle = dt.Rows.IndexOf(foundRow);
+            //uSP_getLineDataGrid.View.FocusedRowHandle = rowHandle;
+            //uSP_getLineDataGrid.View.MoveLastRow();
+
         }
 
 
@@ -1999,6 +2006,55 @@ namespace coolBlue
 
         }
 
+        private void grid_CustomUnboundColumnData(object sender, GridColumnDataEventArgs e)
+        {
+            if (e.Column.FieldName == "Running Totals" && e.IsGetData)
+            {
+                GridControl grid = (GridControl)sender;
+
+                int rowHandle = grid.GetRowHandleByListIndex(e.ListSourceRowIndex);
+                int rowVisibleIndex = grid.GetRowVisibleIndexByHandle(rowHandle);
+                int previousRowHandle = grid.GetRowHandleByVisibleIndex(rowVisibleIndex > 0 ? rowVisibleIndex - 1 : GridControl.InvalidRowHandle);
+
+                decimal prevTotalValue = previousRowHandle != GridControl.InvalidRowHandle ? (decimal)grid.GetCellValue(previousRowHandle, "Running Totals") : 0;
+
+                decimal currentPrice = 0m;
+                decimal nTotalCrnative = (decimal)grid.GetCellValue(rowHandle, "totalCrNative");
+                decimal nTotalDrnative = (decimal)grid.GetCellValue(rowHandle, "totalDrNative");
+                int nAccountingTypeID = (int)grid.GetCellValue(rowHandle, "nAccountingTypeID");
+
+
+                switch (nAccountingTypeID)
+                {
+                    case 1001://credit card
+
+
+                 currentPrice = nTotalCrnative - nTotalDrnative;
+
+                
+
+                            break;
+
+                    case 1003: //expense
+
+                        currentPrice = nTotalDrnative - nTotalCrnative;
+
+                        break;
+
+                    case 1000: //chequing
+
+                        currentPrice = nTotalDrnative - nTotalCrnative;
+
+                        break;
+                }
+
+
+
+                e.Value = currentPrice + prevTotalValue;
+            }
+        
+        }
+
         private void NewSplit_Click(object sender, RoutedEventArgs e)
         {
             System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesUSP_getAllAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesUSP_getAllAccountsViewSource")));
@@ -2130,7 +2186,9 @@ namespace coolBlue
             //LineView.Focus();
         }
 
-    
-        
+        private void grdAccounts_SelectedItemChanged(object sender, SelectedItemChangedEventArgs e)
+        {
+            uSP_getLineDataGrid.View.MoveLastRow();
+        }
     }
 }
