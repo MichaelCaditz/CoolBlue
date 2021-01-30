@@ -1811,6 +1811,13 @@ namespace coolBlue
         }
         private void deleteSplit()
         {
+
+            System.Windows.Data.CollectionViewSource uSP_getLineViewSource1 = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getLineViewSource1")));
+            DataRowView drv = (DataRowView)uSP_getLineViewSource1.View.CurrentItem;
+            int lineCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
+
+
+
             System.Windows.Data.CollectionViewSource uSP_getLineUSP_getSplitViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getLineUSP_getSplitViewSource")));
             DataRowView drv1 = (DataRowView)uSP_getLineUSP_getSplitViewSource.View.CurrentItem;
             int nSplitID = (drv1 == null ? 0 : DBNull.Value.Equals(drv1["ID"]) == true ? 0 : (int)drv1["ID"]);
@@ -1957,8 +1964,8 @@ namespace coolBlue
 
 
 
-                DataRowView drv = (DataRowView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentItem;
-                int accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
+                DataRowView drv2 = (DataRowView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentItem;
+                int accountCurrent = (drv2 == null ? 0 : DBNull.Value.Equals(drv2["ID"]) == true ? 0 : (int)drv2["ID"]);
                 int accountingPeriod = 1000;  // this will be changed so value comes from settings
 
                 registerDataSet.EnforceConstraints = false;
@@ -1969,7 +1976,14 @@ namespace coolBlue
                     //registerDataSet.EnforceConstraints = true;
 
                     getTotals();
-                
+                DataTable dt = registerDataSet.USP_getLine;
+                DataRow foundRow = dt.Rows.Find(lineCurrent);
+
+
+                int rowHandle = dt.Rows.IndexOf(foundRow);
+
+
+                uSP_getLineDataGrid.View.FocusedRowHandle = rowHandle;
             }
 
         }
