@@ -1062,7 +1062,7 @@
 
 
 
-                <dxg:GridColumn FieldName="nCurrencyID" Header="Original Currency" Width="110" AllowSorting="True" AllowEditing="True" EditFormStartNewRow="True" EditFormVisibleIndex="10" MergeWithPreviousGroup="True">
+                <dxg:GridColumn FieldName="nCurrencyID" Header="Original Currency" Width="110" AllowSorting="True" AllowEditing="True" EditFormStartNewRow="True" EditFormVisibleIndex="10" MergeWithPreviousGroup="True" Visible="False">
                     <dxg:GridColumn.EditSettings>
                         <dxg:LookUpEditSettings ItemsSource="{Binding Source={StaticResource uSP_getAllCurrencyViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="ID" DisplayMember="cName">
                             <dxg:LookUpEditSettings.PopupContentTemplate>
@@ -1107,7 +1107,7 @@
                     </dxg:GridColumn.EditSettings>
                 </dxg:GridColumn>
 
-                <dxg:GridColumn FieldName="nOriginalAmount" Header="Original Amnt." AllowSorting="True" Width="100" EditFormVisibleIndex="11">
+                <dxg:GridColumn FieldName="nOriginalAmount" Header="Original Amnt." AllowSorting="True" Width="100" EditFormVisibleIndex="11" Visible="False">
                     <dxg:GridColumn.EditSettings>
                         <!--<dxe:TextEditSettings MaskUseAsDisplayFormat="True" MaskType="Numeric" Mask="f2" />-->
                         <dxe:CalcEditSettings MaskUseAsDisplayFormat="True" MaskType="Numeric" Mask="f2" />
@@ -1127,6 +1127,8 @@
             <ComboBox Grid.Column="5" Margin="0,36,0,0" Grid.Row="2" IsSynchronizedWithCurrentItem="True" SelectedItem="" DisplayMemberPath="cLabel" ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesUSP_getAllAccountsViewSource}}" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Height="25" />
             <dx:SimpleButton Name="New" Content="New" Grid.Column="5" HorizontalAlignment="Left" Height="27" Margin="1,6,0,0" Grid.Row="2" VerticalAlignment="Top" Width="141" Click="SimpleButton_Click_1" RenderTransformOrigin="-1.733,0.444" Foreground="#FFEFF56F" Glyph="add-icon32.png" />
             <dx:SimpleButton Name="Delete" Content="Delete" Grid.Column="5" HorizontalAlignment="Right" Height="27" Margin="0,6,0,0" Grid.Row="2" VerticalAlignment="Top" Width="153" RenderTransformOrigin="-1.733,0.444" Foreground="#FFEFF56F" Background="Black" Click="Delete_Click" Glyph="trashcan3_32.png" />
+            <dx:SimpleButton Name="DeleteSplit" Content="Delete" Grid.Column="6" HorizontalAlignment="Left" Height="27" Margin="0,39,0,0" Grid.Row="2" VerticalAlignment="Top" Width="153" RenderTransformOrigin="-1.733,0.444" Foreground="#FFEFF56F" Background="Black" Click="DeleteSplit_Click" Glyph="trashcan3_32.png" />
+
 
             <dxe:TextEdit x:Name="TextEditTotalDr" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="147,4,0,0" Grid.Row="10" VerticalAlignment="Top" Width="70" Mask="F" MaskType="Numeric" IsReadOnly="True" Height="22" Foreground="#FFA9F50A" FontWeight="Bold" />
             <dxe:TextEdit x:Name="TextEditTotalCr" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="220,4,0,0" Grid.Row="10" VerticalAlignment="Top" Width="70" Mask="F" MaskType="Numeric" IsReadOnly="True" Height="22" Foreground="#FFEAF50A" FontWeight="Bold"/>
