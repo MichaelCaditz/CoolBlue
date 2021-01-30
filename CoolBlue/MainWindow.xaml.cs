@@ -796,16 +796,16 @@ namespace coolBlue
         {
 
 
-          
+
 
             PrintHelper.ShowPrintPreviewDialog(this, new coolBlue.reports.REPORT_TransactionbyTag());
 
 
 
             //reportViewer reportViewer1 = new reportViewer();
-           
+
             //coolBlue.reports.REPORT_TransactionbyTag rpt = new coolBlue.reports.REPORT_TransactionbyTag();
-           
+
             //reportViewer1.documentPreview1.DocumentSource = rpt;
 
             //reportViewer1.Show();
@@ -822,7 +822,7 @@ namespace coolBlue
             //Mouse.OverrideCursor = null;
         }
 
-       
+
 
 
 
@@ -1598,6 +1598,17 @@ namespace coolBlue
             deleteTrans();
 
         }
+
+        private void DeleteSplitRightClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+
+            deleteSplit();
+
+        }
+
+
+
+
         private void deleteTrans()
         {
             System.Windows.Data.CollectionViewSource uSP_getLineViewSource1 = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getLineViewSource1")));
@@ -1969,13 +1980,13 @@ namespace coolBlue
                 int accountingPeriod = 1000;  // this will be changed so value comes from settings
 
                 registerDataSet.EnforceConstraints = false;
-                    registerDataSetUSP_getSplitTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-                    registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent, accountingPeriod);
-                    registerDataSetUSP_getLineTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-                    registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent, accountingPeriod);
-                    //registerDataSet.EnforceConstraints = true;
+                registerDataSetUSP_getSplitTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
+                registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent, accountingPeriod);
+                registerDataSetUSP_getLineTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
+                registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent, accountingPeriod);
+                //registerDataSet.EnforceConstraints = true;
 
-                    getTotals();
+                getTotals();
                 DataTable dt = registerDataSet.USP_getLine;
                 DataRow foundRow = dt.Rows.Find(lineCurrent);
 
@@ -1987,5 +1998,139 @@ namespace coolBlue
             }
 
         }
+
+        private void NewSplit_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesUSP_getAllAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesUSP_getAllAccountsViewSource")));
+            System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesViewSource")));
+
+            coolBlue.RegisterDataSet registerDataSet = ((coolBlue.RegisterDataSet)(this.FindResource("registerDataSet")));
+
+
+            int accountCurrent = 0;
+            int accountingPeriod = 0;
+            int accountingTypeCurrent = 0;
+            int nCurrencyID = 0;
+            
+           
+                DataRowView drv = (DataRowView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentItem;
+                accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
+                nCurrencyID = (drv == null ? 0 : DBNull.Value.Equals(drv["nCurrencyID"]) == true ? 0 : (int)drv["nCurrencyID"]);
+                accountingPeriod = 1000;  // this will be changed so value comes from settings
+
+
+                DataRowView drv1 = (DataRowView)uSP_getAllAccountTypesViewSource.View.CurrentItem;
+                accountingTypeCurrent = (drv1 == null ? 0 : DBNull.Value.Equals(drv1["nAccountingTypeID"]) == true ? 0 : (int)drv1["nAccountingTypeID"]);
+
+
+
+            
+
+
+            if (accountCurrent == 0)
+            {
+                string message = "Please select an account";
+                string caption = "CoolBlue";
+
+                MessageBoxButton buttons = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Information;
+                MessageBoxResult defaultResult = MessageBoxResult.OK;
+                MessageBoxOptions options = MessageBoxOptions.RtlReading;
+
+                MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+
+                if (result == MessageBoxResult.OK)
+                {
+
+                }
+                return;
+            }
+
+            System.Windows.Data.CollectionViewSource uSP_getLineViewSource1 = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getLineViewSource1")));
+            DataRowView drv10 = (DataRowView)uSP_getLineViewSource1.View.CurrentItem;
+            int lineCurrent = (drv10 == null ? 0 : DBNull.Value.Equals(drv10["ID"]) == true ? 0 : (int)drv10["ID"]);
+            if (lineCurrent == 0)
+            {
+                string message5 = "Please select a transaction";
+                string caption5 = "CoolBlue";
+
+                MessageBoxButton buttons5 = MessageBoxButton.OK;
+                MessageBoxImage icon5 = MessageBoxImage.Warning;
+                MessageBoxResult defaultResult5 = MessageBoxResult.OK;
+                MessageBoxOptions options5 = MessageBoxOptions.None;
+                // Show message box
+                // MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+
+                // Displays the MessageBox.
+                MessageBoxResult result5 = MessageBox.Show(message5, caption5, buttons5, icon5, defaultResult5, options5);
+                return;
+            }
+
+
+
+            //registerDataSet.EnforceConstraints = false;
+            //registerDataSetUSP_getSplitTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
+            //registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent, accountingPeriod);
+            //registerDataSetUSP_getLineTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
+            //registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent, accountingPeriod);
+
+            //DataTable dt = registerDataSet.USP_getLine;
+            //DataRow foundRow = dt.Rows.Find(TransactID1);
+            //int rowHandle = dt.Rows.IndexOf(foundRow);
+            //uSP_getLineDataGrid.View.FocusedRowHandle = rowHandle;
+
+            SplitsView.AddNewRow();
+            int newRowHandle = DataControlBase.NewItemRowHandle;
+
+            switch (accountingTypeCurrent)
+            {
+
+                case 1000:
+
+                    uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nAccountID_C", accountCurrent);
+                    //uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nEntryCurrencyID", nCurrencyID);
+
+                    break;
+
+                case 1001:
+
+                    uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nAccountID_C", accountCurrent);
+                    //uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nEntryCurrencyID", nCurrencyID);
+
+                    break;
+
+                case 1003:
+
+                    uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nAccountID_D", accountCurrent);
+                    //uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nEntryCurrencyID", nCurrencyID);
+
+                    break;
+
+            }
+            //these are done in SplitsView_InitNewRow:
+            //uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nAmount_C", 0);
+            //uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nAmount_D", 0);
+            //uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nAmount_C_Native", 0);
+            //uSP_getSplitDataGrid.SetCellValue(newRowHandle, "nAmount_D_Native", 0);
+
+
+            SplitsView.Focus();
+            Vendor.Focus();
+            //System.Windows.Forms.SendKeys.SendWait("{ENTER}");
+
+            //SplitsView.FocusedRowHandle = 0;
+            Dispatcher.BeginInvoke(new Action(() =>
+            {
+                    //SplitsView.ShowInlineEditForm();
+                    SplitsView.ShowEditForm();
+            }), DispatcherPriority.Render);
+            //Dispatcher.BeginInvoke((Action)SplitsView.ShowEditor, DispatcherPriority.Render);
+
+
+            //LineView.Focus();
+        }
+
+    
+        
     }
 }

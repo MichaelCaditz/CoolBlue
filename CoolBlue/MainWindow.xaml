@@ -693,7 +693,10 @@
                                    ShowSearchPanelCloseButton="False" ShowValidationAttributeErrors="False" ShowVerticalLines="False" CustomCellAppearance="TableView_OnCustomCellAppearance"
                                    NewItemRowPosition="Bottom" ValidateRow="SplitsView_ValidateRow" EnableImmediatePosting="True" EditFormPostMode="Immediate" EditFormShowMode="Dialog"
                                    EditorButtonShowMode="ShowForFocusedCell" EditFormColumnCount="3" InvalidRowException="SplitsView_InvalidRowException" ValidateCell="SplitsView_ValidateCell" CellValueChanged="SplitsView_CellValueChanged" InitNewRow="SplitsView_InitNewRow">
+                        <dxg:TableView.RowCellMenuCustomizations>
+                            <dxb:BarButtonItem Name="DeleteSplitRightClickButton" Content="Delete" ItemClick="DeleteSplitRightClick" />
 
+                        </dxg:TableView.RowCellMenuCustomizations>
                         <dxg:TableView.FormatConditions>
                             <dxg:FormatCondition Expression="[nAmount_D] &gt; -1000000.0m" FieldName="nAmount_D">
                                 <dx:Format Foreground="#FFA9F50A" TextDecorations="{x:Null}"/>
@@ -1127,7 +1130,8 @@
             <ComboBox Grid.Column="5" Margin="0,36,0,0" Grid.Row="2" IsSynchronizedWithCurrentItem="True" SelectedItem="" DisplayMemberPath="cLabel" ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesUSP_getAllAccountsViewSource}}" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Height="25" />
             <dx:SimpleButton Name="New" Content="New" Grid.Column="5" HorizontalAlignment="Left" Height="27" Margin="1,6,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120" Click="SimpleButton_Click_1" RenderTransformOrigin="-1.733,0.444" Foreground="#FFEFF56F" Glyph="add-icon32.png" />
             <dx:SimpleButton Name="Delete" Content="Delete" Grid.Column="5" HorizontalAlignment="Right" Height="27" Margin="0,6,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-1.733,0.444" Foreground="#FFEFF56F" Background="Black" Click="Delete_Click" Glyph="trashcan3_32.png" />
-            <dx:SimpleButton Name="DeleteSplit" Content="Delete" Grid.Column="6" HorizontalAlignment="Right" Height="27" Margin="162,39,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-1.733,0.444" Foreground="#FFEFF56F" Background="Black" Click="DeleteSplit_Click" Glyph="trashcan3_32.png" />
+            <dx:SimpleButton Name="DeleteSplit" Content="Delete" Grid.Column="8" HorizontalAlignment="Left" Height="27" Margin="0,39,0,0" Grid.Row="2" VerticalAlignment="Bottom" Width="120" RenderTransformOrigin="-1.733,0.444" Foreground="#FFEFF56F" Background="Black" Click="DeleteSplit_Click" Glyph="trashcan3_32.png" />
+            <dx:SimpleButton Name="NewSplit" Content="New" Grid.Column="6" HorizontalAlignment="Left" Height="27" Margin="1,6,0,0" Grid.Row="2" VerticalAlignment="Bottom" Width="120" RenderTransformOrigin="-1.733,0.444" Foreground="#FFEFF56F" Glyph="add-icon32.png" Click="NewSplit_Click" />
 
 
             <dxe:TextEdit x:Name="TextEditTotalDr" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="147,4,0,0" Grid.Row="10" VerticalAlignment="Top" Width="70" Mask="F" MaskType="Numeric" IsReadOnly="True" Height="22" Foreground="#FFA9F50A" FontWeight="Bold" />
