@@ -1074,6 +1074,12 @@ namespace coolBlue
                     sumTotalNative = sumDrNative - sumCrNative;
                     break;
 
+                case 1002://revenue
+
+                    sumTotal = sumCr - sumDr;
+                    sumTotalNative = sumCrNative - sumDrNative;
+                    break;
+
                 default:
                     sumTotal = sumDr - sumCr;
                     sumTotalNative = sumDrNative - sumCrNative;
@@ -2044,6 +2050,12 @@ namespace coolBlue
                     case 1000: //chequing
 
                         currentPrice = nTotalDrnative - nTotalCrnative;
+
+                        break;
+
+                    case 1002: //income
+
+                        currentPrice = nTotalCrnative - nTotalDrnative;
 
                         break;
                 }
