@@ -2025,9 +2025,12 @@ namespace coolBlue
                 decimal prevTotalValue = previousRowHandle != GridControl.InvalidRowHandle ? (decimal)grid.GetCellValue(previousRowHandle, "Running Totals") : 0;
 
                 decimal currentPrice = 0m;
-                decimal nTotalCrnative = (decimal)grid.GetCellValue(rowHandle, "totalCrNative");
-                decimal nTotalDrnative = (decimal)grid.GetCellValue(rowHandle, "totalDrNative");
-                int nAccountingTypeID = (int)grid.GetCellValue(rowHandle, "nAccountingTypeID");
+
+                decimal nTotalCrnative = grid.GetCellValue(rowHandle, "totalCrNative") == null ? 0m : DBNull.Value.Equals(grid.GetCellValue(rowHandle, "totalCrNative")) == true ? 0 : (decimal)grid.GetCellValue(rowHandle, "totalCrNative");
+
+                decimal nTotalDrnative = grid.GetCellValue(rowHandle, "totalDrNative") == null ? 0m : DBNull.Value.Equals(grid.GetCellValue(rowHandle, "totalDrNative")) == true ? 0 : (decimal)grid.GetCellValue(rowHandle, "totalDrNative");
+
+                int nAccountingTypeID = grid.GetCellValue(rowHandle, "nAccountingTypeID") == null ? 0 : DBNull.Value.Equals(grid.GetCellValue(rowHandle, "nAccountingTypeID")) == true ? 0 : (int)grid.GetCellValue(rowHandle, "nAccountingTypeID");
 
 
                 switch (nAccountingTypeID)
