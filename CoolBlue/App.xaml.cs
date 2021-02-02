@@ -51,6 +51,7 @@ namespace CoolBlue
             MainWindow window = new MainWindow();
                 window.Show();
             
+            
         }
     }
 }

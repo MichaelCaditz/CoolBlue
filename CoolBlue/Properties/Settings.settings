@@ -11,7 +11,7 @@
       <Value Profile="(Default)">Data Source=SAGER10\SAGER2017;Initial Catalog=coolblue;Integrated Security=True</Value>
     </Setting>
     <Setting Name="server" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Sager10</Value>
+      <Value Profile="(Default)">SAGER10\SAGER2017</Value>
     </Setting>
     <Setting Name="username" Type="System.String" Scope="User">
       <Value Profile="(Default)">sa</Value>

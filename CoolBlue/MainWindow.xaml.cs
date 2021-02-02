@@ -1190,6 +1190,7 @@ namespace coolBlue
             }
 
             this.Close();
+            Application.Current.Shutdown();
         }
 
         private void SplitsView_ShowingEditor(object sender, ShowingEditorEventArgs e)
@@ -2204,6 +2205,12 @@ namespace coolBlue
         private void grdAccounts_SelectedItemChanged(object sender, SelectedItemChangedEventArgs e)
         {
             uSP_getLineDataGrid.View.MoveLastRow();
+        }
+
+        private void ThemedWindow_Unloaded(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+
         }
     }
 }

@@ -35,7 +35,7 @@ namespace coolBlue.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Sager10")]
+        [global::System.Configuration.DefaultSettingValueAttribute("SAGER10\\SAGER2017")]
         public string server {
             get {
                 return ((string)(this["server"]));

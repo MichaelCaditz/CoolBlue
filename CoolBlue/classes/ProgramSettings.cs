@@ -37,13 +37,10 @@ namespace coolBlue.classes
         static string username = "sa";
         static string password = "Sq!lsp!a123";
 
-        public static string connectionString = "";
+        public static string coolblueconnectionString = "";
         public static string worksConnectionString = "";
 
-
-        public  static string coolblueconnectionString = 
-            String.Format("data source='{0}';initial catalog={1};password={2};persist security info=True;user id={3};packet size=4096;Connection Timeout=90", server, database, password, username);
-        public static string appName = "";
+         public static string appName = "";
         public static string appVersion = "";
         public static string formTitle = "";
         public static string formTitleBase = "";
@@ -327,7 +324,7 @@ namespace coolBlue.classes
             DBConnection dbconnection = new DBConnection();
 
             getConnectionString();
-            while (string.IsNullOrWhiteSpace(connectionString))
+            while (string.IsNullOrWhiteSpace(coolblueconnectionString))
             {
                 string msg = string.Format("{0} could not connect to the specified database. Please verify your connection settings and try again.", "Coolblue");
 
@@ -343,12 +340,17 @@ namespace coolBlue.classes
 
                 // Displays the MessageBox.
                 MessageBoxResult result5 = MessageBox.Show(msg, caption5, buttons5, icon5, defaultResult5, options5);
-               
                 
+
                 dbconnection.ShowDialog();
 
-                if (dbconnection.ShowDialog() == false)
-                    {
+                if (dbconnection.DialogResult.HasValue && dbconnection.DialogResult.Value)
+                {
+
+
+                }
+                else
+                { 
                         string msg51 = string.Format("Database connection not found. {0} will now close.", "Coolblue");
 
 
@@ -448,7 +450,7 @@ namespace coolBlue.classes
             //if (String.IsNullOrEmpty(server2)) server2 = server;
 
             //Primary GW
-            connectionString = String.Format("data source='{0}';initial catalog={1};password={2};persist security info=True;user id={3};packet size=4096;Connection Timeout=90", server, database, password, username);
+            coolblueconnectionString = String.Format("data source='{0}';initial catalog={1};password={2};persist security info=True;user id={3};packet size=4096;Connection Timeout=90", server, database, password, username);
             //Secondary GW
            // GWSearchConnectionString = String.Format("data source='{0}';initial catalog={1};password={2};persist security info=True;user id={3};packet size=4096;Connection Timeout=90;ApplicationIntent=ReadOnly", server2, database, password, username);
 
@@ -463,7 +465,7 @@ namespace coolBlue.classes
 
 
             //verify that servers are accessible:
-            SqlConnection conn = new SqlConnection() { ConnectionString = connectionString };
+            SqlConnection conn = new SqlConnection() { ConnectionString = coolblueconnectionString };
             try
             {
                 conn.Open();
@@ -471,7 +473,7 @@ namespace coolBlue.classes
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                connectionString = "";
+                coolblueconnectionString = "";
               
                 worksConnectionString = "";
                 
@@ -488,7 +490,7 @@ namespace coolBlue.classes
 
 
 
-            return !string.IsNullOrEmpty(connectionString);
+            return !string.IsNullOrEmpty(coolblueconnectionString);
 
 
         }

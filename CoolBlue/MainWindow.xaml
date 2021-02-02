@@ -16,7 +16,7 @@
     xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui" 
     xmlns:dxp="http://schemas.devexpress.com/winfx/2008/xaml/printing" 
     xmlns:AccountsDataSetTableAdapters="clr-namespace:coolBlue.AccountsDataSetTableAdapters" 
-    xmlns:local="clr-namespace:coolBlue" ShowBackButton="True" ShowStatusPanel="True">
+    xmlns:local="clr-namespace:coolBlue" ShowBackButton="True" ShowStatusPanel="True" Unloaded="ThemedWindow_Unloaded">
     <Window.Resources>
 
         <!--<Style x:Key="SelectedRowStyle" TargetType="{x:Type dxg:RowControl}">
