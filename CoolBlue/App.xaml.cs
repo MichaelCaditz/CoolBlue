@@ -6,7 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-
+using coolBlue.classes;
 namespace CoolBlue
 {
     /// <summary>
@@ -24,7 +24,7 @@ namespace CoolBlue
             //MessageBoxImage icon = MessageBoxImage.Information;
             //MessageBoxResult defaultResult = MessageBoxResult.OK;
             //MessageBoxOptions options = MessageBoxOptions.None;
-            
+
             //MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
 
             //if (result == MessageBoxResult.Cancel)
@@ -45,9 +45,10 @@ namespace CoolBlue
 
             //}
 
+            if (!ProgramSettings.getSettings()) return; ; // fills properties of static class ProgramSettings so it can be used throughout the program
 
 
-                MainWindow window = new MainWindow();
+            MainWindow window = new MainWindow();
                 window.Show();
             
         }

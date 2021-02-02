@@ -142,6 +142,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>currencyDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DBConnection.xaml.cs">
+      <DependentUpon>DBConnection.xaml</DependentUpon>
+    </Compile>
     <Compile Include="editAccount.xaml.cs">
       <DependentUpon>editAccount.xaml</DependentUpon>
     </Compile>
@@ -247,6 +250,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Currency.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DBConnection.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
