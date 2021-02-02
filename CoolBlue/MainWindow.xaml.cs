@@ -2212,5 +2212,12 @@ namespace coolBlue
             Application.Current.Shutdown();
 
         }
+
+        private void barBtnDatabase_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+            DBConnection dbconnection = new DBConnection();
+
+            dbconnection.ShowDialog();
+        }
     }
 }
