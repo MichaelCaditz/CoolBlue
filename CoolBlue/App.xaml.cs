@@ -45,11 +45,19 @@ namespace CoolBlue
 
             //}
 
-            if (!ProgramSettings.getSettings()) return; ; // fills properties of static class ProgramSettings so it can be used throughout the program
+            // if (!ProgramSettings.getSettings()) return; ; // fills properties of static class ProgramSettings so it can be used throughout the program
+            bool result = ProgramSettings.getSettings();
+            if (result == false)
+            {
+                Application.Current.Shutdown();
 
+            }
 
+            else
+            { 
             MainWindow window = new MainWindow();
-                window.Show();
+            window.Show();
+            }
             
             
         }

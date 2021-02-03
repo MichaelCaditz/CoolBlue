@@ -29,9 +29,9 @@
         <dxe:TextEdit Name ="txtEditServer" Grid.Column="2" HorizontalAlignment="Left" Margin="0" Grid.Row="1" VerticalAlignment="Top" Width="190" Grid.ColumnSpan="2"/>
         <dxe:TextEdit Name ="txtEditUsername" Grid.Column="2" HorizontalAlignment="Left" Margin="0" Grid.Row="2" VerticalAlignment="Top" Width="190" Grid.ColumnSpan="2"/>
         <dxe:TextEdit Name ="txtEditPassword" Grid.Column="2" HorizontalAlignment="Left" Margin="0" Grid.Row="3" VerticalAlignment="Top" Width="190" Grid.ColumnSpan="2"/>
-        <Label Content="Server" Grid.Column="1" HorizontalAlignment="Left" Margin="0" Grid.Row="1" VerticalAlignment="Top" Width="80" Foreground="#FF111010"/>
-        <Label Content="Username" Grid.Column="1" HorizontalAlignment="Left" Margin="0" Grid.Row="2" VerticalAlignment="Top" Width="80" Foreground="#FF111010"/>
-        <Label Content="Password" Grid.Column="1" HorizontalAlignment="Left" Margin="0" Grid.Row="3" VerticalAlignment="Top" Width="80" Foreground="#FF111010"/>
+        <Label Content="Server" Grid.Column="1" HorizontalAlignment="Left" Margin="0" Grid.Row="1" VerticalAlignment="Top" Width="80" Foreground="#FFE2DE8D"/>
+        <Label Content="Username" Grid.Column="1" HorizontalAlignment="Left" Margin="0" Grid.Row="2" VerticalAlignment="Top" Width="80" Foreground="#FFE2DE8D"/>
+        <Label Content="Password" Grid.Column="1" HorizontalAlignment="Left" Margin="0" Grid.Row="3" VerticalAlignment="Top" Width="80" Foreground="#FFE2DE8D"/>
         <dx:SimpleButton Name = "BtnSave"  Content="Save" Grid.Column="3" HorizontalAlignment="Left" Height="30" Margin="25,10,0,0" Grid.Row="5" VerticalAlignment="Top" Width="75" IsDefault="True" Background="#FF095346" Click="BtnSave_Click"/>
         <dx:SimpleButton Name = "BtnCancel" Content="Cancel" Grid.Column="2" HorizontalAlignment="Left" Height="30" Margin="25,10,0,0" Grid.Row="5" VerticalAlignment="Top" Width="75" IsCancel="True"/>
 

@@ -236,6 +236,7 @@ namespace coolBlue.classes
 
         public static bool getSettings()
         {
+            bool success = true;
             //*** These values come from Project->properties->assembly information:
             //appVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
             appName = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name.ToString();
@@ -324,23 +325,20 @@ namespace coolBlue.classes
             DBConnection dbconnection = new DBConnection();
 
             getConnectionString();
+
+
+
+
             while (string.IsNullOrWhiteSpace(coolblueconnectionString))
             {
                 string msg = string.Format("{0} could not connect to the specified database. Please verify your connection settings and try again.", "Coolblue");
-
-             
                 string caption5 = "CoolBlue";
-
                 MessageBoxButton buttons5 = MessageBoxButton.OK;
                 MessageBoxImage icon5 = MessageBoxImage.Warning;
                 MessageBoxResult defaultResult5 = MessageBoxResult.OK;
                 MessageBoxOptions options5 = MessageBoxOptions.None;
-                // Show message box
-                // MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
-
-                // Displays the MessageBox.
                 MessageBoxResult result5 = MessageBox.Show(msg, caption5, buttons5, icon5, defaultResult5, options5);
-                
+
 
                 dbconnection.ShowDialog();
 
@@ -350,28 +348,19 @@ namespace coolBlue.classes
 
                 }
                 else
-                { 
-                        string msg51 = string.Format("Database connection not found. {0} will now close.", "Coolblue");
-
-
+                {
+                    string msg51 = string.Format("Database connection not found. {0} will now close.", "Coolblue");
                     string caption51 = "CoolBlue";
-
                     MessageBoxButton buttons51 = MessageBoxButton.OK;
                     MessageBoxImage icon51 = MessageBoxImage.Warning;
                     MessageBoxResult defaultResult51 = MessageBoxResult.OK;
                     MessageBoxOptions options51 = MessageBoxOptions.None;
-                    // Show message box
-                    // MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
-
-                    // Displays the MessageBox.
                     MessageBoxResult result51 = MessageBox.Show(msg51, caption51, buttons51, icon51, defaultResult51, options51);
-                    return false;
-                    }
-                
+                    success = false;
+                    break; ;
+                }
+
             }
-
-
-
 
 
 
@@ -431,7 +420,7 @@ namespace coolBlue.classes
             //    da.Fill(dsEntity, "entity");
             //}
 
-            return true;
+            return success;
 
         }
 
@@ -450,7 +439,7 @@ namespace coolBlue.classes
             //if (String.IsNullOrEmpty(server2)) server2 = server;
 
             //Primary GW
-            coolblueconnectionString = String.Format("data source='{0}';initial catalog={1};password={2};persist security info=True;user id={3};packet size=4096;Connection Timeout=90", server, database, password, username);
+            coolblueconnectionString = String.Format("data source='{0}';initial catalog={1};password={2};persist security info=True;user id={3};packet size=4096;Connection Timeout=30", server, database, password, username);
             //Secondary GW
            // GWSearchConnectionString = String.Format("data source='{0}';initial catalog={1};password={2};persist security info=True;user id={3};packet size=4096;Connection Timeout=90;ApplicationIntent=ReadOnly", server2, database, password, username);
 
@@ -458,7 +447,7 @@ namespace coolBlue.classes
 
             database = "Works";
             //Primary - works
-            worksConnectionString = String.Format("data source='{0}';initial catalog={1};password={2};persist security info=True;user id={3};packet size=4096;Connection Timeout=90", server, database, password, username);
+            worksConnectionString = String.Format("data source='{0}';initial catalog={1};password={2};persist security info=True;user id={3};packet size=4096;Connection Timeout=30", server, database, password, username);
             //Secondary - works
             //WorksSearchConnectionString = String.Format("data source='{0}';initial catalog={1};password={2};persist security info=True;user id={3};packet size=4096;Connection Timeout=90;ApplicationIntent=ReadOnly", server2, database, password, username);
 
@@ -469,6 +458,9 @@ namespace coolBlue.classes
             try
             {
                 conn.Open();
+                
+
+
             }
             catch (Exception ex)
             {

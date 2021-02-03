@@ -106,7 +106,7 @@ namespace coolBlue
             string password = txtEditPassword.Text;
 
 
-            connString = String.Format("data source={0};initial catalog={1};password={2};persist security info=True;user id={3};packet size=4096;Connection Timeout=30", server, database, password, username);
+            connString = String.Format("data source={0};initial catalog={1};password={2};persist security info=True;user id={3};packet size=4096;Connection Timeout=15", server, database, password, username);
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = connString;
 
@@ -125,6 +125,15 @@ namespace coolBlue
                 //Debug.WriteLine(ex.Message);
                 //errorProvider1.SetError(tbServer, "Invalid credentials.");
                 //Cursor.Current = Cursors.Default;
+                string message = "Connection failed";
+                string caption = "CoolBlue";
+
+                MessageBoxButton buttons = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Information;
+                MessageBoxResult defaultResult = MessageBoxResult.OK;
+                MessageBoxOptions options = MessageBoxOptions.None;
+                
+                MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
                 return;
             }
 
@@ -153,12 +162,23 @@ namespace coolBlue
 
             //*** save settings and close form:
             saveDBSettings();
-            ProgramSettings.getConnectionString();
+            //ProgramSettings.getConnectionString();
 
             //Cursor.Current = Cursors.Default;
+            //Primary GW
+            ProgramSettings.coolblueconnectionString = String.Format("data source='{0}';initial catalog={1};password={2};persist security info=True;user id={3};packet size=4096;Connection Timeout=30", server, database, password, username);
+            //Secondary GW
+            // GWSearchConnectionString = String.Format("data source='{0}';initial catalog={1};password={2};persist security info=True;user id={3};packet size=4096;Connection Timeout=90;ApplicationIntent=ReadOnly", server2, database, password, username);
+
+
+
+            database = "Works";
+            //Primary - works
+            ProgramSettings.worksConnectionString = String.Format("data source='{0}';initial catalog={1};password={2};persist security info=True;user id={3};packet size=4096;Connection Timeout=30", server, database, password, username);
 
 
             this.DialogResult = true;
+            this.Close();
 
         }
 
