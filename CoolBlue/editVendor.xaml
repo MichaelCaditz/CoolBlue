@@ -13,7 +13,9 @@
         <local:vendorDataSet x:Key="vendorDataSet"/>
         <CollectionViewSource x:Key="uSP_getOneVendorViewSource" Source="{Binding USP_getOneVendor, Source={StaticResource vendorDataSet}}"/>
     </dx:ThemedWindow.Resources>
+    
     <DockPanel LastChildFill="True" DataContext="{StaticResource uSP_getOneVendorViewSource}">
+        
         <dxr:RibbonControl DockPanel.Dock="Top" RibbonStyle="Office2010">
             <dxr:RibbonDefaultPageCategory>
                 <dxr:RibbonPage Caption="">
@@ -23,6 +25,7 @@
                 </dxr:RibbonPage>
             </dxr:RibbonDefaultPageCategory>
         </dxr:RibbonControl>
+        
         <dxr:RibbonStatusBarControl DockPanel.Dock="Bottom"/>
         <dx:DXTabControl>
             <dx:DXTabItem Header="Tab">
