@@ -989,6 +989,17 @@
                 </dxg:GridColumn>
 
 
+                <dxg:GridColumn Name="newVendor"  Header=""  FieldName="MyUnboundColumn" UnboundType="String"  Width="20" AllowSorting="True" AllowEditing="True" EditFormVisibleIndex="12" ReadOnly="True" FixedWidth="True">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:ButtonEditSettings AllowDefaultButton="False"  >
+                            <dxe:ButtonEditSettings.Buttons>
+                                <dxe:ButtonInfo Name="btnInfoNewVendor" Content="New Vendor" Click="btnInfoNewVendor_Click" />
+                            </dxe:ButtonEditSettings.Buttons>
+                        </dxe:ButtonEditSettings>
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+
+
                 <dxg:GridColumn FieldName="cMemo" Header="Memo" Width="130" AllowSorting="True" EditFormVisibleIndex="7" MergeWithPreviousGroup="True" EditFormVisible="True" />
 
 

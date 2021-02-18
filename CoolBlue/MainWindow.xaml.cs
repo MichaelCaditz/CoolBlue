@@ -56,6 +56,8 @@ namespace coolBlue
             InitializeComponent();
         }
 
+
+        public int newVendorAdded = 0;
         private void DXRibbonWindow_Loaded(object sender, RoutedEventArgs e)
         {
 
@@ -1319,6 +1321,7 @@ namespace coolBlue
                 {
                     crAmount = getAdjustedCurrency(crAmount, nEntryCurrencyID, CrCurrencyID);
 
+
                     uSP_getSplitDataGrid.SetCellValue(curRowHandle, "nAmount_C_Native", crAmount);
                 }
 
@@ -1353,21 +1356,40 @@ namespace coolBlue
             //decimal drAmount = ((Task)e.Row).nAmount_D;
             //e.IsValid = crAmount > 0;
             ////decimal crAmount = e.n
+            ///
+            if (newVendorAdded > 0)
+            {
+
+               
+
+                uSP_getSplitDataGrid.SetFocusedRowCellValue("nVendorsID", newVendorAdded);
+                newVendorAdded = 0;
+            }
             saveConfig();
         }
 
 
         private decimal getAdjustedCurrency(decimal nAmount, int nFromCurrencyID, int nToCurrencyID)
         {
-            decimal newAmount = 999999;
-            string cFromCurrencyID = nFromCurrencyID.ToString();
-            string cToCurrencyID = "n" + nToCurrencyID.ToString();
-            coolBlue.currencyConversion currencyConversion = ((coolBlue.currencyConversion)(this.FindResource("currencyConversion")));
-            DataRow[] foundRowC = currencyConversion.USP_getAllCurrencyConversion.Select("nFrom = " + cFromCurrencyID);
-            if (foundRowC.Count() > 0)
-            {
-                newAmount = (decimal)foundRowC[0][cToCurrencyID] * nAmount;
 
+            decimal newAmount = 999999;
+            if (nToCurrencyID > 0)
+            {
+
+                string cFromCurrencyID = nFromCurrencyID.ToString();
+                string cToCurrencyID = "n" + nToCurrencyID.ToString();
+                coolBlue.currencyConversion currencyConversion = ((coolBlue.currencyConversion)(this.FindResource("currencyConversion")));
+                DataRow[] foundRowC = currencyConversion.USP_getAllCurrencyConversion.Select("nFrom = " + cFromCurrencyID);
+                if (foundRowC.Count() > 0)
+                {
+                    newAmount = (decimal)foundRowC[0][cToCurrencyID] * nAmount;
+
+
+                }
+            }
+            else
+            {
+                newAmount = 0;
 
             }
 
@@ -2218,6 +2240,122 @@ namespace coolBlue
             DBConnection dbconnection = new DBConnection();
 
             dbconnection.ShowDialog();
+        }
+
+       
+
+        private void btnInfoNewVendor_Click(object sender, RoutedEventArgs e)
+        {
+            int TransactID1 = 0;
+            System.Windows.Data.CollectionViewSource uSP_getLineUSP_getSplitViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getLineUSP_getSplitViewSource")));
+
+            System.Windows.Data.CollectionViewSource uSP_getAllVendorsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllVendorsViewSource")));
+
+
+            //DataRowView drv = (DataRowView)uSP_getAllVendorsViewSource.View.CurrentItem;
+
+            //Console.Write(drv[0] + "\table");
+
+            //string tt= drv[0] + "\table";
+
+            //int curRowHandle = Index(drv);
+            ////int curRowHandle = uSP_getAllVendorsViewSource.View.CurrentItem;
+
+
+            int wasnull = 0;
+           
+            if (wasnull == 1)
+            {
+
+                string message = "Warning: uSP_getAllAccountTypesUSP_getAllAccountsViewSource is null";
+                string caption = "CoolBlue";
+
+                MessageBoxButton buttons = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Information;
+                MessageBoxResult defaultResult = MessageBoxResult.OK;
+                MessageBoxOptions options = MessageBoxOptions.RtlReading;
+               
+                MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+
+                if (result == MessageBoxResult.OK)
+                {
+
+                    // Closes the parent form.
+
+                    //this.Close();
+
+                }
+                return;
+            }
+            else
+            {
+                
+            }
+
+
+            SqlConnection conn = new SqlConnection() { ConnectionString = ProgramSettings.coolblueconnectionString };
+            try
+            {
+
+                using (SqlCommand cmd3 = new SqlCommand() { Connection = conn, CommandType = CommandType.StoredProcedure })
+                {
+                    //cmd3.Transaction = trans1;
+                    cmd3.Parameters.Clear();
+                    cmd3.CommandText = "dbo.USP_insertVendor";
+                    //cmd3.Parameters.AddWithValue("@nAccount", accountCurrent);
+
+                    SqlParameter retval = cmd3.Parameters.Add("@transactIdentity", SqlDbType.Int);
+                    retval.Direction = ParameterDirection.Output;
+                    conn.Open();
+                    cmd3.ExecuteNonQuery();
+                    TransactID1 = (int)cmd3.Parameters["@transactIdentity"].Value;
+                }
+
+
+
+
+            }
+
+
+            catch (Exception ex)
+            {
+                //utilities.errorLog(System.Reflection.MethodInfo.GetCurrentMethod().Name, ex);
+                System.ArgumentException argEx = new System.ArgumentException("New Line", "", ex);
+                throw argEx;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open) conn.Close();
+
+                
+
+                int vendorCurrent = TransactID1;
+                editVendor editVendor1 = new editVendor(vendorCurrent);
+                editVendor1.ShowDialog();
+                coolBlue.RegisterDataSet registerDataSet = ((coolBlue.RegisterDataSet)(this.FindResource("registerDataSet")));
+
+                coolBlue.RegisterDataSetTableAdapters.USP_getAllVendorsTableAdapter registerDataSetUSP_getAllVendorsTableAdapter = new coolBlue.RegisterDataSetTableAdapters.USP_getAllVendorsTableAdapter();
+               // System.Windows.Data.CollectionViewSource uSP_getAllVendorsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllVendorsViewSource")));
+                registerDataSetUSP_getAllVendorsTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
+                registerDataSetUSP_getAllVendorsTableAdapter.Fill(registerDataSet.USP_getAllVendors);
+
+
+               string message5 = "New vendor will be added to this entry after closing edit form by clicking UPDATE.";
+                string caption5 = "CoolBlue";
+
+                MessageBoxButton buttons5 = MessageBoxButton.OKCancel;
+                MessageBoxImage icon5 = MessageBoxImage.Exclamation;
+                MessageBoxResult defaultResult5 = MessageBoxResult.OK;
+                MessageBoxOptions options5 = MessageBoxOptions.None;
+              
+                MessageBoxResult result5 = MessageBox.Show(message5, caption5, buttons5, icon5, defaultResult5, options5);
+                if (result5 == MessageBoxResult.OK)
+                {
+                    newVendorAdded = vendorCurrent;
+                }
+
+               // uSP_getSplitDataGrid.SetFocusedRowCellValue("nVendorsID", vendorCurrent);
+            }
         }
     }
 }
