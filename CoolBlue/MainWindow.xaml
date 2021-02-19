@@ -929,7 +929,7 @@
 
 
 
-                <dxg:GridColumn FieldName="nEntryCurrencyID" Header="Entry Currency" Width="110" AllowSorting="True" AllowEditing="True" EditFormStartNewRow="True" EditFormVisibleIndex="11" RoundDateTimeForColumnFilter="False" EditFormVisible="True">
+                <dxg:GridColumn FieldName="nEntryCurrencyID" Header="Entry Currency" Width="110" AllowSorting="True" AllowEditing="True" EditFormStartNewRow="True" EditFormVisibleIndex="10" RoundDateTimeForColumnFilter="False" EditFormVisible="True">
                     <dxg:GridColumn.EditSettings>
                         <dxg:LookUpEditSettings ItemsSource="{Binding Source={StaticResource uSP_getAllCurrencyViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="ID" DisplayMember="cName">
                             <dxg:LookUpEditSettings.PopupContentTemplate>
@@ -989,11 +989,11 @@
                 </dxg:GridColumn>
 
 
-                <dxg:GridColumn Name="newVendor"  Header=""  FieldName="MyUnboundColumn" UnboundType="String"  Width="20" AllowSorting="True" AllowEditing="True" EditFormVisibleIndex="12" ReadOnly="True" FixedWidth="True">
+                <dxg:GridColumn Name="newVendor"    Header=" "  FieldName="MyUnboundColumn" UnboundType="String"  Width="0" AllowSorting="True" AllowEditing="True" EditFormStartNewRow="True" EditFormVisibleIndex="8" ReadOnly="True" FixedWidth="True" MinWidth="0">
                     <dxg:GridColumn.EditSettings>
                         <dxe:ButtonEditSettings AllowDefaultButton="False"  >
                             <dxe:ButtonEditSettings.Buttons>
-                                <dxe:ButtonInfo Name="btnInfoNewVendor" Content="New Vendor" Click="btnInfoNewVendor_Click" />
+                                <dxe:ButtonInfo Name="btnInfoNewVendor" Content="Click to Add New Vendor" Click="btnInfoNewVendor_Click" IsLeft="True"  ToolTip="Create a new vendor record"  />
                             </dxe:ButtonEditSettings.Buttons>
                         </dxe:ButtonEditSettings>
                     </dxg:GridColumn.EditSettings>
@@ -1004,7 +1004,7 @@
 
 
 
-                <dxg:GridColumn FieldName="nTagID" Header="Tag" Width="100" AllowSorting="True" AllowEditing="True" EditFormVisibleIndex="8" EditFormStartNewRow="True" EditFormVisible="True">
+                <dxg:GridColumn FieldName="nTagID" Header="Tag" Width="100" AllowSorting="True" AllowEditing="True" EditFormVisibleIndex="11" EditFormStartNewRow="False" EditFormVisible="True">
                     <dxg:GridColumn.EditSettings>
                         <dxg:LookUpEditSettings ItemsSource="{Binding Source={StaticResource uSP_getAllTagsViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="ID" DisplayMember="cName">
                             <dxg:LookUpEditSettings.PopupContentTemplate>
