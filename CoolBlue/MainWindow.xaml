@@ -432,7 +432,6 @@
                                 <dx:Format Background="#FF932320" Foreground="Yellow" FontWeight="Bold" TextDecorations="{x:Null}"/>
                             </dxg:FormatCondition>
 
-
                         </dxg:TableView.FormatConditions>
                         <dxg:TableView.RowStyle>
                             <Style TargetType="{x:Type dxg:RowControl}">
