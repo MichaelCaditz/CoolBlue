@@ -1,18 +1,20 @@
 ﻿CREATE TABLE [dbo].[staff_categories] (
-    [staff_categories_id]  INT            NOT NULL,
-    [foxpro_id]            CHAR (50)      NULL,
-    [logon_staff_id]       INT            NULL,
-    [transaction_staff_id] INT            NULL,
-    [create_date]          DATETIME       NULL,
-    [modify_date]          DATETIME       NULL,
-    [category]             CHAR (30)      NULL,
-    [descrip]              VARCHAR (1000) NULL,
-    [abbrev]               CHAR (5)       NULL,
-    [notes]                VARCHAR (500)  NULL,
-    [picture_cal]          CHAR (30)      NULL,
-    [catcolor]             CHAR (20)      NULL,
-    [show_on_cal]          BIT            NULL,
-    [show_on_management]   BIT            NULL,
-    [norder]               INT            NULL
+    [ID]                INT            IDENTITY (1000, 1) NOT NULL,
+    [dtCreateDate]      DATETIME2 (7)  CONSTRAINT [DF_staff_categories_dtCreateDate] DEFAULT (getdate()) NULL,
+    [cName]             NVARCHAR (50)  NULL,
+    [cDescrip]          NVARCHAR (MAX) NULL,
+    [cAbbrev]           NVARCHAR (50)  NULL,
+    [cNote]             NVARCHAR (MAX) NULL,
+    [picture_cal]       NVARCHAR (50)  NULL,
+    [cColour]           NVARCHAR (50)  NULL,
+    [bShowOnCal]        BIT            NULL,
+    [bShowOnManagement] BIT            NULL,
+    [nOrder]            INT            NULL,
+    [bNotActive]        BIT            NULL,
+    [bDeleted]          BIT            NULL,
+    [dtDateDeleted]     DATETIME2 (7)  NULL,
+    CONSTRAINT [PK_staff_categories] PRIMARY KEY CLUSTERED ([ID] ASC)
 );
+
+
 

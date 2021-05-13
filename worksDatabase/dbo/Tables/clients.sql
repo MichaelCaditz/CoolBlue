@@ -1,9 +1,6 @@
 ﻿CREATE TABLE [dbo].[clients] (
     [clients_id]                INT              IDENTITY (1000, 1) NOT NULL,
     [members_id]                INT              NULL,
-    [logon_staff_id]            INT              NULL,
-    [transaction_staff_id]      INT              NULL,
-    [foxpro_id]                 CHAR (50)        NULL,
     [customer_categories_id]    INT              NULL,
     [create_date]               DATETIME         CONSTRAINT [DF_clients_create_date] DEFAULT (getdate()) NULL,
     [modify_date]               DATETIME         NULL,
@@ -138,8 +135,12 @@
     [cMapURL]                   NVARCHAR (1000)  NULL,
     [bWebsiteGallery]           BIT              NULL,
     [cNTTCNum]                  VARCHAR (50)     NULL,
+    [bDeleted]                  BIT              NULL,
+    [dtDateDeleted]             DATETIME2 (7)    NULL,
     CONSTRAINT [PK_clients] PRIMARY KEY CLUSTERED ([clients_id] ASC)
 );
+
+
 
 
 GO
