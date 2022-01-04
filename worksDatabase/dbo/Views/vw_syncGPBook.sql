@@ -1,32 +1,18 @@
-﻿
-
-
-
-
-CREATE VIEW [dbo].[vw_syncGPBook]
+﻿/*and a.bPrimary = 1*/
+CREATE VIEW dbo.vw_syncGPBook
 AS
-SELECT        a.clients_id, a.members_id, a.logon_staff_id, a.transaction_staff_id, a.foxpro_id, a.customer_categories_id, a.create_date, a.modify_date, a.created_by, a.username, 
-                         a.password, a.fname, a.initial, a.lname, a.gender, a.areaCode, a.phone, a.address1, a.address2, a.city, a.state, a.state_other, a.zip, a.postal_code, a.country, a.bday, 
-                         a.photo, a.email, a.email2, a.bus_phone, a.bus_areacode, a.bus_ext, a.res_phone, a.res_areacode, a.fax_areacode, a.fax_phone, a.pager_areacode, a.pager_phone,
-                          a.cell_areacode, a.cell_phone, a.cc_no, a.cc_exp, a.cc_type, a.ccMonth, a.ccYear, a.company_name, a.company_type, a.company_title, a.referred_by, 
-                         a.sandal_size, a.dosha_v, a.dosha_p, a.dosha_k, a.dosha_dt, a.notes, a.providerNotes, a.managerNotes, a.techNotes, a.height, a.weight, a.hair_color, a.eyes, 
-                         a.ss_no, a.web, a.problem_flag, a.sw2001_id, a.clubworks_clientStatusID, a.clubworks_accountTypesID, a.csi_xref_id, a.scancode, a.assignedId, a.autoLicense, 
-                         a.autoState, a.autoMake, a.autoModel, a.autoColor, a.dlNo, a.dlState, a.isChild, a.isMember, a.membershipExpires, a.bSendEmail, a.bSendPaperMail, 
-                         a.bWorkoutWorks, a.bWWCancellationAgree, a.imgWWCancellationAgreeSig, a.customCk1, a.customCk2, a.customCk3, a.bWWWaiverAgree, 
-                         a.imgWWWaiverAgreeSig, a.cWWCancellationPolicy, a.cWWWaiver, a.cWWMyWorkoutsUserId, a.cWWTrainerProvidedPword, a.cBillAddress1, a.cBillAddress2, 
-                         a.cBillCity, a.cBillState, a.cBillZip, a.cBillStateOther, a.cBillPostalCode, a.cBillCountry, a.cAspnet_UserId, a.nImportID, a.cImportDB, a.cTitle, a.cWebsite, 
-                         a.cDescription, a.cPhoneOther, a.cSalesRep2, a.cAssistant, a.cAssistantPhone, a.dtOriginalCreateDate, a.nClientMasterID, a.cmpDisplay, a.cmpDisplayWithCity, 
-                         a.bNTTC, a.cEmailAssistant, a.bPrivate, a.bWebsite, a.cDates, a.cNationality, a.nArtistCategoryID, a.bDeceased, a.bRepresented, a.bPrimary, 
-                         a.cmpDisplayWithAddress, a.cSpouseName, a.bRecordChecked, b.ID, b.nClientsID, b.nContactGroupID, b.dtCreateDate
+SELECT        a.clients_id, a.members_id, a.customer_categories_id, a.create_date, a.modify_date, a.created_by, a.username, a.password, a.fname, a.initial, a.lname, a.gender, a.areaCode, a.phone, a.address1, a.address2, a.city, a.state, 
+                         a.state_other, a.zip, a.postal_code, a.country, a.bday, a.photo, a.email, a.email2, a.bus_phone, a.bus_areacode, a.bus_ext, a.res_phone, a.res_areacode, a.fax_areacode, a.fax_phone, a.pager_areacode, a.pager_phone, 
+                         a.cell_areacode, a.cell_phone, a.cc_no, a.cc_exp, a.cc_type, a.ccMonth, a.ccYear, a.company_name, a.company_type, a.company_title, a.referred_by, a.sandal_size, a.dosha_v, a.dosha_p, a.dosha_k, a.dosha_dt, a.notes, 
+                         a.providerNotes, a.managerNotes, a.techNotes, a.height, a.weight, a.hair_color, a.eyes, a.ss_no, a.web, a.problem_flag, a.sw2001_id, a.clubworks_clientStatusID, a.clubworks_accountTypesID, a.csi_xref_id, a.scancode, 
+                         a.assignedId, a.autoLicense, a.autoState, a.autoMake, a.autoModel, a.autoColor, a.dlNo, a.dlState, a.isChild, a.isMember, a.membershipExpires, a.bSendEmail, a.bSendPaperMail, a.bWorkoutWorks, a.bWWCancellationAgree, 
+                         a.imgWWCancellationAgreeSig, a.customCk1, a.customCk2, a.customCk3, a.bWWWaiverAgree, a.imgWWWaiverAgreeSig, a.cWWCancellationPolicy, a.cWWWaiver, a.cWWMyWorkoutsUserId, a.cWWTrainerProvidedPword, 
+                         a.cBillAddress1, a.cBillAddress2, a.cBillCity, a.cBillState, a.cBillZip, a.cBillStateOther, a.cBillPostalCode, a.cBillCountry, a.cAspnet_UserId, a.nImportID, a.cImportDB, a.cTitle, a.cWebsite, a.cDescription, a.cPhoneOther, 
+                         a.cSalesRep2, a.cAssistant, a.cAssistantPhone, a.dtOriginalCreateDate, a.nClientMasterID, a.cmpDisplay, a.cmpDisplayWithCity, a.bNTTC, a.cEmailAssistant, a.bPrivate, a.bWebsite, a.cDates, a.cNationality, 
+                         a.nArtistCategoryID, a.bDeceased, a.bRepresented, a.bPrimary, a.cmpDisplayWithAddress, a.cSpouseName, a.bRecordChecked, b.ID, b.nClientsID, b.nContactGroupID, b.dtCreateDate
 FROM            dbo.clients AS a INNER JOIN
                          dbo.clientsContactGroup AS b ON a.clients_id = b.nClientsID
-WHERE        (b.nContactGroupID IN (1013)) AND (b.nContactGroupID NOT IN (1017, 1033, 1050, 1051, 1120,1147))
-
-and a.cImportDB = 'GalProFront'
-
-and isnull(a.nMergedToID,0) = 0
-
---and a.bPrimary = 1
+WHERE        (b.nContactGroupID IN (1013)) AND (b.nContactGroupID NOT IN (1017, 1033, 1050, 1051, 1120, 1147)) AND (a.cImportDB = 'GalProFront') AND (ISNULL(a.nMergedToID, 0) = 0)
 
 
 

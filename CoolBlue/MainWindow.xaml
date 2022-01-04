@@ -1,7 +1,7 @@
 ﻿<dx:ThemedWindow 
     x:Class="coolBlue.MainWindow" Title="CoolBlue" Height="1030" Width="1920" 
     Loaded="DXRibbonWindow_Loaded" WindowStartupLocation="CenterScreen" 
-    Background="#FFB4B4BB" Closing="DXRibbonWindow_Closing" WindowState="Maximized" 
+    Background="#FFB4B4BB" Closing="DXRibbonWindow_Closing" 
     ScrollViewer.VerticalScrollBarVisibility="Auto" HorizontalAlignment="Center" 
     VerticalAlignment="Top" Foreground="#FFD4E80C" 
     ShowActivated="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" WindowStyle="SingleBorderWindow" 

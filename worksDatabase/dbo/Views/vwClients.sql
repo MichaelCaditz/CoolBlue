@@ -1,17 +1,14 @@
-﻿CREATE VIEW [dbo].[vwClients]
+﻿CREATE VIEW dbo.vwClients
 AS
-SELECT        clients_id, members_id, logon_staff_id, transaction_staff_id, foxpro_id, customer_categories_id, create_date, modify_date, created_by, username, password, fname, 
-                         initial, lname, gender, areaCode, phone, address1, address2, city, state, state_other, zip, postal_code, country, bday, photo, email, email2, bus_phone, 
-                         bus_areacode, bus_ext, res_phone, res_areacode, fax_areacode, fax_phone, pager_areacode, pager_phone, cell_areacode, cell_phone, cc_no, cc_exp, cc_type, 
-                         ccMonth, ccYear, company_name, company_type, company_title, referred_by, sandal_size, dosha_v, dosha_p, dosha_k, dosha_dt, notes, providerNotes, 
-                         managerNotes, techNotes, height, weight, hair_color, eyes, ss_no, web, problem_flag, sw2001_id, clubworks_clientStatusID, clubworks_accountTypesID, csi_xref_id,
-                          scancode, assignedId, autoLicense, autoState, autoMake, autoModel, autoColor, dlNo, dlState, isChild, isMember, membershipExpires, bSendEmail, 
-                         bSendPaperMail, bWorkoutWorks, bWWCancellationAgree, imgWWCancellationAgreeSig, customCk1, customCk2, customCk3, bWWWaiverAgree, 
-                         imgWWWaiverAgreeSig, cWWCancellationPolicy, cWWWaiver, cWWMyWorkoutsUserId, cWWTrainerProvidedPword, cBillAddress1, cBillAddress2, cBillCity, 
-                         cBillState, cBillZip, cBillStateOther, cBillPostalCode, cBillCountry, cAspnet_UserId, nImportID, cImportDB, cTitle, cWebsite, cDescription, cPhoneOther, cSalesRep2, 
-                         cAssistant, cAssistantPhone, dtOriginalCreateDate, nClientMasterID, cmpDisplay, cmpDisplayWithCity, bNTTC, cEmailAssistant, bPrivate, bWebsite, cDates, 
-                         cNationality, nArtistCategoryID, bDeceased, bRepresented, bPrimary, cmpDisplayWithAddress, cSpouseName, bRecordChecked, bArchived, cmpDisplayLastFirst, 
-                         nMergedToID, dtMergedDate, cMergedBy, cHours, cMapURL, bWebsiteGallery
+SELECT        clients_id, members_id, customer_categories_id, create_date, modify_date, created_by, username, password, fname, initial, lname, gender, areaCode, phone, address1, address2, city, state, state_other, zip, postal_code, 
+                         country, bday, photo, email, email2, bus_phone, bus_areacode, bus_ext, res_phone, res_areacode, fax_areacode, fax_phone, pager_areacode, pager_phone, cell_areacode, cell_phone, cc_no, cc_exp, cc_type, ccMonth, 
+                         ccYear, company_name, company_type, company_title, referred_by, sandal_size, dosha_v, dosha_p, dosha_k, dosha_dt, notes, providerNotes, managerNotes, techNotes, height, weight, hair_color, eyes, ss_no, web, 
+                         problem_flag, sw2001_id, clubworks_clientStatusID, clubworks_accountTypesID, csi_xref_id, scancode, assignedId, autoLicense, autoState, autoMake, autoModel, autoColor, dlNo, dlState, isChild, isMember, 
+                         membershipExpires, bSendEmail, bSendPaperMail, bWorkoutWorks, bWWCancellationAgree, imgWWCancellationAgreeSig, customCk1, customCk2, customCk3, bWWWaiverAgree, imgWWWaiverAgreeSig, 
+                         cWWCancellationPolicy, cWWWaiver, cWWMyWorkoutsUserId, cWWTrainerProvidedPword, cBillAddress1, cBillAddress2, cBillCity, cBillState, cBillZip, cBillStateOther, cBillPostalCode, cBillCountry, cAspnet_UserId, 
+                         nImportID, cImportDB, cTitle, cWebsite, cDescription, cPhoneOther, cSalesRep2, cAssistant, cAssistantPhone, dtOriginalCreateDate, nClientMasterID, cmpDisplay, cmpDisplayWithCity, bNTTC, cEmailAssistant, bPrivate, 
+                         bWebsite, cDates, cNationality, nArtistCategoryID, bDeceased, bRepresented, bPrimary, cmpDisplayWithAddress, cSpouseName, bRecordChecked, bArchived, cmpDisplayLastFirst, nMergedToID, dtMergedDate, cMergedBy, 
+                         cHours, cMapURL, bWebsiteGallery
 FROM            dbo.clients
 WHERE        (ISNULL(nMergedToID, 0) = 0)
 
