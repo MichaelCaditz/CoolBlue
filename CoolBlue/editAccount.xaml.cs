@@ -109,6 +109,7 @@ namespace coolBlue
             int nCurrencyID = 0;
             int nBillDate = 0;
             decimal nCreditLimit = 0m;
+            decimal nCashAvail = 0m;
             decimal nForeignConversionFee = 0m;
             string cUsername = "";
             string nRoutingNumber = "";
@@ -183,6 +184,7 @@ namespace coolBlue
                 expiry_Decrypted = (DBNull.Value.Equals(drv["cDecryptedExpiry"]) == true ? "" : (string)drv["cDecryptedExpiry"]);
                 cDecryptedAcctNum = (DBNull.Value.Equals(drv["cDecryptedAcctNum"]) == true ? "" : (string)drv["cDecryptedAcctNum"]);
                 nCreditLimit = (DBNull.Value.Equals(drv["nCreditLimit"]) == true ? 0m : (decimal)drv["nCreditLimit"]);
+                nCashAvail = (DBNull.Value.Equals(drv["nCashAvail"]) == true ? 0m : (decimal)drv["nCashAvail"]);
                 cUsername = (DBNull.Value.Equals(drv["cDecryptedUsername"]) == true ? "" : (string)drv["cDecryptedUsername"]);
                 cDecryptedCardNum = (DBNull.Value.Equals(drv["cDecryptedCardNum"]) == true ? "" : (string)drv["cDecryptedCardNum"]);
                 cPassword = (DBNull.Value.Equals(drv["cDecryptedPassword"]) == true ? "" : (string)drv["cDecryptedPassword"]);
@@ -265,6 +267,7 @@ namespace coolBlue
                     cmd3.Parameters.AddWithValue("@cPassword", cPassword);
                     cmd3.Parameters.AddWithValue("@cSwiftCode", cSwiftCode);
                     cmd3.Parameters.AddWithValue("@nCreditLimit", nCreditLimit);
+                    cmd3.Parameters.AddWithValue("@nCashAvail", nCashAvail);
                     cmd3.Parameters.AddWithValue("@cContactName", cContactName);
                     cmd3.Parameters.AddWithValue("@cURL", cURL);
                     cmd3.Parameters.AddWithValue("@cContactEmail", cContactEmail);

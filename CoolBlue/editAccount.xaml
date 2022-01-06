@@ -252,8 +252,12 @@
                         <Label VerticalAlignment="Center" Grid.Row="7" Margin="0,0,0,8" HorizontalAlignment="Left" Grid.Column="2" Content="Credit Limit:" Height="22" Width="64"/>
                         <dxe:TextEdit x:Name="nCreditLimit" Width="220" VerticalAlignment="Center" Text="{Binding nCreditLimit, Mode=TwoWay, NotifyOnValidationError=true, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=true}" Grid.Row="7" Margin="3,4,0,4" Height="22" HorizontalAlignment="Left" Grid.Column="3" Mask="F" MaskType="Numeric" MaskUseAsDisplayFormat="True"/>
 
-                        <Label VerticalAlignment="Center" Grid.Row="8" Margin="0,0,0,8" HorizontalAlignment="Left" Grid.Column="2" Content="Contact Name:" Height="22" Width="79"/>
-                        <TextBox x:Name="cContactName" Width="220" VerticalAlignment="Center" Text="{Binding cContactName, Mode=TwoWay, NotifyOnValidationError=true, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=true}" Grid.Row="8" Margin="3,4,0,4" Height="22" HorizontalAlignment="Left" Grid.Column="3"/>
+                        <Label VerticalAlignment="Center" Grid.Row="8" Margin="0,0,0,8" HorizontalAlignment="Left" Grid.Column="2" Content="Cash Available:" Height="22" Width="81"/>
+                        <dxe:TextEdit x:Name="nCashAvail" Width="220" VerticalAlignment="Center" Text="{Binding nCashAvail, Mode=TwoWay, NotifyOnValidationError=true, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=true}" Grid.Row="8" Margin="3,4,0,4" Height="22" HorizontalAlignment="Left" Grid.Column="3" Mask="F" MaskType="Numeric" MaskUseAsDisplayFormat="True"/>
+
+                        
+                        <Label VerticalAlignment="Center" Grid.Row="9" Margin="0,0,0,8" HorizontalAlignment="Left" Grid.Column="2" Content="Contact Name:" Height="22" Width="79"/>
+                        <TextBox x:Name="cContactName" Width="220" VerticalAlignment="Center" Text="{Binding cContactName, Mode=TwoWay, NotifyOnValidationError=true, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=true}" Grid.Row="9" Margin="3,4,0,4" Height="22" HorizontalAlignment="Left" Grid.Column="3"/>
 
                         <Label VerticalAlignment="Center" Margin="0,4" HorizontalAlignment="Left" Grid.Column="2" Content="URL:" Height="22" Width="24"/>
                         <TextBox x:Name="cURL" Width="220" VerticalAlignment="Center" Text="{Binding cURL, Mode=TwoWay, NotifyOnValidationError=true, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=true}" Margin="3,4,0,4" Height="22" HorizontalAlignment="Left" Grid.Column="3"/>

@@ -1365,6 +1365,8 @@ namespace coolBlue {
             
             private global::System.Data.DataColumn columncDecryptedCardNum2;
             
+            private global::System.Data.DataColumn columnnCashAvail;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public USP_getOneAccountDataTable() {
@@ -1664,6 +1666,14 @@ namespace coolBlue {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn nCashAvailColumn {
+                get {
+                    return this.columnnCashAvail;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1731,7 +1741,8 @@ namespace coolBlue {
                         string cDecryptedCV2, 
                         string cDecryptedPIN2, 
                         string cDecryptedExpiry2, 
-                        string cDecryptedCardNum2) {
+                        string cDecryptedCardNum2, 
+                        decimal nCashAvail) {
                 USP_getOneAccountRow rowUSP_getOneAccountRow = ((USP_getOneAccountRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1766,7 +1777,8 @@ namespace coolBlue {
                         cDecryptedCV2,
                         cDecryptedPIN2,
                         cDecryptedExpiry2,
-                        cDecryptedCardNum2};
+                        cDecryptedCardNum2,
+                        nCashAvail};
                 rowUSP_getOneAccountRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowUSP_getOneAccountRow);
                 return rowUSP_getOneAccountRow;
@@ -1829,6 +1841,7 @@ namespace coolBlue {
                 this.columncDecryptedPIN2 = base.Columns["cDecryptedPIN2"];
                 this.columncDecryptedExpiry2 = base.Columns["cDecryptedExpiry2"];
                 this.columncDecryptedCardNum2 = base.Columns["cDecryptedCardNum2"];
+                this.columnnCashAvail = base.Columns["nCashAvail"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1900,6 +1913,8 @@ namespace coolBlue {
                 base.Columns.Add(this.columncDecryptedExpiry2);
                 this.columncDecryptedCardNum2 = new global::System.Data.DataColumn("cDecryptedCardNum2", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncDecryptedCardNum2);
+                this.columnnCashAvail = new global::System.Data.DataColumn("nCashAvail", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnCashAvail);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AutoIncrement = true;
@@ -3639,6 +3654,22 @@ namespace coolBlue {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal nCashAvail {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableUSP_getOneAccount.nCashAvailColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nCashAvail\' in table \'USP_getOneAccount\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUSP_getOneAccount.nCashAvailColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsdtCreateDateNull() {
                 return this.IsNull(this.tableUSP_getOneAccount.dtCreateDateColumn);
             }
@@ -4019,6 +4050,18 @@ namespace coolBlue {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetcDecryptedCardNum2Null() {
                 this[this.tableUSP_getOneAccount.cDecryptedCardNum2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsnCashAvailNull() {
+                return this.IsNull(this.tableUSP_getOneAccount.nCashAvailColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetnCashAvailNull() {
+                this[this.tableUSP_getOneAccount.nCashAvailColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -4884,6 +4927,7 @@ namespace coolBlue.AccountsDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("cDecryptedPIN2", "cDecryptedPIN2");
             tableMapping.ColumnMappings.Add("cDecryptedExpiry2", "cDecryptedExpiry2");
             tableMapping.ColumnMappings.Add("cDecryptedCardNum2", "cDecryptedCardNum2");
+            tableMapping.ColumnMappings.Add("nCashAvail", "nCashAvail");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
