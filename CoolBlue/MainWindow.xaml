@@ -712,7 +712,7 @@
                                    Margin="0,0,0,0" NavigationStyle="Cell" ShowBandsPanel="False" ShowBandsInCustomizationForm="False" ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False"
                                    ShowEditFormOnEnterKey="True" ShowEditFormOnF2Key="True" ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False"
                                    ShowSearchPanelCloseButton="False" ShowValidationAttributeErrors="False" ShowVerticalLines="False" CustomCellAppearance="TableView_OnCustomCellAppearance"
-                                   NewItemRowPosition="Bottom" ValidateRow="SplitsView_ValidateRow" EnableImmediatePosting="True" EditFormPostMode="Immediate" EditFormShowMode="Dialog"
+                                   NewItemRowPosition="Bottom" ValidateRow="SplitsView_ValidateRow" EnableImmediatePosting="True" EditFormPostMode="Immediate" EditFormShowMode="Inline" ShowEditFormOnDoubleClick="True" 
                                    EditorButtonShowMode="ShowForFocusedCell" EditFormColumnCount="3" InvalidRowException="SplitsView_InvalidRowException" ValidateCell="SplitsView_ValidateCell" CellValueChanged="SplitsView_CellValueChanged" InitNewRow="SplitsView_InitNewRow">
                         <dxg:TableView.RowCellMenuCustomizations>
                             <dxb:BarButtonItem Name="DeleteSplitRightClickButton" Content="Delete" ItemClick="DeleteSplitRightClick" />
@@ -772,7 +772,7 @@
 
                 <dxg:GridColumn Name="Vendor" FieldName="nVendorsID" Header="Vendor" Width="180" AllowSorting="True" AllowEditing="True" EditFormStartNewRow="True" EditFormVisibleIndex="6">
                     <dxg:GridColumn.EditSettings>
-                        <dxg:LookUpEditSettings ItemsSource="{Binding Source={StaticResource uSP_getAllVendorsViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="vendors_id" DisplayMember="cmpDisplay">
+                        <dxg:LookUpEditSettings  ItemsSource="{Binding Source={StaticResource uSP_getAllVendorsViewSource}}" AutoPopulateColumns="False" IsPopupAutoWidth="False" ValueMember="vendors_id" DisplayMember="cmpDisplay">
                             <dxg:LookUpEditSettings.PopupContentTemplate>
                                 <ControlTemplate TargetType="ContentControl">
                                     <dxg:GridControl x:Name="PART_GridControl" ShowBorder="True">
@@ -813,6 +813,9 @@
                             </dxg:LookUpEditSettings.PopupContentTemplate>
                         </dxg:LookUpEditSettings>
                     </dxg:GridColumn.EditSettings>
+
+                   
+                    
                 </dxg:GridColumn>
 
                 <dxg:GridColumn Name="DrAccount" FieldName="nAccountID_D" Header="DR Account" Width="150" AllowSorting="True" AllowEditing="True" ShowValidationAttributeErrors="True" EditFormStartNewRow="True">
@@ -977,29 +980,31 @@
 
                 <dxg:GridColumn Name="nAmount_D_Native" FieldName="nAmount_D_Native" Header="DR Amnt Native" Width="100" AllowSorting="True" AllowEditing="True" EditFormVisibleIndex="4" EditFormStartNewRow="True">
                     <dxg:GridColumn.EditSettings>
-                        <dxe:CalcEditSettings DisplayFormat="###########.00" MaskUseAsDisplayFormat="True"  MaskType="Numeric" Mask="f2" />
+                        <dxe:CalcEditSettings Name ="nAmount_D_NativeCalcEdit" DisplayFormat="###########.00" MaskUseAsDisplayFormat="True"  MaskType="Numeric" Mask="f2" />
                     </dxg:GridColumn.EditSettings>
+                   
                 </dxg:GridColumn>
 
                 <dxg:GridColumn Name="nAmount_C_Native" FieldName="nAmount_C_Native" Header="CR Amnt Native" Width="100" AllowSorting="True" AllowEditing="True" EditFormVisibleIndex="5">
                     <dxg:GridColumn.EditSettings>
-                        <dxe:CalcEditSettings DisplayFormat="###########.00" MaskUseAsDisplayFormat="True" MaskType="Numeric" Mask="f2" />
+                        <dxe:CalcEditSettings  DisplayFormat="###########.00" MaskUseAsDisplayFormat="True" MaskType="Numeric" Mask="f2" />
                     </dxg:GridColumn.EditSettings>
+                    
                 </dxg:GridColumn>
 
 
-                <dxg:GridColumn Name="newVendor"    Header=" "  FieldName="MyUnboundColumn" UnboundType="String"  Width="0" AllowSorting="True" AllowEditing="True" EditFormStartNewRow="True" EditFormVisibleIndex="8" ReadOnly="True" FixedWidth="True" MinWidth="0">
+                <dxg:GridColumn Name="newVendor"    Header=""  FieldName="MyUnboundColumn" UnboundType="String"  Width="0" AllowSorting="True" AllowEditing="True" EditFormStartNewRow="True" EditFormVisibleIndex="8" ReadOnly="True" FixedWidth="False" >
                     <dxg:GridColumn.EditSettings>
                         <dxe:ButtonEditSettings AllowDefaultButton="False"  >
                             <dxe:ButtonEditSettings.Buttons>
-                                <dxe:ButtonInfo Name="btnInfoNewVendor" Content="Click to Add New Vendor" Click="btnInfoNewVendor_Click" IsLeft="True"  ToolTip="Create a new vendor record"  />
+                                <dxe:ButtonInfo Name="btnInfoNewVendor" Content="Click to Add New Vendor" Click="btnInfoNewVendor_Click" IsLeft="True"  ToolTip="Create a new vendor record" />
                             </dxe:ButtonEditSettings.Buttons>
                         </dxe:ButtonEditSettings>
                     </dxg:GridColumn.EditSettings>
                 </dxg:GridColumn>
 
 
-                <dxg:GridColumn FieldName="cMemo" Header="Memo" Width="130" AllowSorting="True" EditFormVisibleIndex="7" MergeWithPreviousGroup="True" EditFormVisible="True" />
+                <dxg:GridColumn Name="Memo" FieldName="cMemo" Header="Memo" Width="130" AllowSorting="True" EditFormVisibleIndex="7" MergeWithPreviousGroup="True" EditFormVisible="True" />
 
 
 

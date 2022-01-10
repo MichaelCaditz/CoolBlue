@@ -29,6 +29,9 @@ using System.Windows.Threading;
 using System.Collections.ObjectModel;
 using DevExpress.Mvvm;
 using DevExpress.XtraEditors.DXErrorProvider;
+using DevExpress.Mvvm.UI;
+using DevExpress.Xpf.Grid.EditForm;
+using DevExpress.Xpf.Editors;
 //using System.Threading.Tasks;
 
 
@@ -2340,19 +2343,41 @@ namespace coolBlue
                 registerDataSetUSP_getAllVendorsTableAdapter.Fill(registerDataSet.USP_getAllVendors);
 
 
-               string message5 = "New vendor will be added to this entry after closing edit form by clicking UPDATE.";
-                string caption5 = "CoolBlue";
+               //string message5 = "New vendor will be added to this entry after closing edit form by clicking UPDATE.";
+               // string caption5 = "CoolBlue";
 
-                MessageBoxButton buttons5 = MessageBoxButton.OKCancel;
-                MessageBoxImage icon5 = MessageBoxImage.Exclamation;
-                MessageBoxResult defaultResult5 = MessageBoxResult.OK;
-                MessageBoxOptions options5 = MessageBoxOptions.None;
-              
-                MessageBoxResult result5 = MessageBox.Show(message5, caption5, buttons5, icon5, defaultResult5, options5);
-                if (result5 == MessageBoxResult.OK)
+
+                //var editForm = LayoutTreeHelper.GetVisualParents(this.AssociatedObject).OfType<EditFormControl>().FirstOrDefault();
+
+               // var obj = LayoutTreeHelper.GetVisualChildren(uSP_getSplitDataGrid).OfType<Button>().FirstOrDefault(x => x.Name == "btnInfoNewVendor");
+
+                var editForm = LayoutTreeHelper.GetVisualChildren(SplitsView).OfType<EditFormControl>().FirstOrDefault();
+
+
+                var editor = LayoutTreeHelper.GetVisualChildren(editForm).OfType<EditFormEditor>().FirstOrDefault(elem => ((EditFormCellData)elem.DataContext).FieldName == "nVendorsID");
+
+
+                // var editor = LayoutTreeHelper.GetVisualChildren(uSP_getSplitDataGrid).OfType<TableView>().FirstOrDefault(elem => ((EditForm CellData)elem.DataContext).FieldName == "cMemo");
+                if (editor != null)
                 {
-                    newVendorAdded = vendorCurrent;
+                    var baseEditor = editor.Content as BaseEdit;
+                    if (baseEditor != null)
+                    {
+                        baseEditor.EditValue = vendorCurrent;
+                    }
                 }
+
+
+                //MessageBoxButton buttons5 = MessageBoxButton.OKCancel;
+                //MessageBoxImage icon5 = MessageBoxImage.Exclamation;
+                //MessageBoxResult defaultResult5 = MessageBoxResult.OK;
+                //MessageBoxOptions options5 = MessageBoxOptions.None;
+              
+                //MessageBoxResult result5 = MessageBox.Show(message5, caption5, buttons5, icon5, defaultResult5, options5);
+                //if (result5 == MessageBoxResult.OK)
+                //{
+                    newVendorAdded = vendorCurrent;
+                //}
 
                // uSP_getSplitDataGrid.SetFocusedRowCellValue("nVendorsID", vendorCurrent);
             }
