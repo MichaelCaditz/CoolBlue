@@ -56,16 +56,20 @@ namespace coolBlue
             coolBlue.RegisterDataSetTableAdapters.USP_getAllCurrencyTableAdapter registerDataSetUSP_getAllCurrencyTableAdapter = new coolBlue.RegisterDataSetTableAdapters.USP_getAllCurrencyTableAdapter();
 
             accountsDataSet.EnforceConstraints = false;
+            accountsDataSetUSP_getOneAccountTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
             accountsDataSetUSP_getOneAccountTableAdapter.Fill(accountsDataSet.USP_getOneAccount, nAccountID);
+            accountsDataSetUSP_getAllAccountTypesTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
             accountsDataSetUSP_getAllAccountTypesTableAdapter.Fill(accountsDataSet.USP_getAllAccountTypes);
             accountsDataSet.EnforceConstraints = true;
 
 
             categoriesDataSet.EnforceConstraints = false;
+            categoriesDataSetUSP_getAllCatsTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
             categoriesDataSetUSP_getAllCatsTableAdapter.Fill(categoriesDataSet.USP_getAllCats);
             categoriesDataSet.EnforceConstraints = true;
 
             registerDataSet.EnforceConstraints = false;
+            registerDataSetUSP_getAllCurrencyTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
             registerDataSetUSP_getAllCurrencyTableAdapter.Fill(registerDataSet.USP_getAllCurrency);
             registerDataSet.EnforceConstraints = true;
 

@@ -55,6 +55,7 @@ namespace coolBlue
             // int vendorCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
 
             VendorDataSet.EnforceConstraints = false;
+            vendorDataSetUSP_getOneVendorTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
 
             vendorDataSetUSP_getOneVendorTableAdapter.Fill(VendorDataSet.USP_getOneVendor, nVendorID);
 

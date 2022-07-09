@@ -94,7 +94,7 @@ namespace coolBlue.reports
             this.sqlDataSource1.ConnectionName = "coolblueConnectionString";
             msSqlConnectionParameters1.AuthorizationType = DevExpress.DataAccess.ConnectionParameters.MsSqlAuthorizationType.Windows;
             msSqlConnectionParameters1.DatabaseName = "coolblue";
-            msSqlConnectionParameters1.ServerName = "SAGER10\\SAGER2017";
+            msSqlConnectionParameters1.ServerName = "main3";
             this.sqlDataSource1.ConnectionParameters = msSqlConnectionParameters1;
             this.sqlDataSource1.Name = "sqlDataSource1";
             storedProcQuery1.Name = "USP_getAllTags";

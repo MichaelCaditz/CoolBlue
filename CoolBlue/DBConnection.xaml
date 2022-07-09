@@ -4,7 +4,7 @@
     xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
     xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
     x:Class="coolBlue.DBConnection"
-    Title="DBConnection" Height="350" Width="525" Loaded="ThemedWindow_Loaded"
+    Title="DBConnection" Height="350" Width="525" Loaded="ThemedWindow_Loaded" WindowStartupLocation="CenterScreen"
     >
 
     <Grid>

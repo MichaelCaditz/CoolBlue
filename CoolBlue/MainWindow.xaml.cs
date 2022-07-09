@@ -33,6 +33,9 @@ using DevExpress.Mvvm.UI;
 using DevExpress.Xpf.Grid.EditForm;
 using DevExpress.Xpf.Editors;
 //using System.Threading.Tasks;
+using coolBlue.Properties;
+
+
 
 
 namespace coolBlue
@@ -63,6 +66,18 @@ namespace coolBlue
         public int newVendorAdded = 0;
         private void DXRibbonWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            string connString = "";
+            string server = Settings.Default.server;
+            string database = "coolblue";
+            string database1 = "works";
+            string username = Settings.Default.username;
+            string password = Settings.Default.password;
+
+            ProgramSettings.coolblueconnectionString = String.Format("data source={0};initial catalog={1};password={2};persist security info=True;user id={3};packet size=4096;Connection Timeout=15", server, database, password, username);
+            ProgramSettings.worksConnectionString = String.Format("data source='{0}';initial catalog={1};password={2};persist security info=True;user id={3};packet size=4096;Connection Timeout=30", server, database1, password, username);
+
+
+            this.Title = "coolblue       " + server + ": "+ username;
 
             coolBlue.AccountsDataSet accountsDataSet = ((coolBlue.AccountsDataSet)(this.FindResource("accountsDataSet")));
 

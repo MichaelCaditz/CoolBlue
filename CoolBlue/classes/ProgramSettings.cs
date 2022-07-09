@@ -32,7 +32,7 @@ namespace coolBlue.classes
         private static DataView _dvEntity = null;
 
         static string  database  = "coolblue" ;
-        static  string server = "SAGER10\\SAGER2017";
+        static  string server = "main3";
         // string server2 = Settings.Default.server2;
         static string username = "sa";
         static string password = "Sq!lsp!a123";

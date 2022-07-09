@@ -51,7 +51,7 @@ namespace coolBlue
 
 
             ClassDataSet.EnforceConstraints = false;
-
+            ClassDataSetUSP_getOneClassTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
             ClassDataSetUSP_getOneClassTableAdapter.Fill(ClassDataSet.USP_getOneClass, nClassID);
 
             ClassDataSet.EnforceConstraints = true;

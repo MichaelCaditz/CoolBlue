@@ -44,7 +44,7 @@ namespace coolBlue
             coolBlue.EditDataSet editDataSet = ((coolBlue.EditDataSet)(this.FindResource("editDataSet")));
 
             coolBlue.EditDataSetTableAdapters.USP_getAllCurrencyTableAdapter editDataSetUSP_getAllCurrencyTableAdapter = new coolBlue.EditDataSetTableAdapters.USP_getAllCurrencyTableAdapter();
-
+            editDataSetUSP_getAllCurrencyTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
             editDataSetUSP_getAllCurrencyTableAdapter.Fill(editDataSet.USP_getAllCurrency);
 
             System.Windows.Data.CollectionViewSource uSP_getAllCurrencyViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllCurrencyViewSource")));
@@ -71,6 +71,8 @@ namespace coolBlue
 
 
             editDataSet.EnforceConstraints = false;
+            editDataSetUSP_getAllCurrencyTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
+
             editDataSetUSP_getAllCurrencyTableAdapter.Fill(editDataSet.USP_getAllCurrency);
             editDataSet.EnforceConstraints = true;
 

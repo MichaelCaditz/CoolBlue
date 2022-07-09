@@ -52,6 +52,8 @@ namespace coolBlue
 
             categoriesDataSet.EnforceConstraints = false;
 
+            categoriesDataSetUSP_getOneCatTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
+
             categoriesDataSetUSP_getOneCatTableAdapter.Fill(categoriesDataSet.USP_getOneCat, nCatID);
 
             categoriesDataSet.EnforceConstraints = true;
