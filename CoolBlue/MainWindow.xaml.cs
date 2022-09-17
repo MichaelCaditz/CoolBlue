@@ -66,6 +66,12 @@ namespace coolBlue
         public int newVendorAdded = 0;
         private void DXRibbonWindow_Loaded(object sender, RoutedEventArgs e)
         {
+
+            openingroutine();
+        }
+
+        private void openingroutine()
+        {
             string connString = "";
             string server = Settings.Default.server;
             string database = "coolblue";
@@ -77,7 +83,7 @@ namespace coolBlue
             ProgramSettings.worksConnectionString = String.Format("data source='{0}';initial catalog={1};password={2};persist security info=True;user id={3};packet size=4096;Connection Timeout=30", server, database1, password, username);
 
 
-            this.Title = "coolblue       " + server + ": "+ username;
+            this.Title = "coolblue       " + server + ": " + username;
 
             coolBlue.AccountsDataSet accountsDataSet = ((coolBlue.AccountsDataSet)(this.FindResource("accountsDataSet")));
 
@@ -88,13 +94,16 @@ namespace coolBlue
             coolBlue.AccountsDataSetTableAdapters.USP_getAllAccountsTableAdapter accountsDataSetUSP_getAllAccountsTableAdapter = new coolBlue.AccountsDataSetTableAdapters.USP_getAllAccountsTableAdapter();
             System.Windows.Data.CollectionViewSource uSP_getAllAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountsViewSource")));
 
+            accountsDataSet.EnforceConstraints = false;
 
             accountsDataSetUSP_getAllAccountTypesTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
             accountsDataSetUSP_getAllAccountTypesTableAdapter.Fill(accountsDataSet.USP_getAllAccountTypes);
+
+
             accountsDataSetUSP_getAllAccountsTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
             accountsDataSetUSP_getAllAccountsTableAdapter.Fill(accountsDataSet.USP_getAllAccounts);
 
-
+            accountsDataSet.EnforceConstraints = true;
 
             uSP_getAllAccountTypesViewSource.View.MoveCurrentToFirst();
             //uSP_getAllAccountsViewSource.View.MoveCurrentToFirst();
@@ -185,10 +194,7 @@ namespace coolBlue
             //int rowHandle = dt.Rows.IndexOf(foundRow);
             //uSP_getLineDataGrid.View.FocusedRowHandle = rowHandle;
             //uSP_getLineDataGrid.View.MoveLastRow();
-
         }
-
-
 
         public bool _uSP_getAllAccountTypesUSP_getAllAccountsViewSource_CurentChanged()
         {
@@ -1026,24 +1032,28 @@ namespace coolBlue
 
             // uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.MoveCurrentToFirst();
 
+            //if (uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View ! = null)
+                if (uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View != null)
+                {
 
 
-            DataRowView drv = (DataRowView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentItem;
-            int accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
-            int accountingPeriod = 1000;  // this will be changed so value comes from settings
+                DataRowView drv = (DataRowView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentItem;
+                int accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
+                int accountingPeriod = 1000;  // this will be changed so value comes from settings
 
-            //DataRowView drv1 = (DataRowView)uSP_getAllAccountTypesViewSource.View.CurrentItem;
-            //int nAccountingTypeID = (drv1 == null ? 0 : DBNull.Value.Equals(drv1["nAccountingTypeID"]) == true ? 0 : (int)drv1["nAccountingTypeID"]);
+                //DataRowView drv1 = (DataRowView)uSP_getAllAccountTypesViewSource.View.CurrentItem;
+                //int nAccountingTypeID = (drv1 == null ? 0 : DBNull.Value.Equals(drv1["nAccountingTypeID"]) == true ? 0 : (int)drv1["nAccountingTypeID"]);
 
 
-            registerDataSet.EnforceConstraints = false;
-            registerDataSetUSP_getSplitTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-            registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent, accountingPeriod);
-            registerDataSetUSP_getLineTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-            registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent, accountingPeriod);
-            //registerDataSet.EnforceConstraints = true;
+                registerDataSet.EnforceConstraints = false;
+                registerDataSetUSP_getSplitTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
+                registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent, accountingPeriod);
+                registerDataSetUSP_getLineTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
+                registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent, accountingPeriod);
+                //registerDataSet.EnforceConstraints = true;
 
-            getTotals();
+                getTotals();
+            }
         }
 
         private void getTotals()
@@ -2258,6 +2268,17 @@ namespace coolBlue
             DBConnection dbconnection = new DBConnection();
 
             dbconnection.ShowDialog();
+            
+            string server = Settings.Default.server;
+            string database = "coolblue";
+            string database1 = "works";
+            string username = Settings.Default.username;
+            string password = Settings.Default.password;
+
+            
+            openingroutine();
+
+            this.Title = "coolblue       " + server + ": " + username;
         }
 
        

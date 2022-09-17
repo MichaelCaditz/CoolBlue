@@ -175,7 +175,7 @@ namespace coolBlue
             database = "Works";
             //Primary - works
             ProgramSettings.worksConnectionString = String.Format("data source='{0}';initial catalog={1};password={2};persist security info=True;user id={3};packet size=4096;Connection Timeout=30", server, database, password, username);
-
+            
 
             this.DialogResult = true;
             this.Close();
