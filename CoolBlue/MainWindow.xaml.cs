@@ -204,7 +204,7 @@ namespace coolBlue
             coolBlue.RegisterDataSet registerDataSet = ((coolBlue.RegisterDataSet)(this.FindResource("registerDataSet")));
             DataRowView drv = (DataRowView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentItem;
             int accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
-            int accountingPeriod = 1000;  // this will be changed so value comes from settings
+            int accountingPeriod = 1001;  // this will be changed so value comes from settings
 
 
             registerDataSet.EnforceConstraints = false;
@@ -228,7 +228,7 @@ namespace coolBlue
             coolBlue.RegisterDataSet registerDataSet = ((coolBlue.RegisterDataSet)(this.FindResource("registerDataSet")));
             DataRowView drv = (DataRowView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentItem;
             int accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
-            int accountingPeriod = 1000;  // this will be changed so value comes from settings
+            int accountingPeriod = 1001;  // this will be changed so value comes from settings
 
 
             registerDataSet.EnforceConstraints = false;
@@ -288,7 +288,7 @@ namespace coolBlue
                 DataRowView drv = (DataRowView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentItem;
                 accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
                 nCurrencyID = (drv == null ? 0 : DBNull.Value.Equals(drv["nCurrencyID"]) == true ? 0 : (int)drv["nCurrencyID"]);
-                accountingPeriod = 1000;  // this will be changed so value comes from settings
+                accountingPeriod = 1001;  // this will be changed so value comes from settings
 
 
                 DataRowView drv1 = (DataRowView)uSP_getAllAccountTypesViewSource.View.CurrentItem;
@@ -536,7 +536,7 @@ namespace coolBlue
 
             DataRowView drv = (DataRowView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentItem;
             int accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
-            int accountingPeriod = 1000;  // this will be changed so value comes from settings
+            int accountingPeriod = 1001;  // this will be changed so value comes from settings
 
             int lineCurrent = 0;
             int wasnull = 0;
@@ -1039,7 +1039,7 @@ namespace coolBlue
 
                 DataRowView drv = (DataRowView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentItem;
                 int accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
-                int accountingPeriod = 1000;  // this will be changed so value comes from settings
+                int accountingPeriod = 1001;  // this will be changed so value comes from settings
 
                 //DataRowView drv1 = (DataRowView)uSP_getAllAccountTypesViewSource.View.CurrentItem;
                 //int nAccountingTypeID = (drv1 == null ? 0 : DBNull.Value.Equals(drv1["nAccountingTypeID"]) == true ? 0 : (int)drv1["nAccountingTypeID"]);
@@ -1642,7 +1642,7 @@ namespace coolBlue
             DataRowView drv = (DataRowView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentItem;
             int accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
             int nCurrencyID = (drv == null ? 0 : DBNull.Value.Equals(drv["nCurrencyID"]) == true ? 0 : (int)drv["nCurrencyID"]);
-            int accountingPeriod = 1000;  // this will be changed so value comes from settings
+            int accountingPeriod = 1001;  // this will be changed so value comes from settings
 
 
             DataRowView drv1 = (DataRowView)uSP_getAllAccountTypesViewSource.View.CurrentItem;
@@ -1733,7 +1733,7 @@ namespace coolBlue
 
                 DataRowView drv = (DataRowView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentItem;
                 int accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
-                int accountingPeriod = 1000;  // this will be changed so value comes from settings
+                int accountingPeriod = 1001;  // this will be changed so value comes from settings
 
                 //int lineCurrent = 0;
                 int wasnull = 0;
@@ -2041,7 +2041,7 @@ namespace coolBlue
 
                 DataRowView drv2 = (DataRowView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentItem;
                 int accountCurrent = (drv2 == null ? 0 : DBNull.Value.Equals(drv2["ID"]) == true ? 0 : (int)drv2["ID"]);
-                int accountingPeriod = 1000;  // this will be changed so value comes from settings
+                int accountingPeriod = 1001;  // this will be changed so value comes from settings
 
                 registerDataSet.EnforceConstraints = false;
                 registerDataSetUSP_getSplitTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
@@ -2138,7 +2138,7 @@ namespace coolBlue
                 DataRowView drv = (DataRowView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentItem;
                 accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
                 nCurrencyID = (drv == null ? 0 : DBNull.Value.Equals(drv["nCurrencyID"]) == true ? 0 : (int)drv["nCurrencyID"]);
-                accountingPeriod = 1000;  // this will be changed so value comes from settings
+                accountingPeriod = 1001;  // this will be changed so value comes from settings
 
 
                 DataRowView drv1 = (DataRowView)uSP_getAllAccountTypesViewSource.View.CurrentItem;

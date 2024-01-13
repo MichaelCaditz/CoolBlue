@@ -1,5 +1,5 @@
 ﻿<dx:ThemedWindow 
-    x:Class="coolBlue.MainWindow" Title="CoolBlue" Height="1030" Width="1920" 
+    x:Class="coolBlue.MainWindow" Title="CoolBlue" Height="1030" Width="2200" 
     Loaded="DXRibbonWindow_Loaded" WindowStartupLocation="CenterScreen" 
     Background="#FFB4B4BB" Closing="DXRibbonWindow_Closing" 
     ScrollViewer.VerticalScrollBarVisibility="Auto" HorizontalAlignment="Center" 
@@ -94,10 +94,11 @@
         <CollectionViewSource x:Key="uSP_getAllCurrencyConversionViewSource" Source="{Binding USP_getAllCurrencyConversion, Source={StaticResource currencyConversion}}"/>
     </Window.Resources>
 
-    <dxlc:ScrollBox HorizontalAlignment="Left" Grid.Row="0" Grid.RowSpan="11" Grid.ColumnSpan="7" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="0" Padding="0" DragScrolling="False" Background="{x:Null}" DataContext="{StaticResource uSP_getAllCurrencyConversionViewSource}">
+    <dxlc:ScrollBox HorizontalAlignment="Left" Grid.Row="0" Grid.RowSpan="11" Grid.ColumnSpan="7" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" 
+                    Margin="0" Padding="0" DragScrolling="False" Background="{x:Null}" DataContext="{StaticResource uSP_getAllCurrencyConversionViewSource}" Width="2200">
         <!--<ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="0" HorizontalAlignment="Left" VerticalAlignment="Top" >-->
 
-        <Grid DataContext="{StaticResource uSP_getLineViewSource}" IsEnabled="True" Margin="0,0" Width="1920" Height="984" Background="#FF093472">
+        <Grid DataContext="{StaticResource uSP_getLineViewSource}" IsEnabled="True" Margin="0,0" Width="2180" Height="984" Background="#FF093472">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="99" />
                 <ColumnDefinition Width="21" />
@@ -129,7 +130,7 @@
             </Grid.RowDefinitions>
 
 
-            <dxr:RibbonControl RibbonStyle="Office2010" Grid.ColumnSpan="11" AllowCustomization="False" IsHiddenRibbonCollapsed="False" Grid.RowSpan="2" Margin="10,-1,-10,0" VerticalAlignment="Top" Height="145">
+            <dxr:RibbonControl RibbonStyle="Office2010" Grid.ColumnSpan="11" AllowCustomization="False" IsHiddenRibbonCollapsed="False" Grid.RowSpan="2" Margin="10,-1,10,0" VerticalAlignment="Top" Height="145">
                 
                 <dxr:RibbonControl.ToolbarItems>
                     <dxb:BarButtonItemLink />

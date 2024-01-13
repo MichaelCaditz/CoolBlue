@@ -54,7 +54,7 @@ namespace coolBlue.reports
             Parameters["accountingPeriod"].Value = 1000;
         }
 
-        private void REPORT_Register_BeforePrint(object sender, CancelEventArgs e)
+        private void REPORT_Register_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             string cName = "";
             int nAccountID = 0;
