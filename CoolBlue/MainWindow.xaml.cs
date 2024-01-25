@@ -2112,6 +2112,12 @@ namespace coolBlue
                         currentPrice = nTotalCrnative - nTotalDrnative;
 
                         break;
+
+                    default:
+
+                        currentPrice = nTotalCrnative - nTotalDrnative;
+
+                        break;
                 }
 
 
