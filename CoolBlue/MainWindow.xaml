@@ -1,5 +1,5 @@
 ﻿<dx:ThemedWindow 
-    x:Class="coolBlue.MainWindow" Title="CoolBlue" Height="1030" Width="2200" 
+    x:Class="coolBlue.MainWindow" Title="CoolBlue" Height="1120" Width="2300" 
     Loaded="DXRibbonWindow_Loaded" WindowStartupLocation="CenterScreen" 
     Background="#FFB4B4BB" Closing="DXRibbonWindow_Closing" 
     ScrollViewer.VerticalScrollBarVisibility="Auto" HorizontalAlignment="Center" 
@@ -105,7 +105,7 @@
                 <ColumnDefinition Width="21" />
                 <ColumnDefinition Width="86" />
                 <ColumnDefinition Width="2" />
-                <ColumnDefinition Width="536" />
+                <ColumnDefinition Width="556" />
                 <ColumnDefinition Width="299" />
                 <ColumnDefinition Width="57" />
                 <ColumnDefinition Width="240" />
@@ -122,20 +122,20 @@
                 <RowDefinition Name="r5" Height="60" MinHeight="0" />
                 <RowDefinition Name="r6" Height="10" MinHeight="0" />
                 <RowDefinition Name="r7" Height="100" MinHeight="0" />
-                <RowDefinition Name="r8" Height="100" MinHeight="0" />
-                <RowDefinition Name="r9" Height="266" MinHeight="0" />
-                <RowDefinition Name="r10" Height="46" MinHeight="0" />
+                <RowDefinition Name="r8" Height="380" MinHeight="0" />
+                <RowDefinition Name="r9" Height="3" MinHeight="0" />
+                <RowDefinition Name="r10" Height="106" MinHeight="0" />
                 <RowDefinition Name="r11" Height="1" MinHeight="0" />
                 <RowDefinition Name="r12" Height="*" MinHeight="0" />
             </Grid.RowDefinitions>
 
 
             <dxr:RibbonControl RibbonStyle="Office2010" Grid.ColumnSpan="11" AllowCustomization="False" IsHiddenRibbonCollapsed="False" Grid.RowSpan="2" Margin="10,-1,10,0" VerticalAlignment="Top" Height="145">
-                
+
                 <dxr:RibbonControl.ToolbarItems>
                     <dxb:BarButtonItemLink />
                 </dxr:RibbonControl.ToolbarItems>
-                
+
                 <dxr:RibbonDefaultPageCategory>
 
 
@@ -166,7 +166,7 @@
                         <dxr:RibbonPageGroup Caption="Program">
                             <dxb:BarButtonItem Content="Exit" ItemClick="Exit_ItemClick" Glyph="{dx:DXImageOffice2013 Image=Close_16x16.png}" LargeGlyph="{dx:DXImageOffice2013 Image=Close_32x32.png}" />
 
-                         <dxb:BarButtonItem Content="Settings" ItemClick="BarButtonItem_ItemClick" Glyph="{dx:DXImage Image=Properties_16x16.png}" LargeGlyph="{dx:DXImage Image=Properties_32x32.png}" />
+                            <dxb:BarButtonItem Content="Settings" ItemClick="BarButtonItem_ItemClick" Glyph="{dx:DXImage Image=Properties_16x16.png}" LargeGlyph="{dx:DXImage Image=Properties_32x32.png}" />
                             <dxb:BarButtonItem Name="barBtnDatabase" Content="Database" Glyph="{dx:DXImage Image=ManageDatasource_16x16.png}" LargeGlyph="{dx:DXImage Image=ManageDatasource_32x32.png}" ItemClick="barBtnDatabase_ItemClick" />
 
                         </dxr:RibbonPageGroup>
@@ -553,21 +553,21 @@
                         <dxe:TextEditSettings HorizontalContentAlignment="Right"/>
                     </dxg:GridColumn.EditSettings>
                     <dxg:GridColumn.CellToolTipTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Vertical">
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock FontWeight="Bold" Text="Currency: " />
-                                <TextBlock Text="{Binding currencyNameAdjusted}" />
-                            </StackPanel>
-                            <!--<StackPanel Orientation="Horizontal">
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontWeight="Bold" Text="Currency: " />
+                                    <TextBlock Text="{Binding currencyNameAdjusted}" />
+                                </StackPanel>
+                                <!--<StackPanel Orientation="Horizontal">
                                     <TextBlock FontStyle="Italic" FontWeight="Bold" Text="Age: "/>
                                     <TextBlock Text="{Binding Age}" />
                                 </StackPanel>-->
-                        </StackPanel>
-                    </DataTemplate>
-                </dxg:GridColumn.CellToolTipTemplate>
+                            </StackPanel>
+                        </DataTemplate>
+                    </dxg:GridColumn.CellToolTipTemplate>
                 </dxg:GridColumn>
-                
+
                 <dxg:GridColumn FieldName="cNote" Header="Note" Width="80" ReadOnly="False" AllowFocus="True" AllowSorting="True" Visible="False" />
                 <dxg:GridColumn FieldName="cNote" Header="Note" Width="80" ReadOnly="False" AllowFocus="True" AllowSorting="True" Visible="False" />
 
@@ -815,8 +815,8 @@
                         </dxg:LookUpEditSettings>
                     </dxg:GridColumn.EditSettings>
 
-                   
-                    
+
+
                 </dxg:GridColumn>
 
                 <dxg:GridColumn Name="DrAccount" FieldName="nAccountID_D" Header="DR Account" Width="150" AllowSorting="True" AllowEditing="True" ShowValidationAttributeErrors="True" EditFormStartNewRow="True">
@@ -983,14 +983,14 @@
                     <dxg:GridColumn.EditSettings>
                         <dxe:CalcEditSettings Name ="nAmount_D_NativeCalcEdit" DisplayFormat="###########.00" MaskUseAsDisplayFormat="True"  MaskType="Numeric" Mask="f2" />
                     </dxg:GridColumn.EditSettings>
-                   
+
                 </dxg:GridColumn>
 
                 <dxg:GridColumn Name="nAmount_C_Native" FieldName="nAmount_C_Native" Header="CR Amnt Native" Width="100" AllowSorting="True" AllowEditing="True" EditFormVisibleIndex="5">
                     <dxg:GridColumn.EditSettings>
                         <dxe:CalcEditSettings  DisplayFormat="###########.00" MaskUseAsDisplayFormat="True" MaskType="Numeric" Mask="f2" />
                     </dxg:GridColumn.EditSettings>
-                    
+
                 </dxg:GridColumn>
 
 
@@ -1174,11 +1174,11 @@
 
             <dxe:TextEdit x:Name="TextEditTotalDr" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="147,4,0,0" Grid.Row="10" VerticalAlignment="Top" Width="70" Mask="F" MaskType="Numeric" IsReadOnly="True" Height="22" Foreground="#FFA9F50A" FontWeight="Bold" />
             <dxe:TextEdit x:Name="TextEditTotalCr" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="220,4,0,0" Grid.Row="10" VerticalAlignment="Top" Width="70" Mask="F" MaskType="Numeric" IsReadOnly="True" Height="22" Foreground="#FFEAF50A" FontWeight="Bold"/>
-            <dxe:TextEdit x:Name="TextEditBalance" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="220,24,0,0" Grid.Row="10" VerticalAlignment="Top" Width="70" Mask="F"  MaskType="Numeric" FontWeight="Bold" Padding="0,0,00,0" Background="Black" Foreground="White" IsReadOnly="True" Height="22" />
+            <dxe:TextEdit x:Name="TextEditBalance" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="472,4,0,0" Grid.Row="10" VerticalAlignment="Top" Width="70" Mask="F"  MaskType="Numeric" FontWeight="Bold" Padding="0,0,00,0" Background="Black" Foreground="White" IsReadOnly="True" Height="22" />
 
             <dxe:TextEdit x:Name="TextEditTotalDrNative" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="307,4,0,0" Grid.Row="10" VerticalAlignment="Top" Width="70" Mask="F" MaskType="Numeric" IsReadOnly="True" Height="22"  Foreground="#FFA9F50A" Background="#FF646161" FontWeight="Bold" />
             <dxe:TextEdit x:Name="TextEditTotalCrNative" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="380,4,0,0" Grid.Row="10" VerticalAlignment="Top" Width="70" Mask="F" MaskType="Numeric" IsReadOnly="True" Height="22" Foreground="#FFEAF50A" Background="#FF646161" FontWeight="Bold"/>
-            <dxe:TextEdit x:Name="TextEditBalanceNative" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="380,24,0,0" Grid.Row="10" VerticalAlignment="Top" Width="70" Mask="F"  MaskType="Numeric" FontWeight="Bold" Padding="0,0,00,0" Background="Black" Foreground="White" IsReadOnly="True" Height="22" />
+            <dxe:TextEdit x:Name="TextEditBalanceNative" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="472,32,0,0" Grid.Row="10" VerticalAlignment="Top" Width="70" Mask="F"  MaskType="Numeric" FontWeight="Bold" Padding="0,0,00,0" Background="Black" Foreground="White" IsReadOnly="True" Height="22" />
 
             <!--<dxe:Calculator Grid.Column="2" HorizontalAlignment="Left" Height="200" Margin="0,0,0,0" Grid.Row="3" VerticalAlignment="Top" Width="100"/>-->
 
