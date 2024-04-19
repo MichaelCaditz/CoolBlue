@@ -44,6 +44,7 @@
             DevExpress.XtraReports.Parameters.DynamicListLookUpSettings dynamicListLookUpSettings1 = new DevExpress.XtraReports.Parameters.DynamicListLookUpSettings();
             DevExpress.XtraReports.Parameters.DynamicListLookUpSettings dynamicListLookUpSettings2 = new DevExpress.XtraReports.Parameters.DynamicListLookUpSettings();
             DevExpress.XtraReports.Parameters.DynamicListLookUpSettings dynamicListLookUpSettings3 = new DevExpress.XtraReports.Parameters.DynamicListLookUpSettings();
+            DevExpress.XtraReports.UI.XRWatermark xrWatermark1 = new DevExpress.XtraReports.UI.XRWatermark();
             this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.xrTable2 = new DevExpress.XtraReports.UI.XRTable();
@@ -129,12 +130,13 @@
             queryParameter6.Name = "@accountingPeriod";
             queryParameter6.Type = typeof(DevExpress.DataAccess.Expression);
             queryParameter6.Value = new DevExpress.DataAccess.Expression("[Parameters.accountingPeriod]", typeof(int));
-            storedProcQuery1.Parameters.Add(queryParameter1);
-            storedProcQuery1.Parameters.Add(queryParameter2);
-            storedProcQuery1.Parameters.Add(queryParameter3);
-            storedProcQuery1.Parameters.Add(queryParameter4);
-            storedProcQuery1.Parameters.Add(queryParameter5);
-            storedProcQuery1.Parameters.Add(queryParameter6);
+            storedProcQuery1.Parameters.AddRange(new DevExpress.DataAccess.Sql.QueryParameter[] {
+            queryParameter1,
+            queryParameter2,
+            queryParameter3,
+            queryParameter4,
+            queryParameter5,
+            queryParameter6});
             storedProcQuery1.StoredProcName = "REPORT_TransactionbyTag";
             storedProcQuery2.Name = "USP_getAllTags";
             storedProcQuery2.StoredProcName = "USP_getAllTags";
@@ -743,42 +745,39 @@
             // tagID
             // 
             this.tagID.Description = "Tag";
-            dynamicListLookUpSettings1.DataAdapter = null;
+            this.tagID.Name = "tagID";
+            this.tagID.Type = typeof(int);
+            this.tagID.ValueInfo = "0";
             dynamicListLookUpSettings1.DataMember = "USP_getAllTags";
             dynamicListLookUpSettings1.DataSource = this.sqlDataSource1;
             dynamicListLookUpSettings1.DisplayMember = "cName";
             dynamicListLookUpSettings1.ValueMember = "ID";
-            this.tagID.LookUpSettings = dynamicListLookUpSettings1;
-            this.tagID.Name = "tagID";
-            this.tagID.Type = typeof(int);
-            this.tagID.ValueInfo = "0";
+            this.tagID.ValueSourceSettings = dynamicListLookUpSettings1;
             // 
             // reportCurrencyID
             // 
             this.reportCurrencyID.Description = "Currency";
-            dynamicListLookUpSettings2.DataAdapter = null;
+            this.reportCurrencyID.Name = "reportCurrencyID";
+            this.reportCurrencyID.Type = typeof(int);
+            this.reportCurrencyID.ValueInfo = "0";
             dynamicListLookUpSettings2.DataMember = "USP_getAllCurrency";
             dynamicListLookUpSettings2.DataSource = this.sqlDataSource1;
             dynamicListLookUpSettings2.DisplayMember = "cName";
             dynamicListLookUpSettings2.ValueMember = "ID";
-            this.reportCurrencyID.LookUpSettings = dynamicListLookUpSettings2;
-            this.reportCurrencyID.Name = "reportCurrencyID";
-            this.reportCurrencyID.Type = typeof(int);
-            this.reportCurrencyID.ValueInfo = "0";
+            this.reportCurrencyID.ValueSourceSettings = dynamicListLookUpSettings2;
             this.reportCurrencyID.Visible = false;
             // 
             // accountingPeriod
             // 
-            this.accountingPeriod.Description = "accountingPeriod";
-            dynamicListLookUpSettings3.DataAdapter = null;
+            this.accountingPeriod.Description = "Accounting Period";
+            this.accountingPeriod.Name = "accountingPeriod";
+            this.accountingPeriod.Type = typeof(int);
+            this.accountingPeriod.ValueInfo = "0";
             dynamicListLookUpSettings3.DataMember = "USP_getAllAccountingPeriods";
             dynamicListLookUpSettings3.DataSource = this.sqlDataSource1;
             dynamicListLookUpSettings3.DisplayMember = "cName";
             dynamicListLookUpSettings3.ValueMember = "ID";
-            this.accountingPeriod.LookUpSettings = dynamicListLookUpSettings3;
-            this.accountingPeriod.Name = "accountingPeriod";
-            this.accountingPeriod.Type = typeof(int);
-            this.accountingPeriod.ValueInfo = "0";
+            this.accountingPeriod.ValueSourceSettings = dynamicListLookUpSettings3;
             // 
             // REPORT_TransactionbyTag
             // 
@@ -794,7 +793,7 @@
             this.DataMember = "REPORT_TransactionbyTag";
             this.DataSource = this.sqlDataSource1;
             this.Landscape = true;
-            this.Margins = new DevExpress.Drawing.DXMargins(100, 100, 100, 102);
+            this.Margins = new DevExpress.Drawing.DXMargins(100F, 100F, 100F, 101.5833F);
             this.PageHeight = 850;
             this.PageWidth = 1100;
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
@@ -814,7 +813,10 @@
             this.GrandTotalData3,
             this.GrandTotalBackground3,
             this.PageInfo});
-            this.Version = "18.1";
+            this.Version = "23.2";
+            xrWatermark1.Id = "Watermark1";
+            this.Watermarks.AddRange(new DevExpress.XtraPrinting.Drawing.Watermark[] {
+            xrWatermark1});
             this.ParametersRequestBeforeShow += new System.EventHandler<DevExpress.XtraReports.Parameters.ParametersRequestEventArgs>(this.REPORT_TransactionbyTag_ParametersRequestBeforeShow);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();
