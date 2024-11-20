@@ -6029,13 +6029,14 @@ namespace coolBlue.RegisterDataSetTableAdapters {
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@accountID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@accountingPeriod", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@company", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(RegisterDataSet.USP_getLineDataTable dataTable, global::System.Nullable<int> accountID, global::System.Nullable<int> accountingPeriod) {
+        public virtual int Fill(RegisterDataSet.USP_getLineDataTable dataTable, global::System.Nullable<int> accountID, global::System.Nullable<int> accountingPeriod, int company) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((accountID.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(accountID.Value));
@@ -6049,6 +6050,7 @@ namespace coolBlue.RegisterDataSetTableAdapters {
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
+            this.Adapter.SelectCommand.Parameters[3].Value = ((int)(company));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -6060,7 +6062,7 @@ namespace coolBlue.RegisterDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual RegisterDataSet.USP_getLineDataTable GetData(global::System.Nullable<int> accountID, global::System.Nullable<int> accountingPeriod) {
+        public virtual RegisterDataSet.USP_getLineDataTable GetData(global::System.Nullable<int> accountID, global::System.Nullable<int> accountingPeriod, int company) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((accountID.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(accountID.Value));
@@ -6074,6 +6076,7 @@ namespace coolBlue.RegisterDataSetTableAdapters {
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
+            this.Adapter.SelectCommand.Parameters[3].Value = ((int)(company));
             RegisterDataSet.USP_getLineDataTable dataTable = new RegisterDataSet.USP_getLineDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -6244,13 +6247,14 @@ namespace coolBlue.RegisterDataSetTableAdapters {
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@accountID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@accountingPeriod", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@company", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(RegisterDataSet.USP_getSplitDataTable dataTable, global::System.Nullable<int> accountID, global::System.Nullable<int> accountingPeriod) {
+        public virtual int Fill(RegisterDataSet.USP_getSplitDataTable dataTable, global::System.Nullable<int> accountID, global::System.Nullable<int> accountingPeriod, int company) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((accountID.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(accountID.Value));
@@ -6264,6 +6268,7 @@ namespace coolBlue.RegisterDataSetTableAdapters {
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
+            this.Adapter.SelectCommand.Parameters[3].Value = ((int)(company));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }

@@ -6,3 +6,10 @@
     {
     }
 }
+
+namespace coolBlue.RegisterDataSetTableAdapters {
+    
+    
+    public partial class USP_getLineTableAdapter {
+    }
+}

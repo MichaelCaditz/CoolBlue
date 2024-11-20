@@ -166,7 +166,7 @@ namespace coolBlue
 
             //Cursor.Current = Cursors.Default;
             //Primary GW
-            ProgramSettings.coolblueconnectionString = String.Format("data source='{0}';initial catalog={1};password={2};persist security info=True;user id={3};packet size=4096;Connection Timeout=30", server, database, password, username);
+            ProgramSettings.coolblueconnectionString = String.Format("data source='{0}';initial catalog={1};password={2};persist security info=True;user id={3};packet size=4096;Connection Timeout=30;TrustServerCertificate=True", server, database, password, username);
             //Secondary GW
             // GWSearchConnectionString = String.Format("data source='{0}';initial catalog={1};password={2};persist security info=True;user id={3};packet size=4096;Connection Timeout=90;ApplicationIntent=ReadOnly", server2, database, password, username);
 

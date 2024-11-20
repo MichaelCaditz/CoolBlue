@@ -205,13 +205,14 @@ namespace coolBlue
             DataRowView drv = (DataRowView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentItem;
             int accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
             int accountingPeriod = 1001;  // this will be changed so value comes from settings
+            int company = 1000;  // this will be changed so value comes from settings
 
 
             registerDataSet.EnforceConstraints = false;
             registerDataSetUSP_getSplitTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-            registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent, accountingPeriod);
+            registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent, accountingPeriod,company);
             registerDataSetUSP_getLineTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-            registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent, accountingPeriod);
+            registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent, accountingPeriod,company);
             //registerDataSet.EnforceConstraints = true;
 
             getTotals();
@@ -229,13 +230,13 @@ namespace coolBlue
             DataRowView drv = (DataRowView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentItem;
             int accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
             int accountingPeriod = 1001;  // this will be changed so value comes from settings
-
+            int company = 1000;  // this will be changed so value comes from settings
 
             registerDataSet.EnforceConstraints = false;
             registerDataSetUSP_getSplitTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-            registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent, accountingPeriod);
+            registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent, accountingPeriod, company);
             registerDataSetUSP_getLineTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-            registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent, accountingPeriod);
+            registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent, accountingPeriod, company);
             //registerDataSet.EnforceConstraints = true;
 
             getTotals();
@@ -252,6 +253,7 @@ namespace coolBlue
 
             int accountCurrent = 0;
             int accountingPeriod = 0;
+            int company = 0;
             int accountingTypeCurrent = 0;
             int nCurrencyID = 0;
             int wasnull = 0;
@@ -289,6 +291,7 @@ namespace coolBlue
                 accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
                 nCurrencyID = (drv == null ? 0 : DBNull.Value.Equals(drv["nCurrencyID"]) == true ? 0 : (int)drv["nCurrencyID"]);
                 accountingPeriod = 1001;  // this will be changed so value comes from settings
+                company = 1000;  // this will be changed so value comes from settings
 
 
                 DataRowView drv1 = (DataRowView)uSP_getAllAccountTypesViewSource.View.CurrentItem;
@@ -331,6 +334,7 @@ namespace coolBlue
                     cmd3.CommandText = "dbo.USP_insertLine";
                     cmd3.Parameters.AddWithValue("@nAccount", accountCurrent);
                     cmd3.Parameters.AddWithValue("@nAccountingPeriod", accountingPeriod);
+                    cmd3.Parameters.AddWithValue("@nCompany", company);
 
 
 
@@ -359,9 +363,9 @@ namespace coolBlue
 
                 registerDataSet.EnforceConstraints = false;
                 registerDataSetUSP_getSplitTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-                registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent, accountingPeriod);
+                registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent, accountingPeriod,company);
                 registerDataSetUSP_getLineTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-                registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent, accountingPeriod);
+                registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent, accountingPeriod,company);
                 // registerDataSet.EnforceConstraints = true;
 
                 //uSP_getLineDataGrid.
@@ -537,6 +541,8 @@ namespace coolBlue
             DataRowView drv = (DataRowView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentItem;
             int accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
             int accountingPeriod = 1001;  // this will be changed so value comes from settings
+            int company = 1000;  // this will be changed so value comes from settings
+
 
             int lineCurrent = 0;
             int wasnull = 0;
@@ -783,9 +789,9 @@ namespace coolBlue
 
             registerDataSet.EnforceConstraints = false;
             registerDataSetUSP_getSplitTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-            registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent, accountingPeriod);
+            registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent, accountingPeriod,company);
             registerDataSetUSP_getLineTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-            registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent, accountingPeriod);
+            registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent, accountingPeriod, company);
             //registerDataSet.EnforceConstraints = true;
 
             getTotals();
@@ -1040,6 +1046,8 @@ namespace coolBlue
                 DataRowView drv = (DataRowView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentItem;
                 int accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
                 int accountingPeriod = 1001;  // this will be changed so value comes from settings
+                int company = 1000;  // this will be changed so value comes from settings
+
 
                 //DataRowView drv1 = (DataRowView)uSP_getAllAccountTypesViewSource.View.CurrentItem;
                 //int nAccountingTypeID = (drv1 == null ? 0 : DBNull.Value.Equals(drv1["nAccountingTypeID"]) == true ? 0 : (int)drv1["nAccountingTypeID"]);
@@ -1047,9 +1055,9 @@ namespace coolBlue
 
                 registerDataSet.EnforceConstraints = false;
                 registerDataSetUSP_getSplitTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-                registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent, accountingPeriod);
+                registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent, accountingPeriod,company);
                 registerDataSetUSP_getLineTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-                registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent, accountingPeriod);
+                registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent, accountingPeriod, company);
                 //registerDataSet.EnforceConstraints = true;
 
                 getTotals();
@@ -1643,6 +1651,7 @@ namespace coolBlue
             int accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
             int nCurrencyID = (drv == null ? 0 : DBNull.Value.Equals(drv["nCurrencyID"]) == true ? 0 : (int)drv["nCurrencyID"]);
             int accountingPeriod = 1001;  // this will be changed so value comes from settings
+            int company = 1000;  // this will be changed so value comes from settings
 
 
             DataRowView drv1 = (DataRowView)uSP_getAllAccountTypesViewSource.View.CurrentItem;
@@ -1734,6 +1743,7 @@ namespace coolBlue
                 DataRowView drv = (DataRowView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentItem;
                 int accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
                 int accountingPeriod = 1001;  // this will be changed so value comes from settings
+                int company = 1000;  // this will be changed so value comes from settings
 
                 //int lineCurrent = 0;
                 int wasnull = 0;
@@ -1851,9 +1861,9 @@ namespace coolBlue
 
                     registerDataSet.EnforceConstraints = false;
                     registerDataSetUSP_getSplitTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-                    registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent, accountingPeriod);
+                    registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent, accountingPeriod,company);
                     registerDataSetUSP_getLineTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-                    registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent, accountingPeriod);
+                    registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent, accountingPeriod, company);
                     //registerDataSet.EnforceConstraints = true;
 
                     getTotals();
@@ -2042,12 +2052,13 @@ namespace coolBlue
                 DataRowView drv2 = (DataRowView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentItem;
                 int accountCurrent = (drv2 == null ? 0 : DBNull.Value.Equals(drv2["ID"]) == true ? 0 : (int)drv2["ID"]);
                 int accountingPeriod = 1001;  // this will be changed so value comes from settings
+                int company = 1000;  // this will be changed so value comes from settings
 
                 registerDataSet.EnforceConstraints = false;
                 registerDataSetUSP_getSplitTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-                registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent, accountingPeriod);
+                registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent, accountingPeriod,company);
                 registerDataSetUSP_getLineTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-                registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent, accountingPeriod);
+                registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent, accountingPeriod,company);
                 //registerDataSet.EnforceConstraints = true;
 
                 getTotals();
@@ -2137,6 +2148,7 @@ namespace coolBlue
 
             int accountCurrent = 0;
             int accountingPeriod = 0;
+            int company = 0;
             int accountingTypeCurrent = 0;
             int nCurrencyID = 0;
             
@@ -2145,9 +2157,10 @@ namespace coolBlue
                 accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
                 nCurrencyID = (drv == null ? 0 : DBNull.Value.Equals(drv["nCurrencyID"]) == true ? 0 : (int)drv["nCurrencyID"]);
                 accountingPeriod = 1001;  // this will be changed so value comes from settings
+                company = 1000;  // this will be changed so value comes from settings
 
 
-                DataRowView drv1 = (DataRowView)uSP_getAllAccountTypesViewSource.View.CurrentItem;
+            DataRowView drv1 = (DataRowView)uSP_getAllAccountTypesViewSource.View.CurrentItem;
                 accountingTypeCurrent = (drv1 == null ? 0 : DBNull.Value.Equals(drv1["nAccountingTypeID"]) == true ? 0 : (int)drv1["nAccountingTypeID"]);
 
 
