@@ -124,12 +124,13 @@ namespace coolBlue.reports
             queryParameter6.Name = "@accountingPeriod";
             queryParameter6.Type = typeof(DevExpress.DataAccess.Expression);
             queryParameter6.Value = new DevExpress.DataAccess.Expression("[Parameters.accountingPeriod]", typeof(int));
-            storedProcQuery1.Parameters.Add(queryParameter1);
-            storedProcQuery1.Parameters.Add(queryParameter2);
-            storedProcQuery1.Parameters.Add(queryParameter3);
-            storedProcQuery1.Parameters.Add(queryParameter4);
-            storedProcQuery1.Parameters.Add(queryParameter5);
-            storedProcQuery1.Parameters.Add(queryParameter6);
+            storedProcQuery1.Parameters.AddRange(new DevExpress.DataAccess.Sql.QueryParameter[] {
+            queryParameter1,
+            queryParameter2,
+            queryParameter3,
+            queryParameter4,
+            queryParameter5,
+            queryParameter6});
             storedProcQuery1.StoredProcName = "REPORT_Register";
             storedProcQuery2.Name = "USP_getAllAccountsforAccounts";
             storedProcQuery2.StoredProcName = "USP_getAllAccountsforAccounts";
@@ -631,15 +632,14 @@ namespace coolBlue.reports
             // accountID
             // 
             this.accountID.Description = "Account";
-            dynamicListLookUpSettings1.DataAdapter = null;
+            this.accountID.Name = "accountID";
+            this.accountID.Type = typeof(int);
+            this.accountID.ValueInfo = "0";
             dynamicListLookUpSettings1.DataMember = "USP_getAllAccountsforAccounts";
             dynamicListLookUpSettings1.DataSource = this.sqlDataSource1;
             dynamicListLookUpSettings1.DisplayMember = "cName";
             dynamicListLookUpSettings1.ValueMember = "ID";
-            this.accountID.LookUpSettings = dynamicListLookUpSettings1;
-            this.accountID.Name = "accountID";
-            this.accountID.Type = typeof(int);
-            this.accountID.ValueInfo = "0";
+            this.accountID.ValueSourceSettings = dynamicListLookUpSettings1;
             // 
             // startDate
             // 
@@ -674,15 +674,14 @@ namespace coolBlue.reports
             // accountingPeriod
             // 
             this.accountingPeriod.Description = "Accounting Period";
-            dynamicListLookUpSettings2.DataAdapter = null;
+            this.accountingPeriod.Name = "accountingPeriod";
+            this.accountingPeriod.Type = typeof(int);
+            this.accountingPeriod.ValueInfo = "0";
             dynamicListLookUpSettings2.DataMember = "USP_getAllAccountingPeriods";
             dynamicListLookUpSettings2.DataSource = this.sqlDataSource1;
             dynamicListLookUpSettings2.DisplayMember = "cName";
             dynamicListLookUpSettings2.ValueMember = "ID";
-            this.accountingPeriod.LookUpSettings = dynamicListLookUpSettings2;
-            this.accountingPeriod.Name = "accountingPeriod";
-            this.accountingPeriod.Type = typeof(int);
-            this.accountingPeriod.ValueInfo = "0";
+            this.accountingPeriod.ValueSourceSettings = dynamicListLookUpSettings2;
             // 
             // Balance
             // 
@@ -706,7 +705,7 @@ namespace coolBlue.reports
             this.DataMember = "REPORT_Register";
             this.DataSource = this.sqlDataSource1;
             this.Landscape = true;
-            this.Margins = new DevExpress.Drawing.DXMargins(100, 100, 100, 102);
+            this.Margins = new DevExpress.Drawing.DXMargins(100F, 100F, 100F, 101.5833F);
             this.PageHeight = 850;
             this.PageWidth = 1100;
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
@@ -726,7 +725,7 @@ namespace coolBlue.reports
             this.GrandTotalData3,
             this.GrandTotalBackground3,
             this.PageInfo});
-            this.Version = "18.1";
+            this.Version = "24.1";
             this.ParametersRequestBeforeShow += new System.EventHandler<DevExpress.XtraReports.Parameters.ParametersRequestEventArgs>(this.REPORT_Register_ParametersRequestBeforeShow);
             this.BeforePrint += new DevExpress.XtraReports.UI.BeforePrintEventHandler(this.REPORT_Register_BeforePrint);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();

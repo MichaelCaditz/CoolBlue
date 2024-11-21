@@ -217,6 +217,14 @@
     <Compile Include="reportViewer.xaml.cs">
       <DependentUpon>reportViewer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="settings.xaml.cs">
+      <DependentUpon>settings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SettingsDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SettingsDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="tagDataSet.cs">
       <DependentUpon>tagDataSet.xsd</DependentUpon>
     </Compile>
@@ -305,6 +313,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="reportViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="settings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -436,6 +448,17 @@
     </None>
     <None Include="RegisterDataSet.xss">
       <DependentUpon>RegisterDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SettingsDataSet.xsc">
+      <DependentUpon>SettingsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SettingsDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SettingsDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="SettingsDataSet.xss">
+      <DependentUpon>SettingsDataSet.xsd</DependentUpon>
     </None>
     <None Include="tagDataSet.xsc">
       <DependentUpon>tagDataSet.xsd</DependentUpon>

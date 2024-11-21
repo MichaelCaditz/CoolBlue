@@ -69,5 +69,29 @@ namespace coolBlue.Properties {
                 return ((string)(this["coolblueConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1000")]
+        public int nCompanyID {
+            get {
+                return ((int)(this["nCompanyID"]));
+            }
+            set {
+                this["nCompanyID"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1001")]
+        public int nAccountingPeriodID {
+            get {
+                return ((int)(this["nAccountingPeriodID"]));
+            }
+            set {
+                this["nAccountingPeriodID"] = value;
+            }
+        }
     }
 }

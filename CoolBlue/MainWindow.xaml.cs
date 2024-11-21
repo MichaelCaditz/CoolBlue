@@ -79,11 +79,15 @@ namespace coolBlue
             string username = Settings.Default.username;
             string password = Settings.Default.password;
 
+            int nCompanyID = Settings.Default.nCompanyID;
+           
+
+
             ProgramSettings.coolblueconnectionString = String.Format("data source={0};initial catalog={1};password={2};persist security info=True;user id={3};packet size=4096;Connection Timeout=15", server, database, password, username);
             ProgramSettings.worksConnectionString = String.Format("data source='{0}';initial catalog={1};password={2};persist security info=True;user id={3};packet size=4096;Connection Timeout=30", server, database1, password, username);
 
 
-            this.Title = "coolblue       " + server + ": " + username;
+            this.Title = "coolblue       " + server + ": " + username + "   Company: "+Settings.Default.nCompanyID.ToString();
 
             coolBlue.AccountsDataSet accountsDataSet = ((coolBlue.AccountsDataSet)(this.FindResource("accountsDataSet")));
 
@@ -101,7 +105,7 @@ namespace coolBlue
 
 
             accountsDataSetUSP_getAllAccountsTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-            accountsDataSetUSP_getAllAccountsTableAdapter.Fill(accountsDataSet.USP_getAllAccounts);
+            accountsDataSetUSP_getAllAccountsTableAdapter.Fill(accountsDataSet.USP_getAllAccounts, nCompanyID);
 
             accountsDataSet.EnforceConstraints = true;
 
@@ -146,7 +150,7 @@ namespace coolBlue
             registerDataSetUSP_getSubCatsTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
             registerDataSetUSP_getSubCatsTableAdapter.Fill(registerDataSet.USP_getSubCats);
             registerDataSetUSP_getAllAccountsForSplitTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-            registerDataSetUSP_getAllAccountsForSplitTableAdapter.Fill(registerDataSet.USP_getAllAccountsForSplit);
+            registerDataSetUSP_getAllAccountsForSplitTableAdapter.Fill(registerDataSet.USP_getAllAccountsForSplit, nCompanyID);
             registerDataSetUSP_getAllVendorsTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
             registerDataSetUSP_getAllVendorsTableAdapter.Fill(registerDataSet.USP_getAllVendors);
             registerDataSetUSP_getAllTagsTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
@@ -169,6 +173,16 @@ namespace coolBlue
 
             //uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentChanged += new System.EventHandler (_uSP_getAllAccountTypesUSP_getAllAccountsViewSource_CurentChanged);
 
+            coolBlue.SettingsDataSet settingsDataSet = ((coolBlue.SettingsDataSet)(this.FindResource("settingsDataSet")));
+            
+            coolBlue.SettingsDataSetTableAdapters.USP_getAllCompanyTableAdapter settingsDataSetUSP_getAllCompanyTableAdapter = new coolBlue.SettingsDataSetTableAdapters.USP_getAllCompanyTableAdapter();
+            System.Windows.Data.CollectionViewSource uSP_getAllCompanyViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllCompanyViewSource")));
+
+            settingsDataSetUSP_getAllCompanyTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
+            settingsDataSetUSP_getAllCompanyTableAdapter.Fill(settingsDataSet.USP_getAllCompany);
+
+            
+
 
 
 
@@ -182,7 +196,7 @@ namespace coolBlue
             uSP_getAllAccountsForSplitViewSource.View.MoveCurrentToFirst();
             uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.MoveCurrentToFirst();
             uSP_getAllCurrencyConversionViewSource.View.MoveCurrentToFirst();
-
+            uSP_getAllCompanyViewSource.View.MoveCurrentToFirst();
 
 
 
@@ -194,6 +208,9 @@ namespace coolBlue
             //int rowHandle = dt.Rows.IndexOf(foundRow);
             //uSP_getLineDataGrid.View.FocusedRowHandle = rowHandle;
             //uSP_getLineDataGrid.View.MoveLastRow();
+
+            barEditCompany.EditValue = Settings.Default.nCompanyID;
+
         }
 
         public bool _uSP_getAllAccountTypesUSP_getAllAccountsViewSource_CurentChanged()
@@ -204,8 +221,8 @@ namespace coolBlue
             coolBlue.RegisterDataSet registerDataSet = ((coolBlue.RegisterDataSet)(this.FindResource("registerDataSet")));
             DataRowView drv = (DataRowView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentItem;
             int accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
-            int accountingPeriod = 1001;  // this will be changed so value comes from settings
-            int company = 1000;  // this will be changed so value comes from settings
+            int accountingPeriod = Settings.Default.nAccountingPeriodID; 
+            int company = Settings.Default.nCompanyID;  
 
 
             registerDataSet.EnforceConstraints = false;
@@ -229,8 +246,8 @@ namespace coolBlue
             coolBlue.RegisterDataSet registerDataSet = ((coolBlue.RegisterDataSet)(this.FindResource("registerDataSet")));
             DataRowView drv = (DataRowView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentItem;
             int accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
-            int accountingPeriod = 1001;  // this will be changed so value comes from settings
-            int company = 1000;  // this will be changed so value comes from settings
+            int accountingPeriod = Settings.Default.nAccountingPeriodID;  // this will be changed so value comes from settings
+            int company = Settings.Default.nCompanyID;  // this will be changed so value comes from settings
 
             registerDataSet.EnforceConstraints = false;
             registerDataSetUSP_getSplitTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
@@ -540,8 +557,8 @@ namespace coolBlue
 
             DataRowView drv = (DataRowView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentItem;
             int accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
-            int accountingPeriod = 1001;  // this will be changed so value comes from settings
-            int company = 1000;  // this will be changed so value comes from settings
+            int accountingPeriod = Settings.Default.nAccountingPeriodID;  // this will be changed so value comes from settings
+            int company = Settings.Default.nCompanyID;  // this will be changed so value comes from settings
 
 
             int lineCurrent = 0;
@@ -861,7 +878,33 @@ namespace coolBlue
             //Mouse.OverrideCursor = null;
         }
 
+        private void barBtnSettings_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+            bool bWasCompanyChanged = false;
+            settings windowSettings = new settings();
+            windowSettings.Title = "coolblue Settings";
 
+            windowSettings.ShowDialog();
+            bWasCompanyChanged = windowSettings.bWasCompanyChanged;
+
+            //string server = Settings.Default.server;
+            //string database = "coolblue";
+            //string database1 = "works";
+            //string username = Settings.Default.username;
+            //string password = Settings.Default.password;
+
+            if (bWasCompanyChanged == true)
+            {
+                barEditCompany.EditValue = 0;
+               // barEditCompany_EditValueChanged();
+                //openingroutine();
+                //fillLinesAndSplits();
+
+            }
+
+
+
+        }
 
 
 
@@ -1031,6 +1074,13 @@ namespace coolBlue
 
         private void GridControl_CurrentItemChanged(object sender, CurrentItemChangedEventArgs e)
         {
+            fillLinesAndSplits(); 
+            
+        }
+
+        private void fillLinesAndSplits()
+        {
+
             System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesUSP_getAllAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesUSP_getAllAccountsViewSource")));
             //System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesViewSource")));
 
@@ -1039,14 +1089,14 @@ namespace coolBlue
             // uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.MoveCurrentToFirst();
 
             //if (uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View ! = null)
-                if (uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View != null)
-                {
+            if (uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View != null)
+            {
 
 
                 DataRowView drv = (DataRowView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentItem;
                 int accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
-                int accountingPeriod = 1001;  // this will be changed so value comes from settings
-                int company = 1000;  // this will be changed so value comes from settings
+                int accountingPeriod = Settings.Default.nAccountingPeriodID;  // this will be changed so value comes from settings
+                int company = Settings.Default.nCompanyID;  // this will be changed so value comes from settings
 
 
                 //DataRowView drv1 = (DataRowView)uSP_getAllAccountTypesViewSource.View.CurrentItem;
@@ -1055,12 +1105,14 @@ namespace coolBlue
 
                 registerDataSet.EnforceConstraints = false;
                 registerDataSetUSP_getSplitTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-                registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent, accountingPeriod,company);
+                registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent, accountingPeriod, company);
                 registerDataSetUSP_getLineTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
                 registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent, accountingPeriod, company);
                 //registerDataSet.EnforceConstraints = true;
 
                 getTotals();
+
+
             }
         }
 
@@ -1151,7 +1203,7 @@ namespace coolBlue
             DataRowView drv = (DataRowView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentItem;
             int accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
 
-
+            int nCompanyID = Settings.Default.nCompanyID;
 
 
 
@@ -1175,7 +1227,7 @@ namespace coolBlue
                 accountsDataSet.EnforceConstraints = false;
 
                 accountsDataSetUSP_getAllAccountsTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-                accountsDataSetUSP_getAllAccountsTableAdapter.Fill(accountsDataSet.USP_getAllAccounts);
+                accountsDataSetUSP_getAllAccountsTableAdapter.Fill(accountsDataSet.USP_getAllAccounts, nCompanyID);
                 accountsDataSet.EnforceConstraints = true;
 
                 uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.MoveCurrentToPosition(rowIndex);
@@ -1557,7 +1609,7 @@ namespace coolBlue
             Accounts Accounts1 = new Accounts();
             Accounts1.ShowDialog();
 
-
+            int nCompanyID = Settings.Default.nCompanyID;
 
 
             coolBlue.AccountsDataSet accountsDataSet = ((coolBlue.AccountsDataSet)(this.FindResource("accountsDataSet")));
@@ -1585,12 +1637,12 @@ namespace coolBlue
             accountsDataSet.EnforceConstraints = false;
             // accountsDataSetUSP_getAllAccountTypesTableAdapter.Fill(accountsDataSet.USP_getAllAccountTypes);
             accountsDataSetUSP_getAllAccountsTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-            accountsDataSetUSP_getAllAccountsTableAdapter.Fill(accountsDataSet.USP_getAllAccounts);
+            accountsDataSetUSP_getAllAccountsTableAdapter.Fill(accountsDataSet.USP_getAllAccounts,nCompanyID);
             accountsDataSet.EnforceConstraints = true;
 
             //registerDataSet.EnforceConstraints = false;
             registerDataSetUSP_getAllAccountsForSplitTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-            registerDataSetUSP_getAllAccountsForSplitTableAdapter.Fill(registerDataSet.USP_getAllAccountsForSplit);
+            registerDataSetUSP_getAllAccountsForSplitTableAdapter.Fill(registerDataSet.USP_getAllAccountsForSplit, nCompanyID);
             //registerDataSet.EnforceConstraints = true; //throws error
 
 
@@ -1650,8 +1702,8 @@ namespace coolBlue
             DataRowView drv = (DataRowView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentItem;
             int accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
             int nCurrencyID = (drv == null ? 0 : DBNull.Value.Equals(drv["nCurrencyID"]) == true ? 0 : (int)drv["nCurrencyID"]);
-            int accountingPeriod = 1001;  // this will be changed so value comes from settings
-            int company = 1000;  // this will be changed so value comes from settings
+            int accountingPeriod = Settings.Default.nAccountingPeriodID;  // this will be changed so value comes from settings
+            int company = Settings.Default.nCompanyID;  // this will be changed so value comes from settings
 
 
             DataRowView drv1 = (DataRowView)uSP_getAllAccountTypesViewSource.View.CurrentItem;
@@ -1742,8 +1794,8 @@ namespace coolBlue
 
                 DataRowView drv = (DataRowView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentItem;
                 int accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
-                int accountingPeriod = 1001;  // this will be changed so value comes from settings
-                int company = 1000;  // this will be changed so value comes from settings
+                int accountingPeriod = Settings.Default.nAccountingPeriodID;  // this will be changed so value comes from settings
+                int company = Settings.Default.nCompanyID;  // this will be changed so value comes from settings
 
                 //int lineCurrent = 0;
                 int wasnull = 0;
@@ -2051,8 +2103,8 @@ namespace coolBlue
 
                 DataRowView drv2 = (DataRowView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentItem;
                 int accountCurrent = (drv2 == null ? 0 : DBNull.Value.Equals(drv2["ID"]) == true ? 0 : (int)drv2["ID"]);
-                int accountingPeriod = 1001;  // this will be changed so value comes from settings
-                int company = 1000;  // this will be changed so value comes from settings
+                int accountingPeriod = Settings.Default.nAccountingPeriodID;  // this will be changed so value comes from settings
+                int company = Settings.Default.nCompanyID;  // this will be changed so value comes from settings
 
                 registerDataSet.EnforceConstraints = false;
                 registerDataSetUSP_getSplitTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
@@ -2296,6 +2348,7 @@ namespace coolBlue
 
             
             openingroutine();
+            fillLinesAndSplits();
 
             this.Title = "coolblue       " + server + ": " + username;
         }
@@ -2437,5 +2490,27 @@ namespace coolBlue
                // uSP_getSplitDataGrid.SetFocusedRowCellValue("nVendorsID", vendorCurrent);
             }
         }
+
+        private void barEditCompany_EditValueChanged(object sender, RoutedEventArgs e)
+        {
+
+
+            int nCompanyCheck= (barEditCompany.EditValue == null ? 0 :  (int)barEditCompany.EditValue);
+
+
+            bool bWasCompanyChanged = false;
+           if (nCompanyCheck != Settings.Default.nCompanyID  )
+            {  
+                bWasCompanyChanged = true; 
+            }
+            if (bWasCompanyChanged == true)
+            {
+                Settings.Default.nCompanyID = nCompanyCheck;
+                openingroutine();
+                fillLinesAndSplits();
+
+            }
+        }
     }
 }
+       

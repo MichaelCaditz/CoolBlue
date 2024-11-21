@@ -25,6 +25,9 @@ using System.IO;
 using System.Diagnostics;
 using coolBlue.classes;
 using DevExpress.Xpf.Core;
+using coolBlue.Properties;
+
+
 
 
 //using DevExpress.XtraPrinting;
@@ -58,6 +61,7 @@ namespace coolBlue.reports
         {
             string cName = "";
             int nAccountID = 0;
+            int nCompanyID = Settings.Default.nCompanyID;
             DevExpress.XtraReports.Parameters.Parameter param =
                 (DevExpress.XtraReports.Parameters.Parameter)((DevExpress.XtraReports.UI.XtraReport)sender).
                     Parameters["accountID"];
@@ -72,7 +76,7 @@ namespace coolBlue.reports
             coolBlue.AccountsDataSet.USP_getAllAccountsDataTable dt = new  coolBlue.AccountsDataSet.USP_getAllAccountsDataTable();
            coolBlue.AccountsDataSetTableAdapters.USP_getAllAccountsTableAdapter accountsDataSetUSP_getAllAccountsTableAdapter = new coolBlue.AccountsDataSetTableAdapters.USP_getAllAccountsTableAdapter();
            accountsDataSetUSP_getAllAccountsTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-            accountsDataSetUSP_getAllAccountsTableAdapter.Fill(dt);
+            accountsDataSetUSP_getAllAccountsTableAdapter.Fill(dt, nCompanyID   );
 
 
 

@@ -19,5 +19,11 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=main3;Initial Catalog=coolblue;Integrated Security=True;TrustServerCertificate=True;Encrypt=False</Value>
     </Setting>
+    <Setting Name="nCompanyID" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1000</Value>
+    </Setting>
+    <Setting Name="nAccountingPeriodID" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1001</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

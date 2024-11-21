@@ -16,6 +16,8 @@
     xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui" 
     xmlns:dxp="http://schemas.devexpress.com/winfx/2008/xaml/printing" 
     xmlns:AccountsDataSetTableAdapters="clr-namespace:coolBlue.AccountsDataSetTableAdapters" 
+    xmlns:SettingsDataSetTableAdapters="clr-namespace:coolBlue.SettingsDataSetTableAdapters"
+
     xmlns:local="clr-namespace:coolBlue" ShowBackButton="True" ShowStatusPanel="True" Unloaded="ThemedWindow_Unloaded">
     <Window.Resources>
 
@@ -54,6 +56,10 @@
         <CollectionViewSource x:Key="uSP_getSplitViewSource" Source="{Binding USP_getSplit, Source={StaticResource accountsDataSet}}" />
         <CollectionViewSource x:Key="uSP_getAllAccountsViewSource" Source="{Binding USP_getAllAccounts, Source={StaticResource accountsDataSet}}" />
         <CollectionViewSource x:Key="uSP_getAllAccountTypesViewSource" Source="{Binding USP_getAllAccountTypes, Source={StaticResource accountsDataSet}}" />
+
+        <local:SettingsDataSet x:Key="settingsDataSet"/>
+        <CollectionViewSource x:Key="uSP_getAllCompanyViewSource" Source="{Binding USP_getAllCompany, Source={StaticResource settingsDataSet}}"/>
+        
         <dx:TypedSimpleSource x:Key="TypedSimpleSource" AdapterType="{x:Type AccountsDataSetTableAdapters:USP_getAllAccountTypesTableAdapter}" ContextType="{x:Type local:AccountsDataSet}" Path="USP_getAllAccountTypes">
             <dx:DesignDataManager.DesignData>
                 <dx:DesignDataSettings RowCount="5" />
@@ -166,9 +172,15 @@
                         <dxr:RibbonPageGroup Caption="Program">
                             <dxb:BarButtonItem Content="Exit" ItemClick="Exit_ItemClick" Glyph="{dx:DXImageOffice2013 Image=Close_16x16.png}" LargeGlyph="{dx:DXImageOffice2013 Image=Close_32x32.png}" />
 
-                            <dxb:BarButtonItem Content="Settings" ItemClick="BarButtonItem_ItemClick" Glyph="{dx:DXImage Image=Properties_16x16.png}" LargeGlyph="{dx:DXImage Image=Properties_32x32.png}" />
-                            <dxb:BarButtonItem Name="barBtnDatabase" Content="Database" Glyph="{dx:DXImage Image=ManageDatasource_16x16.png}" LargeGlyph="{dx:DXImage Image=ManageDatasource_32x32.png}" ItemClick="barBtnDatabase_ItemClick" />
+                            <dxb:BarButtonItem Content="Settings" ItemClick="barBtnSettings_ItemClick" Glyph="{dx:DXImage Image=Properties_16x16.png}" LargeGlyph="{dx:DXImage Image=Properties_32x32.png}" />
+                            <dxb:BarButtonItem Name="barBtnDatabase" Content="Connection" Glyph="{dx:DXImage Image=ManageDatasource_16x16.png}" LargeGlyph="{dx:DXImage Image=ManageDatasource_32x32.png}" ItemClick="barBtnDatabase_ItemClick" />
+                            <dxb:BarEditItem Name="barEditCompany" Content="" EditValueChanged="barEditCompany_EditValueChanged" >
+                                <dxb:BarEditItem.EditSettings>
+                                    <dxe:ComboBoxEditSettings IsSynchronizedWithCurrentItem="True"  ItemsSource="{Binding Source={StaticResource uSP_getAllCompanyViewSource}}"
+                          DisplayMember="cName" ValueMember="ID" IsTextEditable="False"  />
+                                </dxb:BarEditItem.EditSettings>
 
+                            </dxb:BarEditItem>
                         </dxr:RibbonPageGroup>
                         <dxr:RibbonPageGroup Caption="">
                         </dxr:RibbonPageGroup>
