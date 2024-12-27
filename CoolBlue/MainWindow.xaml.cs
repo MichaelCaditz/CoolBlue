@@ -127,8 +127,8 @@ namespace coolBlue
 
             //coolBlue.RegisterDataSetTableAdapters.USP_getSplitTableAdapter registerDataSetUSP_getSplitTableAdapter = new coolBlue.RegisterDataSetTableAdapters.USP_getSplitTableAdapter();
             System.Windows.Data.CollectionViewSource uSP_getSplitViewSource1 = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getSplitViewSource1")));
-            coolBlue.RegisterDataSetTableAdapters.USP_getSubCatsTableAdapter registerDataSetUSP_getSubCatsTableAdapter = new coolBlue.RegisterDataSetTableAdapters.USP_getSubCatsTableAdapter();
-            System.Windows.Data.CollectionViewSource uSP_getSubCatsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getSubCatsViewSource")));
+            //coolBlue.RegisterDataSetTableAdapters.USP_getSubCatsTableAdapter registerDataSetUSP_getSubCatsTableAdapter = new coolBlue.RegisterDataSetTableAdapters.USP_getSubCatsTableAdapter();
+            //System.Windows.Data.CollectionViewSource uSP_getSubCatsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getSubCatsViewSource")));
             coolBlue.RegisterDataSetTableAdapters.USP_getAllAccountsForSplitTableAdapter registerDataSetUSP_getAllAccountsForSplitTableAdapter = new coolBlue.RegisterDataSetTableAdapters.USP_getAllAccountsForSplitTableAdapter();
             System.Windows.Data.CollectionViewSource uSP_getAllAccountsForSplitViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountsForSplitViewSource")));
 
@@ -147,8 +147,8 @@ namespace coolBlue
             //I cannot make this work yet
             //System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesUSP_getAllAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesUSP_getAllAccountsViewSource")));
 
-            registerDataSetUSP_getSubCatsTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-            registerDataSetUSP_getSubCatsTableAdapter.Fill(registerDataSet.USP_getSubCats);
+            //registerDataSetUSP_getSubCatsTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
+            //registerDataSetUSP_getSubCatsTableAdapter.Fill(registerDataSet.USP_getSubCats);
             registerDataSetUSP_getAllAccountsForSplitTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
             registerDataSetUSP_getAllAccountsForSplitTableAdapter.Fill(registerDataSet.USP_getAllAccountsForSplit, nCompanyID);
             registerDataSetUSP_getAllVendorsTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
@@ -188,7 +188,7 @@ namespace coolBlue
 
             uSP_getLineViewSource1.View.MoveCurrentToFirst();
             uSP_getSplitViewSource1.View.MoveCurrentToFirst();
-            uSP_getSubCatsViewSource.View.MoveCurrentToFirst();
+            //uSP_getSubCatsViewSource.View.MoveCurrentToFirst();
             uSP_getAllVendorsViewSource.View.MoveCurrentToFirst();
             uSP_getAllTagsViewSource.View.MoveCurrentToFirst();
             uSP_getAllClassViewSource.View.MoveCurrentToFirst();
@@ -307,8 +307,8 @@ namespace coolBlue
                 DataRowView drv = (DataRowView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentItem;
                 accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
                 nCurrencyID = (drv == null ? 0 : DBNull.Value.Equals(drv["nCurrencyID"]) == true ? 0 : (int)drv["nCurrencyID"]);
-                accountingPeriod = 1001;  // this will be changed so value comes from settings
-                company = 1000;  // this will be changed so value comes from settings
+                accountingPeriod = Settings.Default.nAccountingPeriodID;
+                company = Settings.Default.nCompanyID;  
 
 
                 DataRowView drv1 = (DataRowView)uSP_getAllAccountTypesViewSource.View.CurrentItem;
@@ -696,7 +696,6 @@ namespace coolBlue
                     decimal nAmnt = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nAmount"]) == true ? 0 : (decimal)drv3["nAmount"]);
                     // MessageBox.Show(nAmnt.ToString());
 
-                    int nSubCatID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nSubCatID"]) == true ? 0 : (int)drv3["nSubCatID"]);
                     int nXferAccountID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nXferAccountID"]) == true ? 0 : (int)drv3["nXferAccountID"]);
                     Boolean bXfer = (drv3 == null ? false : DBNull.Value.Equals(drv3["bXfer"]) == true ? false : (bool)drv3["bXfer"]);
 
@@ -731,7 +730,6 @@ namespace coolBlue
                             cmd3.Parameters.Clear();
                             cmd3.CommandText = "dbo.USP_insertSplit";
                             cmd3.Parameters.AddWithValue("@lineID", lineCurrent);
-                            cmd3.Parameters.AddWithValue("@subCatID", nSubCatID);
                             cmd3.Parameters.AddWithValue("@xferAccountID", nXferAccountID);
                             cmd3.Parameters.AddWithValue("@bXfer", bXfer);
                             cmd3.Parameters.AddWithValue("@amount", nAmnt);
@@ -1521,6 +1519,8 @@ namespace coolBlue
             {
                 e.Cancel = true;
             }
+
+            Settings.Default.Save();
         }
 
         private void NewTrans_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
@@ -1574,12 +1574,12 @@ namespace coolBlue
             categories categories1 = new categories();
             categories1.ShowDialog();
 
-            coolBlue.RegisterDataSet registerDataSet = ((coolBlue.RegisterDataSet)(this.FindResource("registerDataSet")));
+            //coolBlue.RegisterDataSet registerDataSet = ((coolBlue.RegisterDataSet)(this.FindResource("registerDataSet")));
 
-            coolBlue.RegisterDataSetTableAdapters.USP_getSubCatsTableAdapter registerDataSetUSP_getSubCatsTableAdapter = new coolBlue.RegisterDataSetTableAdapters.USP_getSubCatsTableAdapter();
-            System.Windows.Data.CollectionViewSource uSP_getSubCatsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getSubCatsViewSource")));
-            registerDataSetUSP_getSubCatsTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-            registerDataSetUSP_getSubCatsTableAdapter.Fill(registerDataSet.USP_getSubCats);
+            //coolBlue.RegisterDataSetTableAdapters.USP_getSubCatsTableAdapter registerDataSetUSP_getSubCatsTableAdapter = new coolBlue.RegisterDataSetTableAdapters.USP_getSubCatsTableAdapter();
+            //System.Windows.Data.CollectionViewSource uSP_getSubCatsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getSubCatsViewSource")));
+            //registerDataSetUSP_getSubCatsTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
+            //registerDataSetUSP_getSubCatsTableAdapter.Fill(registerDataSet.USP_getSubCats);
         }
 
         private void BarButtonItemVendor_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
@@ -2506,6 +2506,7 @@ namespace coolBlue
             if (bWasCompanyChanged == true)
             {
                 Settings.Default.nCompanyID = nCompanyCheck;
+               
                 openingroutine();
                 fillLinesAndSplits();
 

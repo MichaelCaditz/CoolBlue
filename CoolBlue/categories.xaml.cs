@@ -44,17 +44,17 @@ namespace coolBlue
 
             coolBlue.CategoriesDataSet categoriesDataSet = ((coolBlue.CategoriesDataSet)(this.FindResource("categoriesDataSet")));
             coolBlue.CategoriesDataSetTableAdapters.USP_getAllCatsTableAdapter categoriesDataSetUSP_getAllCatsTableAdapter = new coolBlue.CategoriesDataSetTableAdapters.USP_getAllCatsTableAdapter();
-            coolBlue.CategoriesDataSetTableAdapters.USP_getAllSubCatsTableAdapter categoriesDataSetUSP_getAllSubCatsTableAdapter = new coolBlue.CategoriesDataSetTableAdapters.USP_getAllSubCatsTableAdapter();
+            //coolBlue.CategoriesDataSetTableAdapters.USP_getAllSubCatsTableAdapter categoriesDataSetUSP_getAllSubCatsTableAdapter = new coolBlue.CategoriesDataSetTableAdapters.USP_getAllSubCatsTableAdapter();
 
             categoriesDataSetUSP_getAllCatsTableAdapter.Fill(categoriesDataSet.USP_getAllCats);
-            categoriesDataSetUSP_getAllSubCatsTableAdapter.Fill(categoriesDataSet.USP_getAllSubCats);
-            
+            //categoriesDataSetUSP_getAllSubCatsTableAdapter.Fill(categoriesDataSet.USP_getAllSubCats);
+
             System.Windows.Data.CollectionViewSource uSP_getAllCatsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllCatsViewSource")));
-            System.Windows.Data.CollectionViewSource uSP_getAllCatsUSP_getAllSubCatsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllCatsUSP_getAllSubCatsViewSource")));
+            //System.Windows.Data.CollectionViewSource uSP_getAllCatsUSP_getAllSubCatsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllCatsUSP_getAllSubCatsViewSource")));
             
 
             uSP_getAllCatsViewSource.View.MoveCurrentToFirst();
-            uSP_getAllCatsUSP_getAllSubCatsViewSource.View.MoveCurrentToFirst();
+            //uSP_getAllCatsUSP_getAllSubCatsViewSource.View.MoveCurrentToFirst();
         }
 
         private void BarButtonItem_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
@@ -157,6 +157,14 @@ namespace coolBlue
                 editCat editCat1 = new editCat(catCurrent);
                 editCat1.ShowDialog();
             }
+
+            coolBlue.CategoriesDataSet categoriesDataSet = ((coolBlue.CategoriesDataSet)(this.FindResource("categoriesDataSet")));
+            coolBlue.CategoriesDataSetTableAdapters.USP_getAllCatsTableAdapter categoriesDataSetUSP_getAllCatsTableAdapter = new coolBlue.CategoriesDataSetTableAdapters.USP_getAllCatsTableAdapter();
+
+            categoriesDataSetUSP_getAllCatsTableAdapter.Fill(categoriesDataSet.USP_getAllCats);
+           
+
+            uSP_getAllCatsViewSource.View.MoveCurrentToFirst();
         }
 
         private void BarButtonItem_ItemClick_1(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
@@ -196,10 +204,10 @@ namespace coolBlue
             editSubCat1.ShowDialog();
 
             coolBlue.CategoriesDataSet categoriesDataSet = ((coolBlue.CategoriesDataSet)(this.FindResource("categoriesDataSet")));
-            coolBlue.CategoriesDataSetTableAdapters.USP_getAllSubCatsTableAdapter categoriesDataSetUSP_getAllSubCatsTableAdapter = new coolBlue.CategoriesDataSetTableAdapters.USP_getAllSubCatsTableAdapter();
+            //coolBlue.CategoriesDataSetTableAdapters.USP_getAllSubCatsTableAdapter categoriesDataSetUSP_getAllSubCatsTableAdapter = new coolBlue.CategoriesDataSetTableAdapters.USP_getAllSubCatsTableAdapter();
             categoriesDataSet.EnforceConstraints = false;
 
-            categoriesDataSetUSP_getAllSubCatsTableAdapter.Fill(categoriesDataSet.USP_getAllSubCats);
+            //categoriesDataSetUSP_getAllSubCatsTableAdapter.Fill(categoriesDataSet.USP_getAllSubCats);
             categoriesDataSet.EnforceConstraints = true;
 
 
@@ -310,10 +318,10 @@ namespace coolBlue
                // System.Windows.Data.CollectionViewSource uSP_getAllCatsUSP_getAllSubCatsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllCatsUSP_getAllSubCatsViewSource")));
 
                 coolBlue.CategoriesDataSet categoriesDataSet = ((coolBlue.CategoriesDataSet)(this.FindResource("categoriesDataSet")));
-                coolBlue.CategoriesDataSetTableAdapters.USP_getAllSubCatsTableAdapter categoriesDataSetUSP_getAllSubCatsTableAdapter = new coolBlue.CategoriesDataSetTableAdapters.USP_getAllSubCatsTableAdapter();
+                //coolBlue.CategoriesDataSetTableAdapters.USP_getAllSubCatsTableAdapter categoriesDataSetUSP_getAllSubCatsTableAdapter = new coolBlue.CategoriesDataSetTableAdapters.USP_getAllSubCatsTableAdapter();
                 categoriesDataSet.EnforceConstraints = false;
 
-                categoriesDataSetUSP_getAllSubCatsTableAdapter.Fill(categoriesDataSet.USP_getAllSubCats);
+                //categoriesDataSetUSP_getAllSubCatsTableAdapter.Fill(categoriesDataSet.USP_getAllSubCats);
                 categoriesDataSet.EnforceConstraints = true;
 
 

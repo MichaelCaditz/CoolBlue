@@ -25,7 +25,7 @@ using System.Drawing;
 //using DevExpress.XtraReports.UI;
 //using DevExpress.XtraPrinting.Preview;
 using DevExpress.Xpf.Printing;
-
+using coolBlue.Properties;
 
 
 namespace coolBlue
@@ -42,6 +42,7 @@ namespace coolBlue
 
         private void ThemedWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            int nCompanyID = Settings.Default.nCompanyID;
 
             coolBlue.EditDataSet editDataSet = ((coolBlue.EditDataSet)(this.FindResource("editDataSet")));
 
@@ -62,7 +63,7 @@ namespace coolBlue
             editDataSetUSP_getAllAccountsTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
 
             editDataSetUSP_getAllAccountTypesforAccountsTableAdapter.Fill(editDataSet.USP_getAllAccountTypesforAccounts);
-            editDataSetUSP_getAllAccountsTableAdapter.Fill(editDataSet.USP_getAllAccounts);
+            editDataSetUSP_getAllAccountsTableAdapter.Fill(editDataSet.USP_getAllAccounts, nCompanyID);
             
             //editDataSet.EnforceConstraints = true;
 
@@ -100,7 +101,7 @@ namespace coolBlue
 
         private void goDetails()
         {
-
+            int nCompanyID = Settings.Default.nCompanyID;
             System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesforAccountsUSP_getAllAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesforAccountsUSP_getAllAccountsViewSource")));
 
             DataRowView drv = (DataRowView)uSP_getAllAccountTypesforAccountsUSP_getAllAccountsViewSource.View.CurrentItem;
@@ -140,7 +141,7 @@ namespace coolBlue
             editDataSet.EnforceConstraints = false;
 
             //editDataSetUSP_getAllAccountTypesTableAdapter.Fill(editDataSet.USP_getAllAccountTypes);
-            editDataSetUSP_getAllAccountsTableAdapter.Fill(editDataSet.USP_getAllAccounts);
+            editDataSetUSP_getAllAccountsTableAdapter.Fill(editDataSet.USP_getAllAccounts,nCompanyID);
             editDataSet.EnforceConstraints = true;
 
 
@@ -165,6 +166,8 @@ namespace coolBlue
 
         private void BarButtonitemNewAccount_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
+
+
             int TransactID1 = 0;
             //int nAccountTypeID = 0;
             //int nCatID = 0;
@@ -177,6 +180,7 @@ namespace coolBlue
             int nAccountTypeID = (drv == null ? 0 : DBNull.Value.Equals(drv["nAccountTypeID"]) == true ? 0 : (int)drv["nAccountTypeID"]);
             int nCatID = (drv == null ? 0 : DBNull.Value.Equals(drv["nCatID"]) == true ? 0 : (int)drv["nCatID"]);
             int nCurrencyID = (drv == null ? 0 : DBNull.Value.Equals(drv["nCurrencyID"]) == true ? 0 : (int)drv["nCurrencyID"]);
+            int nCompanyID = Settings.Default.nCompanyID;
 
             System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesforAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesforAccountsViewSource")));
             DataRowView drv1 = (DataRowView)uSP_getAllAccountTypesforAccountsViewSource.View.CurrentItem;
@@ -239,6 +243,7 @@ namespace coolBlue
                     cmd3.Parameters.AddWithValue("cCV", cCV);
                     cmd3.Parameters.AddWithValue("cExpiry", cExpiry);
                     cmd3.Parameters.AddWithValue("cAcctNum", cAcctNum);
+                    cmd3.Parameters.AddWithValue("nCompanyID", nCompanyID);
 
                     SqlParameter retval = cmd3.Parameters.Add("@transactIdentity", SqlDbType.Int);
                     retval.Direction = ParameterDirection.Output;
@@ -292,7 +297,7 @@ namespace coolBlue
                 coolBlue.EditDataSetTableAdapters.USP_getAllAccountsTableAdapter editDataSetUSP_getAllAccountsTableAdapter = new coolBlue.EditDataSetTableAdapters.USP_getAllAccountsTableAdapter();
                 editDataSet.EnforceConstraints = false;
                 //editDataSetUSP_getAllAccountTypesTableAdapter.Fill(editDataSet.USP_getAllAccountTypes);
-                editDataSetUSP_getAllAccountsTableAdapter.Fill(editDataSet.USP_getAllAccounts);
+                editDataSetUSP_getAllAccountsTableAdapter.Fill(editDataSet.USP_getAllAccounts,nCompanyID);
                 editDataSet.EnforceConstraints = true;
 
 

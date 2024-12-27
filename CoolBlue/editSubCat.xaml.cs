@@ -46,14 +46,14 @@ namespace coolBlue
             coolBlue.CategoriesDataSet categoriesDataSet = ((coolBlue.CategoriesDataSet)(this.FindResource("categoriesDataSet")));
             // TODO: Add code here to load data into the table USP_getOneCat.
             // This code could not be generated, because the categoriesDataSetUSP_getOneCatTableAdapter.Fill method is missing, or has unrecognized parameters.
-            coolBlue.CategoriesDataSetTableAdapters.USP_getOneSubCatTableAdapter categoriesDataSetUSP_getOneSubCatTableAdapter = new coolBlue.CategoriesDataSetTableAdapters.USP_getOneSubCatTableAdapter();
+            //coolBlue.CategoriesDataSetTableAdapters.USP_getOneSubCatTableAdapter categoriesDataSetUSP_getOneSubCatTableAdapter = new coolBlue.CategoriesDataSetTableAdapters.USP_getOneSubCatTableAdapter();
             coolBlue.CategoriesDataSetTableAdapters.USP_getAllCatsTableAdapter categoriesDataSetUSP_getAllCatsTableAdapter = new coolBlue.CategoriesDataSetTableAdapters.USP_getAllCatsTableAdapter();
 
 
             categoriesDataSet.EnforceConstraints = false;
-            categoriesDataSetUSP_getOneSubCatTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
+            //categoriesDataSetUSP_getOneSubCatTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
 
-            categoriesDataSetUSP_getOneSubCatTableAdapter.Fill(categoriesDataSet.USP_getOneSubCat, nSubCatID);
+            //categoriesDataSetUSP_getOneSubCatTableAdapter.Fill(categoriesDataSet.USP_getOneSubCat, nSubCatID);
             categoriesDataSetUSP_getAllCatsTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
 
             categoriesDataSetUSP_getAllCatsTableAdapter.Fill(categoriesDataSet.USP_getAllCats);

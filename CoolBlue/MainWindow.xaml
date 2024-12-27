@@ -85,7 +85,7 @@
         <CollectionViewSource x:Key="uSP_getLineViewSource1" Source="{Binding USP_getLine, Source={StaticResource registerDataSet}}" />
         <CollectionViewSource x:Key="uSP_getSplitViewSource1" Source="{Binding USP_getSplit, Source={StaticResource registerDataSet}}" />
         <CollectionViewSource x:Key="uSP_getLineUSP_getSplitViewSource" Source="{Binding FK_USP_getLine_USP_getSplit, Source={StaticResource uSP_getLineViewSource1}}" />
-        <CollectionViewSource x:Key="uSP_getSubCatsViewSource" Source="{Binding USP_getSubCats, Source={StaticResource registerDataSet}}" />
+        <!--<CollectionViewSource x:Key="uSP_getSubCatsViewSource" Source="{Binding USP_getSubCats, Source={StaticResource registerDataSet}}" />-->
         <CollectionViewSource x:Key="uSP_getAllVendorsViewSource" Source="{Binding USP_getAllVendors, Source={StaticResource registerDataSet}}" />
         <CollectionViewSource x:Key="uSP_getAllTagsViewSource" Source="{Binding USP_getAllTags, Source={StaticResource registerDataSet}}" />
         <CollectionViewSource x:Key="uSP_getAllClassViewSource" Source="{Binding USP_getAllClass, Source={StaticResource registerDataSet}}" />
