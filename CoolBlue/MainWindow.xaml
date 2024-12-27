@@ -1,5 +1,5 @@
 ﻿<dx:ThemedWindow 
-    x:Class="coolBlue.MainWindow" Title="CoolBlue" Height="1200" Width="2300" 
+    x:Class="coolBlue.MainWindow" Title="CoolBlue" Height="2100" Width="3800" 
     Loaded="DXRibbonWindow_Loaded" WindowStartupLocation="CenterScreen" 
     Background="#FFB4B4BB" Closing="DXRibbonWindow_Closing" 
     ScrollViewer.VerticalScrollBarVisibility="Auto" HorizontalAlignment="Center" 
@@ -59,7 +59,7 @@
 
         <local:SettingsDataSet x:Key="settingsDataSet"/>
         <CollectionViewSource x:Key="uSP_getAllCompanyViewSource" Source="{Binding USP_getAllCompany, Source={StaticResource settingsDataSet}}"/>
-        
+
         <dx:TypedSimpleSource x:Key="TypedSimpleSource" AdapterType="{x:Type AccountsDataSetTableAdapters:USP_getAllAccountTypesTableAdapter}" ContextType="{x:Type local:AccountsDataSet}" Path="USP_getAllAccountTypes">
             <dx:DesignDataManager.DesignData>
                 <dx:DesignDataSettings RowCount="5" />
@@ -101,22 +101,23 @@
     </Window.Resources>
 
     <dxlc:ScrollBox HorizontalAlignment="Left" Grid.Row="0" Grid.RowSpan="11" Grid.ColumnSpan="7" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" 
-                    Margin="0" Padding="0" DragScrolling="False" Background="{x:Null}" DataContext="{StaticResource uSP_getAllCurrencyConversionViewSource}" Width="2280">
+                    Margin="0" Padding="0" DragScrolling="False" Background="{x:Null}" DataContext="{StaticResource uSP_getAllCurrencyConversionViewSource}" Width="3800">
         <!--<ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="0" HorizontalAlignment="Left" VerticalAlignment="Top" >-->
 
-        <Grid DataContext="{StaticResource uSP_getLineViewSource}" IsEnabled="True" Width="2280" Height="1091" Background="#FF093472" Margin="0,40,0,0">
+        <Grid DataContext="{StaticResource uSP_getLineViewSource}" IsEnabled="True" Width="3800" Height="1091" Background="#FF093472" HorizontalAlignment="Left">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="99" />
-                <ColumnDefinition Width="21" />
-                <ColumnDefinition Width="21" />
-                <ColumnDefinition Width="86" />
-                <ColumnDefinition Width="2" />
-                <ColumnDefinition Width="556" />
-                <ColumnDefinition Width="299" />
-                <ColumnDefinition Width="57" />
-                <ColumnDefinition Width="240" />
-                <ColumnDefinition Width="240" />
-                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="721" />
+                <ColumnDefinition Width="0" />
+                <ColumnDefinition Width="40" />
+                <ColumnDefinition Width="0" />
+                <ColumnDefinition Width="858" />
+                <ColumnDefinition Width="40" />
+                <ColumnDefinition Width="1579" />
+                <ColumnDefinition Width="117" />
+                <ColumnDefinition Width="27" />
+                <ColumnDefinition Width="72" />
+                <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Name="r0" Height="100" MinHeight="0" />
@@ -136,7 +137,7 @@
             </Grid.RowDefinitions>
 
 
-            <dxr:RibbonControl RibbonStyle="Office2010" Grid.ColumnSpan="11" AllowCustomization="False" IsHiddenRibbonCollapsed="False" Grid.RowSpan="3" Margin="10,-1,10,0" Height="185">
+            <dxr:RibbonControl RibbonStyle="Office2010" Grid.ColumnSpan="10" AllowCustomization="False" IsHiddenRibbonCollapsed="False" Grid.RowSpan="3" Margin="0,-1,10,0" Height="185" Grid.Column="1">
 
                 <dxr:RibbonControl.ToolbarItems>
                     <dxb:BarButtonItemLink />
@@ -229,7 +230,7 @@
 
                 </dxr:RibbonDefaultPageCategory>
             </dxr:RibbonControl>
-            <dxr:RibbonStatusBarControl Height="26" VerticalAlignment="Bottom" Grid.Row="12" Grid.ColumnSpan="11" Foreground="#FF405FB2" Background="#FF405FB2">
+            <dxr:RibbonStatusBarControl Height="26" Grid.Row="12" Grid.ColumnSpan="11" Foreground="#FF405FB2" Background="#FF405FB2">
                 <dxr:RibbonStatusBarControl.RightItems>
                     <dxb:BarButtonItem x:Name="printItem" Content="Print" Glyph="{dx:DXImage Image=Print_16x16.png}" />
                 </dxr:RibbonStatusBarControl.RightItems>
@@ -238,9 +239,11 @@
             <!--<Grid HorizontalAlignment="Left" Height="100" Margin="527,5,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100" Grid.Column="3"/>-->
 
 
-            <dxg:GridControl Name="uSP_getAllAccountTypesDataGrid" AutoGenerateColumns="None" EnableSmartColumnsGeneration="False" ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesViewSource}}" Margin="5,6,0,0" Grid.Row="2" Grid.RowSpan="4" Grid.ColumnSpan="5" SelectionMode="Row" ScrollViewer.CanContentScroll="True">
+            <dxg:GridControl Name="uSP_getAllAccountTypesDataGrid" AutoGenerateColumns="None" EnableSmartColumnsGeneration="False" ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesViewSource}}" Margin="5,6,0,0" Grid.Row="2" Grid.RowSpan="4" Grid.ColumnSpan="2" SelectionMode="Row" ScrollViewer.CanContentScroll="True" >
                 <dxg:GridControl.View>
-                    <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" ShowColumnHeaders="False" Grid.ColumnSpan="1" Margin="2,6,0,0" Width="223" ShowBandsPanel="False" ShowBandsInCustomizationForm="False" ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" ShowValidationAttributeErrors="False" ShowVerticalLines="False" CustomCellAppearance="TableView_OnCustomCellAppearance" ScrollingMode="Smart">
+                    <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" ShowColumnHeaders="False" Grid.ColumnSpan="2" Margin="2,6,0,0"  ShowBandsPanel="False" ShowBandsInCustomizationForm="False" ShowCheckBoxSelectorInGroupRow="False"
+                                   ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False"
+                                   ShowSearchPanelCloseButton="False" ShowValidationAttributeErrors="False" ShowVerticalLines="False" CustomCellAppearance="TableView_OnCustomCellAppearance" ScrollingMode="Smart">
 
                         <dxg:TableView.FormatConditions>
                             <dxg:FormatCondition Expression="[Id] % 2 == 0" FieldName="Id">
@@ -325,9 +328,9 @@
 
 
             <dxg:GridControl Name="grdAccounts" AutoGenerateColumns="None" EnableSmartColumnsGeneration="False" ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesUSP_getAllAccountsViewSource}}" Margin="5,0,0,86" Grid.Row="7" Grid.RowSpan="4"
-                             Grid.ColumnSpan="5" CurrentItemChanged="GridControl_CurrentItemChanged" SelectedItemChanged="grdAccounts_SelectedItemChanged">
+                             Grid.ColumnSpan="2" CurrentItemChanged="GridControl_CurrentItemChanged" SelectedItemChanged="grdAccounts_SelectedItemChanged">
                 <dxg:GridControl.View>
-                    <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" ShowColumnHeaders="False" Grid.ColumnSpan="1" Margin="2,0,0,0" Width="223" ShowBandsPanel="False" ShowBandsInCustomizationForm="False"
+                    <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" ShowColumnHeaders="False" Grid.ColumnSpan="1" Margin="2,0,0,0" ShowBandsPanel="False" ShowBandsInCustomizationForm="False"
                                    ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False"
                                    ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False" ShowSearchPanelCloseButton="False" ShowValidationAttributeErrors="False" ShowVerticalLines="False" RowDoubleClick="TableView_RowDoubleClick">
 
@@ -410,7 +413,7 @@
 
             <dxg:GridControl Name="uSP_getLineDataGrid" AutoGenerateColumns="None" EnableSmartColumnsGeneration="False"
                              ItemsSource="{Binding Source={StaticResource uSP_getLineViewSource1}}"
-                             Margin="0,0,4,86" Grid.Column="5" Grid.Row="3" Grid.RowSpan="8" SelectionMode="Row" CustomUnboundColumnData="grid_CustomUnboundColumnData">
+                             Margin="0,0,0,86" Grid.Column="5" Grid.Row="3" Grid.RowSpan="8" SelectionMode="Row" CustomUnboundColumnData="grid_CustomUnboundColumnData">
                 <dxg:GridControl.View>
                     <dxg:TableView Name="LineView" AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" ShowColumnHeaders="True" Grid.ColumnSpan="1" Margin="0,0,0,0" ShowBandsPanel="False" ShowBandsInCustomizationForm="False" ShowCheckBoxSelectorInGroupRow="False"
                                    ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False"
@@ -591,135 +594,10 @@
 
 
 
-            <!--<DataGrid x:Name="uSP_getSplitDataGrid" AutoGenerateColumns="False" Grid.Column="3" EnableRowVirtualization="True" ItemsSource="{Binding Source={StaticResource uSP_getLineUSP_getSplitViewSource}}" Margin="0" RowDetailsVisibilityMode="VisibleWhenSelected" Grid.RowSpan="8" Grid.Row="3" Grid.ColumnSpan="5" CellEditEnding="uSP_getSplitDataGrid_CellEditEnding" CurrentCellChanged="uSP_getSplitDataGrid_CurrentCellChanged">
-            <DataGrid.Columns>
-                <DataGridTextColumn x:Name="iDColumn1" Binding="{Binding ID}" Header="ID" IsReadOnly="True" Width="SizeToHeader" Visibility="Hidden"/>
-                <DataGridTemplateColumn x:Name="dtCreateDateColumn1" Header="dt Create Date" Width="SizeToHeader" Visibility="Hidden">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <DatePicker SelectedDate="{Binding dtCreateDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTextColumn x:Name="nAccountIDColumn1" Binding="{Binding nAccountID}" Header="n Account ID" Width="SizeToHeader" Visibility="Hidden"/>
-                <DataGridTemplateColumn x:Name="dtTransDateColumn1" Header="dt Trans Date" Width="SizeToHeader" Visibility="Hidden">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <DatePicker SelectedDate="{Binding dtTransDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
 
 
 
-                <DataGridComboBoxColumn x:Name="nVendorsIDColumn" SelectedValueBinding="{Binding nVendorsID}" Width="220"
-                SelectedValuePath="vendors_id"
-                DisplayMemberPath="cmpDisplay"
-                Header="Vendor"
-                ItemsSource="{Binding Source={StaticResource uSP_getAllVendorsViewSource}}">
-                    <DataGridComboBoxColumn.EditingElementStyle>
-                        <Style TargetType="{x:Type ComboBox}">
-                            <Setter Property="IsEditable" Value="False" />
-                        </Style>
-                    </DataGridComboBoxColumn.EditingElementStyle>
-                </DataGridComboBoxColumn>
-
-
-                <DataGridComboBoxColumn x:Name="nSubCatIDColumn" SelectedValueBinding="{Binding nAccountID_D}" Width="220"
-                SelectedValuePath="ID"
-                DisplayMemberPath="cName"
-                Header="Dr Account"
-                ItemsSource="{Binding Source={StaticResource uSP_getAllAccountsForSplitViewSource}}">
-                    <DataGridComboBoxColumn.EditingElementStyle>
-                        <Style TargetType="{x:Type ComboBox}">
-                            <Setter Property="IsEditable" Value="False" />
-                        </Style>
-                    </DataGridComboBoxColumn.EditingElementStyle>
-
-                </DataGridComboBoxColumn>
-
-                <DataGridTextColumn x:Name="nAmountColumn" Binding="{Binding nAmount_D, StringFormat=F}" Header="Dr Amount" Width="100" SortDirection="Ascending">
-                    <DataGridTextColumn.ElementStyle>
-                        <Style TargetType="{x:Type TextBlock}">
-                            <Setter Property="HorizontalAlignment" Value="Right" />
-                        </Style>
-                    </DataGridTextColumn.ElementStyle>
-                </DataGridTextColumn>
-
-
-
-                -->
-            <!--<DataGridCheckBoxColumn Binding="{Binding bXfer}" ClipboardContentBinding="{x:Null}" Header="Xfer"/>-->
-            <!--
-
-                <DataGridComboBoxColumn x:Name="nXferAccountIDColumn" SelectedValueBinding="{Binding nAccountID_C}" Width="220"
-                SelectedValuePath="ID"
-                DisplayMemberPath="cName"
-                Header="Cr Account"
-                ItemsSource="{Binding Source={StaticResource uSP_getAllAccountsForSplitViewSource}}">
-                    <DataGridComboBoxColumn.EditingElementStyle>
-                        <Style TargetType="{x:Type ComboBox}">
-                            <Setter Property="IsEditable" Value="False" />
-                        </Style>
-                    </DataGridComboBoxColumn.EditingElementStyle>
-                </DataGridComboBoxColumn>
-
-                <DataGridTextColumn x:Name="nCRAmountColumn" Binding="{Binding nAmount_C, StringFormat=F}" Header="Cr Amount" Width="100" SortDirection="Ascending">
-                    <DataGridTextColumn.ElementStyle>
-                        <Style TargetType="{x:Type TextBlock}">
-                            <Setter Property="HorizontalAlignment" Value="Right" />
-                        </Style>
-                    </DataGridTextColumn.ElementStyle>
-                </DataGridTextColumn>
-
-                <DataGridComboBoxColumn x:Name="nTagIDColumn" SelectedValueBinding="{Binding nTagID}" Width="180"
-                SelectedValuePath="ID"
-                DisplayMemberPath="cName"
-                Header="Tag"
-                ItemsSource="{Binding Source={StaticResource uSP_getAllTagsViewSource}}">
-                    <DataGridComboBoxColumn.EditingElementStyle>
-                        <Style TargetType="{x:Type ComboBox}">
-                            <Setter Property="IsEditable" Value="False" />
-                        </Style>
-                    </DataGridComboBoxColumn.EditingElementStyle>
-                </DataGridComboBoxColumn>
-                <DataGridComboBoxColumn x:Name="nClassIDColumn" SelectedValueBinding="{Binding nClassID}" Width="180"
-                SelectedValuePath="ID"
-                DisplayMemberPath="cName"
-                Header="Class"
-                ItemsSource="{Binding Source={StaticResource uSP_getAllClassViewSource}}">
-                    <DataGridComboBoxColumn.EditingElementStyle>
-                        <Style TargetType="{x:Type ComboBox}">
-                            <Setter Property="IsEditable" Value="False" />
-                        </Style>
-                    </DataGridComboBoxColumn.EditingElementStyle>
-                </DataGridComboBoxColumn>
-
-                <DataGridTextColumn x:Name="cMemoColumn" Binding="{Binding cMemo}" Header="Memo" Width="200"/>
-
-                <DataGridTextColumn x:Name="nOriginalAmountColumn" Binding="{Binding nOriginalAmount}" Header="Original Amount" Width="100"/>
-
-                <DataGridComboBoxColumn x:Name="nCurrencyIDColumn" SelectedValueBinding="{Binding nCurrencyID}" Width="240"
-                SelectedValuePath="ID"
-                DisplayMemberPath="cName"
-                Header="Original Currency"
-                ItemsSource="{Binding Source={StaticResource uSP_getAllCurrencyViewSource}}">
-                    <DataGridComboBoxColumn.EditingElementStyle>
-                        <Style TargetType="{x:Type ComboBox}">
-                            <Setter Property="IsEditable" Value="False" />
-                        </Style>
-                    </DataGridComboBoxColumn.EditingElementStyle>
-                </DataGridComboBoxColumn>
-
-                <DataGridTextColumn x:Name="nLineIDColumn" Binding="{Binding nLineID}" Header="n Line ID" Width="SizeToHeader" Visibility="Hidden"/>
-
-            </DataGrid.Columns>
-        </DataGrid>-->
-
-
-
-
-            <dxg:GridControl Name="uSP_getSplitDataGrid" AutoGenerateColumns="None" EnableSmartColumnsGeneration="False" ItemsSource="{Binding Source={StaticResource uSP_getLineUSP_getSplitViewSource}}" Margin="0,0,0,86" Grid.Column="6" Grid.RowSpan="8" Grid.Row="3" Grid.ColumnSpan="5" SelectionMode="Row">
+            <dxg:GridControl Name="uSP_getSplitDataGrid" AutoGenerateColumns="None" EnableSmartColumnsGeneration="False" ItemsSource="{Binding Source={StaticResource uSP_getLineUSP_getSplitViewSource}}" Margin="0,0,0,86" Grid.Column="7" Grid.RowSpan="8" Grid.Row="3" SelectionMode="Row" >
                 <dxg:GridControl.View>
                     <dxg:TableView Name="SplitsView" AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" ShowColumnHeaders="True" Grid.ColumnSpan="1"
                                    Margin="0,0,0,0" NavigationStyle="Cell" ShowBandsPanel="False" ShowBandsInCustomizationForm="False" ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False"
@@ -1180,8 +1058,8 @@
             <ComboBox Grid.Column="5" Margin="0,36,0,0" Grid.Row="2" IsSynchronizedWithCurrentItem="True" SelectedItem="" DisplayMemberPath="cLabel" ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesUSP_getAllAccountsViewSource}}" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Height="25" />
             <dx:SimpleButton Name="New" Content="New" Grid.Column="5" HorizontalAlignment="Left" Height="27" Margin="1,6,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120" Click="SimpleButton_Click_1" RenderTransformOrigin="-1.733,0.444" Foreground="#FFEFF56F" Glyph="add-icon32.png" />
             <dx:SimpleButton Name="Delete" Content="Delete" Grid.Column="5" HorizontalAlignment="Right" Height="27" Margin="0,6,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-1.733,0.444" Foreground="#FFEFF56F" Background="Black" Click="Delete_Click" Glyph="trashcan3_32.png" />
-            <dx:SimpleButton Name="DeleteSplit" Content="Delete" Grid.Column="8" HorizontalAlignment="Left" Height="27" Margin="0,39,0,0" Grid.Row="2" VerticalAlignment="Bottom" Width="120" RenderTransformOrigin="-1.733,0.444" Foreground="#FFEFF56F" Background="Black" Click="DeleteSplit_Click" Glyph="trashcan3_32.png" />
-            <dx:SimpleButton Name="NewSplit" Content="New" Grid.Column="6" HorizontalAlignment="Left" Height="27" Margin="1,6,0,0" Grid.Row="2" VerticalAlignment="Bottom" Width="120" RenderTransformOrigin="-1.733,0.444" Foreground="#FFEFF56F" Glyph="add-icon32.png" Click="NewSplit_Click" />
+            <dx:SimpleButton Name="DeleteSplit" Content="Delete" Grid.Column="9" HorizontalAlignment="Center" Height="27" Grid.Row="2" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-1.733,0.444" Foreground="#FFEFF56F" Background="Black" Click="DeleteSplit_Click" Glyph="trashcan3_32.png" Margin="0,43,0,0" />
+            <dx:SimpleButton Name="NewSplit" Content="New" Grid.Column="6" HorizontalAlignment="Left" Height="27" Margin="1,0,0,0" Grid.Row="2" VerticalAlignment="Bottom" Width="120" RenderTransformOrigin="-1.733,0.444" Foreground="#FFEFF56F" Glyph="add-icon32.png" Click="NewSplit_Click" />
 
 
             <dxe:TextEdit x:Name="TextEditTotalDr" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="147,40,0,0" Grid.Row="10" VerticalAlignment="Top" Width="70" Mask="F" MaskType="Numeric" IsReadOnly="True" Height="22" Foreground="#FFA9F50A" FontWeight="Bold" />
