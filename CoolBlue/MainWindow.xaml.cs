@@ -60,6 +60,9 @@ namespace coolBlue
         public MainWindow()
         {
             InitializeComponent();
+            
+           
+
         }
 
 
@@ -210,6 +213,12 @@ namespace coolBlue
             //uSP_getLineDataGrid.View.MoveLastRow();
 
             barEditCompany.EditValue = Settings.Default.nCompanyID;
+
+            ImageBrush myBrush = new ImageBrush();
+            
+            myBrush.ImageSource =
+                new BitmapImage(new Uri("D:\\Projects\\CoolBlue\\CoolBlue\\images\\_NZ90099_100_101.jpg", UriKind.Absolute));
+            mainGrid.Background = myBrush;
 
         }
 
@@ -2128,11 +2137,24 @@ namespace coolBlue
 
         private void grid_CustomUnboundColumnData(object sender, GridColumnDataEventArgs e)
         {
+            if (sender is null)
+            {  return; }
+           
             if (e.Column.FieldName == "Running Totals" && e.IsGetData)
             {
                 GridControl grid = (GridControl)sender;
 
                 int rowHandle = grid.GetRowHandleByListIndex(e.ListSourceRowIndex);
+
+                bool bIsAll = grid.GetCellValue(rowHandle, "bIsAll") == null ? false : DBNull.Value.Equals(grid.GetCellValue(rowHandle, "bIsAll")) == true ? false : (bool)grid.GetCellValue(rowHandle, "bIsAll");
+                if (bIsAll == true)
+                { return; }
+
+
+
+
+
+
                 int rowVisibleIndex = grid.GetRowVisibleIndexByHandle(rowHandle);
                 int previousRowHandle = grid.GetRowHandleByVisibleIndex(rowVisibleIndex > 0 ? rowVisibleIndex - 1 : GridControl.InvalidRowHandle);
 
@@ -2140,12 +2162,15 @@ namespace coolBlue
 
                 decimal currentPrice = 0m;
 
+               
+
                 decimal nTotalCrnative = grid.GetCellValue(rowHandle, "totalCrNative") == null ? 0m : DBNull.Value.Equals(grid.GetCellValue(rowHandle, "totalCrNative")) == true ? 0 : (decimal)grid.GetCellValue(rowHandle, "totalCrNative");
 
                 decimal nTotalDrnative = grid.GetCellValue(rowHandle, "totalDrNative") == null ? 0m : DBNull.Value.Equals(grid.GetCellValue(rowHandle, "totalDrNative")) == true ? 0 : (decimal)grid.GetCellValue(rowHandle, "totalDrNative");
 
                 int nAccountingTypeID = grid.GetCellValue(rowHandle, "nAccountingTypeID") == null ? 0 : DBNull.Value.Equals(grid.GetCellValue(rowHandle, "nAccountingTypeID")) == true ? 0 : (int)grid.GetCellValue(rowHandle, "nAccountingTypeID");
 
+               
 
                 switch (nAccountingTypeID)
                 {

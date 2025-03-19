@@ -7,7 +7,7 @@
 <DiagramLayout xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ex:showrelationlabel="False" ViewPortX="60" ViewPortY="5" xmlns:ex="urn:schemas-microsoft-com:xml-msdatasource-layout-extended" xmlns="urn:schemas-microsoft-com:xml-msdatasource-layout">
   <Shapes>
     <Shape ID="DesignTable:USP_getLine" ZOrder="2" X="71" Y="69" Height="305" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
-    <Shape ID="DesignTable:USP_getSplit" ZOrder="1" X="356" Y="70" Height="305" Width="230" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
+    <Shape ID="DesignTable:USP_getSplit" ZOrder="1" X="268" Y="650" Height="305" Width="230" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
     <Shape ID="DesignTable:USP_getSubCats" ZOrder="9" X="644" Y="70" Height="115" Width="239" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
     <Shape ID="DesignTable:USP_getAllVendors" ZOrder="8" X="953" Y="70" Height="305" Width="256" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
     <Shape ID="DesignTable:USP_getAllTags" ZOrder="7" X="1279" Y="70" Height="153" Width="235" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="102" />
@@ -19,20 +19,20 @@
     <Connector ID="DesignRelation:FK_USP_getLine_USP_getSplit" ZOrder="4" LineWidth="11">
       <RoutePoints>
         <Point>
-          <X>363</X>
+          <X>283</X>
           <Y>69</Y>
         </Point>
         <Point>
-          <X>363</X>
+          <X>283</X>
           <Y>39</Y>
         </Point>
         <Point>
-          <X>379</X>
+          <X>291</X>
           <Y>39</Y>
         </Point>
         <Point>
-          <X>379</X>
-          <Y>70</Y>
+          <X>291</X>
+          <Y>650</Y>
         </Point>
       </RoutePoints>
     </Connector>

@@ -100,20 +100,37 @@
         <CollectionViewSource x:Key="uSP_getAllCurrencyConversionViewSource" Source="{Binding USP_getAllCurrencyConversion, Source={StaticResource currencyConversion}}"/>
     </Window.Resources>
 
-    <dxlc:ScrollBox HorizontalAlignment="Left" Grid.Row="0" Grid.RowSpan="11" Grid.ColumnSpan="7" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" 
-                    Margin="0" Padding="0" DragScrolling="False" Background="{x:Null}" DataContext="{StaticResource uSP_getAllCurrencyConversionViewSource}" Width="3800">
+    <dxlc:ScrollBox HorizontalAlignment="Left" Grid.Row="0" Grid.RowSpan="11" Grid.ColumnSpan="7" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" 
+                    Margin="0" Padding="0" DragScrolling="False" Background="{x:Null}" DataContext="{StaticResource uSP_getAllCurrencyConversionViewSource}" Width="3800" Height="2100">
         <!--<ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="0" HorizontalAlignment="Left" VerticalAlignment="Top" >-->
 
-        <Grid DataContext="{StaticResource uSP_getLineViewSource}" IsEnabled="True" Width="3800" Height="1091" Background="#FF093472" HorizontalAlignment="Left">
+        <Grid Name ="mainGrid"  DataContext="{StaticResource uSP_getLineViewSource}" IsEnabled="True" Width="3794" Background="#FF093472" HorizontalAlignment="Left" Margin="10,0,0,-684">
+
+
+            
+            
+            <UIElement.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </UIElement.RenderTransform>
+
+
+           
+
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="10" />
                 <ColumnDefinition Width="721" />
                 <ColumnDefinition Width="0" />
-                <ColumnDefinition Width="40" />
+                <ColumnDefinition Width="140" />
                 <ColumnDefinition Width="0" />
                 <ColumnDefinition Width="858" />
-                <ColumnDefinition Width="40" />
-                <ColumnDefinition Width="1579" />
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="1540" />
                 <ColumnDefinition Width="117" />
                 <ColumnDefinition Width="27" />
                 <ColumnDefinition Width="72" />
@@ -128,16 +145,16 @@
                 <RowDefinition Name="r4" Height="60" MinHeight="0" />
                 <RowDefinition Name="r5" Height="60" MinHeight="0" />
                 <RowDefinition Name="r6" Height="10" MinHeight="0" />
-                <RowDefinition Name="r7" Height="100" MinHeight="0" />
-                <RowDefinition Name="r8" Height="380" MinHeight="0" />
+                <RowDefinition Name="r7" Height="140" MinHeight="0" />
+                <RowDefinition Name="r8" Height="340" MinHeight="0" />
                 <RowDefinition Name="r9" Height="3" MinHeight="0" />
-                <RowDefinition Name="r10" Height="106" MinHeight="0" />
-                <RowDefinition Name="r11" Height="1" MinHeight="0" />
-                <RowDefinition Name="r12" Height="*" MinHeight="0" />
+                <RowDefinition Name="r10" Height="906" MinHeight="0" />
+                <RowDefinition Name="r11" Height="100" MinHeight="0" />
+                <RowDefinition Name="r12" Height="100" MinHeight="0" />
             </Grid.RowDefinitions>
 
 
-            <dxr:RibbonControl RibbonStyle="Office2010" Grid.ColumnSpan="10" AllowCustomization="False" IsHiddenRibbonCollapsed="False" Grid.RowSpan="3" Margin="0,-1,10,0" Height="185" Grid.Column="1">
+            <dxr:RibbonControl RibbonStyle="Office2010" Grid.ColumnSpan="11" AllowCustomization="False" IsHiddenRibbonCollapsed="False" Grid.RowSpan="3" Margin="0,-1,10,0" Height="185" Grid.Column="1">
 
                 <dxr:RibbonControl.ToolbarItems>
                     <dxb:BarButtonItemLink />
@@ -230,16 +247,16 @@
 
                 </dxr:RibbonDefaultPageCategory>
             </dxr:RibbonControl>
-            <dxr:RibbonStatusBarControl Height="26" Grid.Row="12" Grid.ColumnSpan="11" Foreground="#FF405FB2" Background="#FF405FB2">
+            <dxr:RibbonStatusBarControl Height="26" Grid.Row="12" Grid.ColumnSpan="12" Foreground="#FF405FB2" Background="#FF405FB2">
                 <dxr:RibbonStatusBarControl.RightItems>
-                    <dxb:BarButtonItem x:Name="printItem" Content="Print" Glyph="{dx:DXImage Image=Print_16x16.png}" />
+                    <dxb:BarButtonItem x:Name="statusItem" Content="Status" Glyph="{dx:DXImage Image=Print_16x16.png}" />
                 </dxr:RibbonStatusBarControl.RightItems>
             </dxr:RibbonStatusBarControl>
 
             <!--<Grid HorizontalAlignment="Left" Height="100" Margin="527,5,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100" Grid.Column="3"/>-->
 
 
-            <dxg:GridControl Name="uSP_getAllAccountTypesDataGrid" AutoGenerateColumns="None" EnableSmartColumnsGeneration="False" ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesViewSource}}" Margin="5,6,0,0" Grid.Row="2" Grid.RowSpan="4" Grid.ColumnSpan="2" SelectionMode="Row" ScrollViewer.CanContentScroll="True" >
+            <dxg:GridControl Name="uSP_getAllAccountTypesDataGrid" AutoGenerateColumns="None" EnableSmartColumnsGeneration="False" ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesViewSource}}" Margin="5,6,0,0" Grid.Row="2" Grid.RowSpan="6" Grid.ColumnSpan="2" SelectionMode="Row" ScrollViewer.CanContentScroll="True" Opacity="0.9" >
                 <dxg:GridControl.View>
                     <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" ShowColumnHeaders="False" Grid.ColumnSpan="2" Margin="2,6,0,0"  ShowBandsPanel="False" ShowBandsInCustomizationForm="False" ShowCheckBoxSelectorInGroupRow="False"
                                    ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False"
@@ -327,8 +344,8 @@
 
 
 
-            <dxg:GridControl Name="grdAccounts" AutoGenerateColumns="None" EnableSmartColumnsGeneration="False" ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesUSP_getAllAccountsViewSource}}" Margin="5,0,0,86" Grid.Row="7" Grid.RowSpan="4"
-                             Grid.ColumnSpan="2" CurrentItemChanged="GridControl_CurrentItemChanged" SelectedItemChanged="grdAccounts_SelectedItemChanged">
+            <dxg:GridControl Name="grdAccounts" AutoGenerateColumns="None" EnableSmartColumnsGeneration="False" ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesUSP_getAllAccountsViewSource}}" Margin="5,0,0,0" Grid.Row="8" Grid.RowSpan="4"
+                             Grid.ColumnSpan="2" CurrentItemChanged="GridControl_CurrentItemChanged" SelectedItemChanged="grdAccounts_SelectedItemChanged" Opacity="0.9">
                 <dxg:GridControl.View>
                     <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" ShowColumnHeaders="False" Grid.ColumnSpan="1" Margin="2,0,0,0" ShowBandsPanel="False" ShowBandsInCustomizationForm="False"
                                    ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False"
@@ -412,8 +429,7 @@
 
 
             <dxg:GridControl Name="uSP_getLineDataGrid" AutoGenerateColumns="None" EnableSmartColumnsGeneration="False"
-                             ItemsSource="{Binding Source={StaticResource uSP_getLineViewSource1}}"
-                             Margin="0,0,0,86" Grid.Column="5" Grid.Row="3" Grid.RowSpan="8" SelectionMode="Row" CustomUnboundColumnData="grid_CustomUnboundColumnData">
+                             ItemsSource="{Binding Source={StaticResource uSP_getLineViewSource1}}" Grid.Column="5" Grid.Row="3" Grid.RowSpan="9" SelectionMode="Row" CustomUnboundColumnData="grid_CustomUnboundColumnData" Opacity="0.9">
                 <dxg:GridControl.View>
                     <dxg:TableView Name="LineView" AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" ShowColumnHeaders="True" Grid.ColumnSpan="1" Margin="0,0,0,0" ShowBandsPanel="False" ShowBandsInCustomizationForm="False" ShowCheckBoxSelectorInGroupRow="False"
                                    ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False"
@@ -487,7 +503,9 @@
 
                 </dxg:GridControl.View>
 
-                <dxg:GridColumn Binding="{Binding ID}" FieldName="ID" Header="ID" Width="50" ReadOnly="True" AllowFocus="False" AllowSorting="True" />
+                <!--<dxg:GridColumn Binding="{Binding ID}" FieldName="ID" Header="ID" Width="50" ReadOnly="True" AllowFocus="False" AllowSorting="True" />-->
+                <dxg:GridColumn FieldName="ID" Header="ID" Width="50" ReadOnly="True" AllowFocus="False" AllowSorting="True" />
+
                 <dxg:GridColumn FieldName="dtTransDate" Header="Date" Width="80" ReadOnly="False" AllowFocus="True" AllowSorting="True" />
                 <dxg:GridColumn  FieldName="bIsAll" Header="bIsAll" Width="50" ReadOnly="True" AllowFocus="False" AllowSorting="True" Visible="False" />
 
@@ -563,7 +581,7 @@
 
                 <dxg:GridColumn FieldName="Running Totals" Header="Balance" Width="80" 
                                 HorizontalHeaderContentAlignment="Right" 
-                                UnboundType="Object" AllowFocus="False" AllowSorting="True" CellToolTipBinding="{Binding}">
+                                UnboundType="Object" AllowFocus="False" AllowSorting="False" CellToolTipBinding="{Binding}">
                     <dxg:GridColumn.EditSettings>
                         <dxe:TextEditSettings HorizontalContentAlignment="Right"/>
                     </dxg:GridColumn.EditSettings>
@@ -597,7 +615,7 @@
 
 
 
-            <dxg:GridControl Name="uSP_getSplitDataGrid" AutoGenerateColumns="None" EnableSmartColumnsGeneration="False" ItemsSource="{Binding Source={StaticResource uSP_getLineUSP_getSplitViewSource}}" Margin="0,0,0,86" Grid.Column="7" Grid.RowSpan="8" Grid.Row="3" SelectionMode="Row" >
+            <dxg:GridControl Name="uSP_getSplitDataGrid" AutoGenerateColumns="None" EnableSmartColumnsGeneration="False" ItemsSource="{Binding Source={StaticResource uSP_getLineUSP_getSplitViewSource}}" Grid.Column="7" Grid.RowSpan="9" Grid.Row="3" SelectionMode="Row" Opacity="0.9" >
                 <dxg:GridControl.View>
                     <dxg:TableView Name="SplitsView" AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" ShowColumnHeaders="True" Grid.ColumnSpan="1"
                                    Margin="0,0,0,0" NavigationStyle="Cell" ShowBandsPanel="False" ShowBandsInCustomizationForm="False" ShowCheckBoxSelectorInGroupRow="False" ShowDragDropHint="False"
@@ -1058,17 +1076,17 @@
             <ComboBox Grid.Column="5" Margin="0,36,0,0" Grid.Row="2" IsSynchronizedWithCurrentItem="True" SelectedItem="" DisplayMemberPath="cLabel" ItemsSource="{Binding Source={StaticResource uSP_getAllAccountTypesUSP_getAllAccountsViewSource}}" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Height="25" />
             <dx:SimpleButton Name="New" Content="New" Grid.Column="5" HorizontalAlignment="Left" Height="27" Margin="1,6,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120" Click="SimpleButton_Click_1" RenderTransformOrigin="-1.733,0.444" Foreground="#FFEFF56F" Glyph="add-icon32.png" />
             <dx:SimpleButton Name="Delete" Content="Delete" Grid.Column="5" HorizontalAlignment="Right" Height="27" Margin="0,6,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-1.733,0.444" Foreground="#FFEFF56F" Background="Black" Click="Delete_Click" Glyph="trashcan3_32.png" />
-            <dx:SimpleButton Name="DeleteSplit" Content="Delete" Grid.Column="9" HorizontalAlignment="Center" Height="27" Grid.Row="2" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-1.733,0.444" Foreground="#FFEFF56F" Background="Black" Click="DeleteSplit_Click" Glyph="trashcan3_32.png" Margin="0,43,0,0" />
-            <dx:SimpleButton Name="NewSplit" Content="New" Grid.Column="6" HorizontalAlignment="Left" Height="27" Margin="1,0,0,0" Grid.Row="2" VerticalAlignment="Bottom" Width="120" RenderTransformOrigin="-1.733,0.444" Foreground="#FFEFF56F" Glyph="add-icon32.png" Click="NewSplit_Click" />
+            <dx:SimpleButton Name="DeleteSplit" Content="Delete" Grid.Column="7" HorizontalAlignment="Right" Height="27" Grid.Row="2" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-1.733,0.444" Foreground="#FFEFF56F" Background="Black" Click="DeleteSplit_Click" Glyph="trashcan3_32.png" Margin="0,43,0,0" />
+            <dx:SimpleButton Name="NewSplit" Content="New" Grid.Column="7" HorizontalAlignment="Left" Height="27" Margin="1,0,0,0" Grid.Row="2" VerticalAlignment="Bottom" Width="120" RenderTransformOrigin="-1.733,0.444" Foreground="#FFEFF56F" Glyph="add-icon32.png" Click="NewSplit_Click" />
 
 
-            <dxe:TextEdit x:Name="TextEditTotalDr" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="147,40,0,0" Grid.Row="10" VerticalAlignment="Top" Width="70" Mask="F" MaskType="Numeric" IsReadOnly="True" Height="22" Foreground="#FFA9F50A" FontWeight="Bold" />
-            <dxe:TextEdit x:Name="TextEditTotalCr" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="220,40,0,0" Grid.Row="10" VerticalAlignment="Top" Width="70" Mask="F" MaskType="Numeric" IsReadOnly="True" Height="22" Foreground="#FFEAF50A" FontWeight="Bold"/>
-            <dxe:TextEdit x:Name="TextEditBalance" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="472,40,0,0" Grid.Row="10" VerticalAlignment="Top" Width="70" Mask="F"  MaskType="Numeric" FontWeight="Bold" Padding="0,0,00,0" Background="Black" Foreground="White" IsReadOnly="True" Height="22" />
+            <dxe:TextEdit x:Name="TextEditTotalDr" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="147,0,0,0" Grid.Row="12" VerticalAlignment="Top" Width="70" Mask="F" MaskType="Numeric" IsReadOnly="True" Height="22" Foreground="#FFA9F50A" FontWeight="Bold" />
+            <dxe:TextEdit x:Name="TextEditTotalCr" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="220,0,0,0" Grid.Row="12" VerticalAlignment="Top" Width="70" Mask="F" MaskType="Numeric" IsReadOnly="True" Height="22" Foreground="#FFEAF50A" FontWeight="Bold"/>
+            <dxe:TextEdit x:Name="TextEditBalance" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="472,0,0,0" Grid.Row="12" VerticalAlignment="Top" Width="70" Mask="F"  MaskType="Numeric" FontWeight="Bold" Padding="0,0,00,0" Background="Black" Foreground="White" IsReadOnly="True" Height="22" />
 
-            <dxe:TextEdit x:Name="TextEditTotalDrNative" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="307,40,0,0" Grid.Row="10" VerticalAlignment="Top" Width="70" Mask="F" MaskType="Numeric" IsReadOnly="True" Height="22"  Foreground="#FFA9F50A" Background="#FF646161" FontWeight="Bold" />
-            <dxe:TextEdit x:Name="TextEditTotalCrNative" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="380,40,0,0" Grid.Row="10" VerticalAlignment="Top" Width="70" Mask="F" MaskType="Numeric" IsReadOnly="True" Height="22" Foreground="#FFEAF50A" Background="#FF646161" FontWeight="Bold"/>
-            <dxe:TextEdit x:Name="TextEditBalanceNative" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="472,70,0,0" Grid.Row="10" VerticalAlignment="Top" Width="70" Mask="F"  MaskType="Numeric" FontWeight="Bold" Padding="0,0,00,0" Background="Black" Foreground="White" IsReadOnly="True" Height="22" />
+            <dxe:TextEdit x:Name="TextEditTotalDrNative" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="307,0,0,0" Grid.Row="12" VerticalAlignment="Top" Width="70" Mask="F" MaskType="Numeric" IsReadOnly="True" Height="22"  Foreground="#FFA9F50A" Background="#FF646161" FontWeight="Bold" />
+            <dxe:TextEdit x:Name="TextEditTotalCrNative" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="380,0,0,0" Grid.Row="12" VerticalAlignment="Top" Width="70" Mask="F" MaskType="Numeric" IsReadOnly="True" Height="22" Foreground="#FFEAF50A" Background="#FF646161" FontWeight="Bold"/>
+            <dxe:TextEdit x:Name="TextEditBalanceNative" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="472,30,0,0" Grid.Row="12" VerticalAlignment="Top" Width="70" Mask="F"  MaskType="Numeric" FontWeight="Bold" Padding="0,0,00,0" Background="Black" Foreground="White" IsReadOnly="True" Height="22" />
 
             <!--<dxe:Calculator Grid.Column="2" HorizontalAlignment="Left" Height="200" Margin="0,0,0,0" Grid.Row="3" VerticalAlignment="Top" Width="100"/>-->
 
