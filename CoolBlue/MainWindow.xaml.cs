@@ -217,7 +217,7 @@ namespace coolBlue
             ImageBrush myBrush = new ImageBrush();
             
             myBrush.ImageSource =
-                new BitmapImage(new Uri("D:\\Projects\\CoolBlue\\CoolBlue\\images\\_NZ90099_100_101.jpg", UriKind.Absolute));
+                new BitmapImage(new Uri("images\\_NZ90099_100_101.jpg",UriKind.Relative));
             mainGrid.Background = myBrush;
 
         }
