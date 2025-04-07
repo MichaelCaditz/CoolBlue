@@ -2139,7 +2139,7 @@ namespace coolBlue
         {
             if (sender is null)
             {  return; }
-           
+          
             if (e.Column.FieldName == "Running Totals" && e.IsGetData)
             {
                 GridControl grid = (GridControl)sender;
@@ -2160,17 +2160,29 @@ namespace coolBlue
 
                 decimal prevTotalValue = previousRowHandle != GridControl.InvalidRowHandle ? (decimal)grid.GetCellValue(previousRowHandle, "Running Totals") : 0;
 
+
                 decimal currentPrice = 0m;
 
                
 
-                decimal nTotalCrnative = grid.GetCellValue(rowHandle, "totalCrNative") == null ? 0m : DBNull.Value.Equals(grid.GetCellValue(rowHandle, "totalCrNative")) == true ? 0 : (decimal)grid.GetCellValue(rowHandle, "totalCrNative");
-
-                decimal nTotalDrnative = grid.GetCellValue(rowHandle, "totalDrNative") == null ? 0m : DBNull.Value.Equals(grid.GetCellValue(rowHandle, "totalDrNative")) == true ? 0 : (decimal)grid.GetCellValue(rowHandle, "totalDrNative");
-
-                int nAccountingTypeID = grid.GetCellValue(rowHandle, "nAccountingTypeID") == null ? 0 : DBNull.Value.Equals(grid.GetCellValue(rowHandle, "nAccountingTypeID")) == true ? 0 : (int)grid.GetCellValue(rowHandle, "nAccountingTypeID");
+               // decimal nTotalCrnative = grid.GetCellValue(rowHandle, "totalCrNative") == null ? 0m : DBNull.Value.Equals(grid.GetCellValue(rowHandle, "totalCrNative")) == true ? 0 : (decimal)grid.GetCellValue(rowHandle, "totalCrNative");
+               // decimal nTotalCrnative = grid.GetCellValue(rowHandle, "totalCrNative") == null ? 0m :  (decimal)grid.GetCellValue(rowHandle, "totalCrNative");
+                decimal nTotalCrnative = e.GetListSourceFieldValue("totalCrNative") is null ? 0m : (decimal) e.GetListSourceFieldValue("totalCrNative");
 
                
+
+                //decimal nTotalDrnative = grid.GetCellValue(rowHandle, "totalDrNative") == null ? 0m : DBNull.Value.Equals(grid.GetCellValue(rowHandle, "totalDrNative")) == true ? 0 : (decimal)grid.GetCellValue(rowHandle, "totalDrNative");
+               // decimal nTotalDrnative = grid.GetCellValue(rowHandle, "totalDrNative") == null ? 0m :  (decimal)grid.GetCellValue(rowHandle, "totalDrNative");
+                decimal nTotalDrnative = e.GetListSourceFieldValue("totalDrNative") is null ? 0m : (decimal)e.GetListSourceFieldValue("totalDrNative");
+
+
+                // int nAccountingTypeID = grid.GetCellValue(rowHandle, "nAccountingTypeID") == null ? 0 : DBNull.Value.Equals(grid.GetCellValue(rowHandle, "nAccountingTypeID")) == true ? 0 : (int)grid.GetCellValue(rowHandle, "nAccountingTypeID");
+                //int nAccountingTypeID = grid.GetCellValue(rowHandle, "nAccountingTypeID") == null ? 0  : (int)grid.GetCellValue(rowHandle, "nAccountingTypeID");
+                int nAccountingTypeID = e.GetListSourceFieldValue("nAccountingTypeID") == null ? 0 : (int)e.GetListSourceFieldValue("nAccountingTypeID");
+
+
+
+
 
                 switch (nAccountingTypeID)
                 {
