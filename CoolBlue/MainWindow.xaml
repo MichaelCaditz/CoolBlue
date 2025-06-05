@@ -428,8 +428,8 @@
             </dxg:GridControl>
 
 
-            <dxg:GridControl Name="uSP_getLineDataGrid" AutoGenerateColumns="None" EnableSmartColumnsGeneration="False"
-                             ItemsSource="{Binding Source={StaticResource uSP_getLineViewSource1}}" Grid.Column="5" Grid.Row="3" Grid.RowSpan="9" SelectionMode="Row" CustomUnboundColumnData="grid_CustomUnboundColumnData" Opacity="0.9">
+            <dxg:GridControl Name="uSP_getLineDataGrid" AutoGenerateColumns="None" EnableSmartColumnsGeneration="False" 
+                             ItemsSource="{Binding Source={StaticResource uSP_getLineViewSource1}}" Grid.Column="5" Grid.Row="3" Grid.RowSpan="9" SelectionMode="Row" CustomUnboundColumnData="grid_CustomUnboundColumnData" Opacity="0.9" >
                 <dxg:GridControl.View>
                     <dxg:TableView Name="LineView" AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" ShowColumnHeaders="True" Grid.ColumnSpan="1" Margin="0,0,0,0" ShowBandsPanel="False" ShowBandsInCustomizationForm="False" ShowCheckBoxSelectorInGroupRow="False"
                                    ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False"
@@ -581,7 +581,8 @@
 
                 <dxg:GridColumn FieldName="Running Totals" Header="Balance" Width="80" 
                                 HorizontalHeaderContentAlignment="Right" 
-                                UnboundType="Object" AllowFocus="False" AllowSorting="False" CellToolTipBinding="{Binding}">
+                                 ReadOnly="True"
+                                UnboundType="Decimal" AllowFocus="False" AllowSorting="False" CellToolTipBinding="{Binding}">
                     <dxg:GridColumn.EditSettings>
                         <dxe:TextEditSettings HorizontalContentAlignment="Right"/>
                     </dxg:GridColumn.EditSettings>

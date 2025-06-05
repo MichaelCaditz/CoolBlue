@@ -60,11 +60,12 @@ namespace coolBlue
         public MainWindow()
         {
             InitializeComponent();
-            
-           
+
+
 
         }
 
+        public decimal nLastRunningTotal = 0;
 
         public int newVendorAdded = 0;
         private void DXRibbonWindow_Loaded(object sender, RoutedEventArgs e)
@@ -83,14 +84,14 @@ namespace coolBlue
             string password = Settings.Default.password;
 
             int nCompanyID = Settings.Default.nCompanyID;
-           
+
 
 
             ProgramSettings.coolblueconnectionString = String.Format("data source={0};initial catalog={1};password={2};persist security info=True;user id={3};packet size=4096;Connection Timeout=15", server, database, password, username);
             ProgramSettings.worksConnectionString = String.Format("data source='{0}';initial catalog={1};password={2};persist security info=True;user id={3};packet size=4096;Connection Timeout=30", server, database1, password, username);
 
 
-            this.Title = "coolblue       " + server + ": " + username + "   Company: "+Settings.Default.nCompanyID.ToString();
+            this.Title = "coolblue       " + server + ": " + username + "   Company: " + Settings.Default.nCompanyID.ToString();
 
             coolBlue.AccountsDataSet accountsDataSet = ((coolBlue.AccountsDataSet)(this.FindResource("accountsDataSet")));
 
@@ -177,14 +178,14 @@ namespace coolBlue
             //uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentChanged += new System.EventHandler (_uSP_getAllAccountTypesUSP_getAllAccountsViewSource_CurentChanged);
 
             coolBlue.SettingsDataSet settingsDataSet = ((coolBlue.SettingsDataSet)(this.FindResource("settingsDataSet")));
-            
+
             coolBlue.SettingsDataSetTableAdapters.USP_getAllCompanyTableAdapter settingsDataSetUSP_getAllCompanyTableAdapter = new coolBlue.SettingsDataSetTableAdapters.USP_getAllCompanyTableAdapter();
             System.Windows.Data.CollectionViewSource uSP_getAllCompanyViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllCompanyViewSource")));
 
             settingsDataSetUSP_getAllCompanyTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
             settingsDataSetUSP_getAllCompanyTableAdapter.Fill(settingsDataSet.USP_getAllCompany);
 
-            
+
 
 
 
@@ -215,9 +216,9 @@ namespace coolBlue
             barEditCompany.EditValue = Settings.Default.nCompanyID;
 
             ImageBrush myBrush = new ImageBrush();
-            
+
             myBrush.ImageSource =
-                new BitmapImage(new Uri("images\\_NZ90099_100_101.jpg",UriKind.Relative));
+                new BitmapImage(new Uri("images\\_NZ90099_100_101.jpg", UriKind.Relative));
             mainGrid.Background = myBrush;
 
         }
@@ -230,15 +231,15 @@ namespace coolBlue
             coolBlue.RegisterDataSet registerDataSet = ((coolBlue.RegisterDataSet)(this.FindResource("registerDataSet")));
             DataRowView drv = (DataRowView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentItem;
             int accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
-            int accountingPeriod = Settings.Default.nAccountingPeriodID; 
-            int company = Settings.Default.nCompanyID;  
+            int accountingPeriod = Settings.Default.nAccountingPeriodID;
+            int company = Settings.Default.nCompanyID;
 
 
             registerDataSet.EnforceConstraints = false;
             registerDataSetUSP_getSplitTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-            registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent, accountingPeriod,company);
+            registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent, accountingPeriod, company);
             registerDataSetUSP_getLineTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-            registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent, accountingPeriod,company);
+            registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent, accountingPeriod, company);
             //registerDataSet.EnforceConstraints = true;
 
             getTotals();
@@ -317,7 +318,7 @@ namespace coolBlue
                 accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
                 nCurrencyID = (drv == null ? 0 : DBNull.Value.Equals(drv["nCurrencyID"]) == true ? 0 : (int)drv["nCurrencyID"]);
                 accountingPeriod = Settings.Default.nAccountingPeriodID;
-                company = Settings.Default.nCompanyID;  
+                company = Settings.Default.nCompanyID;
 
 
                 DataRowView drv1 = (DataRowView)uSP_getAllAccountTypesViewSource.View.CurrentItem;
@@ -389,9 +390,9 @@ namespace coolBlue
 
                 registerDataSet.EnforceConstraints = false;
                 registerDataSetUSP_getSplitTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-                registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent, accountingPeriod,company);
+                registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent, accountingPeriod, company);
                 registerDataSetUSP_getLineTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-                registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent, accountingPeriod,company);
+                registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent, accountingPeriod, company);
                 // registerDataSet.EnforceConstraints = true;
 
                 //uSP_getLineDataGrid.
@@ -813,7 +814,7 @@ namespace coolBlue
 
             registerDataSet.EnforceConstraints = false;
             registerDataSetUSP_getSplitTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-            registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent, accountingPeriod,company);
+            registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent, accountingPeriod, company);
             registerDataSetUSP_getLineTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
             registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent, accountingPeriod, company);
             //registerDataSet.EnforceConstraints = true;
@@ -903,7 +904,7 @@ namespace coolBlue
             if (bWasCompanyChanged == true)
             {
                 barEditCompany.EditValue = 0;
-               // barEditCompany_EditValueChanged();
+                // barEditCompany_EditValueChanged();
                 //openingroutine();
                 //fillLinesAndSplits();
 
@@ -1081,8 +1082,8 @@ namespace coolBlue
 
         private void GridControl_CurrentItemChanged(object sender, CurrentItemChangedEventArgs e)
         {
-            fillLinesAndSplits(); 
-            
+            fillLinesAndSplits();
+
         }
 
         private void fillLinesAndSplits()
@@ -1455,7 +1456,7 @@ namespace coolBlue
             if (newVendorAdded > 0)
             {
 
-               
+
 
                 uSP_getSplitDataGrid.SetFocusedRowCellValue("nVendorsID", newVendorAdded);
                 newVendorAdded = 0;
@@ -1646,7 +1647,7 @@ namespace coolBlue
             accountsDataSet.EnforceConstraints = false;
             // accountsDataSetUSP_getAllAccountTypesTableAdapter.Fill(accountsDataSet.USP_getAllAccountTypes);
             accountsDataSetUSP_getAllAccountsTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-            accountsDataSetUSP_getAllAccountsTableAdapter.Fill(accountsDataSet.USP_getAllAccounts,nCompanyID);
+            accountsDataSetUSP_getAllAccountsTableAdapter.Fill(accountsDataSet.USP_getAllAccounts, nCompanyID);
             accountsDataSet.EnforceConstraints = true;
 
             //registerDataSet.EnforceConstraints = false;
@@ -1922,7 +1923,7 @@ namespace coolBlue
 
                     registerDataSet.EnforceConstraints = false;
                     registerDataSetUSP_getSplitTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-                    registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent, accountingPeriod,company);
+                    registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent, accountingPeriod, company);
                     registerDataSetUSP_getLineTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
                     registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent, accountingPeriod, company);
                     //registerDataSet.EnforceConstraints = true;
@@ -2117,9 +2118,9 @@ namespace coolBlue
 
                 registerDataSet.EnforceConstraints = false;
                 registerDataSetUSP_getSplitTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-                registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent, accountingPeriod,company);
+                registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent, accountingPeriod, company);
                 registerDataSetUSP_getLineTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-                registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent, accountingPeriod,company);
+                registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent, accountingPeriod, company);
                 //registerDataSet.EnforceConstraints = true;
 
                 getTotals();
@@ -2137,50 +2138,106 @@ namespace coolBlue
 
         private void grid_CustomUnboundColumnData(object sender, GridColumnDataEventArgs e)
         {
+           
             if (sender is null)
-            {  return; }
-          
+            {
+                return;
+            }
+
             if (e.Column.FieldName == "Running Totals" && e.IsGetData)
             {
                 GridControl grid = (GridControl)sender;
 
                 int rowHandle = grid.GetRowHandleByListIndex(e.ListSourceRowIndex);
 
-                bool bIsAll = grid.GetCellValue(rowHandle, "bIsAll") == null ? false : DBNull.Value.Equals(grid.GetCellValue(rowHandle, "bIsAll")) == true ? false : (bool)grid.GetCellValue(rowHandle, "bIsAll");
+               
+
+
+                //var sourceValue_nAccountingTypeID = e.GetListSourceFieldValue("nAccountingTypeID");
+                var sourceValue_nAccountingTypeID = grid.GetCellValue(rowHandle, "nAccountingTypeID");
+                var sourceValue_isAll = grid.GetCellValue(rowHandle, "bIsAll");
+
+                //var sourceValue_totalCrNative = e.GetListSourceFieldValue("totalCrNative");
+                var sourceValue_totalCrNative = grid.GetCellValue(rowHandle, "totalCrNative");
+
+                //var sourceValue_totalDrNative = e.GetListSourceFieldValue("totalDrNative");
+                var sourceValue_totalDrNative = grid.GetCellValue(rowHandle, "totalDrNative");
+
+
+                bool bIsAll = sourceValue_isAll == null ? false : DBNull.Value.Equals(sourceValue_isAll) == true ? false : (bool)sourceValue_isAll;
                 if (bIsAll == true)
-                { return; }
+                {
+                    return;
+                }
 
 
 
-
-
+                int nAccountingTypeID = 0;
+                decimal prevTotalValue = 0m;
 
                 int rowVisibleIndex = grid.GetRowVisibleIndexByHandle(rowHandle);
+
+                //if (rowVisibleIndex == 0)
+                //{
+                //    nLastRunningTotal = 0m; //reset
+                //}
+
                 int previousRowHandle = grid.GetRowHandleByVisibleIndex(rowVisibleIndex > 0 ? rowVisibleIndex - 1 : GridControl.InvalidRowHandle);
 
-                decimal prevTotalValue = previousRowHandle != GridControl.InvalidRowHandle ? (decimal)grid.GetCellValue(previousRowHandle, "Running Totals") : 0;
+                //int previousRowHandle = grid.GetRowHandleByVisibleIndex(rowVisibleIndex > 0 ? rowVisibleIndex - 1 : -1);
 
+                //prevTotalValue = previousRowHandle != GridControl.InvalidRowHandle ? (decimal)grid.GetCellValue(previousRowHandle, "Running Totals") : 0;
+
+                //if (previousRowHandle != GridControl.InvalidRowHandle)
+                ////if (previousRowHandle > -1)
+                //{
+
+                //    prevTotalValue = (decimal) grid.GetCellValue(previousRowHandle, "Running Totals");//cannot do this, it's recursive (recalculates last running total)
+                //    //prevTotalValue = nLastRunningTotal;
+
+
+                //}
+
+               
+
+
+
+
+
+
+
+                // prevTotalValue = (decimal)grid.GetCellValue(previousRowHandle, "Running Totals");
 
                 decimal currentPrice = 0m;
 
-               
 
-               // decimal nTotalCrnative = grid.GetCellValue(rowHandle, "totalCrNative") == null ? 0m : DBNull.Value.Equals(grid.GetCellValue(rowHandle, "totalCrNative")) == true ? 0 : (decimal)grid.GetCellValue(rowHandle, "totalCrNative");
-               // decimal nTotalCrnative = grid.GetCellValue(rowHandle, "totalCrNative") == null ? 0m :  (decimal)grid.GetCellValue(rowHandle, "totalCrNative");
-                decimal nTotalCrnative = e.GetListSourceFieldValue("totalCrNative") is null ? 0m : (decimal) e.GetListSourceFieldValue("totalCrNative");
 
-               
+                // decimal nTotalCrnative = grid.GetCellValue(rowHandle, "totalCrNative") == null ? 0m : DBNull.Value.Equals(grid.GetCellValue(rowHandle, "totalCrNative")) == true ? 0 : (decimal)grid.GetCellValue(rowHandle, "totalCrNative");
+                // decimal nTotalCrnative = grid.GetCellValue(rowHandle, "totalCrNative") == null ? 0m :  (decimal)grid.GetCellValue(rowHandle, "totalCrNative");
+                decimal nTotalCrnative = sourceValue_totalCrNative is null ? 0m : (decimal)sourceValue_totalCrNative;
+
+
 
                 //decimal nTotalDrnative = grid.GetCellValue(rowHandle, "totalDrNative") == null ? 0m : DBNull.Value.Equals(grid.GetCellValue(rowHandle, "totalDrNative")) == true ? 0 : (decimal)grid.GetCellValue(rowHandle, "totalDrNative");
-               // decimal nTotalDrnative = grid.GetCellValue(rowHandle, "totalDrNative") == null ? 0m :  (decimal)grid.GetCellValue(rowHandle, "totalDrNative");
-                decimal nTotalDrnative = e.GetListSourceFieldValue("totalDrNative") is null ? 0m : (decimal)e.GetListSourceFieldValue("totalDrNative");
+                // decimal nTotalDrnative = grid.GetCellValue(rowHandle, "totalDrNative") == null ? 0m :  (decimal)grid.GetCellValue(rowHandle, "totalDrNative");
+                decimal nTotalDrnative = sourceValue_totalDrNative is null ? 0m : (decimal)sourceValue_totalDrNative;
 
 
                 // int nAccountingTypeID = grid.GetCellValue(rowHandle, "nAccountingTypeID") == null ? 0 : DBNull.Value.Equals(grid.GetCellValue(rowHandle, "nAccountingTypeID")) == true ? 0 : (int)grid.GetCellValue(rowHandle, "nAccountingTypeID");
                 //int nAccountingTypeID = grid.GetCellValue(rowHandle, "nAccountingTypeID") == null ? 0  : (int)grid.GetCellValue(rowHandle, "nAccountingTypeID");
-                int nAccountingTypeID = e.GetListSourceFieldValue("nAccountingTypeID") == null ? 0 : (int)e.GetListSourceFieldValue("nAccountingTypeID");
 
+                //var theType = sourceValue_nAccountingTypeID.GetType();
 
+                //if (theType == typeof(Int32)) 
+                //{
+
+                if (sourceValue_nAccountingTypeID != null & DBNull.Value.Equals(sourceValue_nAccountingTypeID) == false)
+
+                {
+
+                    nAccountingTypeID = (int)sourceValue_nAccountingTypeID;
+
+                }
 
 
 
@@ -2189,11 +2246,11 @@ namespace coolBlue
                     case 1001://credit card
 
 
-                 currentPrice = nTotalCrnative - nTotalDrnative;
+                        currentPrice = nTotalCrnative - nTotalDrnative;
 
-                
 
-                            break;
+
+                        break;
 
                     case 1003: //expense
 
@@ -2219,12 +2276,17 @@ namespace coolBlue
 
                         break;
                 }
+                e.Value = prevTotalValue + currentPrice;
+
+                //e.Value = currentPrice + nLastRunningTotal;
+                //nLastRunningTotal = (decimal) e.Value;
+                //nLastRunningTotal = nLastRunningTotal + currentPrice;
 
 
+                //e.value = rh7 + saved rh 6
 
-                e.Value = currentPrice + prevTotalValue;
             }
-        
+
         }
 
         private void NewSplit_Click(object sender, RoutedEventArgs e)
@@ -2240,21 +2302,21 @@ namespace coolBlue
             int company = 0;
             int accountingTypeCurrent = 0;
             int nCurrencyID = 0;
-            
-           
-                DataRowView drv = (DataRowView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentItem;
-                accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
-                nCurrencyID = (drv == null ? 0 : DBNull.Value.Equals(drv["nCurrencyID"]) == true ? 0 : (int)drv["nCurrencyID"]);
-                accountingPeriod = 1001;  // this will be changed so value comes from settings
-                company = 1000;  // this will be changed so value comes from settings
+
+
+            DataRowView drv = (DataRowView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentItem;
+            accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
+            nCurrencyID = (drv == null ? 0 : DBNull.Value.Equals(drv["nCurrencyID"]) == true ? 0 : (int)drv["nCurrencyID"]);
+            accountingPeriod = 1001;  // this will be changed so value comes from settings
+            company = 1000;  // this will be changed so value comes from settings
 
 
             DataRowView drv1 = (DataRowView)uSP_getAllAccountTypesViewSource.View.CurrentItem;
-                accountingTypeCurrent = (drv1 == null ? 0 : DBNull.Value.Equals(drv1["nAccountingTypeID"]) == true ? 0 : (int)drv1["nAccountingTypeID"]);
+            accountingTypeCurrent = (drv1 == null ? 0 : DBNull.Value.Equals(drv1["nAccountingTypeID"]) == true ? 0 : (int)drv1["nAccountingTypeID"]);
 
 
 
-            
+
 
 
             if (accountCurrent == 0)
@@ -2351,8 +2413,8 @@ namespace coolBlue
             //SplitsView.FocusedRowHandle = 0;
             Dispatcher.BeginInvoke(new Action(() =>
             {
-                    //SplitsView.ShowInlineEditForm();
-                    SplitsView.ShowEditForm();
+                //SplitsView.ShowInlineEditForm();
+                SplitsView.ShowEditForm();
             }), DispatcherPriority.Render);
             //Dispatcher.BeginInvoke((Action)SplitsView.ShowEditor, DispatcherPriority.Render);
 
@@ -2376,21 +2438,21 @@ namespace coolBlue
             DBConnection dbconnection = new DBConnection();
 
             dbconnection.ShowDialog();
-            
+
             string server = Settings.Default.server;
             string database = "coolblue";
             string database1 = "works";
             string username = Settings.Default.username;
             string password = Settings.Default.password;
 
-            
+
             openingroutine();
             fillLinesAndSplits();
 
             this.Title = "coolblue       " + server + ": " + username;
         }
 
-       
+
 
         private void btnInfoNewVendor_Click(object sender, RoutedEventArgs e)
         {
@@ -2411,7 +2473,7 @@ namespace coolBlue
 
 
             int wasnull = 0;
-           
+
             if (wasnull == 1)
             {
 
@@ -2422,7 +2484,7 @@ namespace coolBlue
                 MessageBoxImage icon = MessageBoxImage.Information;
                 MessageBoxResult defaultResult = MessageBoxResult.OK;
                 MessageBoxOptions options = MessageBoxOptions.RtlReading;
-               
+
                 MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
 
                 if (result == MessageBoxResult.OK)
@@ -2437,7 +2499,7 @@ namespace coolBlue
             }
             else
             {
-                
+
             }
 
 
@@ -2475,7 +2537,7 @@ namespace coolBlue
             {
                 if (conn.State == ConnectionState.Open) conn.Close();
 
-                
+
 
                 int vendorCurrent = TransactID1;
                 editVendor editVendor1 = new editVendor(vendorCurrent);
@@ -2483,18 +2545,18 @@ namespace coolBlue
                 coolBlue.RegisterDataSet registerDataSet = ((coolBlue.RegisterDataSet)(this.FindResource("registerDataSet")));
 
                 coolBlue.RegisterDataSetTableAdapters.USP_getAllVendorsTableAdapter registerDataSetUSP_getAllVendorsTableAdapter = new coolBlue.RegisterDataSetTableAdapters.USP_getAllVendorsTableAdapter();
-               // System.Windows.Data.CollectionViewSource uSP_getAllVendorsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllVendorsViewSource")));
+                // System.Windows.Data.CollectionViewSource uSP_getAllVendorsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllVendorsViewSource")));
                 registerDataSetUSP_getAllVendorsTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
                 registerDataSetUSP_getAllVendorsTableAdapter.Fill(registerDataSet.USP_getAllVendors);
 
 
-               //string message5 = "New vendor will be added to this entry after closing edit form by clicking UPDATE.";
-               // string caption5 = "CoolBlue";
+                //string message5 = "New vendor will be added to this entry after closing edit form by clicking UPDATE.";
+                // string caption5 = "CoolBlue";
 
 
                 //var editForm = LayoutTreeHelper.GetVisualParents(this.AssociatedObject).OfType<EditFormControl>().FirstOrDefault();
 
-               // var obj = LayoutTreeHelper.GetVisualChildren(uSP_getSplitDataGrid).OfType<Button>().FirstOrDefault(x => x.Name == "btnInfoNewVendor");
+                // var obj = LayoutTreeHelper.GetVisualChildren(uSP_getSplitDataGrid).OfType<Button>().FirstOrDefault(x => x.Name == "btnInfoNewVendor");
 
                 var editForm = LayoutTreeHelper.GetVisualChildren(SplitsView).OfType<EditFormControl>().FirstOrDefault();
 
@@ -2517,14 +2579,14 @@ namespace coolBlue
                 //MessageBoxImage icon5 = MessageBoxImage.Exclamation;
                 //MessageBoxResult defaultResult5 = MessageBoxResult.OK;
                 //MessageBoxOptions options5 = MessageBoxOptions.None;
-              
+
                 //MessageBoxResult result5 = MessageBox.Show(message5, caption5, buttons5, icon5, defaultResult5, options5);
                 //if (result5 == MessageBoxResult.OK)
                 //{
-                    newVendorAdded = vendorCurrent;
+                newVendorAdded = vendorCurrent;
                 //}
 
-               // uSP_getSplitDataGrid.SetFocusedRowCellValue("nVendorsID", vendorCurrent);
+                // uSP_getSplitDataGrid.SetFocusedRowCellValue("nVendorsID", vendorCurrent);
             }
         }
 
@@ -2532,23 +2594,24 @@ namespace coolBlue
         {
 
 
-            int nCompanyCheck= (barEditCompany.EditValue == null ? 0 :  (int)barEditCompany.EditValue);
+            int nCompanyCheck = (barEditCompany.EditValue == null ? 0 : (int)barEditCompany.EditValue);
 
 
             bool bWasCompanyChanged = false;
-           if (nCompanyCheck != Settings.Default.nCompanyID  )
-            {  
-                bWasCompanyChanged = true; 
+            if (nCompanyCheck != Settings.Default.nCompanyID)
+            {
+                bWasCompanyChanged = true;
             }
             if (bWasCompanyChanged == true)
             {
                 Settings.Default.nCompanyID = nCompanyCheck;
-               
+
                 openingroutine();
                 fillLinesAndSplits();
 
             }
         }
+
+        
     }
 }
-       
