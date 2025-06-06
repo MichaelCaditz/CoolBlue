@@ -18,7 +18,7 @@
     xmlns:AccountsDataSetTableAdapters="clr-namespace:coolBlue.AccountsDataSetTableAdapters" 
     xmlns:SettingsDataSetTableAdapters="clr-namespace:coolBlue.SettingsDataSetTableAdapters"
 
-    xmlns:local="clr-namespace:coolBlue" ShowBackButton="True" ShowStatusPanel="True" Unloaded="ThemedWindow_Unloaded">
+    xmlns:local="clr-namespace:coolBlue" xmlns:dxpg="http://schemas.devexpress.com/winfx/2008/xaml/pivotgrid" ShowBackButton="True" ShowStatusPanel="True" Unloaded="ThemedWindow_Unloaded">
     <Window.Resources>
 
         <!--<Style x:Key="SelectedRowStyle" TargetType="{x:Type dxg:RowControl}">
@@ -107,8 +107,8 @@
         <Grid Name ="mainGrid"  DataContext="{StaticResource uSP_getLineViewSource}" IsEnabled="True" Width="3794" Background="#FF093472" HorizontalAlignment="Left" Margin="10,0,0,-684">
 
 
-            
-            
+
+
             <UIElement.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -119,7 +119,7 @@
             </UIElement.RenderTransform>
 
 
-           
+
 
 
             <Grid.ColumnDefinitions>
@@ -428,8 +428,30 @@
             </dxg:GridControl>
 
 
+            <!--<dxpg:PivotGridControl Name="uSP_getLinePivotGrid" DataProcessingEngine="Optimized"
+                 DataSource="{Binding Source={StaticResource uSP_getLineViewSource1}}" Grid.Column="5" Grid.Row="3" Grid.RowSpan="9"  Opacity="0.9" >
+
+                <dxpg:PivotGridControl.Fields>
+
+                    <dxpg:PivotGridField Name="ID" Caption="ID" Width="500" Area="RowArea">
+                        <dxpg:PivotGridField.DataBinding>
+                            <dxpg:DataSourceColumnBinding ColumnName="ID"/>
+                        </dxpg:PivotGridField.DataBinding>
+                    </dxpg:PivotGridField>
+
+                    <dxpg:PivotGridField Name="dtTransDate" Caption="Date" Width="500" Area="RowArea" >
+                        <dxpg:PivotGridField.DataBinding>
+                            <dxpg:DataSourceColumnBinding ColumnName="dtTransDate"/>
+                        </dxpg:PivotGridField.DataBinding>
+                    </dxpg:PivotGridField>
+                    
+
+
+                </dxpg:PivotGridControl.Fields>
+            </dxpg:PivotGridControl >-->
+
             <dxg:GridControl Name="uSP_getLineDataGrid" AutoGenerateColumns="None" EnableSmartColumnsGeneration="False" 
-                             ItemsSource="{Binding Source={StaticResource uSP_getLineViewSource1}}" Grid.Column="5" Grid.Row="3" Grid.RowSpan="9" SelectionMode="Row" CustomUnboundColumnData="grid_CustomUnboundColumnData" Opacity="0.9" >
+                             ItemsSource="{Binding Source={StaticResource uSP_getLineViewSource1}}" Grid.Column="5" Grid.Row="3" Grid.RowSpan="9" SelectionMode="Row"  Opacity="0.9" >
                 <dxg:GridControl.View>
                     <dxg:TableView Name="LineView" AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" ShowColumnHeaders="True" Grid.ColumnSpan="1" Margin="0,0,0,0" ShowBandsPanel="False" ShowBandsInCustomizationForm="False" ShowCheckBoxSelectorInGroupRow="False"
                                    ShowDragDropHint="False" ShowEditFormOnDoubleClick="False" ShowEditFormOnEnterKey="False" ShowEditFormOnF2Key="False" ShowEditFormUpdateCancelButtons="False" ShowGroupPanel="False" ShowHorizontalLines="False" ShowIndicator="False"
@@ -503,7 +525,7 @@
 
                 </dxg:GridControl.View>
 
-                <!--<dxg:GridColumn Binding="{Binding ID}" FieldName="ID" Header="ID" Width="50" ReadOnly="True" AllowFocus="False" AllowSorting="True" />-->
+                <dxg:GridColumn Binding="{Binding ID}" FieldName="ID" Header="ID" Width="50" ReadOnly="True" AllowFocus="False" AllowSorting="True" />
                 <dxg:GridColumn FieldName="ID" Header="ID" Width="50" ReadOnly="True" AllowFocus="False" AllowSorting="True" />
 
                 <dxg:GridColumn FieldName="dtTransDate" Header="Date" Width="80" ReadOnly="False" AllowFocus="True" AllowSorting="True" />
@@ -517,10 +539,10 @@
                                     <TextBlock FontWeight="Bold" Text="Currency: " />
                                     <TextBlock Text="{Binding currencyNameEntry}" />
                                 </StackPanel>
-                                <!--<StackPanel Orientation="Horizontal">
+                                <StackPanel Orientation="Horizontal">
                                     <TextBlock FontStyle="Italic" FontWeight="Bold" Text="Age: "/>
                                     <TextBlock Text="{Binding Age}" />
-                                </StackPanel>-->
+                                </StackPanel>
                             </StackPanel>
                         </DataTemplate>
                     </dxg:GridColumn.CellToolTipTemplate>
@@ -535,10 +557,10 @@
                                     <TextBlock FontWeight="Bold" Text="Currency: " />
                                     <TextBlock Text="{Binding currencyNameEntry}" />
                                 </StackPanel>
-                                <!--<StackPanel Orientation="Horizontal">
+                                <StackPanel Orientation="Horizontal">
                                     <TextBlock FontStyle="Italic" FontWeight="Bold" Text="Age: "/>
                                     <TextBlock Text="{Binding Age}" />
-                                </StackPanel>-->
+                                </StackPanel>
                             </StackPanel>
                         </DataTemplate>
                     </dxg:GridColumn.CellToolTipTemplate>
@@ -552,10 +574,10 @@
                                     <TextBlock FontWeight="Bold" Text="Currency: " />
                                     <TextBlock Text="{Binding currencyNameAdjusted}" />
                                 </StackPanel>
-                                <!--<StackPanel Orientation="Horizontal">
+                                <StackPanel Orientation="Horizontal">
                                     <TextBlock FontStyle="Italic" FontWeight="Bold" Text="Age: "/>
                                     <TextBlock Text="{Binding Age}" />
-                                </StackPanel>-->
+                                </StackPanel>
                             </StackPanel>
                         </DataTemplate>
                     </dxg:GridColumn.CellToolTipTemplate>
@@ -570,18 +592,18 @@
                                     <TextBlock FontWeight="Bold" Text="Currency: " />
                                     <TextBlock Text="{Binding currencyNameAdjusted}" />
                                 </StackPanel>
-                                <!--<StackPanel Orientation="Horizontal">
+                                <StackPanel Orientation="Horizontal">
                                     <TextBlock FontStyle="Italic" FontWeight="Bold" Text="Age: "/>
                                     <TextBlock Text="{Binding Age}" />
-                                </StackPanel>-->
+                                </StackPanel>
                             </StackPanel>
                         </DataTemplate>
                     </dxg:GridColumn.CellToolTipTemplate>
                 </dxg:GridColumn>
 
-                <dxg:GridColumn FieldName="Running Totals" Header="Balance" Width="80" 
+                <!--<dxg:GridColumn FieldName="Running Totals" Header="Balance" Width="80" 
                                 HorizontalHeaderContentAlignment="Right" 
-                                 ReadOnly="True"
+                                 ReadOnly="True" 
                                 UnboundType="Decimal" AllowFocus="False" AllowSorting="False" CellToolTipBinding="{Binding}">
                     <dxg:GridColumn.EditSettings>
                         <dxe:TextEditSettings HorizontalContentAlignment="Right"/>
@@ -593,10 +615,28 @@
                                     <TextBlock FontWeight="Bold" Text="Currency: " />
                                     <TextBlock Text="{Binding currencyNameAdjusted}" />
                                 </StackPanel>
-                                <!--<StackPanel Orientation="Horizontal">
+                                <StackPanel Orientation="Horizontal">
                                     <TextBlock FontStyle="Italic" FontWeight="Bold" Text="Age: "/>
                                     <TextBlock Text="{Binding Age}" />
-                                </StackPanel>-->
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </dxg:GridColumn.CellToolTipTemplate>
+                </dxg:GridColumn>-->
+
+
+                <dxg:GridColumn FieldName="nRunningTotal" Header="Balance" HorizontalHeaderContentAlignment="Right" Width="80" ReadOnly="True" AllowFocus="False" AllowSorting="True" CellToolTipBinding="{Binding}">
+                    <dxg:GridColumn.CellToolTipTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontWeight="Bold" Text="Currency: " />
+                                    <TextBlock Text="{Binding currencyNameAdjusted}" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontStyle="Italic" FontWeight="Bold" Text="Age: "/>
+                                    <TextBlock Text="{Binding Age}" />
+                                </StackPanel>
                             </StackPanel>
                         </DataTemplate>
                     </dxg:GridColumn.CellToolTipTemplate>

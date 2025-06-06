@@ -565,6 +565,8 @@ namespace coolBlue {
             
             private global::System.Data.DataColumn columnnAccountingTypeID;
             
+            private global::System.Data.DataColumn columnnRunningTotal;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public USP_getLineDataTable() {
@@ -704,6 +706,14 @@ namespace coolBlue {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn nRunningTotalColumn {
+                get {
+                    return this.columnnRunningTotal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -739,7 +749,7 @@ namespace coolBlue {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public USP_getLineRow AddUSP_getLineRow(System.DateTime dtCreateDate, int nAccountID, System.DateTime dtTransDate, string cNote, decimal totalDr, decimal totalCr, bool bIsAll, decimal totalCrNative, decimal totalDrNative, string currencyNameAdjusted, string currencyNameEntry, int nAccountingTypeID) {
+            public USP_getLineRow AddUSP_getLineRow(System.DateTime dtCreateDate, int nAccountID, System.DateTime dtTransDate, string cNote, decimal totalDr, decimal totalCr, bool bIsAll, decimal totalCrNative, decimal totalDrNative, string currencyNameAdjusted, string currencyNameEntry, int nAccountingTypeID, decimal nRunningTotal) {
                 USP_getLineRow rowUSP_getLineRow = ((USP_getLineRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -754,7 +764,8 @@ namespace coolBlue {
                         totalDrNative,
                         currencyNameAdjusted,
                         currencyNameEntry,
-                        nAccountingTypeID};
+                        nAccountingTypeID,
+                        nRunningTotal};
                 rowUSP_getLineRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowUSP_getLineRow);
                 return rowUSP_getLineRow;
@@ -797,6 +808,7 @@ namespace coolBlue {
                 this.columncurrencyNameAdjusted = base.Columns["currencyNameAdjusted"];
                 this.columncurrencyNameEntry = base.Columns["currencyNameEntry"];
                 this.columnnAccountingTypeID = base.Columns["nAccountingTypeID"];
+                this.columnnRunningTotal = base.Columns["nRunningTotal"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -828,6 +840,8 @@ namespace coolBlue {
                 base.Columns.Add(this.columncurrencyNameEntry);
                 this.columnnAccountingTypeID = new global::System.Data.DataColumn("nAccountingTypeID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnAccountingTypeID);
+                this.columnnRunningTotal = new global::System.Data.DataColumn("nRunningTotal", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnRunningTotal);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AutoIncrement = true;
@@ -3790,6 +3804,22 @@ namespace coolBlue {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal nRunningTotal {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableUSP_getLine.nRunningTotalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nRunningTotal\' in table \'USP_getLine\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUSP_getLine.nRunningTotalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsdtCreateDateNull() {
                 return this.IsNull(this.tableUSP_getLine.dtCreateDateColumn);
             }
@@ -3930,6 +3960,18 @@ namespace coolBlue {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetnAccountingTypeIDNull() {
                 this[this.tableUSP_getLine.nAccountingTypeIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsnRunningTotalNull() {
+                return this.IsNull(this.tableUSP_getLine.nRunningTotalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetnRunningTotalNull() {
+                this[this.tableUSP_getLine.nRunningTotalColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

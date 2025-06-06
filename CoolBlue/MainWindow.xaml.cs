@@ -34,6 +34,8 @@ using DevExpress.Xpf.Grid.EditForm;
 using DevExpress.Xpf.Editors;
 //using System.Threading.Tasks;
 using coolBlue.Properties;
+using DevExpress.DataAccess.Native.Json;
+using DevExpress.XtraExport.Helpers;
 
 
 
@@ -65,13 +67,24 @@ namespace coolBlue
 
         }
 
-        public decimal nLastRunningTotal = 0;
+        public bool doCustomColumn = true;
+
+
+
+        //public Dictionary<int, decimal> runningBalance = new Dictionary<int, decimal>();
+
+
+
+
 
         public int newVendorAdded = 0;
         private void DXRibbonWindow_Loaded(object sender, RoutedEventArgs e)
         {
 
             openingroutine();
+            //runningBalance.Add(1, 1000); //adding a key/value using the Add() method
+            //runningBalance.Add(2, 2000);
+            //runningBalance.Add(3, 3000);
         }
 
         private void openingroutine()
@@ -220,6 +233,7 @@ namespace coolBlue
             myBrush.ImageSource =
                 new BitmapImage(new Uri("images\\_NZ90099_100_101.jpg", UriKind.Relative));
             mainGrid.Background = myBrush;
+
 
         }
 
@@ -1194,6 +1208,7 @@ namespace coolBlue
             TextEditTotalCrNative.EditValue = sumCrNative;
             TextEditBalanceNative.EditValue = sumTotalNative;
 
+            updateRunningTotals();
 
 
         }
@@ -2138,7 +2153,7 @@ namespace coolBlue
 
         private void grid_CustomUnboundColumnData(object sender, GridColumnDataEventArgs e)
         {
-           
+
             if (sender is null)
             {
                 return;
@@ -2150,7 +2165,7 @@ namespace coolBlue
 
                 int rowHandle = grid.GetRowHandleByListIndex(e.ListSourceRowIndex);
 
-               
+
 
 
                 //var sourceValue_nAccountingTypeID = e.GetListSourceFieldValue("nAccountingTypeID");
@@ -2188,17 +2203,30 @@ namespace coolBlue
 
                 //prevTotalValue = previousRowHandle != GridControl.InvalidRowHandle ? (decimal)grid.GetCellValue(previousRowHandle, "Running Totals") : 0;
 
-                //if (previousRowHandle != GridControl.InvalidRowHandle)
-                ////if (previousRowHandle > -1)
-                //{
+                if (doCustomColumn)
 
-                //    prevTotalValue = (decimal) grid.GetCellValue(previousRowHandle, "Running Totals");//cannot do this, it's recursive (recalculates last running total)
-                //    //prevTotalValue = nLastRunningTotal;
+                {
+                    doCustomColumn = false;
+
+                    if (previousRowHandle != GridControl.InvalidRowHandle)
+                    //if (previousRowHandle > -1)
+                    {
+
+                        //prevTotalValue = (decimal)grid.GetCellValue(previousRowHandle, "Running Totals");//causes overflow error with many records, it's recursive (recalculates last running total) causes grid_CustomUnboundColumnData to trigger just when trying to getcellvalue
+                        //prevTotalValue = nLastRunningTotal;
+                        //if (runningBalance.ContainsKey(previousRowHandle))
+                        //{
+                        //    prevTotalValue = runningBalance[previousRowHandle];
+                        //}
+                        
 
 
-                //}
+                    }
 
-               
+
+                }
+
+
 
 
 
@@ -2277,6 +2305,8 @@ namespace coolBlue
                         break;
                 }
                 e.Value = prevTotalValue + currentPrice;
+                //runningBalance.Add(rowHandle, (decimal)e.Value);
+                doCustomColumn = true;
 
                 //e.Value = currentPrice + nLastRunningTotal;
                 //nLastRunningTotal = (decimal) e.Value;
@@ -2608,8 +2638,20 @@ namespace coolBlue
 
                 openingroutine();
                 fillLinesAndSplits();
-
             }
+        }
+
+
+        private void updateRunningTotals()
+        {
+
+            for (int i = 0; i < uSP_getLineDataGrid.VisibleRowCount; i++)
+            {
+                int rowHandle = uSP_getLineDataGrid.GetRowHandleByVisibleIndex(i);
+                uSP_getLineDataGrid.SetCellValue(rowHandle, "nRunningTotal", 7000);
+            }
+
+
         }
 
         
