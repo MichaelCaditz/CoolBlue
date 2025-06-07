@@ -2159,7 +2159,7 @@ namespace coolBlue
                 return;
             }
 
-            if (e.Column.FieldName == "Running Totals" && e.IsGetData)
+            if (e.Column.FieldName == "nNetChange" && e.IsGetData)
             {
                 GridControl grid = (GridControl)sender;
 
@@ -2170,7 +2170,7 @@ namespace coolBlue
 
                 //var sourceValue_nAccountingTypeID = e.GetListSourceFieldValue("nAccountingTypeID");
                 var sourceValue_nAccountingTypeID = grid.GetCellValue(rowHandle, "nAccountingTypeID");
-                var sourceValue_isAll = grid.GetCellValue(rowHandle, "bIsAll");
+                //var sourceValue_isAll = grid.GetCellValue(rowHandle, "bIsAll");
 
                 //var sourceValue_totalCrNative = e.GetListSourceFieldValue("totalCrNative");
                 var sourceValue_totalCrNative = grid.GetCellValue(rowHandle, "totalCrNative");
@@ -2179,16 +2179,16 @@ namespace coolBlue
                 var sourceValue_totalDrNative = grid.GetCellValue(rowHandle, "totalDrNative");
 
 
-                bool bIsAll = sourceValue_isAll == null ? false : DBNull.Value.Equals(sourceValue_isAll) == true ? false : (bool)sourceValue_isAll;
-                if (bIsAll == true)
-                {
-                    return;
-                }
+                //bool bIsAll = sourceValue_isAll == null ? false : DBNull.Value.Equals(sourceValue_isAll) == true ? false : (bool)sourceValue_isAll;
+                //if (bIsAll == true)
+                //{
+                //    return;
+                //}
 
 
 
                 int nAccountingTypeID = 0;
-                decimal prevTotalValue = 0m;
+                //decimal prevTotalValue = 0m;
 
                 int rowVisibleIndex = grid.GetRowVisibleIndexByHandle(rowHandle);
 
@@ -2197,34 +2197,34 @@ namespace coolBlue
                 //    nLastRunningTotal = 0m; //reset
                 //}
 
-                int previousRowHandle = grid.GetRowHandleByVisibleIndex(rowVisibleIndex > 0 ? rowVisibleIndex - 1 : GridControl.InvalidRowHandle);
+                //int previousRowHandle = grid.GetRowHandleByVisibleIndex(rowVisibleIndex > 0 ? rowVisibleIndex - 1 : GridControl.InvalidRowHandle);
 
                 //int previousRowHandle = grid.GetRowHandleByVisibleIndex(rowVisibleIndex > 0 ? rowVisibleIndex - 1 : -1);
 
                 //prevTotalValue = previousRowHandle != GridControl.InvalidRowHandle ? (decimal)grid.GetCellValue(previousRowHandle, "Running Totals") : 0;
 
-                if (doCustomColumn)
+                //if (doCustomColumn)
 
-                {
-                    doCustomColumn = false;
+                //{
+                //    doCustomColumn = false;
 
-                    if (previousRowHandle != GridControl.InvalidRowHandle)
-                    //if (previousRowHandle > -1)
-                    {
+                //    if (previousRowHandle != GridControl.InvalidRowHandle)
+                //    //if (previousRowHandle > -1)
+                //    {
 
-                        //prevTotalValue = (decimal)grid.GetCellValue(previousRowHandle, "Running Totals");//causes overflow error with many records, it's recursive (recalculates last running total) causes grid_CustomUnboundColumnData to trigger just when trying to getcellvalue
-                        //prevTotalValue = nLastRunningTotal;
-                        //if (runningBalance.ContainsKey(previousRowHandle))
-                        //{
-                        //    prevTotalValue = runningBalance[previousRowHandle];
-                        //}
+                //        //prevTotalValue = (decimal)grid.GetCellValue(previousRowHandle, "Running Totals");//causes overflow error with many records, it's recursive (recalculates last running total) causes grid_CustomUnboundColumnData to trigger just when trying to getcellvalue
+                //        //prevTotalValue = nLastRunningTotal;
+                //        //if (runningBalance.ContainsKey(previousRowHandle))
+                //        //{
+                //        //    prevTotalValue = runningBalance[previousRowHandle];
+                //        //}
                         
 
 
-                    }
+                //    }
 
 
-                }
+                //}
 
 
 
@@ -2304,9 +2304,9 @@ namespace coolBlue
 
                         break;
                 }
-                e.Value = prevTotalValue + currentPrice;
+                e.Value =  currentPrice;
                 //runningBalance.Add(rowHandle, (decimal)e.Value);
-                doCustomColumn = true;
+               // doCustomColumn = true;
 
                 //e.Value = currentPrice + nLastRunningTotal;
                 //nLastRunningTotal = (decimal) e.Value;
@@ -2648,7 +2648,24 @@ namespace coolBlue
             for (int i = 0; i < uSP_getLineDataGrid.VisibleRowCount; i++)
             {
                 int rowHandle = uSP_getLineDataGrid.GetRowHandleByVisibleIndex(i);
-                uSP_getLineDataGrid.SetCellValue(rowHandle, "nRunningTotal", 7000);
+                decimal nNewValue = 0;
+
+
+                if (rowHandle > 0)
+                {
+
+                    nNewValue = (decimal)uSP_getLineDataGrid.GetCellValue(rowHandle - 1, "nRunningTotal") + (decimal)uSP_getLineDataGrid.GetCellValue(rowHandle, "nNetChange");
+                }
+                if (rowHandle == 0)
+                {
+
+                    nNewValue =  (decimal)uSP_getLineDataGrid.GetCellValue(rowHandle, "nNetChange");
+                }
+
+
+
+
+                uSP_getLineDataGrid.SetCellValue(rowHandle, "nRunningTotal", nNewValue);
             }
 
 

@@ -450,7 +450,7 @@
                 </dxpg:PivotGridControl.Fields>
             </dxpg:PivotGridControl >-->
 
-            <dxg:GridControl Name="uSP_getLineDataGrid" AutoGenerateColumns="None" EnableSmartColumnsGeneration="False" 
+            <dxg:GridControl Name="uSP_getLineDataGrid" AutoGenerateColumns="None" EnableSmartColumnsGeneration="False" CustomUnboundColumnData="grid_CustomUnboundColumnData"
                              ItemsSource="{Binding Source={StaticResource uSP_getLineViewSource1}}" Grid.Column="5" Grid.Row="3" Grid.RowSpan="9" SelectionMode="Row"  Opacity="0.9" >
                 <dxg:GridControl.View>
                     <dxg:TableView Name="LineView" AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" ShowColumnHeaders="True" Grid.ColumnSpan="1" Margin="0,0,0,0" ShowBandsPanel="False" ShowBandsInCustomizationForm="False" ShowCheckBoxSelectorInGroupRow="False"
@@ -601,7 +601,7 @@
                     </dxg:GridColumn.CellToolTipTemplate>
                 </dxg:GridColumn>
 
-                <!--<dxg:GridColumn FieldName="Running Totals" Header="Balance" Width="80" 
+                <dxg:GridColumn FieldName="nNetChange" Header="Net Change" Width="80" Visible="True"
                                 HorizontalHeaderContentAlignment="Right" 
                                  ReadOnly="True" 
                                 UnboundType="Decimal" AllowFocus="False" AllowSorting="False" CellToolTipBinding="{Binding}">
@@ -622,7 +622,7 @@
                             </StackPanel>
                         </DataTemplate>
                     </dxg:GridColumn.CellToolTipTemplate>
-                </dxg:GridColumn>-->
+                </dxg:GridColumn>
 
 
                 <dxg:GridColumn FieldName="nRunningTotal" Header="Balance" HorizontalHeaderContentAlignment="Right" Width="80" ReadOnly="True" AllowFocus="False" AllowSorting="True" CellToolTipBinding="{Binding}">
