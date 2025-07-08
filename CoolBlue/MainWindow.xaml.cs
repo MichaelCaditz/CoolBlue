@@ -2681,5 +2681,11 @@ namespace coolBlue
         {
             PrintHelper.ShowPrintPreviewDialog(this, new coolBlue.reports.REPORT_TransactionbyTag());
         }
+
+        private void REPORT_CA_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+            PrintHelper.ShowPrintPreviewDialog(this, new coolBlue.reports.REPORT_CAdetailcs());
+
+        }
     }
 }

@@ -236,6 +236,11 @@
                         <dxr:RibbonPageGroup Caption="Register">
                             <dxb:BarButtonItem Name="REPORT_Register" Content="Detail" ItemClick="REPORT_Register_ItemClick" Glyph="{dx:DXImage Image=SpreadsheetGroup_16x16.png}" LargeGlyph="{dx:DXImage Image=SpreadsheetGroup_32x32.png}" />
                         </dxr:RibbonPageGroup>
+                        
+                        <dxr:RibbonPageGroup Caption="Current Assets">
+                            <dxb:BarButtonItem Name="REPORT_CA" Content="Detail" Glyph="{dx:DXImage Image=SpreadsheetGroup_16x16.png}" LargeGlyph="{dx:DXImage Image=SpreadsheetGroup_32x32.png}" ItemClick="REPORT_CA_ItemClick" />
+                        </dxr:RibbonPageGroup>
+
 
                     </dxr:RibbonPage>
 
@@ -1124,13 +1129,19 @@
             <dx:SimpleButton Name="NewSplit" Content="New" Grid.Column="7" HorizontalAlignment="Left" Height="27" Margin="1,0,0,0" Grid.Row="2" VerticalAlignment="Bottom" Width="120" RenderTransformOrigin="-1.733,0.444" Foreground="#FFEFF56F" Glyph="add-icon32.png" Click="NewSplit_Click" />
 
 
-            <dxe:TextEdit x:Name="TextEditTotalDr" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="147,0,0,0" Grid.Row="12" VerticalAlignment="Top" Width="70" Mask="F" MaskType="Numeric" IsReadOnly="True" Height="22" Foreground="#FFA9F50A" FontWeight="Bold" />
-            <dxe:TextEdit x:Name="TextEditTotalCr" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="220,0,0,0" Grid.Row="12" VerticalAlignment="Top" Width="70" Mask="F" MaskType="Numeric" IsReadOnly="True" Height="22" Foreground="#FFEAF50A" FontWeight="Bold"/>
-            <dxe:TextEdit x:Name="TextEditBalance" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="472,0,0,0" Grid.Row="12" VerticalAlignment="Top" Width="70" Mask="F"  MaskType="Numeric" FontWeight="Bold" Padding="0,0,00,0" Background="Black" Foreground="White" IsReadOnly="True" Height="22" />
+            <dxe:TextEdit x:Name="TextEditTotalDr" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="194,0,0,0" Grid.Row="12" VerticalAlignment="Top" Width="70" Mask="F" MaskType="Numeric" IsReadOnly="True" Height="22" Foreground="#FFA9F50A" FontWeight="Bold" />
+            <dxe:TextEdit x:Name="TextEditTotalCr" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="267,0,0,0" Grid.Row="12" VerticalAlignment="Top" Width="70" Mask="F" MaskType="Numeric" IsReadOnly="True" Height="22" Foreground="#FFEAF50A" FontWeight="Bold"/>
+            <dxe:TextEdit x:Name="TextEditBalance" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="596,0,0,0" Grid.Row="12" VerticalAlignment="Top" Width="70" Mask="F"  MaskType="Numeric" FontWeight="Bold" Padding="0,0,00,0" Background="Black" Foreground="White" IsReadOnly="True" Height="22" />
 
-            <dxe:TextEdit x:Name="TextEditTotalDrNative" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="307,0,0,0" Grid.Row="12" VerticalAlignment="Top" Width="70" Mask="F" MaskType="Numeric" IsReadOnly="True" Height="22"  Foreground="#FFA9F50A" Background="#FF646161" FontWeight="Bold" />
-            <dxe:TextEdit x:Name="TextEditTotalCrNative" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="380,0,0,0" Grid.Row="12" VerticalAlignment="Top" Width="70" Mask="F" MaskType="Numeric" IsReadOnly="True" Height="22" Foreground="#FFEAF50A" Background="#FF646161" FontWeight="Bold"/>
-            <dxe:TextEdit x:Name="TextEditBalanceNative" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="472,30,0,0" Grid.Row="12" VerticalAlignment="Top" Width="70" Mask="F"  MaskType="Numeric" FontWeight="Bold" Padding="0,0,00,0" Background="Black" Foreground="White" IsReadOnly="True" Height="22" />
+            <dxe:TextEdit x:Name="TextEditTotalDrNative" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="354,0,0,0" Grid.Row="12" VerticalAlignment="Top" Width="70" Mask="F" MaskType="Numeric" IsReadOnly="True" Height="22"  Foreground="#FFA9F50A" Background="#FF646161" FontWeight="Bold" />
+            <dxe:TextEdit x:Name="TextEditTotalCrNative" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Grid.Row="12" VerticalAlignment="Top" Width="70" Mask="F" MaskType="Numeric" IsReadOnly="True" Height="22" Foreground="#FFEAF50A" Background="#FF646161" FontWeight="Bold" Margin="436,0,0,0"/>
+            <dxe:TextEdit x:Name="TextEditBalanceNative" Grid.Column="5" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="596,35,0,0" Grid.Row="12" VerticalAlignment="Top" Width="70" Mask="F"  MaskType="Numeric" FontWeight="Bold" Padding="0,0,00,0" Background="Black" Foreground="White" IsReadOnly="True" Height="22" />
+            <Label Grid.Column="5" Content="Balance" HorizontalAlignment="Left" Margin="596,17,0,0" Grid.Row="12" VerticalAlignment="Top" RenderTransformOrigin="-1.107,0.002" Width="70" FontSize="11" Foreground="Black"/>
+            <Label Grid.Column="5" Content="Balance Native" HorizontalAlignment="Left" Margin="596,53,0,0" Grid.Row="12" VerticalAlignment="Top" RenderTransformOrigin="-1.107,0.002" Width="92" FontSize="11" Foreground="Black"/>
+            <Label Grid.Column="5" Content="Debit" HorizontalAlignment="Left" Margin="194,21,0,0" Grid.Row="12" VerticalAlignment="Top" RenderTransformOrigin="-1.107,0.002" Width="68" FontSize="11" Foreground="Black"/>
+            <Label Grid.Column="5" Content="Credit" HorizontalAlignment="Left" Margin="267,23,0,0" Grid.Row="12" VerticalAlignment="Top" RenderTransformOrigin="-1.107,0.002" Width="70" FontSize="11" Foreground="Black"/>
+            <Label Grid.Column="5" Content="Credit Native" HorizontalAlignment="Left" Margin="436,23,0,0" Grid.Row="12" VerticalAlignment="Top" RenderTransformOrigin="-1.107,0.002" Width="70" FontSize="11" Foreground="Black"/>
+            <Label Grid.Column="5" Content="Debit Native" HorizontalAlignment="Left" Margin="354,23,0,0" Grid.Row="12" VerticalAlignment="Top" RenderTransformOrigin="-1.107,0.002" Width="70" FontSize="11" Foreground="Black"/>
 
             <!--<dxe:Calculator Grid.Column="2" HorizontalAlignment="Left" Height="200" Margin="0,0,0,0" Grid.Row="3" VerticalAlignment="Top" Width="100"/>-->
 

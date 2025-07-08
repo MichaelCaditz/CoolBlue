@@ -189,6 +189,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RegisterDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="reports\REPORT_CAdetailcs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\REPORT_CAdetailcs.Designer.cs">
+      <DependentUpon>REPORT_CAdetailcs.cs</DependentUpon>
+    </Compile>
     <Compile Include="reports\REPORT_ExpensedDetail.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -356,6 +362,9 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\REPORT_CAdetailcs.resx">
+      <DependentUpon>REPORT_CAdetailcs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="reports\REPORT_ExpensedDetail.resx">
       <DependentUpon>REPORT_ExpensedDetail.cs</DependentUpon>
