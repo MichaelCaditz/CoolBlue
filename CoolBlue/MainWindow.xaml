@@ -222,8 +222,11 @@
                     </dxr:RibbonPage>
 
                     <dxr:RibbonPage Caption="Reports">
-                        <dxr:RibbonPageGroup Caption="Transaction">
-                            <dxb:BarButtonItem Content="Detail" ItemClick="BarButtonItem_ItemClick" Glyph="{dx:DXImage Image=GroupHeader_16x16.png}" LargeGlyph="{dx:DXImage Image=GroupHeader_32x32.png}" />
+                        <dxr:RibbonPageGroup Caption="All Transactions">
+                            <dxb:BarButtonItem Content="Detail" ItemClick="REPORT_Transaction_ItemClick" Glyph="{dx:DXImage Image=GroupHeader_16x16.png}" LargeGlyph="{dx:DXImage Image=GroupHeader_32x32.png}" />
+                        </dxr:RibbonPageGroup>
+                        <dxr:RibbonPageGroup Caption="Transaction by Tag">
+                            <dxb:BarButtonItem Content="Detail" ItemClick="REPORT_TransactionByTag_ItemClick" Glyph="{dx:DXImage Image=GroupHeader_16x16.png}" LargeGlyph="{dx:DXImage Image=GroupHeader_32x32.png}" />
                         </dxr:RibbonPageGroup>
 
                         <dxr:RibbonPageGroup Caption="Expense">

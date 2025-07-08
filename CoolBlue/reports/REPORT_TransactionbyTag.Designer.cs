@@ -36,14 +36,18 @@
             DevExpress.DataAccess.Sql.QueryParameter queryParameter4 = new DevExpress.DataAccess.Sql.QueryParameter();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter5 = new DevExpress.DataAccess.Sql.QueryParameter();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter6 = new DevExpress.DataAccess.Sql.QueryParameter();
+            DevExpress.DataAccess.Sql.QueryParameter queryParameter7 = new DevExpress.DataAccess.Sql.QueryParameter();
             DevExpress.DataAccess.Sql.StoredProcQuery storedProcQuery2 = new DevExpress.DataAccess.Sql.StoredProcQuery();
+            DevExpress.DataAccess.Sql.QueryParameter queryParameter8 = new DevExpress.DataAccess.Sql.QueryParameter();
             DevExpress.DataAccess.Sql.StoredProcQuery storedProcQuery3 = new DevExpress.DataAccess.Sql.StoredProcQuery();
             DevExpress.DataAccess.Sql.StoredProcQuery storedProcQuery4 = new DevExpress.DataAccess.Sql.StoredProcQuery();
+            DevExpress.DataAccess.Sql.StoredProcQuery storedProcQuery5 = new DevExpress.DataAccess.Sql.StoredProcQuery();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(REPORT_TransactionbyTag));
             DevExpress.XtraReports.UI.XRSummary xrSummary1 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.Parameters.DynamicListLookUpSettings dynamicListLookUpSettings1 = new DevExpress.XtraReports.Parameters.DynamicListLookUpSettings();
             DevExpress.XtraReports.Parameters.DynamicListLookUpSettings dynamicListLookUpSettings2 = new DevExpress.XtraReports.Parameters.DynamicListLookUpSettings();
             DevExpress.XtraReports.Parameters.DynamicListLookUpSettings dynamicListLookUpSettings3 = new DevExpress.XtraReports.Parameters.DynamicListLookUpSettings();
+            DevExpress.XtraReports.Parameters.DynamicListLookUpSettings dynamicListLookUpSettings4 = new DevExpress.XtraReports.Parameters.DynamicListLookUpSettings();
             DevExpress.XtraReports.UI.XRWatermark xrWatermark1 = new DevExpress.XtraReports.UI.XRWatermark();
             this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
@@ -103,6 +107,7 @@
             this.tagID = new DevExpress.XtraReports.Parameters.Parameter();
             this.reportCurrencyID = new DevExpress.XtraReports.Parameters.Parameter();
             this.accountingPeriod = new DevExpress.XtraReports.Parameters.Parameter();
+            this.companyID = new DevExpress.XtraReports.Parameters.Parameter();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -130,25 +135,37 @@
             queryParameter6.Name = "@accountingPeriod";
             queryParameter6.Type = typeof(DevExpress.DataAccess.Expression);
             queryParameter6.Value = new DevExpress.DataAccess.Expression("[Parameters.accountingPeriod]", typeof(int));
+            queryParameter7.Name = "@company";
+            queryParameter7.Type = typeof(DevExpress.DataAccess.Expression);
+            queryParameter7.Value = new DevExpress.DataAccess.Expression("?companyID", typeof(int));
             storedProcQuery1.Parameters.AddRange(new DevExpress.DataAccess.Sql.QueryParameter[] {
             queryParameter1,
             queryParameter2,
             queryParameter3,
             queryParameter4,
             queryParameter5,
-            queryParameter6});
+            queryParameter6,
+            queryParameter7});
             storedProcQuery1.StoredProcName = "REPORT_TransactionbyTag";
             storedProcQuery2.Name = "USP_getAllTags";
+            queryParameter8.Name = "@nCompanyID";
+            queryParameter8.Type = typeof(DevExpress.DataAccess.Expression);
+            queryParameter8.Value = new DevExpress.DataAccess.Expression("?companyID", typeof(int));
+            storedProcQuery2.Parameters.AddRange(new DevExpress.DataAccess.Sql.QueryParameter[] {
+            queryParameter8});
             storedProcQuery2.StoredProcName = "USP_getAllTags";
             storedProcQuery3.Name = "USP_getAllCurrency";
             storedProcQuery3.StoredProcName = "USP_getAllCurrency";
             storedProcQuery4.Name = "USP_getAllAccountingPeriods";
             storedProcQuery4.StoredProcName = "USP_getAllAccountingPeriods";
+            storedProcQuery5.Name = "USP_getAllCompany";
+            storedProcQuery5.StoredProcName = "USP_getAllCompany";
             this.sqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
             storedProcQuery1,
             storedProcQuery2,
             storedProcQuery3,
-            storedProcQuery4});
+            storedProcQuery4,
+            storedProcQuery5});
             this.sqlDataSource1.ResultSchemaSerializable = resources.GetString("sqlDataSource1.ResultSchemaSerializable");
             // 
             // Detail
@@ -734,13 +751,14 @@
             this.startDate.Description = "Start Date";
             this.startDate.Name = "startDate";
             this.startDate.Type = typeof(System.DateTime);
-            this.startDate.ValueInfo = "1800-01-01";
+            this.startDate.ValueInfo = "2024-01-01";
             // 
             // endDate
             // 
             this.endDate.Description = "End Date";
             this.endDate.Name = "endDate";
             this.endDate.Type = typeof(System.DateTime);
+            this.endDate.ValueInfo = "2024-01-31";
             // 
             // tagID
             // 
@@ -779,6 +797,18 @@
             dynamicListLookUpSettings3.ValueMember = "ID";
             this.accountingPeriod.ValueSourceSettings = dynamicListLookUpSettings3;
             // 
+            // companyID
+            // 
+            this.companyID.Description = "Company";
+            this.companyID.Name = "companyID";
+            this.companyID.Type = typeof(int);
+            this.companyID.ValueInfo = "0";
+            dynamicListLookUpSettings4.DataMember = "USP_getAllCompany";
+            dynamicListLookUpSettings4.DataSource = this.sqlDataSource1;
+            dynamicListLookUpSettings4.DisplayMember = "cName";
+            dynamicListLookUpSettings4.ValueMember = "ID";
+            this.companyID.ValueSourceSettings = dynamicListLookUpSettings4;
+            // 
             // REPORT_TransactionbyTag
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -796,11 +826,20 @@
             this.Margins = new DevExpress.Drawing.DXMargins(100F, 100F, 100F, 101.5833F);
             this.PageHeight = 850;
             this.PageWidth = 1100;
+            this.ParameterPanelLayoutItems.AddRange(new DevExpress.XtraReports.Parameters.ParameterPanelLayoutItem[] {
+            new DevExpress.XtraReports.Parameters.ParameterLayoutItem(this.companyID, DevExpress.XtraReports.Parameters.Orientation.Horizontal),
+            new DevExpress.XtraReports.Parameters.ParameterLayoutItem(this.tagID, DevExpress.XtraReports.Parameters.Orientation.Horizontal),
+            new DevExpress.XtraReports.Parameters.ParameterLayoutItem(this.accountID, DevExpress.XtraReports.Parameters.Orientation.Horizontal),
+            new DevExpress.XtraReports.Parameters.ParameterLayoutItem(this.startDate, DevExpress.XtraReports.Parameters.Orientation.Horizontal),
+            new DevExpress.XtraReports.Parameters.ParameterLayoutItem(this.endDate, DevExpress.XtraReports.Parameters.Orientation.Horizontal),
+            new DevExpress.XtraReports.Parameters.ParameterLayoutItem(this.reportCurrencyID, DevExpress.XtraReports.Parameters.Orientation.Horizontal),
+            new DevExpress.XtraReports.Parameters.ParameterLayoutItem(this.accountingPeriod, DevExpress.XtraReports.Parameters.Orientation.Horizontal)});
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
+            this.companyID,
+            this.tagID,
             this.accountID,
             this.startDate,
             this.endDate,
-            this.tagID,
             this.reportCurrencyID,
             this.accountingPeriod});
             this.StyleSheet.AddRange(new DevExpress.XtraReports.UI.XRControlStyle[] {
@@ -813,7 +852,7 @@
             this.GrandTotalData3,
             this.GrandTotalBackground3,
             this.PageInfo});
-            this.Version = "23.2";
+            this.Version = "24.2";
             xrWatermark1.Id = "Watermark1";
             this.Watermarks.AddRange(new DevExpress.XtraPrinting.Drawing.Watermark[] {
             xrWatermark1});
@@ -884,5 +923,6 @@
         private DevExpress.XtraReports.Parameters.Parameter tagID;
         private DevExpress.XtraReports.Parameters.Parameter reportCurrencyID;
         private DevExpress.XtraReports.Parameters.Parameter accountingPeriod;
+        private DevExpress.XtraReports.Parameters.Parameter companyID;
     }
 }

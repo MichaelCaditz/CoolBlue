@@ -171,7 +171,7 @@ namespace coolBlue
             registerDataSetUSP_getAllVendorsTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
             registerDataSetUSP_getAllVendorsTableAdapter.Fill(registerDataSet.USP_getAllVendors);
             registerDataSetUSP_getAllTagsTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-            registerDataSetUSP_getAllTagsTableAdapter.Fill(registerDataSet.USP_getAllTags);
+            registerDataSetUSP_getAllTagsTableAdapter.Fill(registerDataSet.USP_getAllTags, nCompanyID);
             registerDataSetUSP_getAllClassTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
             registerDataSetUSP_getAllClassTableAdapter.Fill(registerDataSet.USP_getAllClass);
             registerDataSetUSP_getAllCurrencyTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
@@ -240,6 +240,7 @@ namespace coolBlue
         public bool _uSP_getAllAccountTypesUSP_getAllAccountsViewSource_CurentChanged()
         {
             //I cannot make this work yet
+            int nCompanyID = Settings.Default.nCompanyID;
             System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesUSP_getAllAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesUSP_getAllAccountsViewSource")));
 
             coolBlue.RegisterDataSet registerDataSet = ((coolBlue.RegisterDataSet)(this.FindResource("registerDataSet")));
@@ -266,7 +267,7 @@ namespace coolBlue
         private void uSP_getAllAccountsDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesUSP_getAllAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesUSP_getAllAccountsViewSource")));
-
+            int nCompanyID = Settings.Default.nCompanyID;
             coolBlue.RegisterDataSet registerDataSet = ((coolBlue.RegisterDataSet)(this.FindResource("registerDataSet")));
             DataRowView drv = (DataRowView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentItem;
             int accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
@@ -870,13 +871,13 @@ namespace coolBlue
 
 
 
-        private void BarButtonItem_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        private void REPORT_Transaction_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
 
 
 
 
-            PrintHelper.ShowPrintPreviewDialog(this, new coolBlue.reports.REPORT_TransactionbyTag());
+            PrintHelper.ShowPrintPreviewDialog(this, new coolBlue.reports.REPORT_Transaction());
 
 
 
@@ -1687,12 +1688,12 @@ namespace coolBlue
         {
             Tags Tags1 = new Tags();
             Tags1.ShowDialog();
-
+            int nCompanyID = Settings.Default.nCompanyID;
             coolBlue.RegisterDataSet registerDataSet = ((coolBlue.RegisterDataSet)(this.FindResource("registerDataSet")));
             coolBlue.RegisterDataSetTableAdapters.USP_getAllTagsTableAdapter registerDataSetUSP_getAllTagsTableAdapter = new coolBlue.RegisterDataSetTableAdapters.USP_getAllTagsTableAdapter();
             System.Windows.Data.CollectionViewSource uSP_getAllTagsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllTagsViewSource")));
             registerDataSetUSP_getAllTagsTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
-            registerDataSetUSP_getAllTagsTableAdapter.Fill(registerDataSet.USP_getAllTags);
+            registerDataSetUSP_getAllTagsTableAdapter.Fill(registerDataSet.USP_getAllTags,nCompanyID);
 
 
         }
@@ -2671,6 +2672,14 @@ namespace coolBlue
 
         }
 
-        
+        private void BarButtonItem_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+
+        }
+
+        private void REPORT_TransactionByTag_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+            PrintHelper.ShowPrintPreviewDialog(this, new coolBlue.reports.REPORT_TransactionbyTag());
+        }
     }
 }
