@@ -640,9 +640,9 @@
             // 
             // xrLabel3
             // 
-            this.xrLabel3.CanGrow = false;
+            this.xrLabel3.AutoWidth = true;
             this.xrLabel3.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumSum([nAmount])")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumSum([nAmount_C])")});
             this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(354.7142F, 11.50001F);
             this.xrLabel3.Name = "xrLabel3";
             this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);

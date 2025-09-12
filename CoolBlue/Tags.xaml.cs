@@ -25,6 +25,8 @@ using System.Drawing;
 //using DevExpress.XtraReports.UI;
 //using DevExpress.XtraPrinting.Preview;
 using DevExpress.Xpf.Printing;
+using coolBlue.Properties;
+
 
 
 namespace coolBlue
@@ -41,13 +43,13 @@ namespace coolBlue
 
         private void ThemedWindow_Loaded(object sender, RoutedEventArgs e)
         {
-
+            int nCompanyID = Settings.Default.nCompanyID;
             coolBlue.EditDataSet editDataSet = ((coolBlue.EditDataSet)(this.FindResource("editDataSet")));
             
             coolBlue.EditDataSetTableAdapters.USP_getAllTagsTableAdapter editDataSetUSP_getAllTagsTableAdapter = new coolBlue.EditDataSetTableAdapters.USP_getAllTagsTableAdapter();
             editDataSetUSP_getAllTagsTableAdapter.Connection.ConnectionString = ProgramSettings.coolblueconnectionString;
 
-            editDataSetUSP_getAllTagsTableAdapter.Fill(editDataSet.USP_getAllTags);
+            editDataSetUSP_getAllTagsTableAdapter.Fill(editDataSet.USP_getAllTags,nCompanyID);
 
             System.Windows.Data.CollectionViewSource uSP_getAllTagsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllTagsViewSource")));
             uSP_getAllTagsViewSource.View.MoveCurrentToFirst();
@@ -61,6 +63,7 @@ namespace coolBlue
         private void goDetails()
         {
             System.Windows.Data.CollectionViewSource uSP_getAllTagsViewSource = (System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllTagsViewSource"));
+            int nCompanyID = Settings.Default.nCompanyID;
 
             DataRowView drv = (DataRowView)uSP_getAllTagsViewSource.View.CurrentItem;
             int tagCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
@@ -72,7 +75,7 @@ namespace coolBlue
 
 
             editDataSet.EnforceConstraints = false;
-            editDataSetUSP_getAllTagsTableAdapter.Fill(editDataSet.USP_getAllTags);
+            editDataSetUSP_getAllTagsTableAdapter.Fill(editDataSet.USP_getAllTags,nCompanyID);
             editDataSet.EnforceConstraints = true;
 
 
@@ -82,6 +85,8 @@ namespace coolBlue
             private void BarButtonItem_ItemClick_1(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
             int TransactID1 = 0;
+            int nCompanyID = Settings.Default.nCompanyID;
+
             System.Windows.Data.CollectionViewSource uSP_getAllTagsViewSource = (System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllTagsViewSource"));
 
             //coolBlue.RegisterDataSet registerDataSet = ((coolBlue.RegisterDataSet)(this.FindResource("registerDataSet")));
@@ -138,7 +143,7 @@ namespace coolBlue
                     cmd3.Parameters.Clear();
                     cmd3.CommandText = "dbo.USP_insertTag";
                     //cmd3.Parameters.AddWithValue("@nAccount", accountCurrent);
-
+                    cmd3.Parameters.AddWithValue("@nCompanyID", nCompanyID);
                     SqlParameter retval = cmd3.Parameters.Add("@transactIdentity", SqlDbType.Int);
                     retval.Direction = ParameterDirection.Output;
                     conn.Open();
@@ -172,7 +177,7 @@ namespace coolBlue
 
 
                 editDataSet.EnforceConstraints = false;
-                editDataSetUSP_getAllTagsTableAdapter.Fill(editDataSet.USP_getAllTags);
+                editDataSetUSP_getAllTagsTableAdapter.Fill(editDataSet.USP_getAllTags,nCompanyID);
                 editDataSet.EnforceConstraints = true;
 
 

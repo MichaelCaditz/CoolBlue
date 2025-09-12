@@ -255,7 +255,7 @@
             // xrTableCell16
             // 
             this.xrTableCell16.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[cAccount_C]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[nAmount_C_native]")});
             this.xrTableCell16.Font = new DevExpress.Drawing.DXFont("Tahoma", 8F);
             this.xrTableCell16.Multiline = true;
             this.xrTableCell16.Name = "xrTableCell16";
@@ -270,7 +270,7 @@
             // xrTableCell12
             // 
             this.xrTableCell12.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[nAmount_D]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[nAmount_D_Native]")});
             this.xrTableCell12.Font = new DevExpress.Drawing.DXFont("Tahoma", 8F);
             this.xrTableCell12.Multiline = true;
             this.xrTableCell12.Name = "xrTableCell12";
@@ -603,7 +603,7 @@
             this.xrLabel2.AnchorHorizontal = DevExpress.XtraReports.UI.HorizontalAnchorStyles.Right;
             this.xrLabel2.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
             this.xrLabel2.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumSum([nAmount_D])")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumSum([nAmount_D_Native])")});
             this.xrLabel2.ForeColor = System.Drawing.Color.White;
             this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(484.0108F, 0F);
             this.xrLabel2.Name = "xrLabel2";
@@ -648,7 +648,7 @@
             this.xrLabel3.BackColor = System.Drawing.Color.Transparent;
             this.xrLabel3.CanGrow = false;
             this.xrLabel3.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumSum(([nAmount_D]))")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumSum(([nAmount_D_Native]))")});
             this.xrLabel3.ForeColor = System.Drawing.Color.Black;
             this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(537.5127F, 0F);
             this.xrLabel3.Name = "xrLabel3";
@@ -705,7 +705,7 @@
             this.xrLabel7.BackColor = System.Drawing.Color.Transparent;
             this.xrLabel7.CanGrow = false;
             this.xrLabel7.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumSum([nAmount_D])")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumSum([nAmount_D_Native])")});
             this.xrLabel7.ForeColor = System.Drawing.Color.Black;
             this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(537.5127F, 23.12495F);
             this.xrLabel7.Name = "xrLabel7";
