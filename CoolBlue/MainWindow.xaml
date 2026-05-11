@@ -533,7 +533,7 @@
 
                 </dxg:GridControl.View>
 
-                <dxg:GridColumn Binding="{Binding ID}" FieldName="ID" Header="ID" Width="50" ReadOnly="True" AllowFocus="False" AllowSorting="True" />
+                <dxg:GridColumn Binding="{Binding ID}" FieldName="ID" Header="ID" Width="50" ReadOnly="True" AllowFocus="False" AllowSorting="True" Visible="False" />
                 <dxg:GridColumn FieldName="ID" Header="ID" Width="50" ReadOnly="True" AllowFocus="False" AllowSorting="True" />
 
                 <dxg:GridColumn FieldName="dtTransDate" Header="Date" Width="80" ReadOnly="False" AllowFocus="True" AllowSorting="True" />
